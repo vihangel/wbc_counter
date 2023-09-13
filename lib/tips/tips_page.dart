@@ -80,7 +80,7 @@ class TipsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dicas para Identificar Células Sanguíneas'),
+        title: const Text('Dicas de identificaçâo'),
       ),
       body: ListView.builder(
         itemCount: tipBloodCells.length,
