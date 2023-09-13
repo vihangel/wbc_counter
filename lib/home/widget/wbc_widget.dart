@@ -31,7 +31,7 @@ class WBCQuantityWidget extends StatelessWidget {
     return InkWell(
       onTap: _onTap,
       child: Container(
-        constraints: const BoxConstraints(maxWidth: 100, minWidth: 90),
+        width: _horizontalSize(context),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8.0),
@@ -58,12 +58,15 @@ class WBCQuantityWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(
-              width: 90,
-              height: 90,
-              child: Image.asset(
-                'assets/cells/$imagePath',
-                fit: BoxFit.fitWidth,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: SizedBox(
+                width: 90,
+                height: 90,
+                child: Image.asset(
+                  'assets/cells/$imagePath',
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
             Text(
@@ -76,5 +79,13 @@ class WBCQuantityWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  double _horizontalSize(BuildContext context) {
+    /// 16.0 is the padding of the container
+    /// I want 3 in a line and can be divided by 3
+    /// size cant be less than 90
+    final size = (MediaQuery.of(context).size.width - 16.0 * 4) / 3;
+    return size < 90 ? 90 : size;
   }
 }

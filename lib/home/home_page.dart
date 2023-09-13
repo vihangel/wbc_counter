@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wbc_counter/home/widget/wbc_widget.dart';
 import 'package:wbc_counter/models/white_blood_cells_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
@@ -54,8 +55,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('Calculadora'),
+        title: SvgPicture.asset(
+          'assets/logo.svg',
+          colorFilter:
+              const ColorFilter.mode(Colors.deepPurple, BlendMode.srcIn),
+          height: 32,
+        ),
+        centerTitle: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.help_outline),
@@ -67,82 +75,84 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Handle settings icon click
-            },
-          ),
+          // IconButton(
+          //   icon: const Icon(Icons.settings),
+          //   onPressed: () {
+          //     // Handle settings icon click
+          //   },
+          // ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Total: ${getTotalQuantity()}',
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Total: ${getTotalQuantity()}',
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                TextButton(
-                  onPressed: _clearAllValues,
-                  child: const Text('Apagar tudo'),
-                ),
-              ],
-            ), // Display the total quantity
+                  TextButton(
+                    onPressed: _clearAllValues,
+                    child: const Text('Apagar tudo'),
+                  ),
+                ],
+              ), // Display the total quantity
 
-            Row(
-              children: [
-                const Text(
-                  'Clique para:',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
+              Row(
+                children: [
+                  const Text(
+                    'Clique para:',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                TextButton(
-                  onPressed: toggleMode,
-                  child: Text(isAdicionarMode ? 'Adicionar' : 'Remover'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 36),
-            Wrap(
-              spacing: 16.0,
-              runSpacing: 16.0,
-              runAlignment: WrapAlignment.center,
-              alignment: WrapAlignment.center,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: whiteBloodCells.map((wbc) {
-                return WBCQuantityWidget(
-                  name: wbc.name,
-                  quantity: wbcQuantities[wbc.name]!,
-                  imagePath: wbc.imagePath,
-                  isAdicionarMode: isAdicionarMode,
-                  onUpdateQuantity: (newQuantity) {
-                    updateQuantity(wbc.name, newQuantity);
-                  },
-                );
-              }).toList(),
-            ),
-            const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  _navigateToReportPage(context);
-                },
-                child: const Text('Calcular',
-                    style: TextStyle(color: Colors.white)),
+                  TextButton(
+                    onPressed: toggleMode,
+                    child: Text(isAdicionarMode ? 'Adicionar' : 'Remover'),
+                  ),
+                ],
               ),
-            ),
-          ],
+              const SizedBox(height: 36),
+              Wrap(
+                spacing: 16.0,
+                runSpacing: 16.0,
+                runAlignment: WrapAlignment.center,
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: whiteBloodCells.map((wbc) {
+                  return WBCQuantityWidget(
+                    name: wbc.name,
+                    quantity: wbcQuantities[wbc.name]!,
+                    imagePath: wbc.imagePath,
+                    isAdicionarMode: isAdicionarMode,
+                    onUpdateQuantity: (newQuantity) {
+                      updateQuantity(wbc.name, newQuantity);
+                    },
+                  );
+                }).toList(),
+              ),
+              const Spacer(),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    _navigateToReportPage(context);
+                  },
+                  child: const Text('Calcular',
+                      style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
