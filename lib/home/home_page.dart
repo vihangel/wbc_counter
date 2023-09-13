@@ -1,6 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
+import 'package:wbc_counter/home/widget/wbc_widget.dart';
 import 'package:wbc_counter/models/white_blood_cells_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
+import 'package:wbc_counter/tips/tips_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -56,7 +60,11 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.help_outline),
             onPressed: () {
-              // Handle help icon click
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => TipsPage(),
+                ),
+              );
             },
           ),
           IconButton(
@@ -70,24 +78,47 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Total: ${getTotalQuantity()}'), // Display the total quantity
-            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Total: ${getTotalQuantity()}',
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                TextButton(
+                  onPressed: _clearAllValues,
+                  child: const Text('Apagar tudo'),
+                ),
+              ],
+            ), // Display the total quantity
+
             Row(
               children: [
-                const Text('Clique para:'),
+                const Text(
+                  'Clique para:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 TextButton(
                   onPressed: toggleMode,
-                  style: TextButton.styleFrom(primary: Colors.purple),
                   child: Text(isAdicionarMode ? 'Adicionar' : 'Remover'),
                 ),
               ],
             ),
-            const SizedBox(height: 16.0),
+            const SizedBox(height: 36),
             Wrap(
               spacing: 16.0,
               runSpacing: 16.0,
+              runAlignment: WrapAlignment.center,
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
               children: whiteBloodCells.map((wbc) {
                 return WBCQuantityWidget(
                   name: wbc.name,
@@ -101,13 +132,14 @@ class _HomePageState extends State<HomePage> {
               }).toList(),
             ),
             const Spacer(),
-            Align(
-              alignment: Alignment.bottomCenter,
+            SizedBox(
+              width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
                   _navigateToReportPage(context);
                 },
-                child: const Text('Calcular'),
+                child: const Text('Calcular',
+                    style: TextStyle(color: Colors.white)),
               ),
             ),
           ],
@@ -133,12 +165,13 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: const Text('Continuar'),
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop(); // Close the dialog
                   _navigateToReportPage(context); // Navigate to the report page
                 },
-                child: const Text('Gerar'),
+                child: const Text('Calcular',
+                    style: TextStyle(color: Colors.white)),
               ),
             ],
           );
@@ -154,71 +187,41 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
 
-class WBCQuantityWidget extends StatelessWidget {
-  final String name;
-  final int quantity;
-  final String imagePath;
-  final bool isAdicionarMode;
-  final ValueChanged<int> onUpdateQuantity;
-
-  const WBCQuantityWidget({
-    required this.name,
-    required this.quantity,
-    required this.isAdicionarMode,
-    required this.onUpdateQuantity,
-    required this.imagePath,
-  });
-
-  void _onTap() {
-    if (isAdicionarMode) {
-      onUpdateQuantity(quantity + 1);
-    } else {
-      if (quantity > 0) {
-        onUpdateQuantity(quantity - 1);
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: _onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.purple,
-              borderRadius: BorderRadius.circular(8.0),
+  void _clearAllValues() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Limpar Valores'),
+          content:
+              const Text('Tem certeza de que deseja limpar todos os valores?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text('Cancelar'),
             ),
-            child: Text(
-              '$quantity',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+            ElevatedButton(
+              onPressed: () {
+                // Clear all values
+                wbcQuantities = {
+                  'Neutrófilo': 0,
+                  'Basófilo': 0,
+                  'Eosinófilo': 0,
+                  'Monócito': 0,
+                  'Linfócito': 0,
+                };
+                Navigator.of(context).pop(); // Close the dialog
+                setState(() {}); // Update the UI
+              },
+              child: const Text('Confirmar',
+                  style: TextStyle(color: Colors.white)),
             ),
-          ),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Image.asset(
-              'assets/cells/$imagePath',
-              fit: BoxFit.scaleDown,
-            ),
-          ),
-          Text(
-            name,
-            style: const TextStyle(
-              color: Colors.black,
-            ),
-          ),
-        ],
-      ),
+          ],
+        );
+      },
     );
   }
 }

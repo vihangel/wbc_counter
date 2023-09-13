@@ -6,7 +6,7 @@ class ReportPage extends StatelessWidget {
   final Map<String, int>
       wbcQuantities; // Pass the WBC quantities to the report screen
 
-  ReportPage({required this.wbcQuantities});
+  const ReportPage({super.key, required this.wbcQuantities});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ReportPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Report'),
+        title: const Text('Relatório'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -32,7 +32,19 @@ class ReportPage extends StatelessWidget {
             Text('Total: $totalQuantity'),
             const SizedBox(height: 16.0),
             // Display the chart
-            PieChart(dataMap: wbcPercentages),
+            PieChart(
+              dataMap: wbcPercentages,
+              colorList: const [
+                Colors.deepPurple,
+                Color.fromARGB(255, 58, 137, 183),
+                Color.fromARGB(255, 58, 183, 106),
+                Color.fromARGB(255, 150, 183, 58),
+                Color.fromARGB(255, 183, 133, 58),
+                Color.fromARGB(255, 183, 58, 58),
+                Color.fromARGB(255, 183, 58, 131),
+                Color.fromARGB(255, 143, 58, 183),
+              ],
+            ),
             const SizedBox(height: 16.0),
             // Display the report table
             DataTable(
@@ -53,19 +65,25 @@ class ReportPage extends StatelessWidget {
               }).toList(),
             ),
             const SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                String reportText = 'Total: $totalQuantity\n\n';
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  String reportText = 'Total: $totalQuantity\n\n';
 
-                for (var entry in wbcQuantities.entries) {
-                  reportText +=
-                      '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
-                }
+                  for (var entry in wbcQuantities.entries) {
+                    reportText +=
+                        '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
+                  }
 
-                // Share the report as text
-                Share.share(reportText);
-              },
-              child: const Text('Compartilhar relatório'),
+                  // Share the report as text
+                  Share.share(reportText);
+                },
+                child: const Text(
+                  'Compartilhar relatório',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           ],
         ),
