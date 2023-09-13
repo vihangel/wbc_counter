@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:share/share.dart';
 
 class ReportPage extends StatelessWidget {
   final Map<String, int>
@@ -53,7 +54,17 @@ class ReportPage extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                String reportText = 'Total: $totalQuantity\n\n';
+
+                for (var entry in wbcQuantities.entries) {
+                  reportText +=
+                      '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
+                }
+
+                // Share the report as text
+                Share.share(reportText);
+              },
               child: const Text('Compartilhar relatório'),
             ),
           ],

@@ -39,6 +39,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       wbcQuantities[wbcName] = newQuantity;
     });
+    _checkCellCountAndShowAlert();
   }
 
   int getTotalQuantity() {
@@ -99,23 +100,57 @@ class _HomePageState extends State<HomePage> {
                 );
               }).toList(),
             ),
-            Spacer(),
+            const Spacer(),
             Align(
               alignment: Alignment.bottomCenter,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ReportPage(wbcQuantities: wbcQuantities),
-                    ),
-                  );
+                  _navigateToReportPage(context);
                 },
                 child: const Text('Calcular'),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _checkCellCountAndShowAlert() {
+    int totalQuantity = getTotalQuantity();
+    if (totalQuantity == 100) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Você adicionou 100 celulas'),
+            content: const Text(
+                'Deseja continuar adicionando ou gerar o relatório?'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                },
+                child: const Text('Continuar'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop(); // Close the dialog
+                  _navigateToReportPage(context); // Navigate to the report page
+                },
+                child: const Text('Gerar'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
+
+  void _navigateToReportPage(context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ReportPage(wbcQuantities: wbcQuantities),
       ),
     );
   }
@@ -168,13 +203,12 @@ class WBCQuantityWidget extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            color: Colors.grey[200],
+          SizedBox(
             height: 100,
             width: 100,
             child: Image.asset(
               'assets/cells/$imagePath',
-              fit: BoxFit.contain,
+              fit: BoxFit.scaleDown,
             ),
           ),
           Text(

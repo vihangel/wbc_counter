@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wbc_counter/home/home_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
