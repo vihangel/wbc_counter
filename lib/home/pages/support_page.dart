@@ -9,7 +9,8 @@ class SupportPage extends StatelessWidget {
 
   Future<void> _launchUrl(Uri uri) async {
     final urlLink = uri;
-    await requestPermissions();
+
+    ///await requestPermissions();
     if (await canLaunchUrl(urlLink)) {
       await launchUrl(urlLink);
     } else {
@@ -17,6 +18,7 @@ class SupportPage extends StatelessWidget {
     }
   }
 
+  ///REVIEW: This method is not used because was getting an exception and maybe is not required to open url links
   Future<void> requestPermissions() async {
     ///verify if the user has permission to send sms and make calls
 
