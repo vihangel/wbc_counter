@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.symmetric(
-              vertical: 8,
+              vertical: 12,
               horizontal: 32,
             ),
             elevation: 0,

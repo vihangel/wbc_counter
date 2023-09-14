@@ -28,7 +28,6 @@ class ReportPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Total: $totalQuantity'),
               const SizedBox(height: 16.0),
@@ -69,21 +68,24 @@ class ReportPage extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    String reportText = 'Total: $totalQuantity\n\n';
-
-                    for (var entry in wbcQuantities.entries) {
-                      reportText +=
-                          '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
-                    }
-
-                    // Share the report as text
-                    Share.share(reportText);
-                  },
+                  onPressed: () {},
                   child: const Text(
-                    'Compartilhar relatório',
+                    'Salvar',
                     style: TextStyle(color: Colors.white),
                   ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  String reportText = 'Total: $totalQuantity\n\n';
+                  for (var entry in wbcQuantities.entries) {
+                    reportText +=
+                        '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
+                  }
+                  Share.share(reportText);
+                },
+                child: const Text(
+                  'Compartilhar relatório',
                 ),
               ),
             ],

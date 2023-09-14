@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wbc_counter/home/pages/support_page.dart';
 import 'package:wbc_counter/home/widget/wbc_widget.dart';
 import 'package:wbc_counter/models/white_blood_cells_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
@@ -15,6 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   bool isAdicionarMode = true;
   Map<String, int> wbcQuantities = {
     'Neutrófilo': 0,
@@ -54,16 +57,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       extendBody: true,
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            _scaffoldKey.currentState!.openDrawer();
+          },
+        ),
         title: SvgPicture.asset(
           'assets/logo.svg',
           colorFilter:
               const ColorFilter.mode(Colors.deepPurple, BlendMode.srcIn),
           height: 32,
         ),
-        centerTitle: false,
+        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.help_outline),
@@ -75,13 +85,62 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          // IconButton(
-          //   icon: const Icon(Icons.settings),
-          //   onPressed: () {
-          //     // Handle settings icon click
-          //   },
-          // ),
         ],
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Colors.deepPurple,
+              ),
+              child: Center(
+                child: SvgPicture.asset(
+                  'assets/logo.svg',
+                  height: 50,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.save_alt_outlined),
+              title: const Text('Relatórios Salvos'),
+              onTap: () {
+                Navigator.pop(context);
+                // Handle Relatórios Salvos
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.monetization_on_outlined),
+              title: const Text('Sobre'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SupportPage(),
+                  ),
+                );
+                // Handle Apoie
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.star_border_outlined),
+              title: const Text('Avalie'),
+              onTap: () {
+                Navigator.pop(context);
+                _showAppStoreAlert(context);
+              },
+            ),
+            const Spacer(),
+            ListTile(
+              leading: const Icon(Icons.settings_outlined),
+              title: const Text('Configurações'),
+              onTap: () {
+                Navigator.pop(context);
+                // Handle Configurações
+              },
+            ),
+          ],
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -227,6 +286,36 @@ class _HomePageState extends State<HomePage> {
                 setState(() {}); // Update the UI
               },
               child: const Text('Confirmar',
+                  style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showAppStoreAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Avalie o App'),
+          content: const Text(
+            'Está gostando do app?\nDeixe uma avaliação na loja!\n\nIsso ajuda muito!',
+            // textAlign: TextAlign.center,
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancelar'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Open the app store here (e.g., using url_launcher package)
+              },
+              child: const Text('Abrir Loja',
                   style: TextStyle(color: Colors.white)),
             ),
           ],

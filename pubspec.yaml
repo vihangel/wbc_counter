@@ -22,6 +22,9 @@ dependencies:
   share: ^2.0.4
   flutter_launcher_icons: ^0.13.1
   flutter_svg: ^2.0.7
+  flutter_native_splash: ^2.3.2
+  url_launcher: ^6.1.14
+  permission_handler: ^11.0.0
 
 dev_dependencies:
   flutter_test:
@@ -38,24 +41,45 @@ flutter:
     - assets/cells/
 
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
-  image_path: "assets/icon_logo.png"
+  image_path: "assets/icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   remove_alpha_ios: true
   adaptive_icon_background: "#673AB7"
-  adaptive_icon_foreground: "assets/icon_logo.png"
+  adaptive_icon_foreground: "assets/icon.png"
   adaptive_icon_mask: true
-  
   web:
     generate: true
-    image_path: "assets/icon_logo.png"
+    image_path: "assets/icon.png"
     background_color: "#673AB7"
     theme_color: "#673AB7"
   windows:
     generate: true
-    image_path: "assets/icon_logo.png"
+    image_path: "assets/icon.png"
     icon_size: 48 # min:48, max:256, default: 48
   macos:
     generate: true
-    image_path: "assets/icon_logo.png"
+    image_path: "assets/icon.png"
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: true
+  background_image: "assets/images/background.png"
+  image: "assets/images/icon.png"
+  color: "#673AB7"
+  color_dark: "#673AB7"
+  background_image_dark: "assets/background.png"
+  image_dark: "assets/images/icon.png"
+
+  android_gravity: center
+  ios_content_mode: center
+  web_image_mode: center
+
+  fullscreen: true
+  android12: true
+  android_12:
+    splash_color: "#673AB7"
+    splash_color_dark: "#673AB7"
+
