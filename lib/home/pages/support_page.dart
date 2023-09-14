@@ -9,7 +9,7 @@ class SupportPage extends StatelessWidget {
 
   Future<void> _launchUrl(Uri uri) async {
     final urlLink = uri;
-    requestPermissions();
+    await requestPermissions();
     if (await canLaunchUrl(urlLink)) {
       await launchUrl(urlLink);
     } else {
