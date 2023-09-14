@@ -40,6 +40,7 @@ flutter:
     - assets/
     - assets/cells/
 
+# flutter pub run flutter_launcher_icons
 flutter_launcher_icons:
   android: true
   ios: true
@@ -62,16 +63,17 @@ flutter_launcher_icons:
     generate: true
     image_path: "assets/icon.png"
 
+# dart run flutter_native_splash:create
 flutter_native_splash:
   android: true
   ios: true
   web: true
-  background_image: "assets/images/background.png"
-  image: "assets/images/icon.png"
+  background_image: "assets/background.png"
+  image: "assets/icon.png"
   color: "#673AB7"
   color_dark: "#673AB7"
   background_image_dark: "assets/background.png"
-  image_dark: "assets/images/icon.png"
+  image_dark: "assets/icon.png"
 
   android_gravity: center
   ios_content_mode: center
