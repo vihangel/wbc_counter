@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wbc_counter/home/pages/support_page.dart';
 import 'package:wbc_counter/home/widget/wbc_widget.dart';
+import 'package:wbc_counter/local_reports/local_reports_page.dart';
+import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/models/white_blood_cells_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
 import 'package:wbc_counter/tips/tips_page.dart';
@@ -106,7 +108,11 @@ class _HomePageState extends State<HomePage> {
               title: const Text('Relatórios Salvos'),
               onTap: () {
                 Navigator.pop(context);
-                // Handle Relatórios Salvos
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const LocalReportPage(),
+                  ),
+                );
               },
             ),
             ListTile(
@@ -252,7 +258,10 @@ class _HomePageState extends State<HomePage> {
   void _navigateToReportPage(context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => ReportPage(wbcQuantities: wbcQuantities),
+        builder: (context) => ReportPage(
+            report: SaveReportModel(
+          bloodCells: wbcQuantities,
+        )),
       ),
     );
   }
