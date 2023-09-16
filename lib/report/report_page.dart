@@ -77,6 +77,7 @@ class _ReportPageState extends State<ReportPage> {
             ),
             TextButton(
               onPressed: () {
+                Navigator.of(context).pop();
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
                       builder: (context) => const LocalReportPage()),
