@@ -10,6 +10,11 @@
 			<string>tel</string>
 			<string>mailto</string>
 		</array>
+		<key>NSLocationWhenInUseUsageDescription</key>
+<string>We need your location for...</string>
+<key>NSLocalNetworkUsageDescription</key>
+<string>We need access to your notifications for...</string>
+
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>

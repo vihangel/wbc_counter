@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        dividerColor: Colors.transparent,
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             textStyle: const TextStyle(
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
           floatingLabelStyle: const TextStyle(
             color: Colors.deepPurple,
           ),
-          fillColor: Color.fromARGB(255, 250, 250, 250),
+          fillColor: const Color.fromARGB(255, 250, 250, 250),
           outlineBorder: BorderSide.none,
           border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(

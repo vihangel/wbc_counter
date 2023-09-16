@@ -2,12 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wbc_counter/home/pages/support_page.dart';
+import 'package:wbc_counter/config/config_page.dart';
 import 'package:wbc_counter/home/widget/wbc_widget.dart';
 import 'package:wbc_counter/local_reports/local_reports_page.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/models/white_blood_cells_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
+import 'package:wbc_counter/support_page.dart/support_page.dart';
 import 'package:wbc_counter/tips/tips_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -137,13 +138,19 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             const Spacer(),
-            ListTile(
-              leading: const Icon(Icons.settings_outlined),
-              title: const Text('Configurações'),
-              onTap: () {
-                Navigator.pop(context);
-                // Handle Configurações
-              },
+            SafeArea(
+              child: ListTile(
+                leading: const Icon(Icons.settings_outlined),
+                title: const Text('Configurações'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ConfigPage(),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
