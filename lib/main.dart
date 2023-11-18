@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
               (state is ThemeChangedState) ? state.themeData : ThemeMode.light;
           return MaterialApp(
             title: 'WBC Counter',
+            themeMode: themeMode,
             theme: ThemeData(
+              brightness: Brightness.light,
               colorScheme: ColorScheme.fromSeed(
                 seedColor: Colors.deepPurple,
                 background: const Color.fromARGB(
@@ -45,6 +47,9 @@ class MyApp extends StatelessWidget {
                 primary: Colors.deepPurple,
                 onPrimary: Colors.white, // <-- this is the change
               ),
+              primaryColorDark: Colors.deepPurple,
+              primaryColorLight: Colors.deepPurple,
+              primaryColor: Colors.deepPurple,
               buttonTheme: const ButtonThemeData(
                 buttonColor: Colors.deepPurple, //  <-- dark color
                 textTheme: ButtonTextTheme.primary,
@@ -103,7 +108,43 @@ class MyApp extends StatelessWidget {
               ),
               useMaterial3: true,
             ),
-            themeMode: themeMode,
+            darkTheme: ThemeData(
+              useMaterial3: true,
+              brightness: Brightness.dark,
+              colorScheme: const ColorScheme.dark(
+                primary: Colors.deepPurple,
+                onPrimary: Colors.white,
+                background: Color.fromARGB(
+                  255,
+                  18,
+                  18,
+                  18,
+                ),
+              ),
+              buttonTheme: const ButtonThemeData(
+                buttonColor: Colors.deepPurple, // Dark color for buttons
+                textTheme: ButtonTextTheme.primary,
+              ),
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      Colors.deepPurple, // Dark color for elevated buttons
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 32,
+                  ),
+                  elevation: 0,
+                  textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
             debugShowCheckedModeBanner: false,
             home: const HomePage(),
           );
