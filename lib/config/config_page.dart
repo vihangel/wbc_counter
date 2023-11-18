@@ -1,51 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
+import 'package:wbc_counter/models/config_model.dart';
 
 class ConfigPage extends StatefulWidget {
-  const ConfigPage({super.key});
+  const ConfigPage({Key? key}) : super(key: key);
 
   @override
   _ConfigPageState createState() => _ConfigPageState();
 }
 
 class _ConfigPageState extends State<ConfigPage> {
-  // Theme mode
-  bool _isDarkTheme = false;
-
-  // Notifications and sound
-  bool _isNotificationsEnabled = true;
-  bool _isSoundEnabled = true;
-  List<int> _alertThresholds = [];
-  List<TextEditingController> _thresholdControllers = [];
-
-  // Language
-  String _language = 'English';
+  AppConfigModel _appConfig = AppConfigModel.defaults();
+  final List<TextEditingController> _thresholdControllers = [];
 
   Future<void> loadConfiguration() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _isDarkTheme = prefs.getBool('isDarkTheme') ?? false;
-      _isNotificationsEnabled = prefs.getBool('isNotificationsEnabled') ?? true;
-      _isSoundEnabled = prefs.getBool('isSoundEnabled') ?? true;
-      _alertThresholds =
-          (prefs.getStringList('alertThresholds') ?? []).map((threshold) {
-        _thresholdControllers
-            .add(TextEditingController(text: threshold.toString()));
-        return int.tryParse(threshold) ?? 0;
-      }).toList();
-      _language = prefs.getString('language') ?? 'English';
+      _appConfig = AppConfigModel(
+        isDarkTheme: prefs.getBool('isDarkTheme') ?? false,
+        isNotificationsEnabled: prefs.getBool('isNotificationsEnabled') ?? true,
+        isSoundEnabled: prefs.getBool('isSoundEnabled') ?? true,
+        alertThresholds:
+            (prefs.getStringList('alertThresholds') ?? []).map((threshold) {
+          _thresholdControllers
+              .add(TextEditingController(text: threshold.toString()));
+          return int.tryParse(threshold) ?? 0;
+        }).toList(),
+        language: prefs.getString('language') ?? 'English',
+      );
     });
   }
 
   // Save configuration data to shared preferences
   Future<void> saveConfiguration() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isDarkTheme', _isDarkTheme);
-    await prefs.setBool('isNotificationsEnabled', _isNotificationsEnabled);
-    await prefs.setBool('isSoundEnabled', _isSoundEnabled);
-    await prefs.setStringList('alertThresholds',
-        _alertThresholds.map((threshold) => threshold.toString()).toList());
-    await prefs.setString('language', _language);
+    await prefs.setBool('isDarkTheme', _appConfig.isDarkTheme);
+    await prefs.setBool(
+        'isNotificationsEnabled', _appConfig.isNotificationsEnabled);
+    await prefs.setBool('isSoundEnabled', _appConfig.isSoundEnabled);
+    await prefs.setStringList(
+        'alertThresholds',
+        _appConfig.alertThresholds
+            .map((threshold) => threshold.toString())
+            .toList());
+    await prefs.setString('language', _appConfig.language);
   }
 
   @override
@@ -75,13 +75,14 @@ class _ConfigPageState extends State<ConfigPage> {
           // Theme mode
           ListTile(
             title: Text(themeMode),
-            subtitle: Text(_isDarkTheme ? 'Escuro' : 'Claro'),
+            subtitle: Text(_appConfig.isDarkTheme ? 'Escuro' : 'Claro'),
             trailing: Switch(
-              value: _isDarkTheme,
+              value: _appConfig.isDarkTheme,
               onChanged: (value) {
                 setState(() {
-                  _isDarkTheme = value;
+                  _appConfig = _appConfig.copyWith(isDarkTheme: value);
                 });
+                context.read<ThemeAppBloc>().add(ToggleThemeEvent());
                 saveConfiguration(); // Save immediately when the theme changes
               },
             ),
@@ -90,12 +91,14 @@ class _ConfigPageState extends State<ConfigPage> {
           // Notifications and sound
           ListTile(
             title: Text(notifications),
-            subtitle: Text(_isNotificationsEnabled ? 'Ativado' : 'Desativado'),
+            subtitle: Text(
+                _appConfig.isNotificationsEnabled ? 'Ativado' : 'Desativado'),
             trailing: Switch(
-              value: _isNotificationsEnabled,
+              value: _appConfig.isNotificationsEnabled,
               onChanged: (value) {
                 setState(() {
-                  _isNotificationsEnabled = value;
+                  _appConfig =
+                      _appConfig.copyWith(isNotificationsEnabled: value);
                 });
                 saveConfiguration(); // Save immediately when the theme changes
               },
@@ -103,12 +106,13 @@ class _ConfigPageState extends State<ConfigPage> {
           ),
           ListTile(
             title: Text(sound),
-            subtitle: Text(_isSoundEnabled ? 'Ativado' : 'Desativado'),
+            subtitle:
+                Text(_appConfig.isSoundEnabled ? 'Ativado' : 'Desativado'),
             trailing: Switch(
-              value: _isSoundEnabled,
+              value: _appConfig.isSoundEnabled,
               onChanged: (value) {
                 setState(() {
-                  _isSoundEnabled = value;
+                  _appConfig = _appConfig.copyWith(isSoundEnabled: value);
                 });
                 saveConfiguration(); // Save immediately when the theme changes
               },
@@ -121,17 +125,20 @@ class _ConfigPageState extends State<ConfigPage> {
             subtitle: const Text('Alertar quando a contagem de WBC atingir:'),
             children: [
               // List of alert thresholds
-              if (_alertThresholds.isNotEmpty)
-                for (int index = 0; index < _alertThresholds.length; index++)
+              if (_appConfig.alertThresholds.isNotEmpty)
+                for (int index = 0;
+                    index < _appConfig.alertThresholds.length;
+                    index++)
                   ListTile(
                     title: TextField(
                       controller: _thresholdControllers[index],
                       decoration: InputDecoration(
-                        hintText: _alertThresholds[index].toString(),
+                        hintText: _appConfig.alertThresholds[index].toString(),
                       ),
                       onChanged: (value) {
                         setState(() {
-                          _alertThresholds[index] = int.tryParse(value) ?? 0;
+                          _appConfig.alertThresholds[index] =
+                              int.tryParse(value) ?? 0;
                         });
                         saveConfiguration();
                       },
@@ -140,7 +147,7 @@ class _ConfigPageState extends State<ConfigPage> {
                       icon: const Icon(Icons.delete),
                       onPressed: () {
                         setState(() {
-                          _alertThresholds.removeAt(index);
+                          _appConfig.alertThresholds.removeAt(index);
                           _thresholdControllers.removeAt(index);
                         });
                         saveConfiguration(); // Save immediately when the theme changes
@@ -155,7 +162,7 @@ class _ConfigPageState extends State<ConfigPage> {
                 onTap: () {
                   // Add a new alert threshold to the list of alert thresholds
                   setState(() {
-                    _alertThresholds.add(0);
+                    _appConfig.alertThresholds.add(0);
                     _thresholdControllers.add(TextEditingController());
                   });
                 },
@@ -164,7 +171,7 @@ class _ConfigPageState extends State<ConfigPage> {
           ), // Language
           ListTile(
             title: Text(language),
-            subtitle: Text(_language),
+            subtitle: Text(_appConfig.language),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
               // Show a dialog to allow the user to select the app language
@@ -190,22 +197,17 @@ class _ConfigPageState extends State<ConfigPage> {
     for (var controller in _thresholdControllers) {
       controller.dispose();
     }
-    // saveConfiguration();
     super.dispose();
   }
 
   void _resetConfiguration() {
     setState(() {
-      _isDarkTheme = false;
-      _isNotificationsEnabled = true;
-      _isSoundEnabled = true;
-      _alertThresholds = List.from([100]);
+      _appConfig = AppConfigModel.defaults();
       _thresholdControllers.clear();
-      for (int threshold in _alertThresholds) {
+      for (int threshold in _appConfig.alertThresholds) {
         _thresholdControllers
             .add(TextEditingController(text: threshold.toString()));
       }
-      _language = 'English';
     });
     saveConfiguration();
   }
