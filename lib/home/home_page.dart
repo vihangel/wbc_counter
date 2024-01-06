@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/config/config_page.dart';
 import 'package:wbc_counter/home/widget/wbc_widget.dart';
 import 'package:wbc_counter/local_reports/local_reports_page.dart';
@@ -55,6 +56,18 @@ class _HomePageState extends State<HomePage> {
 
   int getTotalQuantity() {
     return wbcQuantities.values.reduce((a, b) => a + b);
+  }
+
+  late SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    loadConfigs();
+  }
+
+  Future<void> loadConfigs() async {
+    prefs = await SharedPreferences.getInstance();
   }
 
   @override
@@ -232,12 +245,13 @@ class _HomePageState extends State<HomePage> {
 
   void _checkCellCountAndShowAlert() {
     int totalQuantity = getTotalQuantity();
-    if (totalQuantity == 100) {
+    final threshold = prefs.getStringList('alertThresholds') ?? [];
+    if (threshold.contains(totalQuantity.toString())) {
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Você adicionou 100 celulas'),
+            title: Text('Você adicionou $totalQuantity celulas'),
             content: const Text(
                 'Deseja continuar adicionando ou gerar o relatório?'),
             actions: [
@@ -325,15 +339,15 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Cancelar'),
+              child: const Text('Depois'),
             ),
-            ElevatedButton(
-              onPressed: () {
-                // Open the app store here (e.g., using url_launcher package)
-              },
-              child: const Text('Abrir Loja',
-                  style: TextStyle(color: Colors.white)),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     // Open the app store here (e.g., using url_launcher package)
+            //   },
+            //   child: const Text('Abrir Loja',
+            //       style: TextStyle(color: Colors.white)),
+            // ),
           ],
         );
       },

@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
             title: 'WBC Counter',
             themeMode: themeMode,
             theme: ThemeData(
+              useMaterial3: true,
               brightness: Brightness.light,
               colorScheme: ColorScheme.fromSeed(
                 seedColor: Colors.deepPurple,
@@ -83,9 +84,9 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               inputDecorationTheme: InputDecorationTheme(
-                isDense: true,
+                // isDense: true,
                 filled: true,
-                isCollapsed: true,
+                // isCollapsed: true,
                 floatingLabelBehavior: FloatingLabelBehavior.always,
                 floatingLabelStyle: const TextStyle(
                   color: Colors.deepPurple,
@@ -106,7 +107,6 @@ class MyApp extends StatelessWidget {
                   borderSide: BorderSide(width: 2, color: Colors.red.shade500),
                 ),
               ),
-              useMaterial3: true,
             ),
             darkTheme: ThemeData(
               useMaterial3: true,

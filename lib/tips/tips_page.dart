@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wbc_counter/models/tip_blood_cell_model.dart';
 
 class TipsPage extends StatelessWidget {
-  TipsPage({Key? key}) : super(key: key);
+  TipsPage({super.key});
   final List<TipBloodCellModel> tipBloodCells = [
     TipBloodCellModel(
       name: 'Neutrófilos',
@@ -140,7 +140,7 @@ class TipsPage extends StatelessWidget {
                         style: const TextStyle(fontSize: 16.0),
                       ),
                     );
-                  }).toList(),
+                  }),
                   const SizedBox(height: 16.0),
                   const Text(
                     'Mais exemplos',

@@ -68,14 +68,10 @@ class SupportPage extends StatelessWidget {
                     path: 'vihangel'),
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.qr_code),
-              title: const Text('Doação via PIX'),
-              onTap: () {
-                // Add code to display PIX instructions or information
-              },
+            const ListTile(
+              leading: Icon(Icons.qr_code),
+              title: Text('Chave Pix: 5565992328339'),
             ),
-            // Include more donation options as needed
 
             const SizedBox(height: 32),
             const Text(
@@ -107,8 +103,7 @@ class SupportPage extends StatelessWidget {
               title: const Text('Email'),
               onTap: () => _launchUrl(Uri(
                 scheme: 'mailto',
-                path:
-                    'vitoria.angel2002@gmail.com', // Replace with your email address
+                path: 'vitoria.angel2002@gmail.com',
               )),
             ),
             ListTile(

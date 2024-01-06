@@ -10,8 +10,7 @@ class ReportPage extends StatefulWidget {
   final SaveReportModel report;
   final bool isReadOnly;
 
-  const ReportPage({Key? key, required this.report, this.isReadOnly = false})
-      : super(key: key);
+  const ReportPage({super.key, required this.report, this.isReadOnly = false});
 
   @override
   ReportPageState createState() => ReportPageState();
@@ -235,17 +234,16 @@ class ReportPageState extends State<ReportPage> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    (route) => false);
               },
               child: const Text('Fechar'),
             ),
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushReplacement(
+                await Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
                       builder: (context) => const LocalReportPage()),
                 );
@@ -274,11 +272,11 @@ class ReportPageState extends State<ReportPage> {
             ),
             TextButton(
               onPressed: () {
-                ///TODO: ADD DELETE FUNCTION BLOC
+                HiveHelper.deleteReport(widget.report.id ?? '0');
                 Navigator.of(context).pop();
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    (route) => false);
               },
               child: const Text('Apagar'),
             ),

@@ -19,6 +19,7 @@ class ConfigPageState extends State<ConfigPage> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _appConfig = AppConfigModel(
+        isVibrationEnabled: prefs.getBool('isVibrationEnabled') ?? true,
         isDarkTheme: prefs.getBool('isDarkTheme') ?? false,
         isNotificationsEnabled: prefs.getBool('isNotificationsEnabled') ?? true,
         isSoundEnabled: prefs.getBool('isSoundEnabled') ?? true,
@@ -37,6 +38,7 @@ class ConfigPageState extends State<ConfigPage> {
   Future<void> saveConfiguration() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isDarkTheme', _appConfig.isDarkTheme);
+    await prefs.setBool('isVibrationEnabled', _appConfig.isVibrationEnabled);
     await prefs.setBool(
         'isNotificationsEnabled', _appConfig.isNotificationsEnabled);
     await prefs.setBool('isSoundEnabled', _appConfig.isSoundEnabled);
@@ -60,6 +62,7 @@ class ConfigPageState extends State<ConfigPage> {
     var title = 'Configuração da WBC';
     var themeMode = 'Tema';
     var notifications = 'Notificações';
+    var vibration = 'Vibração';
     var sound = 'Som';
     var alertThresholds = 'Notificar contagem';
     var addNewAlertThreshold = 'Adicionar novo limiar de alerta';
@@ -89,21 +92,21 @@ class ConfigPageState extends State<ConfigPage> {
           ),
 
           // Notifications and sound
-          ListTile(
-            title: Text(notifications),
-            subtitle: Text(
-                _appConfig.isNotificationsEnabled ? 'Ativado' : 'Desativado'),
-            trailing: Switch(
-              value: _appConfig.isNotificationsEnabled,
-              onChanged: (value) {
-                setState(() {
-                  _appConfig =
-                      _appConfig.copyWith(isNotificationsEnabled: value);
-                });
-                saveConfiguration(); // Save immediately when the theme changes
-              },
-            ),
-          ),
+          // ListTile(
+          //   title: Text(notifications),
+          //   subtitle: Text(
+          //       _appConfig.isNotificationsEnabled ? 'Ativado' : 'Desativado'),
+          //   trailing: Switch(
+          //     value: _appConfig.isNotificationsEnabled,
+          //     onChanged: (value) {
+          //       setState(() {
+          //         _appConfig =
+          //             _appConfig.copyWith(isNotificationsEnabled: value);
+          //       });
+          //       saveConfiguration(); // Save immediately when the theme changes
+          //     },
+          //   ),
+          // ),
           ListTile(
             title: Text(sound),
             subtitle:
@@ -113,6 +116,20 @@ class ConfigPageState extends State<ConfigPage> {
               onChanged: (value) {
                 setState(() {
                   _appConfig = _appConfig.copyWith(isSoundEnabled: value);
+                });
+                saveConfiguration(); // Save immediately when the theme changes
+              },
+            ),
+          ),
+          ListTile(
+            title: Text(vibration),
+            subtitle:
+                Text(_appConfig.isVibrationEnabled ? 'Ativado' : 'Desativado'),
+            trailing: Switch(
+              value: _appConfig.isVibrationEnabled,
+              onChanged: (value) {
+                setState(() {
+                  _appConfig = _appConfig.copyWith(isVibrationEnabled: value);
                 });
                 saveConfiguration(); // Save immediately when the theme changes
               },
@@ -171,11 +188,13 @@ class ConfigPageState extends State<ConfigPage> {
           ), // Language
           ListTile(
             title: Text(language),
-            subtitle: Text(_appConfig.language),
-            trailing: const Icon(Icons.arrow_forward_ios),
-            onTap: () {
-              // Show a dialog to allow the user to select the app language
-            },
+
+            ///    subtitle: Text(_appConfig.language),
+            subtitle: const Text('Português'),
+            // trailing: const Icon(Icons.arrow_forward_ios),
+            // onTap: () {
+            //   // Show a dialog to allow the user to select the app language
+            // },
           ),
 
           // Reset configuration button

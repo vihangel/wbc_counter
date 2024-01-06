@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 
 class WBCQuantityWidget extends StatelessWidget {
   final String name;
@@ -16,13 +20,20 @@ class WBCQuantityWidget extends StatelessWidget {
     required this.imagePath,
   });
 
-  void _onTap() {
+  Future<void> _onTap() async {
+    final prefs = await SharedPreferences.getInstance();
     if (isAdicionarMode) {
       onUpdateQuantity(quantity + 1);
     } else {
       if (quantity > 0) {
         onUpdateQuantity(quantity - 1);
       }
+    }
+    if (prefs.getBool('isVibrationEnabled') ?? true) {
+      HapticFeedback.vibrate();
+    }
+    if (prefs.getBool('isSoundEnabled') ?? true) {
+      SystemSound.play(SystemSoundType.click);
     }
   }
 
@@ -33,7 +44,9 @@ class WBCQuantityWidget extends StatelessWidget {
       child: Container(
         width: _horizontalSize(context),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: context.read<ThemeAppBloc>().theme == ThemeMode.light
+              ? Colors.white
+              : const Color.fromARGB(255, 42, 42, 42),
           borderRadius: BorderRadius.circular(8.0),
         ),
         padding:
@@ -71,9 +84,7 @@ class WBCQuantityWidget extends StatelessWidget {
             ),
             Text(
               name,
-              style: const TextStyle(
-                color: Colors.black,
-              ),
+              style: const TextStyle(),
             ),
           ],
         ),
