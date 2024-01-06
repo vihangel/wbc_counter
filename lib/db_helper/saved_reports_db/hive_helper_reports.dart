@@ -1,4 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:uuid/uuid.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 
 class HiveHelper {
@@ -15,7 +16,12 @@ class HiveHelper {
   static Future<void> addReport(SaveReportModel report) async {
     final box = await Hive.openBox<SaveReportModel>('reports');
 
-    await box.add(report);
+    const uuid = Uuid();
+    bool existingReport =
+        box.toMap().values.any((r) => r.id == report.id && report.id != null);
+    existingReport
+        ? await updateReport(report)
+        : await box.add(report.copyWith(id: uuid.v4()));
   }
 
   static Future<List<SaveReportModel>> getReports() async {
@@ -25,14 +31,18 @@ class HiveHelper {
 
   static Future<void> updateReport(SaveReportModel updatedReport) async {
     final box = await Hive.openBox<SaveReportModel>('reports');
-    final existingReport = box.get(updatedReport.id);
-    if (existingReport != null) {
-      await box.put(updatedReport.id, updatedReport);
-    }
+    final existingReport = box
+        .toMap()
+        .values
+        .firstWhere((report) => report.id == updatedReport.id);
+
+    await box.put(existingReport.key, updatedReport);
   }
 
   static Future<void> deleteReport(String id) async {
     final box = await Hive.openBox<SaveReportModel>('reports');
-    await box.delete(id);
+    final existingReport =
+        box.toMap().values.firstWhere((report) => report.id == id);
+    await box.delete(existingReport.key);
   }
 }

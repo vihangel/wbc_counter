@@ -37,4 +37,24 @@ class SaveReportModel extends HiveObject {
     this.observation,
     this.id,
   }) : createdAt = DateTime.now();
+
+  SaveReportModel copyWith({
+    String? name,
+    String? type,
+    String? referenceValues,
+    int? age,
+    Map<String, int>? bloodCells,
+    String? observation,
+    String? id,
+  }) {
+    return SaveReportModel(
+      name: name ?? this.name,
+      type: type ?? this.type,
+      referenceValues: referenceValues ?? this.referenceValues,
+      age: age ?? this.age,
+      bloodCells: bloodCells ?? this.bloodCells,
+      observation: observation ?? this.observation,
+      id: id ?? this.id,
+    );
+  }
 }

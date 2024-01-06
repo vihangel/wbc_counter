@@ -21,6 +21,7 @@ class ReportPageState extends State<ReportPage> {
   late TextEditingController _nameController;
   late TextEditingController _ageController;
   late TextEditingController _observationController;
+  bool isReadOnly = false;
 
   @override
   void initState() {
@@ -29,6 +30,7 @@ class ReportPageState extends State<ReportPage> {
     _ageController = TextEditingController(text: '${widget.report.age ?? 0}');
     _observationController =
         TextEditingController(text: widget.report.observation);
+    isReadOnly = widget.isReadOnly;
   }
 
   @override
@@ -37,58 +39,6 @@ class ReportPageState extends State<ReportPage> {
     _ageController.dispose();
     _observationController.dispose();
     super.dispose();
-  }
-
-  void _saveReport() async {
-    final String name = _nameController.text;
-    final int age = int.tryParse(_ageController.text) ?? 0;
-    final String observation = _observationController.text;
-
-    // Create a SaveReportModel instance with patient data and report data
-    final SaveReportModel report = SaveReportModel(
-      name: name,
-      type: 'Type', // Replace with actual type
-      referenceValues:
-          'Reference Values', // Replace with actual reference values
-      age: age,
-      bloodCells: widget.report.bloodCells,
-      observation: observation,
-    );
-
-    HiveHelper.addReport(report);
-
-    // Display a confirmation dialog
-    // ignore: use_build_context_synchronously
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Relatório salvo'),
-          content: const Text('Algum texto concordando aqui'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              },
-              child: const Text('Fechar'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                      builder: (context) => const LocalReportPage()),
-                );
-              },
-              child: const Text('Ver relatórios'),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   @override
@@ -106,6 +56,13 @@ class ReportPageState extends State<ReportPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Relatório'),
+        actions: [
+          if (isReadOnly)
+            IconButton(
+              onPressed: _editReport,
+              icon: const Icon(Icons.edit),
+            ),
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -125,7 +82,7 @@ class ReportPageState extends State<ReportPage> {
                     ),
                     TextFormField(
                       controller: _nameController,
-                      readOnly: widget.isReadOnly,
+                      readOnly: isReadOnly,
                     ),
                   ],
                 ),
@@ -141,7 +98,7 @@ class ReportPageState extends State<ReportPage> {
                     ),
                     TextFormField(
                       controller: _ageController,
-                      readOnly: widget.isReadOnly,
+                      readOnly: isReadOnly,
                     ),
                   ],
                 ),
@@ -194,10 +151,10 @@ class ReportPageState extends State<ReportPage> {
                   decoration: const InputDecoration(labelText: 'Observação'),
                   textInputAction: TextInputAction.newline,
                   maxLines: null,
-                  readOnly: widget.isReadOnly,
+                  readOnly: isReadOnly,
                 ),
                 const SizedBox(height: 32.0),
-                if (!widget.isReadOnly) ...[
+                if (!isReadOnly) ...[
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -223,11 +180,116 @@ class ReportPageState extends State<ReportPage> {
                     'Compartilhar relatório',
                   ),
                 ),
+                if (isReadOnly) ...[
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red[400]),
+                      onPressed: _deleteReport,
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.delete, color: Colors.white),
+                          SizedBox(width: 8.0),
+                          Text(
+                            'Apagar',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _saveReport() async {
+    final String name = _nameController.text;
+    final int age = int.tryParse(_ageController.text) ?? 0;
+    final String observation = _observationController.text;
+
+    // Create a SaveReportModel instance with patient data and report data
+    final SaveReportModel report = widget.report.copyWith(
+      name: name,
+      age: age,
+      observation: observation,
+      bloodCells: widget.report.bloodCells,
+    );
+
+    HiveHelper.addReport(report);
+
+    // Display a confirmation dialog
+    // ignore: use_build_context_synchronously
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Relatório salvo'),
+          content: const Text('Algum texto concordando aqui'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+              child: const Text('Fechar'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                      builder: (context) => const LocalReportPage()),
+                );
+              },
+              child: const Text('Ver relatórios'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _deleteReport() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Apagar relatório'),
+          content: const Text('Tem certeza que deseja apagar este relatório?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () {
+                ///TODO: ADD DELETE FUNCTION BLOC
+                Navigator.of(context).pop();
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+              child: const Text('Apagar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _editReport() async {
+    isReadOnly = false;
+    setState(() {});
   }
 }
