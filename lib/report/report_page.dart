@@ -14,10 +14,10 @@ class ReportPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ReportPageState createState() => _ReportPageState();
+  ReportPageState createState() => ReportPageState();
 }
 
-class _ReportPageState extends State<ReportPage> {
+class ReportPageState extends State<ReportPage> {
   late TextEditingController _nameController;
   late TextEditingController _ageController;
   late TextEditingController _observationController;

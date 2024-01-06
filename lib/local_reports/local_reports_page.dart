@@ -7,10 +7,10 @@ class LocalReportPage extends StatefulWidget {
   const LocalReportPage({super.key});
 
   @override
-  _LocalReportPageState createState() => _LocalReportPageState();
+  LocalReportPageState createState() => LocalReportPageState();
 }
 
-class _LocalReportPageState extends State<LocalReportPage> {
+class LocalReportPageState extends State<LocalReportPage> {
   late Box<SaveReportModel> _reportsBox;
   List<SaveReportModel> _reports = [];
 

@@ -5,13 +5,13 @@ import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/models/config_model.dart';
 
 class ConfigPage extends StatefulWidget {
-  const ConfigPage({Key? key}) : super(key: key);
+  const ConfigPage({super.key});
 
   @override
-  _ConfigPageState createState() => _ConfigPageState();
+  ConfigPageState createState() => ConfigPageState();
 }
 
-class _ConfigPageState extends State<ConfigPage> {
+class ConfigPageState extends State<ConfigPage> {
   AppConfigModel _appConfig = AppConfigModel.defaults();
   final List<TextEditingController> _thresholdControllers = [];
 
