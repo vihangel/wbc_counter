@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
+import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
+import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
 import 'package:wbc_counter/home/home_page.dart';
@@ -26,6 +28,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeAppBloc>(create: (context) => ThemeAppBloc()),
         // Add other Blocs as needed
+
+        BlocProvider(create: (context) => CellCountBloc()),
+        BlocProvider(create: (context) => LocalReportsBloc()),
       ],
       child: BlocBuilder<ThemeAppBloc, ThemeState>(
         builder: (context, state) {

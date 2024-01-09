@@ -21,6 +21,16 @@ class IsAddModeChangeEvent extends CellCountEvent {
 
 class CellCountResetEvent extends CellCountEvent {}
 
-class CellCountSaveEvent extends CellCountEvent {}
+class CellCountSaveEvent extends CellCountEvent {
+  final SaveReportModel report;
+
+  CellCountSaveEvent({required this.report});
+}
 
 class CellCountReportEvent extends CellCountEvent {}
+
+class CellCountDeleteEvent extends CellCountEvent {
+  final String id;
+
+  CellCountDeleteEvent({required this.id});
+}

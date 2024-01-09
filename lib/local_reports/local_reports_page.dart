@@ -1,54 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
 
-class LocalReportPage extends StatefulWidget {
+class LocalReportPage extends StatelessWidget {
   const LocalReportPage({super.key});
 
   @override
-  LocalReportPageState createState() => LocalReportPageState();
-}
-
-class LocalReportPageState extends State<LocalReportPage> {
-  late Box<SaveReportModel> _reportsBox;
-  List<SaveReportModel> _reports = [];
-
-  @override
-  void initState() {
-    super.initState();
-    _loadReports();
-  }
-
-  Future<void> _loadReports() async {
-    _reportsBox = await Hive.openBox<SaveReportModel>('reports');
-    _reports = _reportsBox.values.toList();
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
+    context.read<LocalReportsBloc>().add(ListLocalReportEvent());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Salvos'),
       ),
-      body: _buildReportList(),
+      body: BlocBuilder<LocalReportsBloc, LocalReportsState>(
+        builder: (context, state) {
+          if (state is LoadedLocalReportState) {
+            return _buildReportList(state.reports);
+          } else if (state is ErrorLocalReportState) {
+            return const Center(
+              child: Text('Erro ao carregar relatórios'),
+            );
+          } else if (state is LoadingLocalReportState) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return Center(
+            child: Container(),
+          );
+        },
+      ),
     );
   }
 
-  Widget _buildReportList() {
-    if (_reports.isEmpty) {
+  Widget _buildReportList(List<SaveReportModel> reports) {
+    if (reports.isEmpty) {
       return const Center(
         child: Text('Ainda não há relatórios salvos'),
       );
     } else {
       return ListView.builder(
-        itemCount: _reports.length,
+        itemCount: reports.length,
         itemBuilder: (context, index) {
-          final report = _reports[index];
+          final report = reports[index];
           return GestureDetector(
             onTap: () {
-              _openReportDetails(report);
+              _openReportDetails(report, context);
             },
             child: Card(
               elevation: 0,
@@ -90,8 +89,7 @@ class LocalReportPageState extends State<LocalReportPage> {
     }
   }
 
-  void _openReportDetails(SaveReportModel report) {
-    // Navigate to the report details page, passing the report data as arguments
+  void _openReportDetails(SaveReportModel report, context) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ReportPage(

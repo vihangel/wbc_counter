@@ -8,6 +8,7 @@ class CellCountChangeState extends CellCountState {
   final Map<String, int> wbcQuantities;
   final int totalWbcCount;
   final List<WhiteBloodCell> whiteBloodCells;
+
   final bool isAddMode;
 
   CellCountChangeState(
@@ -55,3 +56,9 @@ class CellCountChangeState extends CellCountState {
 }
 
 class CellCountResetState extends CellCountState {}
+
+class CellCountLoadingState extends CellCountState {}
+
+class CellCountDeletedState extends CellCountState {}
+
+class CellCountSavedState extends CellCountState {}

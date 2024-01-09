@@ -14,8 +14,10 @@ class ConfigPage extends StatefulWidget {
 class ConfigPageState extends State<ConfigPage> {
   AppConfigModel _appConfig = AppConfigModel.defaults();
   final List<TextEditingController> _thresholdControllers = [];
+  bool loading = false;
 
   Future<void> loadConfiguration() async {
+    loading = true;
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _appConfig = AppConfigModel(
@@ -31,6 +33,7 @@ class ConfigPageState extends State<ConfigPage> {
         }).toList(),
         language: prefs.getString('language') ?? 'English',
       );
+      loading = false;
     });
   }
 
@@ -58,9 +61,10 @@ class ConfigPageState extends State<ConfigPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Translate the text
+    // Translate text
     var title = 'Configuração da WBC';
     var themeMode = 'Tema';
+    // ignore: unused_local_variable
     var notifications = 'Notificações';
     var vibration = 'Vibração';
     var sound = 'Som';
@@ -73,139 +77,143 @@ class ConfigPageState extends State<ConfigPage> {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: ListView(
-        children: [
-          // Theme mode
-          ListTile(
-            title: Text(themeMode),
-            subtitle: Text(_appConfig.isDarkTheme ? 'Escuro' : 'Claro'),
-            trailing: Switch(
-              value: _appConfig.isDarkTheme,
-              onChanged: (value) {
-                setState(() {
-                  _appConfig = _appConfig.copyWith(isDarkTheme: value);
-                });
-                context.read<ThemeAppBloc>().add(ToggleThemeEvent());
-                saveConfiguration(); // Save immediately when the theme changes
-              },
-            ),
-          ),
-
-          // Notifications and sound
-          // ListTile(
-          //   title: Text(notifications),
-          //   subtitle: Text(
-          //       _appConfig.isNotificationsEnabled ? 'Ativado' : 'Desativado'),
-          //   trailing: Switch(
-          //     value: _appConfig.isNotificationsEnabled,
-          //     onChanged: (value) {
-          //       setState(() {
-          //         _appConfig =
-          //             _appConfig.copyWith(isNotificationsEnabled: value);
-          //       });
-          //       saveConfiguration(); // Save immediately when the theme changes
-          //     },
-          //   ),
-          // ),
-          ListTile(
-            title: Text(sound),
-            subtitle:
-                Text(_appConfig.isSoundEnabled ? 'Ativado' : 'Desativado'),
-            trailing: Switch(
-              value: _appConfig.isSoundEnabled,
-              onChanged: (value) {
-                setState(() {
-                  _appConfig = _appConfig.copyWith(isSoundEnabled: value);
-                });
-                saveConfiguration(); // Save immediately when the theme changes
-              },
-            ),
-          ),
-          ListTile(
-            title: Text(vibration),
-            subtitle:
-                Text(_appConfig.isVibrationEnabled ? 'Ativado' : 'Desativado'),
-            trailing: Switch(
-              value: _appConfig.isVibrationEnabled,
-              onChanged: (value) {
-                setState(() {
-                  _appConfig = _appConfig.copyWith(isVibrationEnabled: value);
-                });
-                saveConfiguration(); // Save immediately when the theme changes
-              },
-            ),
-          ),
-
-          // Alerts
-          ExpansionTile(
-            title: Text(alertThresholds),
-            subtitle: const Text('Alertar quando a contagem de WBC atingir:'),
-            children: [
-              // List of alert thresholds
-              if (_appConfig.alertThresholds.isNotEmpty)
-                for (int index = 0;
-                    index < _appConfig.alertThresholds.length;
-                    index++)
-                  ListTile(
-                    title: TextField(
-                      controller: _thresholdControllers[index],
-                      decoration: InputDecoration(
-                        hintText: _appConfig.alertThresholds[index].toString(),
-                      ),
-                      onChanged: (value) {
-                        setState(() {
-                          _appConfig.alertThresholds[index] =
-                              int.tryParse(value) ?? 0;
-                        });
-                        saveConfiguration();
-                      },
-                    ),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.delete),
-                      onPressed: () {
-                        setState(() {
-                          _appConfig.alertThresholds.removeAt(index);
-                          _thresholdControllers.removeAt(index);
-                        });
-                        saveConfiguration(); // Save immediately when the theme changes
-                      },
-                    ),
-                  ),
-
-              // Add new alert threshold button
-              ListTile(
-                title: Text(addNewAlertThreshold),
-                trailing: const Icon(Icons.add),
-                onTap: () {
-                  // Add a new alert threshold to the list of alert thresholds
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: ListView(
+          children: [
+            // Theme mode
+            ListTile(
+              title: Text(themeMode),
+              subtitle: Text(_appConfig.isDarkTheme ? 'Escuro' : 'Claro'),
+              trailing: Switch(
+                value: _appConfig.isDarkTheme,
+                onChanged: (value) {
                   setState(() {
-                    _appConfig.alertThresholds.add(0);
-                    _thresholdControllers.add(TextEditingController());
+                    _appConfig = _appConfig.copyWith(isDarkTheme: value);
                   });
+                  context.read<ThemeAppBloc>().add(ToggleThemeEvent());
+                  saveConfiguration(); // Save immediately when the theme changes
                 },
               ),
-            ],
-          ), // Language
-          ListTile(
-            title: Text(language),
+            ),
 
-            ///    subtitle: Text(_appConfig.language),
-            subtitle: const Text('Português'),
-            // trailing: const Icon(Icons.arrow_forward_ios),
-            // onTap: () {
-            //   // Show a dialog to allow the user to select the app language
-            // },
-          ),
+            // Notifications and sound
+            // ListTile(
+            //   title: Text(notifications),
+            //   subtitle: Text(
+            //       _appConfig.isNotificationsEnabled ? 'Ativado' : 'Desativado'),
+            //   trailing: Switch(
+            //     value: _appConfig.isNotificationsEnabled,
+            //     onChanged: (value) {
+            //       setState(() {
+            //         _appConfig =
+            //             _appConfig.copyWith(isNotificationsEnabled: value);
+            //       });
+            //       saveConfiguration(); // Save immediately when the theme changes
+            //     },
+            //   ),
+            // ),
+            ListTile(
+              title: Text(sound),
+              subtitle:
+                  Text(_appConfig.isSoundEnabled ? 'Ativado' : 'Desativado'),
+              trailing: Switch(
+                value: _appConfig.isSoundEnabled,
+                onChanged: (value) {
+                  setState(() {
+                    _appConfig = _appConfig.copyWith(isSoundEnabled: value);
+                  });
+                  saveConfiguration(); // Save immediately when the theme changes
+                },
+              ),
+            ),
+            ListTile(
+              title: Text(vibration),
+              subtitle: Text(
+                  _appConfig.isVibrationEnabled ? 'Ativado' : 'Desativado'),
+              trailing: Switch(
+                value: _appConfig.isVibrationEnabled,
+                onChanged: (value) {
+                  setState(() {
+                    _appConfig = _appConfig.copyWith(isVibrationEnabled: value);
+                  });
+                  saveConfiguration(); // Save immediately when the theme changes
+                },
+              ),
+            ),
 
-          // Reset configuration button
-          ListTile(
-            title: Text(resetConfiguration),
-            subtitle: const Text(
-                'Redefinir todas as configurações para seus padrões'),
-            trailing: const Icon(Icons.delete),
-            onTap: _resetConfiguration,
-          ),
-        ],
+            // Alerts
+            ExpansionTile(
+              title: Text(alertThresholds),
+              subtitle: const Text('Alertar quando a contagem de WBC atingir:'),
+              children: [
+                // List of alert thresholds
+                if (_appConfig.alertThresholds.isNotEmpty && !loading)
+                  for (int index = 0;
+                      index < _appConfig.alertThresholds.length;
+                      index++)
+                    ListTile(
+                      title: TextField(
+                        controller: _thresholdControllers[index],
+                        decoration: InputDecoration(
+                          hintText:
+                              _appConfig.alertThresholds[index].toString(),
+                        ),
+                        onChanged: (value) {
+                          setState(() {
+                            _appConfig.alertThresholds[index] =
+                                int.tryParse(value) ?? 0;
+                          });
+                          saveConfiguration();
+                        },
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () {
+                          setState(() {
+                            _appConfig.alertThresholds.removeAt(index);
+                            _thresholdControllers.removeAt(index);
+                          });
+                          saveConfiguration(); // Save immediately when the theme changes
+                        },
+                      ),
+                    ),
+
+                // Add new alert threshold button
+                ListTile(
+                  title: Text(addNewAlertThreshold),
+                  trailing: const Icon(Icons.add),
+                  onTap: () {
+                    // Add a new alert threshold to the list of alert thresholds
+                    setState(() {
+                      _appConfig.alertThresholds.add(0);
+                      _thresholdControllers.add(TextEditingController());
+                    });
+                  },
+                ),
+              ],
+            ), // Language
+            ListTile(
+              title: Text(language),
+
+              ///    subtitle: Text(_appConfig.language),
+              subtitle: const Text('Português'),
+              // trailing: const Icon(Icons.arrow_forward_ios),
+              // onTap: () {
+              //   // Show a dialog to allow the user to select the app language
+              // },
+            ),
+
+            // Reset configuration button
+            ListTile(
+              title: Text(resetConfiguration),
+              subtitle: const Text(
+                  'Redefinir todas as configurações para seus padrões'),
+              trailing: const Icon(Icons.delete),
+              onTap: _resetConfiguration,
+            ),
+          ],
+        ),
       ),
     );
   }
