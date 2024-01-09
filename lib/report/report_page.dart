@@ -323,6 +323,31 @@ class ReportPageState extends State<ReportPage> {
     );
   }
 
+  Future<void> _checkSaveReport() async {
+    await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Antes de sair'),
+            content: const Text('Deseja salvar o relatório?'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Não'),
+              ),
+              TextButton(
+                onPressed: () {
+                  _saveReport();
+                },
+                child: const Text('Sim'),
+              ),
+            ],
+          );
+        });
+  }
+
   void _editReport() async {
     isReadOnly = false;
     setState(() {});
