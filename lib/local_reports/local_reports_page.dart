@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
+import 'package:wbc_counter/home/home_page.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
 
@@ -10,27 +11,38 @@ class LocalReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<LocalReportsBloc>().add(ListLocalReportEvent());
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Salvos'),
-      ),
-      body: BlocBuilder<LocalReportsBloc, LocalReportsState>(
-        builder: (context, state) {
-          if (state is LoadedLocalReportState) {
-            return _buildReportList(state.reports);
-          } else if (state is ErrorLocalReportState) {
-            return const Center(
-              child: Text('Erro ao carregar relatórios'),
+    return PopScope(
+      onPopInvoked: (value) {
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(
+            builder: (context) => const HomePage(),
+          ),
+          (route) => false,
+        );
+      },
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Salvos'),
+        ),
+        body: BlocBuilder<LocalReportsBloc, LocalReportsState>(
+          builder: (context, state) {
+            if (state is LoadedLocalReportState) {
+              return _buildReportList(state.reports);
+            } else if (state is ErrorLocalReportState) {
+              return const Center(
+                child: Text('Erro ao carregar relatórios'),
+              );
+            } else if (state is LoadingLocalReportState) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            return Center(
+              child: Container(),
             );
-          } else if (state is LoadingLocalReportState) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          return Center(
-            child: Container(),
-          );
-        },
+          },
+        ),
       ),
     );
   }

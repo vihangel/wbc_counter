@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:share/share.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
+import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/home/home_page.dart';
 import 'package:wbc_counter/local_reports/local_reports_page.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
@@ -38,6 +39,7 @@ class ReportPageState extends State<ReportPage> {
     _nameController.dispose();
     _ageController.dispose();
     _observationController.dispose();
+
     super.dispose();
   }
 
@@ -53,202 +55,207 @@ class ReportPageState extends State<ReportPage> {
       wbcPercentages[key] = percentage;
     });
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Relatório'),
-        actions: [
-          if (isReadOnly)
-            IconButton(
-              onPressed: _editReport,
-              icon: const Icon(Icons.edit),
-            ),
-        ],
-      ),
-      body: BlocConsumer<CellCountBloc, CellCountState>(
-        listener: (context, state) {
-          if (state is CellCountSavedState) {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: const Text('Relatório salvo'),
-                  content: const Text('Algum texto concordando aqui'),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushAndRemoveUntil(
+    return PopScope(
+      onPopInvoked: (value) {
+        context.read<LocalReportsBloc>().add(ListLocalReportEvent());
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Relatório'),
+          actions: [
+            if (isReadOnly)
+              IconButton(
+                onPressed: _editReport,
+                icon: const Icon(Icons.edit),
+              ),
+          ],
+        ),
+        body: BlocConsumer<CellCountBloc, CellCountState>(
+          listener: (context, state) {
+            if (state is CellCountSavedState) {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Relatório salvo'),
+                    content: const Text('Algum texto concordando aqui'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage()),
+                              (route) => false);
+                        },
+                        child: const Text('Fechar'),
+                      ),
+                      TextButton(
+                        onPressed: () async {
+                          Navigator.of(context).pop();
+                          await Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
-                                builder: (context) => const HomePage()),
-                            (route) => false);
-                      },
-                      child: const Text('Fechar'),
-                    ),
-                    TextButton(
-                      onPressed: () async {
-                        Navigator.of(context).pop();
-                        await Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                              builder: (context) => const LocalReportPage()),
-                        );
-                      },
-                      child: const Text('Ver relatórios'),
-                    ),
-                  ],
-                );
-              },
-            );
-          }
-        },
-        builder: (context, state) {
-          if (state is CellCountLoadingState) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          return SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                          child: Text(
-                            'Nome do paciente',
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _nameController,
-                          readOnly: isReadOnly,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16.0),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                          child: Text(
-                            'Idade do paciente',
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _ageController,
-                          readOnly: isReadOnly,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16.0),
-
-                    Text(
-                      'Total: $totalQuantity',
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    const SizedBox(height: 16.0),
-                    // Display the chart
-                    PieChart(
-                      dataMap: wbcPercentages,
-                      colorList: const [
-                        Colors.deepPurple,
-                        Color.fromARGB(255, 58, 137, 183),
-                        Color.fromARGB(255, 58, 183, 106),
-                        Color.fromARGB(255, 150, 183, 58),
-                        Color.fromARGB(255, 183, 133, 58),
-                        Color.fromARGB(255, 183, 58, 58),
-                        Color.fromARGB(255, 183, 58, 131),
-                        Color.fromARGB(255, 143, 58, 183),
-                      ],
-                    ),
-                    const SizedBox(height: 16.0),
-                    // Display the report table
-                    DataTable(
-                      columns: const [
-                        DataColumn(label: Text('Tipos')),
-                        DataColumn(label: Text('Quantidade')),
-                        DataColumn(label: Text('%')),
-                      ],
-                      rows: widget.report.bloodCells.entries.map((entry) {
-                        return DataRow(
-                          cells: [
-                            DataCell(Text(entry.key)),
-                            DataCell(Text(entry.value.toString())),
-                            DataCell(Text(
-                                '${wbcPercentages[entry.key]!.toStringAsFixed(2)}%')),
-                          ],
-                        );
-                      }).toList(),
-                    ),
-                    const SizedBox(height: 32.0),
-
-                    TextFormField(
-                      controller: _observationController,
-                      keyboardType: TextInputType.multiline,
-                      decoration:
-                          const InputDecoration(labelText: 'Observação'),
-                      textInputAction: TextInputAction.newline,
-                      maxLines: null,
-                      readOnly: isReadOnly,
-                    ),
-                    const SizedBox(height: 32.0),
-                    if (!isReadOnly) ...[
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: _saveReport,
-                          child: const Text(
-                            'Salvar',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
+                                builder: (context) => const LocalReportPage()),
+                          );
+                        },
+                        child: const Text('Ver relatórios'),
                       ),
                     ],
-
-                    TextButton(
-                      onPressed: () {
-                        String reportText = 'Total: $totalQuantity\n\n';
-                        for (var entry in widget.report.bloodCells.entries) {
-                          reportText +=
-                              '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
-                        }
-                        Share.share(reportText);
-                      },
-                      child: const Text(
-                        'Compartilhar relatório',
+                  );
+                },
+              );
+            }
+          },
+          builder: (context, state) {
+            if (state is CellCountLoadingState) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            return SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 8),
+                            child: Text(
+                              'Nome do paciente',
+                            ),
+                          ),
+                          TextFormField(
+                            controller: _nameController,
+                            readOnly: isReadOnly,
+                          ),
+                        ],
                       ),
-                    ),
-                    if (isReadOnly) ...[
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red[400]),
-                          onPressed: _deleteReport,
-                          child: const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.delete, color: Colors.white),
-                              SizedBox(width: 8.0),
-                              Text(
-                                'Apagar',
-                                style: TextStyle(color: Colors.white),
-                              ),
+                      const SizedBox(height: 16.0),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 8),
+                            child: Text(
+                              'Idade do paciente',
+                            ),
+                          ),
+                          TextFormField(
+                            controller: _ageController,
+                            readOnly: isReadOnly,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16.0),
+
+                      Text(
+                        'Total: $totalQuantity',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      const SizedBox(height: 16.0),
+                      // Display the chart
+                      PieChart(
+                        dataMap: wbcPercentages,
+                        colorList: const [
+                          Colors.deepPurple,
+                          Color.fromARGB(255, 58, 137, 183),
+                          Color.fromARGB(255, 58, 183, 106),
+                          Color.fromARGB(255, 150, 183, 58),
+                          Color.fromARGB(255, 183, 133, 58),
+                          Color.fromARGB(255, 183, 58, 58),
+                          Color.fromARGB(255, 183, 58, 131),
+                          Color.fromARGB(255, 143, 58, 183),
+                        ],
+                      ),
+                      const SizedBox(height: 16.0),
+                      // Display the report table
+                      DataTable(
+                        columns: const [
+                          DataColumn(label: Text('Tipos')),
+                          DataColumn(label: Text('Quantidade')),
+                          DataColumn(label: Text('%')),
+                        ],
+                        rows: widget.report.bloodCells.entries.map((entry) {
+                          return DataRow(
+                            cells: [
+                              DataCell(Text(entry.key)),
+                              DataCell(Text(entry.value.toString())),
+                              DataCell(Text(
+                                  '${wbcPercentages[entry.key]!.toStringAsFixed(2)}%')),
                             ],
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 32.0),
+
+                      TextFormField(
+                        controller: _observationController,
+                        keyboardType: TextInputType.multiline,
+                        decoration:
+                            const InputDecoration(labelText: 'Observação'),
+                        textInputAction: TextInputAction.newline,
+                        maxLines: null,
+                        readOnly: isReadOnly,
+                      ),
+                      const SizedBox(height: 32.0),
+                      if (!isReadOnly) ...[
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: _saveReport,
+                            child: const Text(
+                              'Salvar',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
+                      ],
+
+                      TextButton(
+                        onPressed: () {
+                          String reportText = 'Total: $totalQuantity\n\n';
+                          for (var entry in widget.report.bloodCells.entries) {
+                            reportText +=
+                                '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
+                          }
+                          Share.share(reportText);
+                        },
+                        child: const Text(
+                          'Compartilhar relatório',
+                        ),
                       ),
+                      if (isReadOnly) ...[
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red[400]),
+                            onPressed: _deleteReport,
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.delete, color: Colors.white),
+                                SizedBox(width: 8.0),
+                                Text(
+                                  'Apagar',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
