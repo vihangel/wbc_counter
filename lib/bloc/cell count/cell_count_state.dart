@@ -7,25 +7,25 @@ abstract class CellCountState {
 class CellCountChangeState extends CellCountState {
   final Map<String, int> wbcQuantities;
   final int totalWbcCount;
-  final List<WhiteBloodCell> whiteBloodCells;
+  final List<BloodCellModel> BloodCellModels;
 
   final bool isAddMode;
 
   CellCountChangeState(
       {required this.wbcQuantities,
       required this.totalWbcCount,
-      required this.whiteBloodCells,
+      required this.BloodCellModels,
       required this.isAddMode});
 
   CellCountChangeState copyWith(
       {Map<String, int>? wbcQuantities,
       int? totalWbcCount,
-      List<WhiteBloodCell>? whiteBloodCells,
+      List<BloodCellModel>? BloodCellModels,
       bool? isAddMode}) {
     return CellCountChangeState(
         wbcQuantities: wbcQuantities ?? this.wbcQuantities,
         totalWbcCount: totalWbcCount ?? this.totalWbcCount,
-        whiteBloodCells: whiteBloodCells ?? this.whiteBloodCells,
+        BloodCellModels: BloodCellModels ?? this.BloodCellModels,
         isAddMode: isAddMode ?? this.isAddMode);
   }
 
@@ -39,16 +39,16 @@ class CellCountChangeState extends CellCountState {
           'Linfócito': 0,
         },
         totalWbcCount: 0,
-        whiteBloodCells: [
-          WhiteBloodCell(
+        BloodCellModels: [
+          BloodCellModel(
               name: 'Neutrófilo', quantity: 0, imagePath: 'neutrofilo.png'),
-          WhiteBloodCell(
+          BloodCellModel(
               name: 'Basófilo', quantity: 0, imagePath: 'basofilo.png'),
-          WhiteBloodCell(
+          BloodCellModel(
               name: 'Eosinófilo', quantity: 0, imagePath: 'eosinofilo.png'),
-          WhiteBloodCell(
+          BloodCellModel(
               name: 'Monócito', quantity: 0, imagePath: 'monocito.png'),
-          WhiteBloodCell(
+          BloodCellModel(
               name: 'Linfócito', quantity: 0, imagePath: 'linfocito.png'),
         ],
         isAddMode: true);

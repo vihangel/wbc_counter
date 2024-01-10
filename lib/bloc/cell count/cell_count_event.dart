@@ -4,12 +4,12 @@ abstract class CellCountEvent {}
 
 class WbcQuantitiesChangeEvent extends CellCountEvent {
   final Map<String, int> wbcQuantities;
-  final List<WhiteBloodCell> whiteBloodCells;
+  final List<BloodCellModel> BloodCellModels;
   final int totalWbcCount;
 
   WbcQuantitiesChangeEvent(
       {required this.wbcQuantities,
-      required this.whiteBloodCells,
+      required this.BloodCellModels,
       required this.totalWbcCount});
 }
 

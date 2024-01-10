@@ -1,20 +1,20 @@
-class WhiteBloodCell {
+class BloodCellModel {
   final String name;
   final int quantity;
   final String imagePath;
 
-  WhiteBloodCell({
+  BloodCellModel({
     required this.name,
     required this.quantity,
     required this.imagePath,
   });
 
-  WhiteBloodCell copyWith({
+  BloodCellModel copyWith({
     String? name,
     int? quantity,
     String? imagePath,
   }) {
-    return WhiteBloodCell(
+    return BloodCellModel(
       name: name ?? this.name,
       quantity: quantity ?? this.quantity,
       imagePath: imagePath ?? this.imagePath,

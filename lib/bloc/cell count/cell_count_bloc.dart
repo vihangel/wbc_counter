@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
+import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/models/white_blood_cells_model.dart';
 
 part 'cell_count_event.dart';
 part 'cell_count_state.dart';
@@ -21,13 +21,12 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
   void _mapUpdateCellCountToState(WbcQuantitiesChangeEvent event, emit) async {
     final Map<String, int> wbcQuantities = event.wbcQuantities;
     final int totalWbcCount = wbcQuantities.values.reduce((a, b) => a + b);
-    final List<WhiteBloodCell> whiteBloodCells = event.whiteBloodCells
-        .map((wbc) => wbc.copyWith(quantity: wbcQuantities[wbc.name] ?? 0))
-        .toList();
+    final List<BloodCellModel> BloodCellModels = event.BloodCellModels.map(
+        (wbc) => wbc.copyWith(quantity: wbcQuantities[wbc.name] ?? 0)).toList();
     emit((state as CellCountChangeState).copyWith(
         wbcQuantities: wbcQuantities,
         totalWbcCount: totalWbcCount,
-        whiteBloodCells: whiteBloodCells));
+        BloodCellModels: BloodCellModels));
   }
 
   void _mapUpdateIsAddModeToState(IsAddModeChangeEvent event, emit) async {
