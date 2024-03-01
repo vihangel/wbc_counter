@@ -86,7 +86,9 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                               ),
                             ),
                             TextButton(
-                              onPressed: () => _clearAllValues,
+                              onPressed: () => _clearAllValues(
+                                state.totalWbcCount,
+                              ),
                               child: const Text('Apagar tudo'),
                             ),
                           ],
@@ -156,28 +158,39 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                           ],
                         ),
                         const SizedBox(height: 36),
-                        Wrap(
-                          spacing: 16.0,
-                          runSpacing: 16.0,
-                          runAlignment: WrapAlignment.center,
-                          alignment: WrapAlignment.center,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: whiteBloodCell.map((wbc) {
-                            return WBCQuantityWidget(
-                              name: wbc.name,
-                              quantity: state.wbcQuantities[wbc.name]!,
-                              imagePath: wbc.imagePath,
-                              isAdicionarMode: isAdicionarMode,
-                              onUpdateQuantity: (newQuantity) {
-                                updateQuantity(
-                                    wbc.name, newQuantity, WBCType.white);
-                                _checkCellCountAndShowAlert(
-                                    state.totalWbcCount);
-                              },
-                            );
-                          }).toList(),
+                        ExpansionTile(
+                          initiallyExpanded: true,
+                          title: const Text(
+                            'Células Brancas',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          children: [
+                            Wrap(
+                              spacing: 16.0,
+                              runSpacing: 16.0,
+                              runAlignment: WrapAlignment.center,
+                              alignment: WrapAlignment.center,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: whiteBloodCell.map((wbc) {
+                                return WBCQuantityWidget(
+                                  name: wbc.name,
+                                  quantity: state.wbcQuantities[wbc.name]!,
+                                  imagePath: wbc.imagePath,
+                                  isAdicionarMode: isAdicionarMode,
+                                  onUpdateQuantity: (newQuantity) {
+                                    updateQuantity(
+                                        wbc.name, newQuantity, WBCType.white);
+                                    _checkCellCountAndShowAlert(
+                                        state.totalWbcCount);
+                                  },
+                                );
+                              }).toList(),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 36),
                         ExpansionTile(
                             title: const Text(
                               'Células Vermelhas',
@@ -317,7 +330,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
     );
   }
 
-  void _clearAllValues(TotalCellsBlood wbcQuantities) {
+  void _clearAllValues(int wbcQuantities) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -336,7 +349,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
               onPressed: () {
                 context.read<CellCountBloc>().add(CellCountResetEvent());
                 Navigator.of(context).pop(); // Close the dialog
-                setState(() {}); // Update the UI
+                setState(() {});
               },
               child: const Text('Confirmar',
                   style: TextStyle(color: Colors.white)),

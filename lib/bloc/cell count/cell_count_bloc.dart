@@ -59,7 +59,8 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
     emit((state as CellCountChangeState).copyWith(isAddMode: event.isAddMode));
   }
 
-  void _mapResetToState(CellCountResetEvent event, emit) async {
+  void _mapResetToState(CellCountResetEvent event, emit) {
+    emit(CellCountResetState());
     emit(CellCountChangeState.defaultValue());
   }
 
