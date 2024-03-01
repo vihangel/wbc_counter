@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -191,10 +192,10 @@ class ConfigPageState extends State<ConfigPage> {
 
               ///    subtitle: Text(_appConfig.language),
               subtitle: const Text('Português'),
-              // trailing: const Icon(Icons.arrow_forward_ios),
-              // onTap: () {
-              //   // Show a dialog to allow the user to select the app language
-              // },
+              trailing: const Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                _showDialogPickerCountry();
+              },
             ),
 
             // Reset configuration button
@@ -210,9 +211,25 @@ class ConfigPageState extends State<ConfigPage> {
     );
   }
 
+  _showDialogPickerCountry() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const CountryCodePicker(
+            // TODO: MUDAR A SELECAO DO IDIOMA
+            onChanged: print,
+            // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+            initialSelection: 'EN',
+            favorite: ['+55', 'PT'],
+            showCountryOnly: true,
+            showOnlyCountryWhenClosed: true,
+            alignLeft: true,
+          );
+        });
+  }
+
   @override
   void dispose() {
-    // Dispose of the controllers to avoid memory leaks
     for (var controller in _thresholdControllers) {
       controller.dispose();
     }

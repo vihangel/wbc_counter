@@ -38,6 +38,7 @@ dependencies:
   pix_flutter: ^2.2.0
   in_app_review: ^2.0.8
   intl: ^0.18.1
+  country_code_picker: ^3.0.0
 
 dev_dependencies:
   flutter_test:
