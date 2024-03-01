@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/config_model.dart';
 
 class ConfigPage extends StatefulWidget {
@@ -61,21 +62,9 @@ class ConfigPageState extends State<ConfigPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Translate text
-    var title = 'Configuração da WBC';
-    var themeMode = 'Tema';
-    // ignore: unused_local_variable
-    var notifications = 'Notificações';
-    var vibration = 'Vibração';
-    var sound = 'Som';
-    var alertThresholds = 'Notificar contagem';
-    var addNewAlertThreshold = 'Adicionar novo limiar de alerta';
-    var language = 'Idioma';
-    var resetConfiguration = 'Redefinir configuração';
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(S.of(context).configWbc),
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -83,8 +72,10 @@ class ConfigPageState extends State<ConfigPage> {
           children: [
             // Theme mode
             ListTile(
-              title: Text(themeMode),
-              subtitle: Text(_appConfig.isDarkTheme ? 'Escuro' : 'Claro'),
+              title: Text(S.of(context).mode),
+              subtitle: Text(_appConfig.isDarkTheme
+                  ? S.of(context).light
+                  : S.of(context).dark),
               trailing: Switch(
                 value: _appConfig.isDarkTheme,
                 onChanged: (value) {
@@ -114,9 +105,10 @@ class ConfigPageState extends State<ConfigPage> {
             //   ),
             // ),
             ListTile(
-              title: Text(sound),
-              subtitle:
-                  Text(_appConfig.isSoundEnabled ? 'Ativado' : 'Desativado'),
+              title: Text(S.of(context).sound),
+              subtitle: Text(_appConfig.isSoundEnabled
+                  ? S.of(context).enabled
+                  : S.of(context).disabled),
               trailing: Switch(
                 value: _appConfig.isSoundEnabled,
                 onChanged: (value) {
@@ -128,9 +120,10 @@ class ConfigPageState extends State<ConfigPage> {
               ),
             ),
             ListTile(
-              title: Text(vibration),
-              subtitle: Text(
-                  _appConfig.isVibrationEnabled ? 'Ativado' : 'Desativado'),
+              title: Text(S.of(context).vibration),
+              subtitle: Text(_appConfig.isVibrationEnabled
+                  ? S.of(context).enabled
+                  : S.of(context).disabled),
               trailing: Switch(
                 value: _appConfig.isVibrationEnabled,
                 onChanged: (value) {
@@ -144,8 +137,8 @@ class ConfigPageState extends State<ConfigPage> {
 
             // Alerts
             ExpansionTile(
-              title: Text(alertThresholds),
-              subtitle: const Text('Alertar quando a contagem de WBC atingir:'),
+              title: Text(S.of(context).alertThresholds),
+              subtitle: Text(S.of(context).alertToCount),
               children: [
                 // List of alert thresholds
                 if (_appConfig.alertThresholds.isNotEmpty && !loading)
@@ -181,7 +174,7 @@ class ConfigPageState extends State<ConfigPage> {
 
                 // Add new alert threshold button
                 ListTile(
-                  title: Text(addNewAlertThreshold),
+                  title: Text(S.of(context).addNewAlertThreshold),
                   trailing: const Icon(Icons.add),
                   onTap: () {
                     // Add a new alert threshold to the list of alert thresholds
@@ -194,7 +187,7 @@ class ConfigPageState extends State<ConfigPage> {
               ],
             ), // Language
             ListTile(
-              title: Text(language),
+              title: Text(S.of(context).language),
 
               ///    subtitle: Text(_appConfig.language),
               subtitle: const Text('Português'),
@@ -206,9 +199,8 @@ class ConfigPageState extends State<ConfigPage> {
 
             // Reset configuration button
             ListTile(
-              title: Text(resetConfiguration),
-              subtitle: const Text(
-                  'Redefinir todas as configurações para seus padrões'),
+              title: Text(S.of(context).resetConfiguration),
+              subtitle: const Text(''),
               trailing: const Icon(Icons.delete),
               onTap: _resetConfiguration,
             ),

@@ -44,7 +44,7 @@ class DrawerWidget extends StatelessWidget {
               Navigator.pop(context);
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const SupportPage(),
+                  builder: (context) => SupportPage(),
                 ),
               );
               // Handle Apoie

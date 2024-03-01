@@ -77,7 +77,6 @@ class LocalReportPage extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      ///total cells
                       report.bloodCells?.reportText ?? '',
                       textAlign: TextAlign.center,
                       style: const TextStyle(

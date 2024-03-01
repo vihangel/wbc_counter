@@ -28,7 +28,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "abnormalCells": MessageLookupByLibrary.simpleMessage("Abnormal Cells"),
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "addNewAlertThreshold":
+            MessageLookupByLibrary.simpleMessage("Add new alert threshold"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "alertThresholds": MessageLookupByLibrary.simpleMessage("Notify count"),
+        "alertToCount": MessageLookupByLibrary.simpleMessage(
+            "Alert when WBC count reaches:"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("App Evaluation"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Basophils have a bilobed nucleus, but it can be difficult to discern due to the dense granules. The cytoplasm is dark blue to black due to the basophilic granules. They are similar in size to neutrophils and eosinophils. They have dense granules, which obscure vision of the nucleus. They are involved in severe allergic reactions and immune responses."),
@@ -50,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clearAll": MessageLookupByLibrary.simpleMessage("Clear All"),
         "clearValues": MessageLookupByLibrary.simpleMessage("Clear Values"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "configWbc": MessageLookupByLibrary.simpleMessage("WBC Configuration"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmDeleteReport": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete this report?"),
@@ -57,11 +63,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "continu": MessageLookupByLibrary.simpleMessage("Continue"),
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("Could not launch"),
+        "dark": MessageLookupByLibrary.simpleMessage("Dark"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteReport": MessageLookupByLibrary.simpleMessage("Delete Report"),
+        "disabled": MessageLookupByLibrary.simpleMessage("Disabled"),
         "discardChanges":
             MessageLookupByLibrary.simpleMessage("Discard changes"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "enabled": MessageLookupByLibrary.simpleMessage("Enabled"),
         "eosinophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Eosinophils have a bilobed nucleus, resembling a pair of glasses. The cytoplasm is pink-orange due to the presence of eosinophilic granules. They are slightly larger than neutrophils and have an irregular shape. The granules are large and stained, usually pink. They are involved in the allergic response and defense against parasites."),
         "eosinophilsTitle": MessageLookupByLibrary.simpleMessage("Eosinophils"),
@@ -84,9 +93,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("How to identify the cells?"),
         "itHelpsALot":
             MessageLookupByLibrary.simpleMessage("This helps us a lot!"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Leave a review in the store!"),
+        "light": MessageLookupByLibrary.simpleMessage("Light"),
         "likeTheApp":
             MessageLookupByLibrary.simpleMessage("Do you like the app?"),
         "lymphocytesDescription": MessageLookupByLibrary.simpleMessage(
@@ -140,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noReportsSaved":
             MessageLookupByLibrary.simpleMessage("No reports saved yet"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "observation": MessageLookupByLibrary.simpleMessage("Observation"),
         "openStore": MessageLookupByLibrary.simpleMessage("Open Store"),
         "optionsToSupport":
@@ -153,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "report": MessageLookupByLibrary.simpleMessage("Report"),
         "reportSaved": MessageLookupByLibrary.simpleMessage("Report Saved"),
+        "resetConfiguration":
+            MessageLookupByLibrary.simpleMessage("Reset configuration"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveReport": MessageLookupByLibrary.simpleMessage(
             "Do you want to save the report?"),
@@ -161,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeReports": MessageLookupByLibrary.simpleMessage("See Reports"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shareReport": MessageLookupByLibrary.simpleMessage("Share Report"),
+        "sound": MessageLookupByLibrary.simpleMessage("Sound"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Do you want to continue adding or generating the report?"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
@@ -169,10 +184,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "thanks": MessageLookupByLibrary.simpleMessage("Thank you message"),
         "thanksMessage": MessageLookupByLibrary.simpleMessage(
             "Thank you for using our app and considering supporting our work. Your contribution is critical to our continued success. If you have any questions or suggestions, please don\'t hesitate to contact us. Together we can make a difference!"),
+        "theme": MessageLookupByLibrary.simpleMessage("Theme"),
         "tipsToIdentify":
             MessageLookupByLibrary.simpleMessage("Tips to identify the cells"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Type"),
+        "vibration": MessageLookupByLibrary.simpleMessage("Vibration"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("White Cells"),
         "whySupport": MessageLookupByLibrary.simpleMessage("Why support us?"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")

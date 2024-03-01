@@ -29,7 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Células anormais"),
         "about": MessageLookupByLibrary.simpleMessage("Sobre"),
         "add": MessageLookupByLibrary.simpleMessage("Adicionar"),
+        "addNewAlertThreshold": MessageLookupByLibrary.simpleMessage(
+            "Adicionar novo limiar de alerta"),
         "age": MessageLookupByLibrary.simpleMessage("Idade"),
+        "alertThresholds":
+            MessageLookupByLibrary.simpleMessage("Notificar contagem"),
+        "alertToCount": MessageLookupByLibrary.simpleMessage(
+            "Alertar quando a contagem de WBC atingir:"),
         "appEvaluation":
             MessageLookupByLibrary.simpleMessage("Avaliação do App"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
@@ -53,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "clearAll": MessageLookupByLibrary.simpleMessage("Apagar tudo"),
         "clearValues": MessageLookupByLibrary.simpleMessage("Limpar valores"),
         "close": MessageLookupByLibrary.simpleMessage("Fechar"),
+        "configWbc":
+            MessageLookupByLibrary.simpleMessage("Configuração da WBC"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirmar"),
         "confirmDeleteReport": MessageLookupByLibrary.simpleMessage(
             "Tem certeza que deseja apagar este relatório?"),
@@ -60,12 +68,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "continu": MessageLookupByLibrary.simpleMessage("Continuar"),
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("Não foi possivel abrir"),
+        "dark": MessageLookupByLibrary.simpleMessage("Escuro"),
         "delete": MessageLookupByLibrary.simpleMessage("Apagar"),
         "deleteReport":
             MessageLookupByLibrary.simpleMessage("Apagar relatório"),
+        "disabled": MessageLookupByLibrary.simpleMessage("Desativado"),
         "discardChanges":
             MessageLookupByLibrary.simpleMessage("Descartar alterações"),
         "edit": MessageLookupByLibrary.simpleMessage("Editar"),
+        "enabled": MessageLookupByLibrary.simpleMessage("Ativado"),
         "eosinophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Os eosinófilos têm um núcleo bilobado, parecendo um par de óculos. O citoplasma é rosa-alaranjado devido à presença de grânulos eosinofílicos. São ligeiramente maiores que os neutrófilos e têm forma irregular. Os grânulos são grandes e corados, geralmente rosados. Estão envolvidos na resposta alérgica e na defesa contra parasitas."),
         "eosinophilsTitle": MessageLookupByLibrary.simpleMessage("Eosinófilos"),
@@ -88,9 +99,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Como identificar as células"),
         "itHelpsALot":
             MessageLookupByLibrary.simpleMessage("Isso ajuda muito!"),
+        "language": MessageLookupByLibrary.simpleMessage("Idioma"),
         "later": MessageLookupByLibrary.simpleMessage("Depois"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Deixe uma avaliação na loja!"),
+        "light": MessageLookupByLibrary.simpleMessage("Claro"),
         "likeTheApp":
             MessageLookupByLibrary.simpleMessage("Está gostando do app?"),
         "lymphocytesDescription": MessageLookupByLibrary.simpleMessage(
@@ -144,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no": MessageLookupByLibrary.simpleMessage("Não"),
         "noReportsSaved": MessageLookupByLibrary.simpleMessage(
             "Não há relatórios salvos ainda"),
+        "notifications": MessageLookupByLibrary.simpleMessage("Notificações"),
         "observation": MessageLookupByLibrary.simpleMessage("Observação"),
         "openStore": MessageLookupByLibrary.simpleMessage("Abrir Loja"),
         "optionsToSupport":
@@ -157,6 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "remove": MessageLookupByLibrary.simpleMessage("Remover"),
         "report": MessageLookupByLibrary.simpleMessage("Relatório"),
         "reportSaved": MessageLookupByLibrary.simpleMessage("Relatório salvo"),
+        "resetConfiguration":
+            MessageLookupByLibrary.simpleMessage("Redefinir configuração"),
         "save": MessageLookupByLibrary.simpleMessage("Salvar"),
         "saveReport":
             MessageLookupByLibrary.simpleMessage("Deseja salvar o relatório?"),
@@ -167,6 +183,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings": MessageLookupByLibrary.simpleMessage("Configurações"),
         "shareReport":
             MessageLookupByLibrary.simpleMessage("Compartilhar relatório"),
+        "sound": MessageLookupByLibrary.simpleMessage("Som"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "sub_msg_confirmCalculateCells"),
         "support": MessageLookupByLibrary.simpleMessage("Suporte"),
@@ -176,10 +193,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mensagem de agradecimento"),
         "thanksMessage": MessageLookupByLibrary.simpleMessage(
             "Agradecemos por usar nosso aplicativo e por considerar apoiar nosso trabalho. Sua contribuição é fundamental para nosso sucesso contínuo. Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato conosco. Juntos, podemos fazer a diferença!"),
+        "theme": MessageLookupByLibrary.simpleMessage("Tema"),
         "tipsToIdentify": MessageLookupByLibrary.simpleMessage(
             "Dicas para identificar as células"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Tipo"),
+        "vibration": MessageLookupByLibrary.simpleMessage("Vibração"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Células brancas"),
         "whySupport": MessageLookupByLibrary.simpleMessage("Por que apoiar?"),
         "yes": MessageLookupByLibrary.simpleMessage("Sim")

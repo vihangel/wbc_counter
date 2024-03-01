@@ -49,6 +49,6 @@ class HiveHelper {
   }
 
   static Future<void> deleteAllReports() async {
-    final box = await Hive.deleteFromDisk();
+    await Hive.deleteFromDisk();
   }
 }

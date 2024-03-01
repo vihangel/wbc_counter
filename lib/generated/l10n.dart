@@ -370,6 +370,146 @@ class S {
     );
   }
 
+  /// `WBC Configuration`
+  String get configWbc {
+    return Intl.message(
+      'WBC Configuration',
+      name: 'configWbc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message(
+      'Theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notifications {
+    return Intl.message(
+      'Notifications',
+      name: 'notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vibration`
+  String get vibration {
+    return Intl.message(
+      'Vibration',
+      name: 'vibration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sound`
+  String get sound {
+    return Intl.message(
+      'Sound',
+      name: 'sound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notify count`
+  String get alertThresholds {
+    return Intl.message(
+      'Notify count',
+      name: 'alertThresholds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new alert threshold`
+  String get addNewAlertThreshold {
+    return Intl.message(
+      'Add new alert threshold',
+      name: 'addNewAlertThreshold',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset configuration`
+  String get resetConfiguration {
+    return Intl.message(
+      'Reset configuration',
+      name: 'resetConfiguration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert when WBC count reaches:`
+  String get alertToCount {
+    return Intl.message(
+      'Alert when WBC count reaches:',
+      name: 'alertToCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message(
+      'Dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enabled`
+  String get enabled {
+    return Intl.message(
+      'Enabled',
+      name: 'enabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disabled`
+  String get disabled {
+    return Intl.message(
+      'Disabled',
+      name: 'disabled',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Thank you message`
   String get thanks {
     return Intl.message(
