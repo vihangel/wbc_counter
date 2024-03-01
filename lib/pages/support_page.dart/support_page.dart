@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 
 class SupportPage extends StatelessWidget {
-  const SupportPage({
+  SupportPage({
     super.key,
   });
-
+  final S s = S();
   Future<void> _launchUrl(Uri uri) async {
     final urlLink = uri;
 
@@ -14,7 +15,7 @@ class SupportPage extends StatelessWidget {
     if (await canLaunchUrl(urlLink)) {
       await launchUrl(urlLink);
     } else {
-      throw 'Could not launch $urlLink';
+      throw '${s.couldNotLaunch} $urlLink';
     }
   }
 
@@ -27,7 +28,7 @@ class SupportPage extends StatelessWidget {
 
     if (status.isGranted && callStatus.isGranted) {
     } else {
-      throw 'Could not launch';
+      throw s.couldNotLaunch;
     }
   }
 
@@ -35,24 +36,24 @@ class SupportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Apoie'),
+        title: Text(S.of(context).support),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
-              'Apoie o Nosso Projeto!',
-              style: TextStyle(
+            Text(
+              S.of(context).supportOurProject,
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 32),
-            const Text(
-              'Opções de Apoio',
-              style: TextStyle(
+            Text(
+              S.of(context).optionsToSupport,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -60,7 +61,7 @@ class SupportPage extends StatelessWidget {
             // List donation options with links
             ListTile(
               leading: const Icon(Icons.coffee),
-              title: const Text('Compre um Café'),
+              title: Text(S.of(context).buyMeACoffe),
               onTap: () => _launchUrl(
                 Uri(
                     scheme: 'https',
@@ -68,31 +69,31 @@ class SupportPage extends StatelessWidget {
                     path: 'vihangel'),
               ),
             ),
-            const ListTile(
-              leading: Icon(Icons.qr_code),
-              title: Text('Chave Pix: 5565992328339'),
+            ListTile(
+              leading: const Icon(Icons.qr_code),
+              title: Text('${S.of(context).pixKey}: 5565992328339'),
             ),
 
             const SizedBox(height: 32),
-            const Text(
-              'Por que Apoiar?',
-              style: TextStyle(
+            Text(
+              S.of(context).whySupport,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
             // Explain why support matters
-            const Text(
-              'O seu apoio nos ajuda a continuar desenvolvendo e melhorando nosso aplicativo. Com sua ajuda, podemos oferecer atualizações regulares, novos recursos e garantir que o aplicativo continue gratuito para todos os usuários. Obrigado por apoiar nossa missão!',
-              style: TextStyle(
+            Text(
+              S.of(context).explainWhySupport,
+              style: const TextStyle(
                 fontSize: 16,
               ),
             ),
 
             const SizedBox(height: 32),
-            const Text(
-              'Entre em Contato',
-              style: TextStyle(
+            Text(
+              S.of(context).contactUs,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -129,21 +130,20 @@ class SupportPage extends StatelessWidget {
             ),
 
             const SizedBox(height: 32),
-            const Text(
-              'Mensagem de Agradecimento',
-              style: TextStyle(
+            Text(
+              S.of(context).thanks,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Text(
-              'Agradecemos por usar nosso aplicativo e por considerar apoiar nosso trabalho. Sua contribuição é fundamental para nosso sucesso contínuo. Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato conosco. Juntos, podemos fazer a diferença!',
-              style: TextStyle(
+            Text(
+              S.of(context).thanksMessage,
+              style: const TextStyle(
                 fontSize: 16,
               ),
             ),
             const SizedBox(height: 32),
-            // Add more sections as needed
           ],
         ),
       ),

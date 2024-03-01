@@ -300,11 +300,101 @@ class S {
     );
   }
 
+  /// `Support our project`
+  String get supportOurProject {
+    return Intl.message(
+      'Support our project',
+      name: 'supportOurProject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Options to support`
+  String get optionsToSupport {
+    return Intl.message(
+      'Options to support',
+      name: 'optionsToSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Buy me a coffe`
+  String get buyMeACoffe {
+    return Intl.message(
+      'Buy me a coffe',
+      name: 'buyMeACoffe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pix key`
+  String get pixKey {
+    return Intl.message(
+      'Pix key',
+      name: 'pixKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Why support us?`
+  String get whySupport {
+    return Intl.message(
+      'Why support us?',
+      name: 'whySupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!`
+  String get explainWhySupport {
+    return Intl.message(
+      'Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!',
+      name: 'explainWhySupport',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Rate Us`
   String get rateUs {
     return Intl.message(
       'Rate Us',
       name: 'rateUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thank you message`
+  String get thanks {
+    return Intl.message(
+      'Thank you message',
+      name: 'thanks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thank you for using our app and considering supporting our work. Your contribution is critical to our continued success. If you have any questions or suggestions, please don't hesitate to contact us. Together we can make a difference!`
+  String get thanksMessage {
+    return Intl.message(
+      'Thank you for using our app and considering supporting our work. Your contribution is critical to our continued success. If you have any questions or suggestions, please don\'t hesitate to contact us. Together we can make a difference!',
+      name: 'thanksMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact us`
+  String get contactUs {
+    return Intl.message(
+      'Contact us',
+      name: 'contactUs',
       desc: '',
       args: [],
     );
@@ -605,6 +695,16 @@ class S {
     return Intl.message(
       'Neutrophils',
       name: 'neutrophilsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not launch`
+  String get couldNotLaunch {
+    return Intl.message(
+      'Could not launch',
+      name: 'couldNotLaunch',
       desc: '',
       args: [],
     );

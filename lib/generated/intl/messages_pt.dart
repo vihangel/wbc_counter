@@ -46,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "basophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilidade e Atividade: São envolvidos em reações alérgicas graves e resposta imunológica."),
         "beforeLeaving": MessageLookupByLibrary.simpleMessage("Antes de sair"),
+        "buyMeACoffe":
+            MessageLookupByLibrary.simpleMessage("Compre me um café"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calcular"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "clearAll": MessageLookupByLibrary.simpleMessage("Apagar tudo"),
@@ -54,7 +56,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Confirmar"),
         "confirmDeleteReport": MessageLookupByLibrary.simpleMessage(
             "Tem certeza que deseja apagar este relatório?"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Entre em contato"),
         "continu": MessageLookupByLibrary.simpleMessage("Continuar"),
+        "couldNotLaunch":
+            MessageLookupByLibrary.simpleMessage("Não foi possivel abrir"),
         "delete": MessageLookupByLibrary.simpleMessage("Apagar"),
         "deleteReport":
             MessageLookupByLibrary.simpleMessage("Apagar relatório"),
@@ -76,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mobilidade e Atividade: Estão envolvidos na resposta alérgica e na defesa contra parasitas."),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Erro ao carregar relatórios"),
+        "explainWhySupport": MessageLookupByLibrary.simpleMessage(
+            "O seu apoio nos ajuda a continuar desenvolvendo e melhorando nosso aplicativo. Com sua ajuda, podemos oferecer atualizações regulares, novos recursos e garantir que o aplicativo continue gratuito para todos os usuários. Obrigado por apoiar nossa missão!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),
         "howIdentify":
             MessageLookupByLibrary.simpleMessage("Como identificar as células"),
@@ -139,8 +146,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Não há relatórios salvos ainda"),
         "observation": MessageLookupByLibrary.simpleMessage("Observação"),
         "openStore": MessageLookupByLibrary.simpleMessage("Abrir Loja"),
+        "optionsToSupport":
+            MessageLookupByLibrary.simpleMessage("Opções de apoio"),
         "patientAge": MessageLookupByLibrary.simpleMessage("Idade do paciente"),
         "patientName": MessageLookupByLibrary.simpleMessage("Nome do paciente"),
+        "pixKey": MessageLookupByLibrary.simpleMessage("Chave pix"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantidade"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Avalie"),
         "redCells": MessageLookupByLibrary.simpleMessage("Células vermelhas"),
@@ -160,11 +170,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "sub_msg_confirmCalculateCells"),
         "support": MessageLookupByLibrary.simpleMessage("Suporte"),
+        "supportOurProject":
+            MessageLookupByLibrary.simpleMessage("Apoie o nosso projeto"),
+        "thanks":
+            MessageLookupByLibrary.simpleMessage("Mensagem de agradecimento"),
+        "thanksMessage": MessageLookupByLibrary.simpleMessage(
+            "Agradecemos por usar nosso aplicativo e por considerar apoiar nosso trabalho. Sua contribuição é fundamental para nosso sucesso contínuo. Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato conosco. Juntos, podemos fazer a diferença!"),
         "tipsToIdentify": MessageLookupByLibrary.simpleMessage(
             "Dicas para identificar as células"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Tipo"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Células brancas"),
+        "whySupport": MessageLookupByLibrary.simpleMessage("Por que apoiar?"),
         "yes": MessageLookupByLibrary.simpleMessage("Sim")
       };
 }

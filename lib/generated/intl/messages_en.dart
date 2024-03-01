@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "basophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: Are involved in severe allergic reactions and immune response."),
         "beforeLeaving": MessageLookupByLibrary.simpleMessage("Before leaving"),
+        "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Buy me a coffe"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calculate"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clearAll": MessageLookupByLibrary.simpleMessage("Clear All"),
@@ -52,7 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmDeleteReport": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete this report?"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
         "continu": MessageLookupByLibrary.simpleMessage("Continue"),
+        "couldNotLaunch":
+            MessageLookupByLibrary.simpleMessage("Could not launch"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteReport": MessageLookupByLibrary.simpleMessage("Delete Report"),
         "discardChanges":
@@ -73,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mobility and Activity: They are involved in the allergic response and defense against parasites."),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Error loading reports"),
+        "explainWhySupport": MessageLookupByLibrary.simpleMessage(
+            "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "howIdentify":
             MessageLookupByLibrary.simpleMessage("How to identify the cells?"),
@@ -136,8 +142,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No reports saved yet"),
         "observation": MessageLookupByLibrary.simpleMessage("Observation"),
         "openStore": MessageLookupByLibrary.simpleMessage("Open Store"),
+        "optionsToSupport":
+            MessageLookupByLibrary.simpleMessage("Options to support"),
         "patientAge": MessageLookupByLibrary.simpleMessage("Patient Age"),
         "patientName": MessageLookupByLibrary.simpleMessage("Patient Name"),
+        "pixKey": MessageLookupByLibrary.simpleMessage("Pix key"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
         "redCells": MessageLookupByLibrary.simpleMessage("Red Cells"),
@@ -155,11 +164,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Do you want to continue adding or generating the report?"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
+        "supportOurProject":
+            MessageLookupByLibrary.simpleMessage("Support our project"),
+        "thanks": MessageLookupByLibrary.simpleMessage("Thank you message"),
+        "thanksMessage": MessageLookupByLibrary.simpleMessage(
+            "Thank you for using our app and considering supporting our work. Your contribution is critical to our continued success. If you have any questions or suggestions, please don\'t hesitate to contact us. Together we can make a difference!"),
         "tipsToIdentify":
             MessageLookupByLibrary.simpleMessage("Tips to identify the cells"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Type"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("White Cells"),
+        "whySupport": MessageLookupByLibrary.simpleMessage("Why support us?"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }
