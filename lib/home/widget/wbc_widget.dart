@@ -84,6 +84,7 @@ class WBCQuantityWidget extends StatelessWidget {
             ),
             Text(
               name,
+              maxLines: 1,
               style: const TextStyle(),
             ),
           ],

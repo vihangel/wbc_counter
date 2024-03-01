@@ -1,16 +1,22 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wbc_counter/config/config_page.dart';
+import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
+import 'package:wbc_counter/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/home/widget/app_bar_widget.dart';
+import 'package:wbc_counter/home/widget/drawer_widget.dart';
 import 'package:wbc_counter/home/widget/wbc_widget.dart';
-import 'package:wbc_counter/local_reports/local_reports_page.dart';
-import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/report/report_page.dart';
-import 'package:wbc_counter/support_page.dart/support_page.dart';
-import 'package:wbc_counter/tips/tips_page.dart';
+
+enum WBCType {
+  white,
+  red,
+  abnormal,
+  user,
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,65 +25,10 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with ProviderCells {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   bool isAdicionarMode = true;
-  Map<String, int> wbcQuantities = {
-    'Neutrófilo': 0,
-    'Basófilo': 0,
-    'Eosinófilo': 0,
-    'Monócito': 0,
-    'Linfócito': 0,
-  };
-
-  Map<String, int> rbcQuantities = {
-    'Eritrócito': 0,
-    'Plaquetas': 0,
-  };
-
-  Map<String, int> abnormalQuantities = {
-    'Blastos': 0,
-    'Metamielócitos': 0,
-    'Mielócitos': 0,
-    'Promielócitos': 0,
-    'Reticulócitos': 0,
-    'Hipersegmentados': 0,
-    'Pilosas': 0,
-  };
-
-  List<BloodCellModel> whiteBloodCell = [
-    BloodCellModel(
-        name: 'Neutrófilo', quantity: 0, imagePath: 'neutrofilo.png'),
-    BloodCellModel(name: 'Basófilo', quantity: 0, imagePath: 'basofilo.png'),
-    BloodCellModel(
-        name: 'Eosinófilo', quantity: 0, imagePath: 'eosinofilo.png'),
-    BloodCellModel(name: 'Monócito', quantity: 0, imagePath: 'monocito.png'),
-    BloodCellModel(name: 'Linfócito', quantity: 0, imagePath: 'linfocito.png'),
-  ];
-
-  List<BloodCellModel> redBloodCell = [
-    BloodCellModel(
-        name: 'Eritrócito', quantity: 0, imagePath: 'eritrocito.png'),
-    BloodCellModel(name: 'Plaquetas', quantity: 0, imagePath: 'plaquetas.png'),
-  ];
-
-  List<BloodCellModel> abnormalBloodCells = [
-    BloodCellModel(name: 'Blastos', quantity: 0, imagePath: 'blastos.png'),
-    BloodCellModel(
-        name: 'Metamielócitos', quantity: 0, imagePath: 'metamielocitos.png'),
-    BloodCellModel(
-        name: 'Mielócitos', quantity: 0, imagePath: 'mielocitos.png'),
-    BloodCellModel(
-        name: 'Promielócitos', quantity: 0, imagePath: 'promielocitos.png'),
-    BloodCellModel(
-        name: 'Reticulócitos', quantity: 0, imagePath: 'reticulocitos.png'),
-    BloodCellModel(
-        name: 'Hipersegmentados',
-        quantity: 0,
-        imagePath: 'hipersegmentados.png'),
-    BloodCellModel(name: 'Pilosas', quantity: 0, imagePath: 'pilosas.png'),
-  ];
 
   void toggleMode() {
     setState(() {
@@ -85,15 +36,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void updateQuantity(String wbcName, int newQuantity) {
-    setState(() {
-      wbcQuantities[wbcName] = newQuantity;
-    });
-    _checkCellCountAndShowAlert();
-  }
-
-  int getTotalQuantity() {
-    return wbcQuantities.values.reduce((a, b) => a + b);
+  void updateQuantity(String wbcName, int newQuantity, WBCType wbc) {
+    context.read<CellCountBloc>().add(WbcQuantitiesChangeEvent(
+        name: wbcName, quantity: newQuantity, wbcType: wbc));
   }
 
   late SharedPreferences prefs;
@@ -114,234 +59,163 @@ class _HomePageState extends State<HomePage> {
       key: _scaffoldKey,
       extendBody: true,
       resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-        ),
-        title: SvgPicture.asset(
-          'assets/logo.svg',
-          colorFilter:
-              const ColorFilter.mode(Colors.deepPurple, BlendMode.srcIn),
-          height: 32,
-        ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.help_outline),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => TipsPage(),
-                ),
-              );
-            },
-          ),
-        ],
+      appBar: AppBarWidget(
+        scaffoldKey: _scaffoldKey,
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Colors.deepPurple,
-              ),
-              child: Center(
-                child: SvgPicture.asset(
-                  'assets/logo.svg',
-                  height: 50,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.save_alt_outlined),
-              title: const Text('Relatórios Salvos'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const LocalReportPage(),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.monetization_on_outlined),
-              title: const Text('Sobre'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const SupportPage(),
-                  ),
-                );
-                // Handle Apoie
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.star_border_outlined),
-              title: const Text('Avalie'),
-              onTap: () {
-                Navigator.pop(context);
-                _showAppStoreAlert(context);
-              },
-            ),
-            const Spacer(),
-            SafeArea(
-              child: ListTile(
-                leading: const Icon(Icons.settings_outlined),
-                title: const Text('Configurações'),
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ConfigPage(),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: const DrawerWidget(),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Total: ${getTotalQuantity()}',
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+        child: BlocBuilder(
+            bloc: context.read<CellCountBloc>(),
+            builder: (context, state) {
+              if (state is CellCountChangeState) {
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Total: ${state.totalWbcCount}',
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () => _clearAllValues,
+                              child: const Text('Apagar tudo'),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            const Text(
+                              'Clique para:',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: toggleMode,
+                              child: Text(
+                                  isAdicionarMode ? 'Adicionar' : 'Remover'),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 36),
+                        Wrap(
+                          spacing: 16.0,
+                          runSpacing: 16.0,
+                          runAlignment: WrapAlignment.center,
+                          alignment: WrapAlignment.center,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: whiteBloodCell.map((wbc) {
+                            return WBCQuantityWidget(
+                              name: wbc.name,
+                              quantity: state.wbcQuantities[wbc.name]!,
+                              imagePath: wbc.imagePath,
+                              isAdicionarMode: isAdicionarMode,
+                              onUpdateQuantity: (newQuantity) {
+                                updateQuantity(
+                                    wbc.name, newQuantity, WBCType.white);
+                                _checkCellCountAndShowAlert(
+                                    state.totalWbcCount);
+                              },
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(height: 36),
+                        ExpansionTile(
+                            title: const Text(
+                              'Células Vermelhas',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            children: [
+                              Wrap(
+                                spacing: 16.0,
+                                runSpacing: 16.0,
+                                runAlignment: WrapAlignment.center,
+                                alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: redBloodCell.map((rbc) {
+                                  return WBCQuantityWidget(
+                                    name: rbc.name,
+                                    quantity: state.rbcQuantities[rbc.name]!,
+                                    imagePath: rbc.imagePath,
+                                    isAdicionarMode: isAdicionarMode,
+                                    onUpdateQuantity: (newQuantity) {
+                                      updateQuantity(
+                                          rbc.name, newQuantity, WBCType.red);
+                                    },
+                                  );
+                                }).toList(),
+                              ),
+                            ]),
+                        ExpansionTile(
+                            title: const Text(
+                              'Células Anormais',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            children: [
+                              Wrap(
+                                spacing: 16.0,
+                                runSpacing: 16.0,
+                                runAlignment: WrapAlignment.center,
+                                alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                children: abnormalBloodCells.map((abc) {
+                                  return WBCQuantityWidget(
+                                    name: abc.name,
+                                    quantity:
+                                        state.abnormalQuantities[abc.name]!,
+                                    imagePath: abc.imagePath,
+                                    isAdicionarMode: isAdicionarMode,
+                                    onUpdateQuantity: (newQuantity) {
+                                      updateQuantity(abc.name, newQuantity,
+                                          WBCType.abnormal);
+                                    },
+                                  );
+                                }).toList(),
+                              ),
+                            ]),
+                      ],
                     ),
-                    TextButton(
-                      onPressed: _clearAllValues,
-                      child: const Text('Apagar tudo'),
-                    ),
-                  ],
-                ), // Display the total quantity
-
-                Row(
-                  children: [
-                    const Text(
-                      'Clique para:',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: toggleMode,
-                      child: Text(isAdicionarMode ? 'Adicionar' : 'Remover'),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 36),
-                Wrap(
-                  spacing: 16.0,
-                  runSpacing: 16.0,
-                  runAlignment: WrapAlignment.center,
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: whiteBloodCell.map((wbc) {
-                    return WBCQuantityWidget(
-                      name: wbc.name,
-                      quantity: wbcQuantities[wbc.name]!,
-                      imagePath: wbc.imagePath,
-                      isAdicionarMode: isAdicionarMode,
-                      onUpdateQuantity: (newQuantity) {
-                        updateQuantity(wbc.name, newQuantity);
-                      },
-                    );
-                  }).toList(),
-                ),
-
-                const SizedBox(height: 36),
-                ExpansionTile(
-                    title: const Text(
-                      'Células Vermelhas',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    children: [
-                      Wrap(
-                        spacing: 16.0,
-                        runSpacing: 16.0,
-                        runAlignment: WrapAlignment.center,
-                        alignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: redBloodCell.map((rbc) {
-                          return WBCQuantityWidget(
-                            name: rbc.name,
-                            quantity: rbcQuantities[rbc.name]!,
-                            imagePath: rbc.imagePath,
-                            isAdicionarMode: isAdicionarMode,
-                            onUpdateQuantity: (newQuantity) {
-                              updateQuantity(rbc.name, newQuantity);
-                            },
-                          );
-                        }).toList(),
-                      ),
-                    ]),
-
-                ExpansionTile(
-                    title: const Text(
-                      'Células Anormais',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    children: [
-                      Wrap(
-                        spacing: 16.0,
-                        runSpacing: 16.0,
-                        runAlignment: WrapAlignment.center,
-                        alignment: WrapAlignment.center,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: abnormalBloodCells.map((abc) {
-                          return WBCQuantityWidget(
-                            name: abc.name,
-                            quantity: abnormalQuantities[abc.name]!,
-                            imagePath: abc.imagePath,
-                            isAdicionarMode: isAdicionarMode,
-                            onUpdateQuantity: (newQuantity) {
-                              updateQuantity(abc.name, newQuantity);
-                            },
-                          );
-                        }).toList(),
-                      ),
-                    ]),
-              ],
-            ),
-          ),
-        ),
+                  ),
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }),
       ),
-      bottomNavigationBar: SizedBox(
-        width: double.infinity,
-        child: ElevatedButton(
-          onPressed: () {
-            _navigateToReportPage(context);
-          },
-          child: const Text('Calcular', style: TextStyle(color: Colors.white)),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {
+              _navigateToReportPage(context);
+            },
+            child:
+                const Text('Calcular', style: TextStyle(color: Colors.white)),
+          ),
         ),
       ),
     );
   }
 
-  void _checkCellCountAndShowAlert() {
-    int totalQuantity = getTotalQuantity();
+  void _checkCellCountAndShowAlert(totalWbcCount) {
+    int totalQuantity = totalWbcCount;
     final threshold = prefs.getStringList('alertThresholds') ?? [];
     if (threshold.contains(totalQuantity.toString())) {
       showDialog(
@@ -354,14 +228,16 @@ class _HomePageState extends State<HomePage> {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
+                  Navigator.of(context).pop();
                 },
                 child: const Text('Continuar'),
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close the dialog
-                  _navigateToReportPage(context); // Navigate to the report page
+                  Navigator.of(context).pop();
+                  _navigateToReportPage(
+                    context,
+                  );
                 },
                 child: const Text('Calcular',
                     style: TextStyle(color: Colors.white)),
@@ -373,18 +249,26 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _navigateToReportPage(context) {
+  void _navigateToReportPage(BuildContext context) {
+    final state = context.read<CellCountBloc>().state;
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ReportPage(
             report: SaveReportModel(
-          bloodCells: wbcQuantities,
+          bloodCells: (state is CellCountChangeState)
+              ? TotalCellsBlood(
+                  wbcQuantities: state.wbcQuantities,
+                  rbcQuantities: state.rbcQuantities,
+                  abnormalQuantities: state.abnormalQuantities,
+                  userCells: state.userCells,
+                )
+              : null,
         )),
       ),
     );
   }
 
-  void _clearAllValues() {
+  void _clearAllValues(TotalCellsBlood wbcQuantities) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -401,50 +285,13 @@ class _HomePageState extends State<HomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                // Clear all values
-                wbcQuantities = {
-                  'Neutrófilo': 0,
-                  'Basófilo': 0,
-                  'Eosinófilo': 0,
-                  'Monócito': 0,
-                  'Linfócito': 0,
-                };
+                context.read<CellCountBloc>().add(CellCountResetEvent());
                 Navigator.of(context).pop(); // Close the dialog
                 setState(() {}); // Update the UI
               },
               child: const Text('Confirmar',
                   style: TextStyle(color: Colors.white)),
             ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showAppStoreAlert(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Avalie o App'),
-          content: const Text(
-            'Está gostando do app?\nDeixe uma avaliação na loja!\n\nIsso ajuda muito!',
-            // textAlign: TextAlign.center,
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Depois'),
-            ),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     // Open the app store here (e.g., using url_launcher package)
-            //   },
-            //   child: const Text('Abrir Loja',
-            //       style: TextStyle(color: Colors.white)),
-            // ),
           ],
         );
       },

@@ -3,14 +3,15 @@ part of 'cell_count_bloc.dart';
 abstract class CellCountEvent {}
 
 class WbcQuantitiesChangeEvent extends CellCountEvent {
-  final Map<String, int> wbcQuantities;
-  final List<BloodCellModel> BloodCellModels;
-  final int totalWbcCount;
+  final String name;
+  final int quantity;
+  final WBCType wbcType;
 
-  WbcQuantitiesChangeEvent(
-      {required this.wbcQuantities,
-      required this.BloodCellModels,
-      required this.totalWbcCount});
+  WbcQuantitiesChangeEvent({
+    required this.name,
+    required this.quantity,
+    required this.wbcType,
+  });
 }
 
 class IsAddModeChangeEvent extends CellCountEvent {

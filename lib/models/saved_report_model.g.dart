@@ -21,7 +21,7 @@ class SaveReportModelAdapter extends TypeAdapter<SaveReportModel> {
       type: fields[1] as String?,
       referenceValues: fields[2] as String?,
       age: fields[3] as int?,
-      bloodCells: (fields[4] as Map).cast<String, int>(),
+      bloodCells: fields[4] as TotalCellsBlood?,
       observation: fields[7] as String?,
       id: fields[6] as String?,
     );

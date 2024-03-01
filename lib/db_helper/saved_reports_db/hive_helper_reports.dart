@@ -1,5 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:uuid/uuid.dart';
+import 'package:wbc_counter/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 
 class HiveHelper {
@@ -7,6 +8,7 @@ class HiveHelper {
     await Hive.initFlutter();
 
     Hive.registerAdapter(SaveReportModelAdapter());
+    Hive.registerAdapter(TotalCellsBloodAdapter());
   }
 
   static Future<void> openBox() async {
@@ -44,5 +46,9 @@ class HiveHelper {
     final existingReport =
         box.toMap().values.firstWhere((report) => report.id == id);
     await box.delete(existingReport.key);
+  }
+
+  static Future<void> deleteAllReports() async {
+    final box = await Hive.deleteFromDisk();
   }
 }

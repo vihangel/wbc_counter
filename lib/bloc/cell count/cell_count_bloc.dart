@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
-import 'package:wbc_counter/models/blood_cells_model.dart';
+import 'package:wbc_counter/home/home_page.dart';
+import 'package:wbc_counter/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 
 part 'cell_count_event.dart';
@@ -18,15 +19,40 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
     on<CellCountDeleteEvent>((event, emit) => _mapDeleteToState(event, emit));
   }
 
+  final TotalCellsBlood wbcQuantities = TotalCellsBlood.defaultValue();
+
   void _mapUpdateCellCountToState(WbcQuantitiesChangeEvent event, emit) async {
-    final Map<String, int> wbcQuantities = event.wbcQuantities;
-    final int totalWbcCount = wbcQuantities.values.reduce((a, b) => a + b);
-    final List<BloodCellModel> BloodCellModels = event.BloodCellModels.map(
-        (wbc) => wbc.copyWith(quantity: wbcQuantities[wbc.name] ?? 0)).toList();
-    emit((state as CellCountChangeState).copyWith(
-        wbcQuantities: wbcQuantities,
-        totalWbcCount: totalWbcCount,
-        BloodCellModels: BloodCellModels));
+    // Create a new modifiable map from the original unmodifiable map
+    Map<String, int> originalMap =
+        (state as CellCountChangeState).mapByType(event.wbcType);
+    Map<String, int> newMap = Map.from(originalMap);
+
+    // Now you can modify the newMap as it is no longer unmodifiable
+    newMap[event.name] = event.quantity;
+
+    switch (event.wbcType) {
+      case WBCType.white:
+        emit((state as CellCountChangeState).copyWith(
+          wbcQuantities: newMap,
+        ));
+        break;
+      case WBCType.red:
+        emit((state as CellCountChangeState).copyWith(
+          rbcQuantities: newMap,
+        ));
+        break;
+      case WBCType.abnormal:
+        emit((state as CellCountChangeState).copyWith(
+          abnormalQuantities: newMap,
+        ));
+        break;
+      case WBCType.user:
+      default:
+        emit((state as CellCountChangeState).copyWith(
+          userCells: newMap,
+        ));
+        break;
+    }
   }
 
   void _mapUpdateIsAddModeToState(IsAddModeChangeEvent event, emit) async {

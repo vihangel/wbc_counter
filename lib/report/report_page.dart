@@ -46,11 +46,11 @@ class ReportPageState extends State<ReportPage> {
   @override
   Widget build(BuildContext context) {
     // Calculate the total quantity
-    int totalQuantity = widget.report.bloodCells.values.reduce((a, b) => a + b);
+    int totalQuantity = widget.report.bloodCells?.totalWbcCount ?? 0;
 
     // Calculate the percentages
     Map<String, double> wbcPercentages = {};
-    widget.report.bloodCells.forEach((key, value) {
+    widget.report.bloodCells?.allCells.forEach((key, value) {
       double percentage = (value / totalQuantity) * 100;
       wbcPercentages[key] = percentage;
     });
@@ -179,7 +179,8 @@ class ReportPageState extends State<ReportPage> {
                           DataColumn(label: Text('Quantidade')),
                           DataColumn(label: Text('%')),
                         ],
-                        rows: widget.report.bloodCells.entries.map((entry) {
+                        rows: widget.report.bloodCells!.allCells.entries
+                            .map((entry) {
                           return DataRow(
                             cells: [
                               DataCell(Text(entry.key)),
@@ -218,7 +219,8 @@ class ReportPageState extends State<ReportPage> {
                       TextButton(
                         onPressed: () {
                           String reportText = 'Total: $totalQuantity\n\n';
-                          for (var entry in widget.report.bloodCells.entries) {
+                          for (var entry
+                              in widget.report.bloodCells!.allCells.entries) {
                             reportText +=
                                 '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
                           }

@@ -112,8 +112,7 @@ class SupportPage extends StatelessWidget {
               onTap: () => _launchUrl(
                 Uri(
                     scheme: 'https',
-                    host:
-                        'www.instagram.com', // Replace with your Instagram url
+                    host: 'www.instagram.com',
                     path: 'vih.angel/'),
               ),
             ),

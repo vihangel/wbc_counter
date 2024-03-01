@@ -6,15 +6,18 @@ import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
 import 'package:wbc_counter/home/home_page.dart';
+import 'package:wbc_counter/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Hive.deleteFromDisk();
   await HiveHelper.init();
+
   await HiveHelper.openBox();
 
-  await Hive.openBox<SaveReportModel>(
-      'DB_REPORT'); // Replace 'reports' with your preferred box name
+  await Hive.openBox<SaveReportModel>('DB_REPORT');
+  await Hive.openBox<TotalCellsBlood>('DB_CELLS');
 
   runApp(const MyApp());
 }

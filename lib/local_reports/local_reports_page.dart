@@ -76,11 +76,7 @@ class LocalReportPage extends StatelessWidget {
                   child: Center(
                     child: Text(
                       ///total cells
-                      report.bloodCells
-                          .map((key, value) => MapEntry(key, value))
-                          .values
-                          .reduce((a, b) => a + b)
-                          .toString(),
+                      report.bloodCells?.reportText ?? '',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,
