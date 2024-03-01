@@ -4,9 +4,10 @@ import 'package:pie_chart/pie_chart.dart';
 import 'package:share/share.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
-import 'package:wbc_counter/home/home_page.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/local_reports/local_reports_page.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
+import 'package:wbc_counter/pages/home/home_page.dart';
 
 class ReportPage extends StatefulWidget {
   final SaveReportModel report;
@@ -61,7 +62,7 @@ class ReportPageState extends State<ReportPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Relatório'),
+          title: Text(S.of(context).report),
           actions: [
             if (isReadOnly)
               IconButton(
@@ -77,8 +78,8 @@ class ReportPageState extends State<ReportPage> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: const Text('Relatório salvo'),
-                    content: const Text('Algum texto concordando aqui'),
+                    title: Text(S.of(context).reportSaved),
+                    content: Text(S.of(context).msg_agreeing),
                     actions: [
                       TextButton(
                         onPressed: () {
@@ -87,7 +88,7 @@ class ReportPageState extends State<ReportPage> {
                                   builder: (context) => const HomePage()),
                               (route) => false);
                         },
-                        child: const Text('Fechar'),
+                        child: Text(S.of(context).close),
                       ),
                       TextButton(
                         onPressed: () async {
@@ -97,7 +98,7 @@ class ReportPageState extends State<ReportPage> {
                                 builder: (context) => const LocalReportPage()),
                           );
                         },
-                        child: const Text('Ver relatórios'),
+                        child: Text(S.of(context).seeReports),
                       ),
                     ],
                   );
@@ -119,11 +120,11 @@ class ReportPageState extends State<ReportPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 4, horizontal: 8),
                             child: Text(
-                              'Nome do paciente',
+                              S.of(context).patientName,
                             ),
                           ),
                           TextFormField(
@@ -136,11 +137,11 @@ class ReportPageState extends State<ReportPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 4, horizontal: 8),
                             child: Text(
-                              'Idade do paciente',
+                              S.of(context).patientAge,
                             ),
                           ),
                           TextFormField(
@@ -152,7 +153,7 @@ class ReportPageState extends State<ReportPage> {
                       const SizedBox(height: 16.0),
 
                       Text(
-                        'Total: $totalQuantity',
+                        '${S.of(context).total}: $totalQuantity',
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
@@ -174,10 +175,10 @@ class ReportPageState extends State<ReportPage> {
                       const SizedBox(height: 16.0),
                       // Display the report table
                       DataTable(
-                        columns: const [
-                          DataColumn(label: Text('Tipos')),
-                          DataColumn(label: Text('Quantidade')),
-                          DataColumn(label: Text('%')),
+                        columns: [
+                          DataColumn(label: Text(S.of(context).type)),
+                          DataColumn(label: Text(S.of(context).quantity)),
+                          const DataColumn(label: Text('%')),
                         ],
                         rows: widget.report.bloodCells!.allCells.entries
                             .map((entry) {
@@ -196,8 +197,8 @@ class ReportPageState extends State<ReportPage> {
                       TextFormField(
                         controller: _observationController,
                         keyboardType: TextInputType.multiline,
-                        decoration:
-                            const InputDecoration(labelText: 'Observação'),
+                        decoration: InputDecoration(
+                            labelText: S.of(context).observation),
                         textInputAction: TextInputAction.newline,
                         maxLines: null,
                         readOnly: isReadOnly,
@@ -208,9 +209,9 @@ class ReportPageState extends State<ReportPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: _saveReport,
-                            child: const Text(
-                              'Salvar',
-                              style: TextStyle(color: Colors.white),
+                            child: Text(
+                              S.of(context).save,
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                         ),
@@ -218,7 +219,8 @@ class ReportPageState extends State<ReportPage> {
 
                       TextButton(
                         onPressed: () {
-                          String reportText = 'Total: $totalQuantity\n\n';
+                          String reportText =
+                              '${S.of(context).total}: $totalQuantity\n\n';
                           for (var entry
                               in widget.report.bloodCells!.allCells.entries) {
                             reportText +=
@@ -226,8 +228,8 @@ class ReportPageState extends State<ReportPage> {
                           }
                           Share.share(reportText);
                         },
-                        child: const Text(
-                          'Compartilhar relatório',
+                        child: Text(
+                          S.of(context).shareReport,
                         ),
                       ),
                       if (isReadOnly) ...[
@@ -237,14 +239,14 @@ class ReportPageState extends State<ReportPage> {
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.red[400]),
                             onPressed: _deleteReport,
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Icon(Icons.delete, color: Colors.white),
-                                SizedBox(width: 8.0),
+                                const Icon(Icons.delete, color: Colors.white),
+                                const SizedBox(width: 8.0),
                                 Text(
-                                  'Apagar',
-                                  style: TextStyle(color: Colors.white),
+                                  S.of(context).delete,
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                               ],
                             ),
@@ -291,23 +293,22 @@ class ReportPageState extends State<ReportPage> {
                   (route) => false);
 
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Relatório apagado'),
+                SnackBar(
+                  content: Text(S.of(context).msg_reportDeleted),
                 ),
               );
             }
           },
           builder: (context, state) {
             return AlertDialog(
-              title: const Text('Apagar relatório'),
-              content:
-                  const Text('Tem certeza que deseja apagar este relatório?'),
+              title: Text(S.of(context).deleteReport),
+              content: Text(S.of(context).confirmDeleteReport),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: const Text('Cancelar'),
+                  child: Text(S.of(context).cancel),
                 ),
                 TextButton(
                   onPressed: () {
@@ -315,7 +316,7 @@ class ReportPageState extends State<ReportPage> {
                         .read<CellCountBloc>()
                         .add(CellCountDeleteEvent(id: widget.report.id!));
                   },
-                  child: const Text('Apagar'),
+                  child: Text(S.of(context).delete),
                 ),
               ],
             );

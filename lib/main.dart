@@ -5,9 +5,10 @@ import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
-import 'package:wbc_counter/home/home_page.dart';
-import 'package:wbc_counter/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
+import 'package:wbc_counter/pages/home/home_page.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -153,6 +154,10 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
+            localizationsDelegates: const [
+              S.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
             home: const HomePage(),
           );

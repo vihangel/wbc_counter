@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:wbc_counter/config/config_page.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/local_reports/local_reports_page.dart';
-import 'package:wbc_counter/support_page.dart/support_page.dart';
+import 'package:wbc_counter/pages/support_page.dart/support_page.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -26,7 +27,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.save_alt_outlined),
-            title: const Text('Relatórios Salvos'),
+            title: Text(S.of(context).savedReports),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(
@@ -38,7 +39,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.monetization_on_outlined),
-            title: const Text('Sobre'),
+            title: Text(S.of(context).about),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(
@@ -51,7 +52,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.star_border_outlined),
-            title: const Text('Avalie'),
+            title: Text(S.of(context).rateUs),
             onTap: () {
               Navigator.pop(context);
               _showAppStoreAlert(context);
@@ -61,7 +62,7 @@ class DrawerWidget extends StatelessWidget {
           SafeArea(
             child: ListTile(
               leading: const Icon(Icons.settings_outlined),
-              title: const Text('Configurações'),
+              title: Text(S.of(context).settings),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.of(context).push(
@@ -82,9 +83,9 @@ class DrawerWidget extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Avalie o App'),
-          content: const Text(
-            'Está gostando do app?\nDeixe uma avaliação na loja!\n\nIsso ajuda muito!',
+          title: Text(S.of(context).appEvaluation),
+          content: Text(
+            '${S.of(context).likeTheApp}\n ${S.of(context).leaveAReview}\n\n ${S.of(context).itHelpsALot}',
             // textAlign: TextAlign.center,
           ),
           actions: <Widget>[
@@ -92,7 +93,7 @@ class DrawerWidget extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Depois'),
+              child: Text(S.of(context).later),
             ),
             ElevatedButton(
               onPressed: () {
@@ -102,7 +103,7 @@ class DrawerWidget extends StatelessWidget {
                   appStoreId: '...',
                 );
               },
-              child: const Text('Abrir Loja'),
+              child: Text(S.of(context).openStore),
             ),
           ],
         );

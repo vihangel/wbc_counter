@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:wbc_counter/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 part 'saved_report_model.g.dart';
 

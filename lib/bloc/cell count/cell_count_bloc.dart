@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
-import 'package:wbc_counter/home/home_page.dart';
-import 'package:wbc_counter/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
+import 'package:wbc_counter/pages/home/home_page.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 part 'cell_count_event.dart';
 part 'cell_count_state.dart';

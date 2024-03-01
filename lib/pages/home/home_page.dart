@@ -5,12 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
-import 'package:wbc_counter/home/mixin/provider_cells.dart';
-import 'package:wbc_counter/home/widget/app_bar_widget.dart';
-import 'package:wbc_counter/home/widget/drawer_widget.dart';
-import 'package:wbc_counter/home/widget/wbc_widget.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/report/report_page.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/widget/app_bar_widget.dart';
+import 'package:wbc_counter/pages/home/widget/drawer_widget.dart';
+import 'package:wbc_counter/pages/home/widget/wbc_widget.dart';
+import 'package:wbc_counter/pages/report/report_page.dart';
 
 enum WBCType {
   white,
@@ -79,25 +80,26 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Total: ${state.totalWbcCount}',
+                              '${S.of(context).total}: ${state.totalWbcCount}',
                               style: const TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             TextButton(
-                              onPressed: () => _clearAllValues(
-                                state.totalWbcCount,
-                              ),
-                              child: const Text('Apagar tudo'),
-                            ),
+                                onPressed: () => _clearAllValues(
+                                      state.totalWbcCount,
+                                    ),
+                                child: Text(
+                                  S.of(context).clearAll,
+                                )),
                           ],
                         ),
-                        const Align(
+                        Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Modo:',
-                            style: TextStyle(
+                            '${S.of(context).mode}:',
+                            style: const TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -112,7 +114,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                                     !isAdicionarMode ? Colors.white : null,
                               ),
                               onPressed: () => toggleMode(true),
-                              child: Text('Adicionar',
+                              child: Text(S.of(context).add,
                                   style: TextStyle(
                                       color: isAdicionarMode
                                           ? context
@@ -136,7 +138,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                                     isAdicionarMode ? Colors.white : null,
                               ),
                               onPressed: () => toggleMode(false),
-                              child: Text('Remover',
+                              child: Text(S.of(context).remove,
                                   style: TextStyle(
                                       color: !isAdicionarMode
                                           ? context
@@ -160,9 +162,9 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                         const SizedBox(height: 36),
                         ExpansionTile(
                           initiallyExpanded: true,
-                          title: const Text(
-                            'Células Brancas',
-                            style: TextStyle(
+                          title: Text(
+                            S.of(context).whiteCells,
+                            style: const TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -192,9 +194,9 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                           ],
                         ),
                         ExpansionTile(
-                            title: const Text(
-                              'Células Vermelhas',
-                              style: TextStyle(
+                            title: Text(
+                              S.of(context).redCells,
+                              style: const TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -221,9 +223,9 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                               ),
                             ]),
                         ExpansionTile(
-                            title: const Text(
-                              'Células Anormais',
-                              style: TextStyle(
+                            title: Text(
+                              S.of(context).abnormalCells,
+                              style: const TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -268,8 +270,8 @@ class _HomePageState extends State<HomePage> with ProviderCells {
             onPressed: () {
               _navigateToReportPage(context);
             },
-            child:
-                const Text('Calcular', style: TextStyle(color: Colors.white)),
+            child: Text(S.of(context).calculate,
+                style: const TextStyle(color: Colors.white)),
           ),
         ),
       ),
@@ -284,15 +286,14 @@ class _HomePageState extends State<HomePage> with ProviderCells {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Você adicionou $totalQuantity celulas'),
-            content: const Text(
-                'Deseja continuar adicionando ou gerar o relatório?'),
+            title: Text(S.of(context).msg_confirmCalculateCells(totalQuantity)),
+            content: Text(S.of(context).sub_msg_confirmCalculateCells),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text('Continuar'),
+                child: Text(S.of(context).continu),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -301,8 +302,8 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                     context,
                   );
                 },
-                child: const Text('Calcular',
-                    style: TextStyle(color: Colors.white)),
+                child: Text(S.of(context).calculate,
+                    style: const TextStyle(color: Colors.white)),
               ),
             ],
           );
@@ -335,15 +336,14 @@ class _HomePageState extends State<HomePage> with ProviderCells {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Limpar Valores'),
-          content:
-              const Text('Tem certeza de que deseja limpar todos os valores?'),
+          title: Text(S.of(context).clearValues),
+          content: Text(S.of(context).msg_confirmClearAllValues),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
               },
-              child: const Text('Cancelar'),
+              child: Text(S.of(context).cancel),
             ),
             ElevatedButton(
               onPressed: () {
@@ -351,8 +351,8 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                 Navigator.of(context).pop(); // Close the dialog
                 setState(() {});
               },
-              child: const Text('Confirmar',
-                  style: TextStyle(color: Colors.white)),
+              child: Text(S.of(context).confirm,
+                  style: const TextStyle(color: Colors.white)),
             ),
           ],
         );

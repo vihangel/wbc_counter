@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:uuid/uuid.dart';
-import 'package:wbc_counter/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 class HiveHelper {
   static Future<void> init() async {

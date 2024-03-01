@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
-import 'package:wbc_counter/home/home_page.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/report/report_page.dart';
+import 'package:wbc_counter/pages/home/home_page.dart';
+import 'package:wbc_counter/pages/report/report_page.dart';
 
 class LocalReportPage extends StatelessWidget {
   const LocalReportPage({super.key});
@@ -23,15 +24,15 @@ class LocalReportPage extends StatelessWidget {
       canPop: false,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Salvos'),
+          title: Text(S.of(context).savedReports),
         ),
         body: BlocBuilder<LocalReportsBloc, LocalReportsState>(
           builder: (context, state) {
             if (state is LoadedLocalReportState) {
               return _buildReportList(state.reports);
             } else if (state is ErrorLocalReportState) {
-              return const Center(
-                child: Text('Erro ao carregar relatórios'),
+              return Center(
+                child: Text(S.of(context).errorLoadingReports),
               );
             } else if (state is LoadingLocalReportState) {
               return const Center(
@@ -48,9 +49,10 @@ class LocalReportPage extends StatelessWidget {
   }
 
   Widget _buildReportList(List<SaveReportModel> reports) {
+    final S s = S();
     if (reports.isEmpty) {
-      return const Center(
-        child: Text('Ainda não há relatórios salvos'),
+      return Center(
+        child: Text(s.noReportsSaved),
       );
     } else {
       return ListView.builder(
@@ -87,7 +89,7 @@ class LocalReportPage extends StatelessWidget {
                   ),
                 ),
                 title: Text(report.name ?? ''),
-                subtitle: Text('Idade: ${report.age}'),
+                subtitle: Text('${s.age}: ${report.age}'),
                 trailing: const Icon(Icons.arrow_forward_ios),
               ),
             ),
