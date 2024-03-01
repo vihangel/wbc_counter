@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
+import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/home/widget/app_bar_widget.dart';
 import 'package:wbc_counter/home/widget/drawer_widget.dart';
@@ -30,9 +31,9 @@ class _HomePageState extends State<HomePage> with ProviderCells {
 
   bool isAdicionarMode = true;
 
-  void toggleMode() {
+  void toggleMode(bool toggleMode) {
     setState(() {
-      isAdicionarMode = !isAdicionarMode;
+      isAdicionarMode = toggleMode;
     });
   }
 
@@ -90,20 +91,68 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                             ),
                           ],
                         ),
+                        const Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Modo:',
+                            style: TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Clique para:',
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    !isAdicionarMode ? Colors.white : null,
                               ),
+                              onPressed: () => toggleMode(true),
+                              child: Text('Adicionar',
+                                  style: TextStyle(
+                                      color: isAdicionarMode
+                                          ? context
+                                                      .read<ThemeAppBloc>()
+                                                      .theme ==
+                                                  ThemeMode.light
+                                              ? Colors.white
+                                              : const Color.fromARGB(
+                                                  255, 42, 42, 42)
+                                          : null)),
                             ),
-                            TextButton(
-                              onPressed: toggleMode,
-                              child: Text(
-                                  isAdicionarMode ? 'Adicionar' : 'Remover'),
+                            const SizedBox(
+                              width: 16.0,
                             ),
+
+                            ///Remove button
+
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    isAdicionarMode ? Colors.white : null,
+                              ),
+                              onPressed: () => toggleMode(false),
+                              child: Text('Remover',
+                                  style: TextStyle(
+                                      color: !isAdicionarMode
+                                          ? context
+                                                      .read<ThemeAppBloc>()
+                                                      .theme ==
+                                                  ThemeMode.light
+                                              ? Colors.white
+                                              : const Color.fromARGB(
+                                                  255, 42, 42, 42)
+                                          : null)),
+                            ),
+
+                            // IconButton(
+                            //     onPressed: () {},
+                            //     icon: const Icon(
+                            //       Icons.undo_rounded,
+                            //       color: Colors.deepPurple,
+                            //     ))
                           ],
                         ),
                         const SizedBox(height: 36),
