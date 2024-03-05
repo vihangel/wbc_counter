@@ -1210,10 +1210,10 @@ class S {
     );
   }
 
-  /// `Tips to identify the cells`
+  /// `Tips to identify`
   String get tipsToIdentify {
     return Intl.message(
-      'Tips to identify the cells',
+      'Tips to identify',
       name: 'tipsToIdentify',
       desc: '',
       args: [],

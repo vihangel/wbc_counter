@@ -194,8 +194,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "thanksMessage": MessageLookupByLibrary.simpleMessage(
             "Agradecemos por usar nosso aplicativo e por considerar apoiar nosso trabalho. Sua contribuição é fundamental para nosso sucesso contínuo. Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato conosco. Juntos, podemos fazer a diferença!"),
         "theme": MessageLookupByLibrary.simpleMessage("Tema"),
-        "tipsToIdentify": MessageLookupByLibrary.simpleMessage(
-            "Dicas para identificar as células"),
+        "tipsToIdentify":
+            MessageLookupByLibrary.simpleMessage("Dicas de identificação"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Tipo"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibração"),

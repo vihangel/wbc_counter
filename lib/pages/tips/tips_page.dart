@@ -79,6 +79,7 @@ class TipsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    initialize();
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).tipsToIdentify),
