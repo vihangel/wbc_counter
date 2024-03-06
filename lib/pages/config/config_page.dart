@@ -1,10 +1,13 @@
-import 'package:country_code_picker/country_code_picker.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/config_model.dart';
+import 'package:wbc_counter/pages/config/widget/dialog_language_picker.dart';
 
 class ConfigPage extends StatefulWidget {
   const ConfigPage({super.key});
@@ -33,7 +36,7 @@ class ConfigPageState extends State<ConfigPage> {
               .add(TextEditingController(text: threshold.toString()));
           return int.tryParse(threshold) ?? 0;
         }).toList(),
-        language: prefs.getString('language') ?? 'English',
+        language: prefs.getString('language') ?? Platform.localeName,
       );
       loading = false;
     });
@@ -55,10 +58,20 @@ class ConfigPageState extends State<ConfigPage> {
     await prefs.setString('language', _appConfig.language);
   }
 
+  final S s = S();
+  late List<LanguageOption> languageOptions;
+
   @override
   void initState() {
     super.initState();
     loadConfiguration();
+    languageOptions = [
+      LanguageOption('en', s.english, 'assets/flags/us_flag.svg'),
+      LanguageOption('pt', s.portuguese, 'assets/flags/br_flag.svg'),
+      LanguageOption('es', s.spanish, 'assets/flags/es_flag.svg'),
+      LanguageOption('fr', s.french, 'assets/flags/fr_flag.svg'),
+      LanguageOption('it', s.italian, 'assets/flags/it_flag.svg'),
+    ];
   }
 
   @override
@@ -116,7 +129,7 @@ class ConfigPageState extends State<ConfigPage> {
                   setState(() {
                     _appConfig = _appConfig.copyWith(isSoundEnabled: value);
                   });
-                  saveConfiguration(); // Save immediately when the theme changes
+                  saveConfiguration();
                 },
               ),
             ),
@@ -189,9 +202,11 @@ class ConfigPageState extends State<ConfigPage> {
             ), // Language
             ListTile(
               title: Text(S.of(context).language),
-
-              ///    subtitle: Text(_appConfig.language),
-              subtitle: const Text('Português'),
+              leading: SvgPicture.asset(
+                  'assets/flags/${_appConfig.language}_flag.svg',
+                  width: 30,
+                  height: 20),
+              subtitle: Text(_appConfig.language),
               trailing: const Icon(Icons.arrow_forward_ios),
               onTap: () {
                 _showDialogPickerCountry();
@@ -211,21 +226,26 @@ class ConfigPageState extends State<ConfigPage> {
     );
   }
 
-  _showDialogPickerCountry() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const CountryCodePicker(
-            // TODO: MUDAR A SELECAO DO IDIOMA
-            onChanged: print,
-            // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-            initialSelection: 'EN',
-            favorite: ['+55', 'PT'],
-            showCountryOnly: true,
-            showOnlyCountryWhenClosed: true,
-            alignLeft: true,
-          );
-        });
+  Future<void> _showDialogPickerCountry() async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return DialogPicker(
+          languageOptions: languageOptions,
+          onSelectLanguage: (selectedLanguageCode) async {
+            final prefs = await SharedPreferences.getInstance();
+            await prefs.setString('language', selectedLanguageCode);
+
+            setState(() {
+              _appConfig = _appConfig.copyWith(language: selectedLanguageCode);
+            });
+
+            S.load(Locale(selectedLanguageCode));
+            saveConfiguration();
+          },
+        );
+      },
+    );
   }
 
   @override

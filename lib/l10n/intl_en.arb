@@ -116,5 +116,11 @@
     "monocytesTopic5": "Mobility and Activity: They are mobile and differentiate into macrophages when they move to tissues.",
     "moreExamples": "More Examples",
     "howIdentify": "How to identify the cells?",
-    "tipsToIdentify": "Tips to identify"
+    "tipsToIdentify": "Tips to identify",
+    "selectLanguage": "Select Language",
+    "portuguese": "Portuguese",
+    "english": "English",
+    "spanish": "Spanish",
+    "french": "French",
+    "italian": "Italian"
 }

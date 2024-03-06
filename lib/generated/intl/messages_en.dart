@@ -71,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Discard changes"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "enabled": MessageLookupByLibrary.simpleMessage("Enabled"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "eosinophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Eosinophils have a bilobed nucleus, resembling a pair of glasses. The cytoplasm is pink-orange due to the presence of eosinophilic granules. They are slightly larger than neutrophils and have an irregular shape. The granules are large and stained, usually pink. They are involved in the allergic response and defense against parasites."),
         "eosinophilsTitle": MessageLookupByLibrary.simpleMessage("Eosinophils"),
@@ -89,10 +90,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
+        "french": MessageLookupByLibrary.simpleMessage("French"),
         "howIdentify":
             MessageLookupByLibrary.simpleMessage("How to identify the cells?"),
         "itHelpsALot":
             MessageLookupByLibrary.simpleMessage("This helps us a lot!"),
+        "italian": MessageLookupByLibrary.simpleMessage("Italian"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
@@ -159,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientAge": MessageLookupByLibrary.simpleMessage("Patient Age"),
         "patientName": MessageLookupByLibrary.simpleMessage("Patient Name"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Pix key"),
+        "portuguese": MessageLookupByLibrary.simpleMessage("Portuguese"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
         "redCells": MessageLookupByLibrary.simpleMessage("Red Cells"),
@@ -173,9 +177,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "savedReports": MessageLookupByLibrary.simpleMessage("Saved Reports"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "seeReports": MessageLookupByLibrary.simpleMessage("See Reports"),
+        "selectLanguage":
+            MessageLookupByLibrary.simpleMessage("Select Language"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shareReport": MessageLookupByLibrary.simpleMessage("Share Report"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound"),
+        "spanish": MessageLookupByLibrary.simpleMessage("Spanish"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Do you want to continue adding or generating the report?"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),

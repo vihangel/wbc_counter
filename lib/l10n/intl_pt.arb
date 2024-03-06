@@ -117,5 +117,11 @@
     "monocytesTopic5": "Mobilidade e Atividade: São móveis e se diferenciam em macrófagos quando se deslocam para os tecidos.",
     "moreExamples": "Mais exemplos",
     "howIdentify": "Como identificar as células",
-    "tipsToIdentify": "Dicas de identificação"
+    "tipsToIdentify": "Dicas de identificação",
+    "selectLanguage": "Selecione o idioma",
+    "portuguese": "Português",
+    "english": "Inglês",
+    "spanish": "Espanhol",
+    "french": "Francês",
+    "italian": "Italiano"
 }

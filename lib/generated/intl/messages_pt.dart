@@ -77,6 +77,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Descartar alterações"),
         "edit": MessageLookupByLibrary.simpleMessage("Editar"),
         "enabled": MessageLookupByLibrary.simpleMessage("Ativado"),
+        "english": MessageLookupByLibrary.simpleMessage("Inglês"),
         "eosinophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Os eosinófilos têm um núcleo bilobado, parecendo um par de óculos. O citoplasma é rosa-alaranjado devido à presença de grânulos eosinofílicos. São ligeiramente maiores que os neutrófilos e têm forma irregular. Os grânulos são grandes e corados, geralmente rosados. Estão envolvidos na resposta alérgica e na defesa contra parasitas."),
         "eosinophilsTitle": MessageLookupByLibrary.simpleMessage("Eosinófilos"),
@@ -95,10 +96,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "O seu apoio nos ajuda a continuar desenvolvendo e melhorando nosso aplicativo. Com sua ajuda, podemos oferecer atualizações regulares, novos recursos e garantir que o aplicativo continue gratuito para todos os usuários. Obrigado por apoiar nossa missão!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),
+        "french": MessageLookupByLibrary.simpleMessage("Francês"),
         "howIdentify":
             MessageLookupByLibrary.simpleMessage("Como identificar as células"),
         "itHelpsALot":
             MessageLookupByLibrary.simpleMessage("Isso ajuda muito!"),
+        "italian": MessageLookupByLibrary.simpleMessage("Italiano"),
         "language": MessageLookupByLibrary.simpleMessage("Idioma"),
         "later": MessageLookupByLibrary.simpleMessage("Depois"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
@@ -165,6 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientAge": MessageLookupByLibrary.simpleMessage("Idade do paciente"),
         "patientName": MessageLookupByLibrary.simpleMessage("Nome do paciente"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Chave pix"),
+        "portuguese": MessageLookupByLibrary.simpleMessage("Português"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantidade"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Avalie"),
         "redCells": MessageLookupByLibrary.simpleMessage("Células vermelhas"),
@@ -180,10 +184,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Relatórios Salvos"),
         "search": MessageLookupByLibrary.simpleMessage("Buscar"),
         "seeReports": MessageLookupByLibrary.simpleMessage("Ver relatórios"),
+        "selectLanguage":
+            MessageLookupByLibrary.simpleMessage("Selecione o idioma"),
         "settings": MessageLookupByLibrary.simpleMessage("Configurações"),
         "shareReport":
             MessageLookupByLibrary.simpleMessage("Compartilhar relatório"),
         "sound": MessageLookupByLibrary.simpleMessage("Som"),
+        "spanish": MessageLookupByLibrary.simpleMessage("Espanhol"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "sub_msg_confirmCalculateCells"),
         "support": MessageLookupByLibrary.simpleMessage("Suporte"),

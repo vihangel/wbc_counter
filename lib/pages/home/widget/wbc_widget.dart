@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 
@@ -33,7 +34,8 @@ class WBCQuantityWidget extends StatelessWidget {
       HapticFeedback.vibrate();
     }
     if (prefs.getBool('isSoundEnabled') ?? true) {
-      SystemSound.play(SystemSoundType.click);
+      // Permission.audio.request();
+      await SystemSound.play(SystemSoundType.click);
     }
   }
 

@@ -25,7 +25,7 @@ dependencies:
   flutter_svg: ^2.0.7
   flutter_native_splash: ^2.3.2
   url_launcher: ^6.1.14
-  permission_handler: ^11.0.0
+  permission_handler: ^11.3.0
   #DB
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -38,7 +38,6 @@ dependencies:
   pix_flutter: ^2.2.0
   in_app_review: ^2.0.8
   intl: ^0.18.1
-  country_code_picker: ^3.0.0
   flutter_localization: ^0.2.0
 
 dev_dependencies:
@@ -56,6 +55,8 @@ flutter:
   assets:
     - assets/
     - assets/cells/
+    # - assets/icons/
+    - assets/flags/
 
 # flutter pub run flutter_launcher_icons
 flutter_launcher_icons:

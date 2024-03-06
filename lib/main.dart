@@ -1,5 +1,7 @@
-import 'package:country_code_picker/country_code_picker.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
@@ -14,6 +16,7 @@ import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   // Hive.deleteFromDisk();
   await HiveHelper.init();
 
@@ -158,11 +161,11 @@ class MyApp extends StatelessWidget {
             ),
             localizationsDelegates: const [
               S.delegate,
-              CountryLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            locale: Locale.fromSubtags(languageCode: Platform.localeName),
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
             home: const HomePage(),
