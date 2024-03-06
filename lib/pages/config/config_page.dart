@@ -66,11 +66,11 @@ class ConfigPageState extends State<ConfigPage> {
     super.initState();
     loadConfiguration();
     languageOptions = [
-      LanguageOption('en', s.english, 'assets/flags/us_flag.svg'),
-      LanguageOption('pt', s.portuguese, 'assets/flags/br_flag.svg'),
-      LanguageOption('es', s.spanish, 'assets/flags/es_flag.svg'),
-      LanguageOption('fr', s.french, 'assets/flags/fr_flag.svg'),
-      LanguageOption('it', s.italian, 'assets/flags/it_flag.svg'),
+      LanguageOption('us', s.english, 'assets/flags/us.svg'),
+      LanguageOption('br', s.portuguese, 'assets/flags/br.svg'),
+      LanguageOption('es', s.spanish, 'assets/flags/es.svg'),
+      LanguageOption('fr', s.french, 'assets/flags/fr.svg'),
+      LanguageOption('it', s.italian, 'assets/flags/it.svg'),
     ];
   }
 
@@ -87,7 +87,7 @@ class ConfigPageState extends State<ConfigPage> {
             // Theme mode
             ListTile(
               title: Text(S.of(context).mode),
-              subtitle: Text(_appConfig.isDarkTheme
+              subtitle: Text(!_appConfig.isDarkTheme
                   ? S.of(context).light
                   : S.of(context).dark),
               trailing: Switch(
@@ -203,7 +203,7 @@ class ConfigPageState extends State<ConfigPage> {
             ListTile(
               title: Text(S.of(context).language),
               leading: SvgPicture.asset(
-                  'assets/flags/${_appConfig.language}_flag.svg',
+                  'assets/flags/${(_appConfig.language.length > 2 ? (_appConfig.language).substring(3, 5).toLowerCase() : _appConfig.language)}.svg',
                   width: 30,
                   height: 20),
               subtitle: Text(_appConfig.language),
@@ -227,25 +227,58 @@ class ConfigPageState extends State<ConfigPage> {
   }
 
   Future<void> _showDialogPickerCountry() async {
-    await showDialog(
+    showDialog(
       context: context,
       builder: (BuildContext context) {
-        return DialogPicker(
-          languageOptions: languageOptions,
-          onSelectLanguage: (selectedLanguageCode) async {
-            final prefs = await SharedPreferences.getInstance();
-            await prefs.setString('language', selectedLanguageCode);
+        return AlertDialog(
+          title: Text(S.of(context).selectLanguage),
+          content: SizedBox(
+            width: double.maxFinite,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: languageOptions.length,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  leading: SvgPicture.asset(languageOptions[index].flagAsset,
+                      width: 30, height: 20),
+                  title: Text(languageOptions[index].languageName),
+                  onTap: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.setString(
+                        'language', languageOptions[index].languageCode);
 
-            setState(() {
-              _appConfig = _appConfig.copyWith(language: selectedLanguageCode);
-            });
+                    await S.load(Locale.fromSubtags(
+                        languageCode: languageOptions[index].languageCode));
+                    setState(() {
+                      _appConfig = _appConfig.copyWith(
+                          language: languageOptions[index].languageCode);
+                    });
+                    await saveConfiguration();
 
-            S.load(Locale(selectedLanguageCode));
-            saveConfiguration();
-          },
+                    // ignore: use_build_context_synchronously
+                    Navigator.of(context).pop();
+                  },
+                );
+              },
+            ),
+          ),
         );
       },
     );
+    /*    DialogPicker(
+      languageOptions: languageOptions,
+      onSelectLanguage: (selectedLanguageCode) async {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('language', selectedLanguageCode);
+
+        setState(() {
+          _appConfig = _appConfig.copyWith(language: selectedLanguageCode);
+        });
+
+        S.load(Locale(selectedLanguageCode));
+        saveConfiguration();
+      },
+    ); */
   }
 
   @override

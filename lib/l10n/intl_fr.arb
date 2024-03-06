@@ -121,5 +121,14 @@
     "enabled": "Activé",
     "disabled": "Désactivé",
     "thanks": "Message de remerciement",
-    "thanksMessage": "Merci d'utiliser notre application et de considérer soutenir notre travail. Votre contribution est essentielle à notre succès continu. Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter. Ensemble, nous pouvons faire la différence !"
+    "thanksMessage": "Merci d'utiliser notre application et de considérer soutenir notre travail. Votre contribution est essentielle à notre succès continu. Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter. Ensemble, nous pouvons faire la différence !",
+    "eritrocytesTitle": "Érythrocytes",
+    "plateletsTitle": "Plaquettes",
+    "blastTitle": "Blaste",
+    "matamielocitosTitle": "Matamiélocytes",
+    "mielocitosTitle": "Mielocytes",
+    "promielocitosTitle": "Promyélocytes",
+    "reticulocitosTitle": "Réticulocytes",
+    "hipersegmentadosTitle": "Hyperségmentés",
+    "pilosasTitle": "Piloses"
 }

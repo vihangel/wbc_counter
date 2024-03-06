@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "basophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Movilidad y actividad: Están involucrados en reacciones alérgicas graves y respuestas inmunes."),
         "beforeLeaving": MessageLookupByLibrary.simpleMessage("Antes de salir"),
+        "blastTitle": MessageLookupByLibrary.simpleMessage("Blasto"),
         "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Cómprame un café"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calcular"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
@@ -89,12 +90,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Gránulos citoplasmáticos: Los gránulos son grandes y teñidos, generalmente de color rosa."),
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Movilidad y actividad: Están involucrados en la respuesta alérgica y en la defensa contra parásitos."),
+        "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrocitos"),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Error al cargar informes"),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Tu apoyo nos ayuda a seguir desarrollando y mejorando nuestra aplicación. Con tu ayuda, podemos ofrecer actualizaciones regulares, nuevas características y asegurar que la aplicación siga siendo gratuita para todos los usuarios. ¡Gracias por apoyar nuestra misión!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),
         "french": MessageLookupByLibrary.simpleMessage("Francés"),
+        "hipersegmentadosTitle":
+            MessageLookupByLibrary.simpleMessage("Hipersegmentados"),
         "howIdentify": MessageLookupByLibrary.simpleMessage(
             "¿Cómo identificar las células?"),
         "itHelpsALot":
@@ -120,6 +124,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Gránulos citoplasmáticos: Por lo general, no contienen gránulos visibles."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Movilidad y actividad: Menos móviles que los neutrófilos, están involucrados en la respuesta inmune adaptativa."),
+        "matamielocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Matamielocitos"),
+        "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocitos"),
         "mode": MessageLookupByLibrary.simpleMessage("Modo"),
         "monocytesDescription": MessageLookupByLibrary.simpleMessage(
             "Los monocitos tienen un núcleo grande, de forma irregular y a menudo en forma de riñón. El citoplasma es gris-azulado. Son las células blancas más grandes y tienen una forma irregular. Por lo general, no tienen gránulos visibles. Son móviles y se diferencian en macrófagos cuando se desplazan a los tejidos."),
@@ -166,8 +173,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientAge": MessageLookupByLibrary.simpleMessage("Edad del paciente"),
         "patientName":
             MessageLookupByLibrary.simpleMessage("Nombre del paciente"),
+        "pilosasTitle": MessageLookupByLibrary.simpleMessage("Pilosas"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Clave Pix"),
+        "plateletsTitle": MessageLookupByLibrary.simpleMessage("Plaquetas"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portugués"),
+        "promielocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Promielocitos"),
         "quantity": MessageLookupByLibrary.simpleMessage("Cantidad"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Califícanos"),
         "redCells": MessageLookupByLibrary.simpleMessage("Células rojas"),
@@ -176,6 +187,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSaved": MessageLookupByLibrary.simpleMessage("Informe guardado"),
         "resetConfiguration":
             MessageLookupByLibrary.simpleMessage("Restablecer configuración"),
+        "reticulocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Reticulocitos"),
         "save": MessageLookupByLibrary.simpleMessage("Guardar"),
         "saveReport": MessageLookupByLibrary.simpleMessage(
             "¿Quieres guardar el informe?"),

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive/hive.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
@@ -24,9 +25,17 @@ Future<void> main() async {
 
   await Hive.openBox<SaveReportModel>('DB_REPORT');
   await Hive.openBox<TotalCellsBlood>('DB_CELLS');
+  final prefs = await SharedPreferences.getInstance();
+  if (prefs.getString('language') == null) {
+    await prefs.setString('language', Platform.localeName);
+  }
+  lang = prefs.getString('language')!;
 
+  await S.load(Locale.fromSubtags(languageCode: lang));
   runApp(const MyApp());
 }
+
+late String lang;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -45,6 +54,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           final ThemeMode themeMode =
               (state is ThemeChangedState) ? state.themeData : ThemeMode.light;
+
           return MaterialApp(
             title: 'WBC Counter',
             themeMode: themeMode,
@@ -159,14 +169,15 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
+
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            locale: Locale.fromSubtags(languageCode: Platform.localeName),
-            supportedLocales: S.delegate.supportedLocales,
+            //locale: Locale.fromSubtags(languageCode: lang),
+            // supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
             home: const HomePage(),
           );

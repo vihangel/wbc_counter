@@ -1279,6 +1279,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Eritrocytes`
+  String get eritrocytesTitle {
+    return Intl.message(
+      'Eritrocytes',
+      name: 'eritrocytesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Platelets`
+  String get plateletsTitle {
+    return Intl.message(
+      'Platelets',
+      name: 'plateletsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blast`
+  String get blastTitle {
+    return Intl.message(
+      'Blast',
+      name: 'blastTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Matamielocitos`
+  String get matamielocitosTitle {
+    return Intl.message(
+      'Matamielocitos',
+      name: 'matamielocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mielocitos`
+  String get mielocitosTitle {
+    return Intl.message(
+      'Mielocitos',
+      name: 'mielocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Promielocitos`
+  String get promielocitosTitle {
+    return Intl.message(
+      'Promielocitos',
+      name: 'promielocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reticulocitos`
+  String get reticulocitosTitle {
+    return Intl.message(
+      'Reticulocitos',
+      name: 'reticulocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hipersegmentados`
+  String get hipersegmentadosTitle {
+    return Intl.message(
+      'Hipersegmentados',
+      name: 'hipersegmentadosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pilosas`
+  String get pilosasTitle {
+    return Intl.message(
+      'Pilosas',
+      name: 'pilosasTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

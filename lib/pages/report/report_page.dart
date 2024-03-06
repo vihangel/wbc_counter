@@ -59,7 +59,7 @@ class ReportPageState extends State<ReportPage> {
     return PopScope(
       onPopInvoked: (value) async {
         context.read<LocalReportsBloc>().add(ListLocalReportEvent());
-        await _checkSaveReport();
+        // await _checkSaveReport();
       },
       child: Scaffold(
         appBar: AppBar(

@@ -122,5 +122,14 @@
     "english": "Inglese",
     "spanish": "Spagnolo",
     "french": "Francese",
-    "italian": "Italiano"
+    "italian": "Italiano",
+    "eritrocytesTitle": "Eritrociti",
+    "plateletsTitle": "Piastrine",
+    "blastTitle": "Blast",
+    "matamielocitosTitle": "Matamielociti",
+    "mielocitosTitle": "Mielociti",
+    "promielocitosTitle": "Promielociti",
+    "reticulocitosTitle": "Reticulociti",
+    "hipersegmentadosTitle": "Ipersegmentati",
+    "pilosasTitle": "Pilose"
 }

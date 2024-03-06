@@ -1,5 +1,5 @@
 {
-    "@@locale": "pt",
+    "@@locale": "br",
     "total": "Total",
     "clearAll": "Apagar tudo",
     "clearValues": "Limpar valores",
@@ -20,7 +20,7 @@
     "Other": "Outros",
     "calculate": "Calcular",
     "msg_confirmCalculateCells": "Você adicionou {totalQuantity} celulas",
-    "sub_msg_confirmCalculateCells": "sub_msg_confirmCalculateCells",
+    "sub_msg_confirmCalculateCells": "Deseja calcular a contagem de células?",
     "msg_confirmClearAllValues": "Tem certeza de que deseja limpar todos os valores?",
     "savedReports": "Relatórios Salvos",
     "about": "Sobre",
@@ -123,5 +123,14 @@
     "english": "Inglês",
     "spanish": "Espanhol",
     "french": "Francês",
-    "italian": "Italiano"
+    "italian": "Italiano",
+    "eritrocytesTitle": "Eritrócitos",
+    "plateletsTitle": "Plaquetas",
+    "blastTitle": "Blasto",
+    "matamielocitosTitle": "Matamielócitos",
+    "mielocitosTitle": "Mielócitos",
+    "promielocitosTitle": "Promielócitos",
+    "reticulocitosTitle": "Reticulócitos",
+    "hipersegmentadosTitle": "Hipersegmentados",
+    "pilosasTitle": "Pilosas"
 }

@@ -44,10 +44,7 @@ class DialogPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => _showDialog(context),
-      child: Container(
-          // Customize container appearance
-          ),
-      // You might want to add some child to display current language or a button label
+      child: Container(),
     );
   }
 }

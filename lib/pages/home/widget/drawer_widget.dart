@@ -7,7 +7,8 @@ import 'package:wbc_counter/pages/config/config_page.dart';
 import 'package:wbc_counter/pages/support_page.dart/support_page.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  final VoidCallback refresh;
+  const DrawerWidget({super.key, required this.refresh});
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +66,13 @@ class DrawerWidget extends StatelessWidget {
               title: Text(S.of(context).settings),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const ConfigPage(),
-                  ),
-                );
+                Navigator.of(context)
+                    .push(
+                      MaterialPageRoute(
+                        builder: (context) => const ConfigPage(),
+                      ),
+                    )
+                    .then((value) => refresh());
               },
             ),
           ),
@@ -103,7 +106,10 @@ class DrawerWidget extends StatelessWidget {
                   appStoreId: '...',
                 );
               },
-              child: Text(S.of(context).openStore),
+              child: Text(S.of(context).openStore,
+                  style: const TextStyle(
+                    color: Colors.white,
+                  )),
             ),
           ],
         );

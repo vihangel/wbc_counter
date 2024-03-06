@@ -54,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mobilité et activité : Sont impliqués dans les réactions allergiques graves et les réponses immunitaires."),
         "beforeLeaving":
             MessageLookupByLibrary.simpleMessage("Avant de partir"),
+        "blastTitle": MessageLookupByLibrary.simpleMessage("Blaste"),
         "buyMeACoffe":
             MessageLookupByLibrary.simpleMessage("Offrez-moi un café"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calculer"),
@@ -93,12 +94,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Granules cytoplasmiques : Les granules sont gros et colorés, généralement roses."),
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilité et activité : Ils sont impliqués dans la réponse allergique et la défense contre les parasites."),
+        "eritrocytesTitle":
+            MessageLookupByLibrary.simpleMessage("Érythrocytes"),
         "errorLoadingReports": MessageLookupByLibrary.simpleMessage(
             "Erreur lors du chargement des rapports"),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Votre soutien nous aide à continuer à développer et améliorer notre application. Avec votre aide, nous pouvons proposer des mises à jour régulières, de nouvelles fonctionnalités et garantir que l\'application reste gratuite pour tous les utilisateurs. Merci de soutenir notre mission !"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtrer"),
         "french": MessageLookupByLibrary.simpleMessage("Français"),
+        "hipersegmentadosTitle":
+            MessageLookupByLibrary.simpleMessage("Hyperségmentés"),
         "howIdentify": MessageLookupByLibrary.simpleMessage(
             "Comment identifier les cellules ?"),
         "itHelpsALot":
@@ -124,6 +129,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Granules cytoplasmiques : Ne contiennent généralement pas de granules visibles."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilité et activité : Moins mobiles que les neutrophiles, ils sont impliqués dans la réponse immunitaire adaptative."),
+        "matamielocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Matamiélocytes"),
+        "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocytes"),
         "mode": MessageLookupByLibrary.simpleMessage("Mode"),
         "monocytesDescription": MessageLookupByLibrary.simpleMessage(
             "Les monocytes ont un noyau large, irrégulièrement formé, souvent en forme de rein. Le cytoplasme est gris-bleu. Ce sont les plus grandes cellules sanguines blanches et elles ont une forme irrégulière. Elles n\'ont généralement pas de granules visibles. Elles sont mobiles et se différencient en macrophages lorsqu\'elles se déplacent vers les tissus."),
@@ -171,8 +179,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Options de soutien"),
         "patientAge": MessageLookupByLibrary.simpleMessage("Âge du patient"),
         "patientName": MessageLookupByLibrary.simpleMessage("Nom du patient"),
+        "pilosasTitle": MessageLookupByLibrary.simpleMessage("Piloses"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Clé Pix"),
+        "plateletsTitle": MessageLookupByLibrary.simpleMessage("Plaquettes"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portugais"),
+        "promielocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Promyélocytes"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantité"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Évaluez-nous"),
         "redCells": MessageLookupByLibrary.simpleMessage("Cellules rouges"),
@@ -182,6 +194,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Rapport enregistré"),
         "resetConfiguration": MessageLookupByLibrary.simpleMessage(
             "Réinitialiser la configuration"),
+        "reticulocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Réticulocytes"),
         "save": MessageLookupByLibrary.simpleMessage("Enregistrer"),
         "saveReport": MessageLookupByLibrary.simpleMessage(
             "Voulez-vous enregistrer le rapport ?"),

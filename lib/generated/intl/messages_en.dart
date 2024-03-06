@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "basophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: Are involved in severe allergic reactions and immune response."),
         "beforeLeaving": MessageLookupByLibrary.simpleMessage("Before leaving"),
+        "blastTitle": MessageLookupByLibrary.simpleMessage("Blast"),
         "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Buy me a coffe"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calculate"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -85,12 +86,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: The granules are large and stained, usually pink."),
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: They are involved in the allergic response and defense against parasites."),
+        "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrocytes"),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Error loading reports"),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "french": MessageLookupByLibrary.simpleMessage("French"),
+        "hipersegmentadosTitle":
+            MessageLookupByLibrary.simpleMessage("Hipersegmentados"),
         "howIdentify":
             MessageLookupByLibrary.simpleMessage("How to identify the cells?"),
         "itHelpsALot":
@@ -116,6 +120,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: Generally contain no visible granules."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: Less mobile than neutrophils, they are involved in the adaptive immune response."),
+        "matamielocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Matamielocitos"),
+        "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocitos"),
         "mode": MessageLookupByLibrary.simpleMessage("Mode"),
         "monocytesDescription": MessageLookupByLibrary.simpleMessage(
             "Monocytes have a large, irregularly shaped, often kidney-shaped nucleus. The cytoplasm is bluish-gray. They are the largest white blood cells and are irregular in shape. They usually have no visible granules. They are motile and differentiate into macrophages when they move to tissues."),
@@ -161,8 +168,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Options to support"),
         "patientAge": MessageLookupByLibrary.simpleMessage("Patient Age"),
         "patientName": MessageLookupByLibrary.simpleMessage("Patient Name"),
+        "pilosasTitle": MessageLookupByLibrary.simpleMessage("Pilosas"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Pix key"),
+        "plateletsTitle": MessageLookupByLibrary.simpleMessage("Platelets"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portuguese"),
+        "promielocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Promielocitos"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
         "redCells": MessageLookupByLibrary.simpleMessage("Red Cells"),
@@ -171,6 +182,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSaved": MessageLookupByLibrary.simpleMessage("Report Saved"),
         "resetConfiguration":
             MessageLookupByLibrary.simpleMessage("Reset configuration"),
+        "reticulocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Reticulocitos"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "saveReport": MessageLookupByLibrary.simpleMessage(
             "Do you want to save the report?"),

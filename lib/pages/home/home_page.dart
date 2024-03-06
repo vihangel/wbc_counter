@@ -53,6 +53,8 @@ class _HomePageState extends State<HomePage> with ProviderCells {
 
   Future<void> loadConfigs() async {
     prefs = await SharedPreferences.getInstance();
+    S.load(
+        Locale.fromSubtags(languageCode: prefs.getString('language') ?? 'en'));
   }
 
   @override
@@ -64,7 +66,9 @@ class _HomePageState extends State<HomePage> with ProviderCells {
       appBar: AppBarWidget(
         scaffoldKey: _scaffoldKey,
       ),
-      drawer: const DrawerWidget(),
+      drawer: DrawerWidget(
+        refresh: () => setState(() {}),
+      ),
       body: SafeArea(
         child: BlocBuilder(
             bloc: context.read<CellCountBloc>(),
@@ -178,15 +182,15 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                               crossAxisAlignment: WrapCrossAlignment.center,
                               children: whiteBloodCell.map((wbc) {
                                 return WBCQuantityWidget(
-                                  name: wbc.name,
+                                  name: wbc.title,
                                   quantity: state.wbcQuantities[wbc.name]!,
                                   imagePath: wbc.imagePath,
                                   isAdicionarMode: isAdicionarMode,
                                   onUpdateQuantity: (newQuantity) {
+                                    _checkCellCountAndShowAlert(
+                                        state.totalWbcCount + 1);
                                     updateQuantity(
                                         wbc.name, newQuantity, WBCType.white);
-                                    _checkCellCountAndShowAlert(
-                                        state.totalWbcCount);
                                   },
                                 );
                               }).toList(),
@@ -210,7 +214,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: redBloodCell.map((rbc) {
                                   return WBCQuantityWidget(
-                                    name: rbc.name,
+                                    name: rbc.title,
                                     quantity: state.rbcQuantities[rbc.name]!,
                                     imagePath: rbc.imagePath,
                                     isAdicionarMode: isAdicionarMode,
@@ -239,7 +243,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 children: abnormalBloodCells.map((abc) {
                                   return WBCQuantityWidget(
-                                    name: abc.name,
+                                    name: abc.title,
                                     quantity:
                                         state.abnormalQuantities[abc.name]!,
                                     imagePath: abc.imagePath,
@@ -281,7 +285,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
   void _checkCellCountAndShowAlert(totalWbcCount) {
     int totalQuantity = totalWbcCount;
     final threshold = prefs.getStringList('alertThresholds') ?? [];
-    if (threshold.contains(totalQuantity.toString())) {
+    if (threshold.contains((totalQuantity).toString())) {
       showDialog(
         context: context,
         builder: (BuildContext context) {
