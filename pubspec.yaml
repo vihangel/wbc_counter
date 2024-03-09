@@ -1,18 +1,19 @@
+# @format
+
 name: wbc_counter
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -24,7 +25,7 @@ dependencies:
   flutter_svg: ^2.0.7
   flutter_native_splash: ^2.3.2
   url_launcher: ^6.1.14
-  permission_handler: ^11.0.0
+  permission_handler: ^11.3.0
   #DB
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -35,22 +36,27 @@ dependencies:
   equatable: ^2.0.5
   uuid: ^4.2.2
   pix_flutter: ^2.2.0
-  
+  in_app_review: ^2.0.8
+  intl: ^0.18.1
+  flutter_localization: ^0.2.0
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   flutter_lints: ^3.0.1
   build_runner: ^2.4.6
   hive_generator: ^2.0.1
 
 flutter:
-
   uses-material-design: true
 
   assets:
     - assets/
     - assets/cells/
+    # - assets/icons/
+    - assets/flags/
 
 # flutter pub run flutter_launcher_icons
 flutter_launcher_icons:
@@ -96,4 +102,5 @@ flutter_native_splash:
   android_12:
     splash_color: "#673AB7"
     splash_color_dark: "#673AB7"
-
+flutter_intl:
+  enabled: true

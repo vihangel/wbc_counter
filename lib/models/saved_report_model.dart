@@ -1,8 +1,9 @@
 import 'package:hive/hive.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 part 'saved_report_model.g.dart';
 
-@HiveType(typeId: 0) // Assign a unique typeId for your model
+@HiveType(typeId: 0)
 class SaveReportModel extends HiveObject {
   @HiveField(0)
   final String? name;
@@ -17,7 +18,7 @@ class SaveReportModel extends HiveObject {
   final int? age;
 
   @HiveField(4)
-  final Map<String, int> bloodCells;
+  final TotalCellsBlood? bloodCells;
 
   @HiveField(5)
   final DateTime createdAt;
@@ -43,7 +44,7 @@ class SaveReportModel extends HiveObject {
     String? type,
     String? referenceValues,
     int? age,
-    Map<String, int>? bloodCells,
+    TotalCellsBlood? bloodCells,
     String? observation,
     String? id,
   }) {

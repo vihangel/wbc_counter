@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:ui';
+
 class AppConfigModel {
   final bool isDarkTheme;
   final bool isNotificationsEnabled;
@@ -23,7 +26,7 @@ class AppConfigModel {
       isNotificationsEnabled: true,
       isSoundEnabled: true,
       alertThresholds: [100],
-      language: 'English',
+      language: Locale(Platform.localeName).languageCode,
     );
   }
 
