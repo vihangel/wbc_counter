@@ -8,7 +8,6 @@ import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/pages/home/widget/app_bar_widget.dart';
 import 'package:wbc_counter/pages/home/widget/drawer_widget.dart';
 import 'package:wbc_counter/pages/home/widget/wbc_widget.dart';
@@ -28,7 +27,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with ProviderCells {
+class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   void toggleMode(bool toggleMode) {
@@ -200,7 +199,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
         cells = state.bloodCells.abnormalQuantities;
         break;
       default:
-        break; // Handle default case or add an assert if this should never happen
+        break;
     }
 
     return ExpansionTile(
@@ -304,15 +303,14 @@ class _HomePageState extends State<HomePage> with ProviderCells {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
+                Navigator.of(context).pop();
               },
               child: Text(S.of(context).cancel),
             ),
             ElevatedButton(
               onPressed: () {
                 context.read<CellCountBloc>().add(CellCountResetEvent());
-                Navigator.of(context).pop(); // Close the dialog
-                setState(() {});
+                Navigator.of(context).pop();
               },
               child: Text(S.of(context).confirm,
                   style: const TextStyle(color: Colors.white)),
