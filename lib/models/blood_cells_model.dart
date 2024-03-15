@@ -1,7 +1,16 @@
-class BloodCellModel {
+import 'package:hive/hive.dart';
+
+part 'blood_cells_model.g.dart';
+
+@HiveType(typeId: 2)
+class BloodCellModel extends HiveObject {
+  @HiveField(0)
   final String name;
+  @HiveField(1)
   final String title;
+  @HiveField(2)
   final int quantity;
+  @HiveField(3)
   final String? imagePath;
 
   BloodCellModel({

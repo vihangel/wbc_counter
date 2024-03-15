@@ -22,19 +22,18 @@ class ReportPage extends StatefulWidget {
 }
 
 class ReportPageState extends State<ReportPage> {
-  late TextEditingController _nameController;
-  late TextEditingController _ageController;
-  late TextEditingController _observationController;
-  bool isReadOnly = false;
+  late final TextEditingController _nameController =
+      TextEditingController(text: widget.report.name);
+  late final TextEditingController _ageController =
+      TextEditingController(text: '${widget.report.age ?? 0}');
+  late final TextEditingController _observationController =
+      TextEditingController(text: widget.report.observation);
+
+  late bool isReadOnly = widget.isReadOnly;
 
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.report.name);
-    _ageController = TextEditingController(text: '${widget.report.age ?? 0}');
-    _observationController =
-        TextEditingController(text: widget.report.observation);
-    isReadOnly = widget.isReadOnly;
   }
 
   @override
@@ -171,6 +170,13 @@ class ReportPageState extends State<ReportPage> {
                           Color.fromARGB(255, 183, 58, 58),
                           Color.fromARGB(255, 183, 58, 131),
                           Color.fromARGB(255, 143, 58, 183),
+                          Color.fromARGB(255, 58, 137, 183),
+                          Color.fromARGB(255, 204, 229, 255),
+                          Color.fromARGB(255, 204, 255, 204),
+                          Color.fromARGB(255, 255, 230, 204),
+                          Color.fromARGB(255, 255, 204, 204),
+                          Color.fromARGB(255, 255, 204, 255),
+                          Color.fromARGB(255, 229, 204, 255),
                         ],
                       ),
                       const SizedBox(height: 16.0),
