@@ -1,90 +1,7 @@
 import 'package:hive/hive.dart';
-import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 
 part 'provider_cells.g.dart';
-
-final S s = S();
-mixin ProviderCells {
-  List<BloodCellModel> get whiteBloodCell => [
-        BloodCellModel(
-            name: 'Neutrófilo',
-            quantity: 0,
-            imagePath: 'neutrofilo.png',
-            title: s.neutrophilsTitle),
-        BloodCellModel(
-            name: 'Basófilo',
-            quantity: 0,
-            imagePath: 'basofilo.png',
-            title: s.basophilsTitle),
-        BloodCellModel(
-            name: 'Eosinófilo',
-            quantity: 0,
-            imagePath: 'eosinofilo.png',
-            title: s.eosinophilsTitle),
-        BloodCellModel(
-            name: 'Monócito',
-            quantity: 0,
-            imagePath: 'monocito.png',
-            title: s.monocytesTitle),
-        BloodCellModel(
-            name: 'Linfócito',
-            quantity: 0,
-            imagePath: 'linfocito.png',
-            title: s.lymphocytesTitle),
-      ];
-
-  List<BloodCellModel> get redBloodCell => [
-        BloodCellModel(
-            name: 'Eritrócito',
-            quantity: 0,
-            imagePath: 'eritrocito.png',
-            title: s.eritrocytesTitle),
-        BloodCellModel(
-            name: 'Plaquetas',
-            quantity: 0,
-            imagePath: 'plaquetas.png',
-            title: s.plateletsTitle),
-      ];
-
-  List<BloodCellModel> get abnormalBloodCells => [
-        BloodCellModel(
-            name: 'Blastos',
-            quantity: 0,
-            imagePath: 'blastos.png',
-            title: s.blastTitle),
-        BloodCellModel(
-            name: 'Metamielócitos',
-            quantity: 0,
-            imagePath: 'metamielocitos.png',
-            title: s.matamielocitosTitle),
-        BloodCellModel(
-            name: 'Mielócitos',
-            quantity: 0,
-            imagePath: 'mielocitos.png',
-            title: s.mielocitosTitle),
-        BloodCellModel(
-            name: 'Promielócitos',
-            quantity: 0,
-            imagePath: 'promielocitos.png',
-            title: s.promielocitosTitle),
-        BloodCellModel(
-            name: 'Reticulócitos',
-            quantity: 0,
-            imagePath: 'reticulocitos.png',
-            title: s.reticulocitosTitle),
-        BloodCellModel(
-            name: 'Hipersegmentados',
-            quantity: 0,
-            imagePath: 'hipersegmentados.png',
-            title: s.hipersegmentadosTitle),
-        BloodCellModel(
-            name: 'Pilosas',
-            quantity: 0,
-            imagePath: 'pilosas.png',
-            title: s.pilosasTitle),
-      ];
-}
 
 @HiveType(typeId: 1)
 class TotalCellsBlood extends HiveObject {
@@ -106,33 +23,33 @@ class TotalCellsBlood extends HiveObject {
   int get totalWbcCount => allCells.fold(
       0, (previousValue, element) => previousValue + element.quantity);
 
-  TotalCellsBlood.defaultValue()
+  TotalCellsBlood.defaultValue(s)
       : wbcQuantities = [
           BloodCellModel(
-              name: 'Neutrófilo',
+              name: 'Linfócitos',
+              quantity: 0,
+              imagePath: 'linfocito.png',
+              title: s.lymphocytesTitle),
+          BloodCellModel(
+              name: 'Neutrófilos',
               quantity: 0,
               imagePath: 'neutrofilo.png',
               title: s.neutrophilsTitle),
           BloodCellModel(
-              name: 'Basófilo',
-              quantity: 0,
-              imagePath: 'basofilo.png',
-              title: s.basophilsTitle),
-          BloodCellModel(
-              name: 'Eosinófilo',
+              name: 'Eosinófilos',
               quantity: 0,
               imagePath: 'eosinofilo.png',
               title: s.eosinophilsTitle),
           BloodCellModel(
-              name: 'Monócito',
+              name: 'Basófilos',
+              quantity: 0,
+              imagePath: 'basofilo.png',
+              title: s.basophilsTitle),
+          BloodCellModel(
+              name: 'Monocitos',
               quantity: 0,
               imagePath: 'monocito.png',
               title: s.monocytesTitle),
-          BloodCellModel(
-              name: 'Linfócito',
-              quantity: 0,
-              imagePath: 'linfocito.png',
-              title: s.lymphocytesTitle),
         ],
         rbcQuantities = [
           BloodCellModel(

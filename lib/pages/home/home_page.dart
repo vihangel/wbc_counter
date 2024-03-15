@@ -63,7 +63,10 @@ class _HomePageState extends State<HomePage> {
       extendBody: true,
       resizeToAvoidBottomInset: true,
       appBar: AppBarWidget(scaffoldKey: _scaffoldKey),
-      drawer: DrawerWidget(refresh: () => setState(() {})),
+      drawer: DrawerWidget(
+          refresh: () => setState(() {
+                context.read<CellCountBloc>().add(CellCountResetEvent());
+              })),
       body: SafeArea(
         child: BlocBuilder<CellCountBloc, CellCountState>(
           builder: (context, state) {

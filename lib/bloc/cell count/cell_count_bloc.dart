@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
@@ -7,7 +8,7 @@ part 'cell_count_event.dart';
 part 'cell_count_state.dart';
 
 class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
-  CellCountBloc() : super(CellCountChangeState.defaultValue()) {
+  CellCountBloc() : super(CellCountChangeState.defaultValue(S())) {
     on<WbcQuantitiesChangeEvent>(_mapUpdateCellCountToState);
     on<IsAddModeChangeEvent>(_mapUpdateIsAddModeToState);
     on<CellCountResetEvent>(_mapResetToState);
@@ -36,14 +37,14 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
   void _mapResetToState(
       CellCountResetEvent event, Emitter<CellCountState> emit) {
     emit(const CellCountResetState());
-    emit(CellCountChangeState.defaultValue());
+    emit(CellCountChangeState.defaultValue(S()));
   }
 
   void _mapSaveToState(
       CellCountSaveEvent event, Emitter<CellCountState> emit) async {
     await HiveHelper.addReport(event.report);
     emit(const CellCountSavedState());
-    emit(CellCountChangeState.defaultValue());
+    emit(CellCountChangeState.defaultValue(S()));
   }
 
   void _mapReportToState(
@@ -73,6 +74,6 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
       CellCountDeleteEvent event, Emitter<CellCountState> emit) async {
     await HiveHelper.deleteReport(event.id);
     emit(const CellCountDeletedState());
-    emit(CellCountChangeState.defaultValue());
+    emit(CellCountChangeState.defaultValue(S()));
   }
 }

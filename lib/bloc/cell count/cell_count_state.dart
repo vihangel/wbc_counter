@@ -23,9 +23,9 @@ class CellCountChangeState extends CellCountState {
     );
   }
 
-  factory CellCountChangeState.defaultValue() {
+  factory CellCountChangeState.defaultValue(s) {
     return CellCountChangeState(
-      bloodCells: TotalCellsBlood.defaultValue(),
+      bloodCells: TotalCellsBlood.defaultValue(s),
     );
   }
 
