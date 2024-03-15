@@ -5,12 +5,10 @@ abstract class CellCountEvent {}
 class WbcQuantitiesChangeEvent extends CellCountEvent {
   final String name;
   final int quantity;
-  final WBCType wbcType;
 
   WbcQuantitiesChangeEvent({
     required this.name,
     required this.quantity,
-    required this.wbcType,
   });
 }
 

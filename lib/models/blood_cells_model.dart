@@ -2,13 +2,13 @@ class BloodCellModel {
   final String name;
   final String title;
   final int quantity;
-  final String imagePath;
+  final String? imagePath;
 
   BloodCellModel({
     required this.title,
     required this.name,
     required this.quantity,
-    required this.imagePath,
+    this.imagePath,
   });
 
   BloodCellModel copyWith({
