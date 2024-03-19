@@ -13,6 +13,7 @@ import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
+import 'package:wbc_counter/firebase_options.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
@@ -25,7 +26,9 @@ Future<void> main() async {
   await HiveHelper.init();
 
   await HiveHelper.openBox();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   await FirebaseCrashlytics.instance
       .setCrashlyticsCollectionEnabled(!kDebugMode);
