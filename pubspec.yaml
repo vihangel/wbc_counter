@@ -39,6 +39,10 @@ dependencies:
   in_app_review: ^2.0.8
   intl: ^0.18.1
   flutter_localization: ^0.2.0
+  firebase_core: ^2.27.1
+  firebase_analytics: ^10.8.10
+  firebase_crashlytics: ^3.4.19
+  firebase_performance: ^0.9.3+18
 
 dev_dependencies:
   flutter_test:

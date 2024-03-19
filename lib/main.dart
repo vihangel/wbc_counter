@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +25,10 @@ Future<void> main() async {
   await HiveHelper.init();
 
   await HiveHelper.openBox();
+  await Firebase.initializeApp();
+
+  await FirebaseCrashlytics.instance
+      .setCrashlyticsCollectionEnabled(!kDebugMode);
 
   await Hive.openBox<SaveReportModel>('DB_REPORT');
   await Hive.openBox<TotalCellsBlood>('DB_CELLS');
