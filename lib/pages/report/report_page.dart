@@ -268,8 +268,8 @@ class ReportPageState extends State<ReportPage> {
     final int totalQuantity = report.totalWbcCount;
 
     return allCells.map((BloodCellModel cell) {
-      final percentage = (cell.quantity / totalQuantity) * 100;
-
+      double percentage = (cell.quantity / totalQuantity) * 100;
+      percentage = percentage.isNaN ? 0 : percentage;
       return DataRow(
         cells: [
           DataCell(Text(cell.title)),
