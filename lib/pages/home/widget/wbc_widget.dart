@@ -98,7 +98,7 @@ class WBCQuantityWidget extends StatelessWidget {
     /// 16.0 is the padding of the container
     /// I want 3 in a line and can be divided by 3
     /// size cant be less than 90
-    final size = (MediaQuery.of(context).size.width - 16.0 * 4) / 3;
+    final size = (MediaQuery.of(context).size.width - 12.0 * 4) / 3;
     return size < 90 ? 90 : size;
   }
 }

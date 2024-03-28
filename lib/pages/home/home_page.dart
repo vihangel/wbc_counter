@@ -213,8 +213,8 @@ class _HomePageState extends State<HomePage> {
       ),
       children: [
         Wrap(
-          spacing: 16.0,
-          runSpacing: 16.0,
+          spacing: 8.0,
+          runSpacing: 8.0,
           runAlignment: WrapAlignment.center,
           alignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
