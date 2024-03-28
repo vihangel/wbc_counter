@@ -37,7 +37,8 @@ Future<void> main() async {
   await Hive.openBox<TotalCellsBlood>('DB_CELLS');
   final prefs = await SharedPreferences.getInstance();
   if (prefs.getString('language') == null) {
-    await prefs.setString('language', Platform.localeName);
+    await prefs.setString(
+        'language', Platform.localeName.substring(3, 5).toLowerCase());
   }
   lang = prefs.getString('language')!;
 
