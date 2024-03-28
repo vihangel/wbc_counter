@@ -160,6 +160,15 @@ class ReportPageState extends State<ReportPage> {
                       const SizedBox(height: 16.0),
                       // Display the chart
                       PieChart(
+                        legendOptions: const LegendOptions(
+                          showLegendsInRow: true,
+                          legendPosition: LegendPosition.bottom,
+                          showLegends: true,
+                          legendTextStyle: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
                         dataMap: wbcPercentages,
                         colorList: const [
                           Colors.deepPurple,
