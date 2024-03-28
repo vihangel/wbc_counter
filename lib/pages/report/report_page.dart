@@ -182,6 +182,7 @@ class ReportPageState extends State<ReportPage> {
                       const SizedBox(height: 16.0),
                       // Display the report table
                       DataTable(
+                        columnSpacing: 16.0,
                         columns: [
                           DataColumn(label: Text(S.of(context).type)),
                           DataColumn(label: Text(S.of(context).quantity)),
