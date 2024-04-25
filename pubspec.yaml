@@ -45,7 +45,7 @@ dependencies:
   firebase_performance: ^0.9.3+18
   image_picker: ^1.1.0
   http: ^1.2.1
-  tflite_flutter: ^0.10.4
+
   image: ^4.1.7
 
 dev_dependencies:

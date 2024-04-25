@@ -5,11 +5,11 @@ import 'package:share/share.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';
-import 'package:wbc_counter/local_reports/local_reports_page.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
 import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/local_reports/local_reports_page.dart';
 
 class ReportPage extends StatefulWidget {
   final SaveReportModel report;

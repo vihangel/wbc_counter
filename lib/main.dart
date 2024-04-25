@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -21,29 +22,44 @@ import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   // Hive.deleteFromDisk();
-  await HiveHelper.init();
 
-  await HiveHelper.openBox();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await FirebaseCrashlytics.instance
+        .setCrashlyticsCollectionEnabled(!kDebugMode);
+    log("Firebase initialized successfully.");
+  } catch (e) {
+    log("Firebase initialization failed: $e");
+  }
 
-  await FirebaseCrashlytics.instance
-      .setCrashlyticsCollectionEnabled(!kDebugMode);
+  if (!kIsWeb) {
+    hiveInitialize();
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
-  await Hive.openBox<SaveReportModel>('DB_REPORT');
-  await Hive.openBox<TotalCellsBlood>('DB_CELLS');
   final prefs = await SharedPreferences.getInstance();
   if (prefs.getString('language') == null) {
-    await prefs.setString(
-        'language', Platform.localeName.substring(3, 5).toLowerCase());
+    kIsWeb
+        ? await prefs.setString('language', 'en')
+        : await prefs.setString(
+            'language', Platform.localeName.substring(3, 5).toLowerCase());
   }
   lang = prefs.getString('language')!;
 
   await S.load(Locale.fromSubtags(languageCode: lang));
   runApp(const MyApp());
+}
+
+Future<void> hiveInitialize() async {
+  await HiveHelper.init();
+
+  await HiveHelper.openBox();
+  await Hive.openBox<SaveReportModel>('DB_REPORT');
+  await Hive.openBox<TotalCellsBlood>('DB_CELLS');
 }
 
 late String lang;
