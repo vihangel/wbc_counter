@@ -1,16 +1,36 @@
-# wbc_counter
+<!-- @format -->
 
-A new Flutter project.
+# Leucograma App
 
-## Getting Started
+![Leucograma App](https://play-lh.googleusercontent.com/zHaJgUF5wDfDr7pXR6pq20IfG48CKmcj0DeeOm55zC9ATx7mxVQO4L68QnfGXU6BIw=w2560-h1440-rw)
 
-This project is a starting point for a Flutter application.
+## Sobre o Aplicativo
 
-A few resources to get you started if this is your first Flutter project:
+O **Leucograma** é um aplicativo inovador que transforma a maneira como profissionais e estudantes de saúde realizam a contagem e análise de glóbulos brancos e vermelhos. Utilizando tecnologia de ponta, esta ferramenta simplifica o processo de análise do leucograma, tornando-o rápido, eficiente e facilmente acessível.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Funcionalidades Chave
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Contagem detalhada de leucócitos: Neutrófilos, Linfócitos, Eosinófilos, Basófilos e Monócitos.
+- Análise de hemácias.
+- Salvamento e histórico de relatórios de análises.
+- Compartilhamento fácil de resultados.
+- Visualização gráfica intuitiva das contagens.
+- Guia de identificação de células com imagens e dicas.
+
+## Futuras Implementações
+
+- Integração com câmera para contagem automatizada utilizando TensorFlow.
+
+## Baixe Agora
+
+Disponível na Google Play Store:
+
+[![Baixe no Google Play](https://play-lh.googleusercontent.com/zHaJgUF5wDfDr7pXR6pq20IfG48CKmcj0DeeOm55zC9ATx7mxVQO4L68QnfGXU6BIw=w2560-h1440-rw)](https://play.google.com/store/apps/details?id=br.com.wbc_counter)
+
+## Suporte
+
+Para suporte, dúvidas ou sugestões, por favor entre em contato conosco através do email: support@leucogramapp.com.
+
+## Contribuição
+
+Contribuições são bem-vindas! Se você tem interesse em melhorar o Leucograma, entre em contato para mais detalhes.
