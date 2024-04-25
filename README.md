@@ -29,7 +29,7 @@ Disponível na Google Play Store:
 
 ## Suporte
 
-Para suporte, dúvidas ou sugestões, por favor entre em contato conosco através do email: support@leucogramapp.com.
+Para suporte, dúvidas ou sugestões, por favor entre em contato conosco através do email: vitoria.angel2002@gmail.com.
 
 ## Contribuição
 
