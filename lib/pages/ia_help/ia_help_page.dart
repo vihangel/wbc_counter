@@ -1,11 +1,9 @@
-import 'dart:io';
+import 'dart:typed_data';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
-import 'package:wbc_counter/models/predicition_model.dart';
+import 'package:wbc_counter/generated/l10n.dart';
+import 'package:wbc_counter/pages/ia_help/prediction_result_page.dart';
 import 'package:wbc_counter/repositories/prediction_repository.dart';
 
 class AiHelpPage extends StatefulWidget {
@@ -22,27 +20,15 @@ class AiHelpPageState extends State<AiHelpPage> {
       apiKey: "fk7VtI7nE6JeAvH5ZgsQ");
   bool _isLoading = false;
 
-  // Function to capture image from camera or gallery
   Future<void> _pickImage(ImageSource source) async {
     setState(() {
       _isLoading = true;
     });
     final pickedFile = await _picker.pickImage(source: source);
     if (pickedFile != null) {
-      // On web, use the bytes directly since File operations are not supported
-      if (kIsWeb) {
-        // Read the file as bytes
-        final bytes = await pickedFile.readAsBytes();
-        String extension = pickedFile.name.substring(
-            pickedFile.name.lastIndexOf('.') + 1, pickedFile.name.length);
-        _sendImageToAPI(bytes, extension);
-      } else {
-        // On mobile, you can continue using the File class
-        File imageFile = File(pickedFile.path);
-        String extension = pickedFile.name.substring(
-            pickedFile.name.lastIndexOf('.') + 1, pickedFile.name.length);
-        _sendImageToAPI(imageFile.readAsBytesSync(), extension);
-      }
+      final bytes = await pickedFile.readAsBytes();
+      final String extension = pickedFile.name.split('.').last;
+      _sendImageToAPI(bytes, extension);
     } else {
       setState(() {
         _isLoading = false;
@@ -50,13 +36,22 @@ class AiHelpPageState extends State<AiHelpPage> {
     }
   }
 
-  Future<void> _sendImageToAPI(Uint8List imageData, type) async {
+  Future<void> _sendImageToAPI(Uint8List imageData, String type) async {
     try {
       var predictions = await repository.fetchPredictions(imageData, type);
-      _showPredictionDialog(predictions);
+      setState(() {
+        _isLoading = false;
+      });
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ResultsPage(
+            imageData: imageData,
+            predictions: predictions,
+          ),
+        ),
+      );
     } catch (e) {
       _showErrorDialog(e.toString());
-    } finally {
       setState(() {
         _isLoading = false;
       });
@@ -67,62 +62,46 @@ class AiHelpPageState extends State<AiHelpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AI Help Page'),
+        title: Text(S.of(context).aiHelpPage),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Text(
+              S.of(context).experimentalFeature,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              S.of(context).dataDisclaimer,
+              style: const TextStyle(fontSize: 14),
+              textAlign: TextAlign.left,
+            ),
+            const SizedBox(height: 24),
             ElevatedButton(
               onPressed:
                   _isLoading ? null : () => _pickImage(ImageSource.gallery),
-              child: Text('Upload from Gallery',
-                  style: TextStyle(
-                    color: context.read<ThemeAppBloc>().theme == ThemeMode.light
-                        ? Colors.white
-                        : const Color.fromARGB(255, 42, 42, 42),
-                  )),
+              child: Text(
+                S.of(context).uploadFromGallery,
+                style: const TextStyle(color: Colors.white),
+              ),
             ),
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed:
                   _isLoading ? null : () => _pickImage(ImageSource.camera),
-              child: Text('Use Camera',
-                  style: TextStyle(
-                    color: context.read<ThemeAppBloc>().theme == ThemeMode.light
-                        ? Colors.white
-                        : const Color.fromARGB(255, 42, 42, 42),
-                  )),
+              child: Text(
+                S.of(context).useCamera,
+                style: const TextStyle(color: Colors.white),
+              ),
             ),
-            if (_isLoading) const CircularProgressIndicator(),
+            if (_isLoading) const Center(child: CircularProgressIndicator()),
           ],
         ),
       ),
-    );
-  }
-
-  void _showPredictionDialog(List<Prediction> predictions) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text("Predictions"),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: predictions
-                  .map((p) => Text(
-                      'Class: ${p.className}, Confidence: ${p.confidence.toStringAsFixed(2)}%'))
-                  .toList(),
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Close'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
-        );
-      },
     );
   }
 
@@ -131,7 +110,7 @@ class AiHelpPageState extends State<AiHelpPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text("Error"),
+          title: Text(S.of(context).error),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[Text(message)],
@@ -139,7 +118,7 @@ class AiHelpPageState extends State<AiHelpPage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Close'),
+              child: Text(S.of(context).close),
               onPressed: () => Navigator.of(context).pop(),
             ),
           ],

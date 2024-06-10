@@ -31,10 +31,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewAlertThreshold":
             MessageLookupByLibrary.simpleMessage("Add new alert threshold"),
         "age": MessageLookupByLibrary.simpleMessage("Age"),
+        "aiHelpPage": MessageLookupByLibrary.simpleMessage("AI Help Page"),
         "alertThresholds": MessageLookupByLibrary.simpleMessage("Notify count"),
         "alertToCount": MessageLookupByLibrary.simpleMessage(
             "Alert when WBC count reaches:"),
+        "analysisResults":
+            MessageLookupByLibrary.simpleMessage("Analysis Results"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("App Evaluation"),
+        "backToMenu": MessageLookupByLibrary.simpleMessage("Back to Menu"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Basophils have a bilobed nucleus, but it can be difficult to discern due to the dense granules. The cytoplasm is dark blue to black due to the basophilic granules. They are similar in size to neutrophils and eosinophils. They have dense granules, which obscure vision of the nucleus. They are involved in severe allergic reactions and immune responses."),
         "basophilsTitle": MessageLookupByLibrary.simpleMessage("Basophils"),
@@ -65,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("Could not launch"),
         "dark": MessageLookupByLibrary.simpleMessage("Dark"),
+        "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
+            "The data provided should not be considered absolute or confirmatory."),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteReport": MessageLookupByLibrary.simpleMessage("Delete Report"),
         "disabled": MessageLookupByLibrary.simpleMessage("Disabled"),
@@ -87,8 +93,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: They are involved in the allergic response and defense against parasites."),
         "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrocytes"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Error loading reports"),
+        "experimentalFeature": MessageLookupByLibrary.simpleMessage(
+            "This feature is experimental and is using the Roboflow API."),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
@@ -107,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("Light"),
         "likeTheApp":
             MessageLookupByLibrary.simpleMessage("Do you like the app?"),
+        "loading": MessageLookupByLibrary.simpleMessage("Loading"),
         "lymphocytesDescription": MessageLookupByLibrary.simpleMessage(
             "Lymphocytes are cells of the immune system. They have dense, round, uniform nuclei. The color of the cytoplasm is light blue to colorless. They are smaller than neutrophils and are generally spherical in shape. They generally do not contain visible granules. Less motile than neutrophils, are involved in the adaptive immune response."),
         "lymphocytesTitle": MessageLookupByLibrary.simpleMessage("Lymphocytes"),
@@ -209,6 +219,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tips to identify"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Type"),
+        "uploadFromGallery":
+            MessageLookupByLibrary.simpleMessage("Upload from Gallery"),
+        "useCamera": MessageLookupByLibrary.simpleMessage("Use Camera"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibration"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("White Cells"),
         "whySupport": MessageLookupByLibrary.simpleMessage("Why support us?"),

@@ -32,12 +32,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewAlertThreshold": MessageLookupByLibrary.simpleMessage(
             "Aggiungi nuovo limite di notifica"),
         "age": MessageLookupByLibrary.simpleMessage("Età"),
+        "aiHelpPage":
+            MessageLookupByLibrary.simpleMessage("Pagina di Aiuto IA"),
         "alertThresholds":
             MessageLookupByLibrary.simpleMessage("Conteggio notifiche"),
         "alertToCount": MessageLookupByLibrary.simpleMessage(
             "Notifica quando il conteggio WBC raggiunge:"),
+        "analysisResults":
+            MessageLookupByLibrary.simpleMessage("Risultati dell\'Analisi"),
         "appEvaluation":
             MessageLookupByLibrary.simpleMessage("Valutazione dell\'app"),
+        "backToMenu": MessageLookupByLibrary.simpleMessage("Torna al Menù"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "I basofili hanno un nucleo bilobato, ma può essere difficile distinguere a causa dei granuli densi. Il citoplasma è di colore blu scuro o nero a causa dei granuli basofili. Sono simili in dimensioni ai neutrofili ed eosinofili. Hanno granuli densi, che oscurano la vista del nucleo. Sono coinvolti in reazioni allergiche gravi e risposte immunitarie."),
         "basophilsTitle": MessageLookupByLibrary.simpleMessage("Basofili"),
@@ -68,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("Impossibile avviare"),
         "dark": MessageLookupByLibrary.simpleMessage("Scuro"),
+        "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
+            "I dati forniti non devono essere considerati assoluti o confermatori."),
         "delete": MessageLookupByLibrary.simpleMessage("Elimina"),
         "deleteReport": MessageLookupByLibrary.simpleMessage("Elimina report"),
         "disabled": MessageLookupByLibrary.simpleMessage("Disabilitato"),
@@ -90,8 +97,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilità e attività: Sono coinvolti nella risposta allergica e nella difesa contro i parassiti."),
         "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrociti"),
+        "error": MessageLookupByLibrary.simpleMessage("Errore"),
         "errorLoadingReports": MessageLookupByLibrary.simpleMessage(
             "Errore durante il caricamento dei report"),
+        "experimentalFeature": MessageLookupByLibrary.simpleMessage(
+            "Questa funzionalità è sperimentale e utilizza l\'API di Roboflow."),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Il tuo supporto ci aiuta a continuare a sviluppare e migliorare la nostra app. Con il tuo aiuto, possiamo offrire aggiornamenti regolari, nuove funzionalità e garantire che l\'app rimanga gratuita per tutti gli utenti. Grazie per il tuo sostegno alla nostra missione!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtra"),
@@ -109,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lascia una recensione sullo store!"),
         "light": MessageLookupByLibrary.simpleMessage("Chiaro"),
         "likeTheApp": MessageLookupByLibrary.simpleMessage("Ti piace l\'app?"),
+        "loading": MessageLookupByLibrary.simpleMessage("Caricamento"),
         "lymphocytesDescription": MessageLookupByLibrary.simpleMessage(
             "I linfociti sono cellule del sistema immunitario. Hanno nuclei densi, rotondi e uniformi. Il colore del citoplasma è azzurro chiaro o incolore. Sono più piccoli dei neutrofili e generalmente hanno forma sferica. Di solito non contengono granuli visibili. Meno mobili dei neutrofili, sono coinvolti nella risposta immunitaria adattativa."),
         "lymphocytesTitle": MessageLookupByLibrary.simpleMessage("Linfociti"),
@@ -213,6 +224,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Suggerimenti per identificare"),
         "total": MessageLookupByLibrary.simpleMessage("Totale"),
         "type": MessageLookupByLibrary.simpleMessage("Tipo"),
+        "uploadFromGallery":
+            MessageLookupByLibrary.simpleMessage("Carica dalla Galleria"),
+        "useCamera": MessageLookupByLibrary.simpleMessage("Usa la Fotocamera"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibrazione"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Cellule bianche"),
         "whySupport":

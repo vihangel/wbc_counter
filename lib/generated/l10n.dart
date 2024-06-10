@@ -1369,6 +1369,96 @@ class S {
       args: [],
     );
   }
+
+  /// `This feature is experimental and is using the Roboflow API.`
+  String get experimentalFeature {
+    return Intl.message(
+      'This feature is experimental and is using the Roboflow API.',
+      name: 'experimentalFeature',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The data provided should not be considered absolute or confirmatory.`
+  String get dataDisclaimer {
+    return Intl.message(
+      'The data provided should not be considered absolute or confirmatory.',
+      name: 'dataDisclaimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upload from Gallery`
+  String get uploadFromGallery {
+    return Intl.message(
+      'Upload from Gallery',
+      name: 'uploadFromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use Camera`
+  String get useCamera {
+    return Intl.message(
+      'Use Camera',
+      name: 'useCamera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading`
+  String get loading {
+    return Intl.message(
+      'Loading',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AI Help Page`
+  String get aiHelpPage {
+    return Intl.message(
+      'AI Help Page',
+      name: 'aiHelpPage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Analysis Results`
+  String get analysisResults {
+    return Intl.message(
+      'Analysis Results',
+      name: 'analysisResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to Menu`
+  String get backToMenu {
+    return Intl.message(
+      'Back to Menu',
+      name: 'backToMenu',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
