@@ -140,5 +140,6 @@
     "error": "Error",
     "aiHelpPage": "AI Help Page",
     "analysisResults": "Analysis Results",
-    "backToMenu": "Back to Menu"
+    "backToMenu": "Back to Menu",
+    "explainCount": "This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional."
 }

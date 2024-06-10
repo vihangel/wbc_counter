@@ -117,6 +117,14 @@ class ReportPageState extends State<ReportPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Text(
+                        S.of(context).explainCount,
+                        style: TextStyle(
+                          color: Colors.red.shade400,
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

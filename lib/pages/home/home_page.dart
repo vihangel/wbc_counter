@@ -71,14 +71,21 @@ class _HomePageState extends State<HomePage> {
         child: BlocBuilder<CellCountBloc, CellCountState>(
           builder: (context, state) {
             if (state is CellCountChangeState) {
-              final totalWbcCount =
-                  state.bloodCells.totalWbcCount; // Total count from the model
+              final totalWbcCount = state.bloodCells.totalWbcCount;
               return Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Text(
+                        S.of(context).explainCount,
+                        style: TextStyle(
+                          color: Colors.red.shade400,
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                       _buildTotalCountRow(context, totalWbcCount),
                       _buildModeToggleRow(context,
                           isAdicionarMode: state.isAddMode),

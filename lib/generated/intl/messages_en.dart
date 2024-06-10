@@ -98,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Error loading reports"),
         "experimentalFeature": MessageLookupByLibrary.simpleMessage(
             "This feature is experimental and is using the Roboflow API."),
+        "explainCount": MessageLookupByLibrary.simpleMessage(
+            "This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional."),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),

@@ -1459,6 +1459,16 @@ class S {
       args: [],
     );
   }
+
+  /// `This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional.`
+  String get explainCount {
+    return Intl.message(
+      'This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional.',
+      name: 'explainCount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

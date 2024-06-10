@@ -140,5 +140,6 @@
     "error": "Errore",
     "aiHelpPage": "Pagina di Aiuto IA",
     "analysisResults": "Risultati dell'Analisi",
-    "backToMenu": "Torna al Menù"
+    "backToMenu": "Torna al Menù",
+    "explainCount": "Questa è solo una calcolatrice, i dati devono essere aggiunti, interpretati e calcolati da un operatore sanitario."
 }
