@@ -22,6 +22,7 @@ class ResultsPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.memory(imageData,
                 height: 200, width: double.infinity, fit: BoxFit.cover),
@@ -29,7 +30,8 @@ class ResultsPage extends StatelessWidget {
             Text(
               S.of(context).experimentalFeature,
               style: const TextStyle(
-                  color: Colors.red, fontStyle: FontStyle.italic),
+                color: Colors.red,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -44,8 +46,10 @@ class ResultsPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
-              child: Text(S.of(context).backToMenu),
+              child: Text(S.of(context).backToMenu,
+                  style: const TextStyle(color: Colors.white)),
             ),
           ],
         ),

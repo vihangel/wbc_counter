@@ -14,9 +14,11 @@ class AiHelpPage extends StatefulWidget {
 }
 
 class AiHelpPageState extends State<AiHelpPage> {
+//    'wbc_dataset/1';
+//  'whitebloodcell-2/2';
   final ImagePicker _picker = ImagePicker();
   final PredictionRepository repository = PredictionRepository(
-      baseUrl: "https://detect.roboflow.com/whitebloodcell-2/2",
+      baseUrl: "https://detect.roboflow.com/wbc_dataset/1",
       apiKey: "fk7VtI7nE6JeAvH5ZgsQ");
   bool _isLoading = false;
 
