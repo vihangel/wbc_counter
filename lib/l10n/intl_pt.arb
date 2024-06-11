@@ -132,5 +132,15 @@
     "promielocitosTitle": "Promielócitos",
     "reticulocitosTitle": "Reticulócitos",
     "hipersegmentadosTitle": "Hipersegmentados",
-    "pilosasTitle": "Pilosas"
+    "pilosasTitle": "Pilosas",
+    "experimentalFeature": "Esta funcionalidade é experimental e está utilizando a API do Roboflow.",
+    "dataDisclaimer": "Os dados fornecidos não devem ser considerados absolutos ou confirmatórios.",
+    "uploadFromGallery": "Carregar da Galeria",
+    "useCamera": "Usar Câmera",
+    "loading": "Carregando",
+    "error": "Erro",
+    "aiHelpPage": "AI Help Page",
+    "analysisResults": "Resultados da Análise",
+    "backToMenu": "Voltar ao Menu",
+    "explainCount": "Essa é apenas uma calculadora, os dados devem ser adicionados, interpretados e calculados por um profissional de saúde."
 }

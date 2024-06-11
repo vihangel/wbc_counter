@@ -32,12 +32,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewAlertThreshold": MessageLookupByLibrary.simpleMessage(
             "Agregar nuevo umbral de alerta"),
         "age": MessageLookupByLibrary.simpleMessage("Edad"),
+        "aiHelpPage":
+            MessageLookupByLibrary.simpleMessage("Página de Ayuda de IA"),
         "alertThresholds":
             MessageLookupByLibrary.simpleMessage("Notificar conteo"),
         "alertToCount": MessageLookupByLibrary.simpleMessage(
             "Alertar cuando el conteo de WBC alcance:"),
+        "analysisResults":
+            MessageLookupByLibrary.simpleMessage("Resultados del Análisis"),
         "appEvaluation":
             MessageLookupByLibrary.simpleMessage("Evaluación de la aplicación"),
+        "backToMenu": MessageLookupByLibrary.simpleMessage("Volver al Menú"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Los basófilos tienen un núcleo bilobulado, pero puede ser difícil de discernir debido a los gránulos densos. El citoplasma es de color azul oscuro a negro debido a los gránulos basófilos. Son similares en tamaño a los neutrófilos y eosinófilos. Tienen gránulos densos, que ocultan la visión del núcleo. Están involucrados en reacciones alérgicas graves y respuestas inmunes."),
         "basophilsTitle": MessageLookupByLibrary.simpleMessage("Basófilos"),
@@ -68,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("No se pudo lanzar"),
         "dark": MessageLookupByLibrary.simpleMessage("Oscuro"),
+        "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
+            "Los datos proporcionados no deben considerarse absolutos o confirmatorios."),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "deleteReport":
             MessageLookupByLibrary.simpleMessage("Eliminar informe"),
@@ -91,8 +98,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Movilidad y actividad: Están involucrados en la respuesta alérgica y en la defensa contra parásitos."),
         "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrocitos"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Error al cargar informes"),
+        "experimentalFeature": MessageLookupByLibrary.simpleMessage(
+            "Esta función es experimental y está utilizando la API de Roboflow."),
+        "explainCount": MessageLookupByLibrary.simpleMessage(
+            "Esto es sólo una calculadora, los datos deben ser sumados, interpretados y calculados por un profesional de la salud."),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Tu apoyo nos ayuda a seguir desarrollando y mejorando nuestra aplicación. Con tu ayuda, podemos ofrecer actualizaciones regulares, nuevas características y asegurar que la aplicación siga siendo gratuita para todos los usuarios. ¡Gracias por apoyar nuestra misión!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),
@@ -111,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "light": MessageLookupByLibrary.simpleMessage("Claro"),
         "likeTheApp":
             MessageLookupByLibrary.simpleMessage("¿Te gusta la aplicación?"),
+        "loading": MessageLookupByLibrary.simpleMessage("Cargando"),
         "lymphocytesDescription": MessageLookupByLibrary.simpleMessage(
             "Los linfocitos son células del sistema inmunológico. Tienen núcleos densos, redondos y uniformes. El color del citoplasma es azul claro a incoloro. Son más pequeños que los neutrófilos y generalmente tienen forma esférica. Por lo general, no contienen gránulos visibles. Menos móviles que los neutrófilos, están involucrados en la respuesta inmune adaptativa."),
         "lymphocytesTitle": MessageLookupByLibrary.simpleMessage("Linfocitos"),
@@ -217,6 +230,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Consejos para identificar"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "type": MessageLookupByLibrary.simpleMessage("Tipo"),
+        "uploadFromGallery":
+            MessageLookupByLibrary.simpleMessage("Cargar desde la Galería"),
+        "useCamera": MessageLookupByLibrary.simpleMessage("Usar Cámara"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibración"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Células blancas"),
         "whySupport":

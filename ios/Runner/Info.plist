@@ -10,11 +10,11 @@
 			<string>tel</string>
 			<string>mailto</string>
 		</array>
-		<key>NSLocationWhenInUseUsageDescription</key>
-<string>We need your location for...</string>
-<key>NSLocalNetworkUsageDescription</key>
-<string>We need access to your notifications for...</string>
-
+		<key>NSCameraUsageDescription</key>
+		<string>We need access to your camera to take photos for IA helps detect.</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>We need access to your photo library to select photos.</string>
+		
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>

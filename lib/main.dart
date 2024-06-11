@@ -1,5 +1,9 @@
+import 'dart:developer';
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +14,7 @@ import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
+import 'package:wbc_counter/firebase_options.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
@@ -17,22 +22,44 @@ import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   // Hive.deleteFromDisk();
-  await HiveHelper.init();
 
-  await HiveHelper.openBox();
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await FirebaseCrashlytics.instance
+        .setCrashlyticsCollectionEnabled(!kDebugMode);
+    log("Firebase initialized successfully.");
+  } catch (e) {
+    log("Firebase initialization failed: $e");
+  }
 
-  await Hive.openBox<SaveReportModel>('DB_REPORT');
-  await Hive.openBox<TotalCellsBlood>('DB_CELLS');
+  if (!kIsWeb) {
+    hiveInitialize();
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
+
   final prefs = await SharedPreferences.getInstance();
   if (prefs.getString('language') == null) {
-    await prefs.setString('language', Platform.localeName);
+    kIsWeb
+        ? await prefs.setString('language', 'en')
+        : await prefs.setString(
+            'language', Platform.localeName.substring(3, 5).toLowerCase());
   }
   lang = prefs.getString('language')!;
 
   await S.load(Locale.fromSubtags(languageCode: lang));
   runApp(const MyApp());
+}
+
+Future<void> hiveInitialize() async {
+  await HiveHelper.init();
+
+  await HiveHelper.openBox();
+  await Hive.openBox<SaveReportModel>('DB_REPORT');
+  await Hive.openBox<TotalCellsBlood>('DB_CELLS');
 }
 
 late String lang;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wbc_counter/pages/ia_help/ia_help_page.dart';
 import 'package:wbc_counter/pages/tips/tips_page.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -28,6 +29,16 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => TipsPage(),
+              ),
+            );
+          },
+        ),
+        IconButton(
+          icon: const Icon(Icons.camera_alt_outlined),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AiHelpPage(),
               ),
             );
           },

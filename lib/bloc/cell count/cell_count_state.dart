@@ -1,96 +1,51 @@
 part of 'cell_count_bloc.dart';
 
 abstract class CellCountState {
-  CellCountState();
+  const CellCountState();
 }
 
 class CellCountChangeState extends CellCountState {
-  Map<String, int> wbcQuantities;
-  Map<String, int> rbcQuantities;
-  Map<String, int> abnormalQuantities;
-  Map<String, int> userCells;
+  final TotalCellsBlood bloodCells;
   final bool isAddMode;
 
-  CellCountChangeState(
-      {required this.wbcQuantities,
-      required this.rbcQuantities,
-      required this.abnormalQuantities,
-      required this.userCells,
-      required this.isAddMode});
+  const CellCountChangeState({
+    required this.bloodCells,
+    this.isAddMode = true,
+  });
 
-  CellCountChangeState copyWith(
-      {Map<String, int>? wbcQuantities,
-      Map<String, int>? rbcQuantities,
-      Map<String, int>? abnormalQuantities,
-      Map<String, int>? userCells,
-      bool? isAddMode}) {
+  CellCountChangeState copyWith({
+    TotalCellsBlood? bloodCells,
+    bool? isAddMode,
+  }) {
     return CellCountChangeState(
-        wbcQuantities: wbcQuantities ?? this.wbcQuantities,
-        rbcQuantities: rbcQuantities ?? this.rbcQuantities,
-        abnormalQuantities: abnormalQuantities ?? this.abnormalQuantities,
-        userCells: userCells ?? this.userCells,
-        isAddMode: isAddMode ?? this.isAddMode);
+      bloodCells: bloodCells ?? this.bloodCells,
+      isAddMode: isAddMode ?? this.isAddMode,
+    );
   }
 
-  CellCountChangeState.defaultValue()
-      : wbcQuantities = const {
-          'Neutrófilo': 0,
-          'Basófilo': 0,
-          'Eosinófilo': 0,
-          'Monócito': 0,
-          'Linfócito': 0,
-        },
-        rbcQuantities = const {
-          'Eritrócito': 0,
-          'Plaquetas': 0,
-        },
-        abnormalQuantities = const {
-          'Blastos': 0,
-          'Metamielócitos': 0,
-          'Mielócitos': 0,
-          'Promielócitos': 0,
-          'Reticulócitos': 0,
-          'Hipersegmentados': 0,
-          'Pilosas': 0,
-        },
-        isAddMode = true,
-        userCells = const {};
-
-  String get reportText => allCells
-      .map((key, value) => MapEntry(key, value))
-      .values
-      .reduce((a, b) => a + b)
-      .toString();
-
-  Map<String, int> get allCells => {
-        ...wbcQuantities,
-        ...rbcQuantities,
-        ...abnormalQuantities,
-        ...userCells,
-      };
-
-  Map<String, int> mapByType(WBCType type) {
-    switch (type) {
-      case WBCType.white:
-        return wbcQuantities;
-      case WBCType.red:
-        return rbcQuantities;
-      case WBCType.abnormal:
-        return abnormalQuantities;
-      case WBCType.user:
-        return userCells;
-      default:
-        return {};
-    }
+  factory CellCountChangeState.defaultValue(s) {
+    return CellCountChangeState(
+      bloodCells: TotalCellsBlood.defaultValue(s),
+    );
   }
 
-  int get totalWbcCount => allCells.values.reduce((a, b) => a + b);
+  String get reportText => bloodCells.reportText;
+
+  int get totalWbcCount => bloodCells.totalWbcCount;
 }
 
-class CellCountResetState extends CellCountState {}
+class CellCountResetState extends CellCountState {
+  const CellCountResetState();
+}
 
-class CellCountLoadingState extends CellCountState {}
+class CellCountLoadingState extends CellCountState {
+  const CellCountLoadingState();
+}
 
-class CellCountDeletedState extends CellCountState {}
+class CellCountDeletedState extends CellCountState {
+  const CellCountDeletedState();
+}
 
-class CellCountSavedState extends CellCountState {}
+class CellCountSavedState extends CellCountState {
+  const CellCountSavedState();
+}

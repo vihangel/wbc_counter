@@ -1,41 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'provider_cells.dart';
+part of 'blood_cells_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TotalCellsBloodAdapter extends TypeAdapter<TotalCellsBlood> {
+class BloodCellModelAdapter extends TypeAdapter<BloodCellModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
-  TotalCellsBlood read(BinaryReader reader) {
+  BloodCellModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return TotalCellsBlood(
-      wbcQuantities: (fields[0] as List).cast<BloodCellModel>(),
-      rbcQuantities: (fields[1] as List).cast<BloodCellModel>(),
-      abnormalQuantities: (fields[2] as List).cast<BloodCellModel>(),
-      userCells: (fields[3] as List).cast<BloodCellModel>(),
+    return BloodCellModel(
+      title: fields[1] as String,
+      name: fields[0] as String,
+      quantity: fields[2] as int,
+      imagePath: fields[3] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, TotalCellsBlood obj) {
+  void write(BinaryWriter writer, BloodCellModel obj) {
     writer
       ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.wbcQuantities)
+      ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.rbcQuantities)
+      ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.abnormalQuantities)
+      ..write(obj.quantity)
       ..writeByte(3)
-      ..write(obj.userCells);
+      ..write(obj.imagePath);
   }
 
   @override
@@ -44,7 +44,7 @@ class TotalCellsBloodAdapter extends TypeAdapter<TotalCellsBlood> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TotalCellsBloodAdapter &&
+      other is BloodCellModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
