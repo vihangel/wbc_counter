@@ -2,7 +2,8 @@
 
 # Leucograma App
 
-![Leucograma App](https://play-lh.googleusercontent.com/zHaJgUF5wDfDr7pXR6pq20IfG48CKmcj0DeeOm55zC9ATx7mxVQO4L68QnfGXU6BIw=w2560-h1440-rw)
+![Leucograma App](https://lh3.googleusercontent.com/6H-IwiNrojKt3-tK-t0nltMKdFvVM9Sper2dMnkuO-KsPWw_IAbckozbt0wH2-J6mm6S)
+
 
 ## Sobre o Aplicativo
 
@@ -25,7 +26,7 @@ O **Leucograma** é um aplicativo inovador que transforma a maneira como profiss
 
 Disponível na Google Play Store:
 
-[![Baixe no Google Play](https://play-lh.googleusercontent.com/zHaJgUF5wDfDr7pXR6pq20IfG48CKmcj0DeeOm55zC9ATx7mxVQO4L68QnfGXU6BIw=w2560-h1440-rw)](https://play.google.com/store/apps/details?id=br.com.wbc_counter)
+https://play.google.com/store/apps/details?id=br.com.wbc_counter
 
 ## Suporte
 
