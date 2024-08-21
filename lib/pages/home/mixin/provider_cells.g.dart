@@ -17,10 +17,10 @@ class TotalCellsBloodAdapter extends TypeAdapter<TotalCellsBlood> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return TotalCellsBlood(
-      wbcQuantities: (fields[0] as Map).cast<String, int>(),
-      rbcQuantities: (fields[1] as Map).cast<String, int>(),
-      abnormalQuantities: (fields[2] as Map).cast<String, int>(),
-      userCells: (fields[3] as Map).cast<String, int>(),
+      wbcQuantities: (fields[0] as List).cast<BloodCellModel>(),
+      rbcQuantities: (fields[1] as List).cast<BloodCellModel>(),
+      abnormalQuantities: (fields[2] as List).cast<BloodCellModel>(),
+      userCells: (fields[3] as List).cast<BloodCellModel>(),
     );
   }
 

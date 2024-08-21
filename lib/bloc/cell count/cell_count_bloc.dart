@@ -1,83 +1,79 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/pages/home/home_page.dart';
 import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 
 part 'cell_count_event.dart';
 part 'cell_count_state.dart';
 
 class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
-  CellCountBloc() : super(CellCountChangeState.defaultValue()) {
-    on<WbcQuantitiesChangeEvent>(
-        (event, emit) => _mapUpdateCellCountToState(event, emit));
-    on<IsAddModeChangeEvent>(
-        (event, emit) => _mapUpdateIsAddModeToState(event, emit));
-    on<CellCountResetEvent>((event, emit) => _mapResetToState(event, emit));
-    on<CellCountSaveEvent>((event, emit) => _mapSaveToState(event, emit));
-    on<CellCountReportEvent>((event, emit) => _mapReportToState(event, emit));
-    on<CellCountDeleteEvent>((event, emit) => _mapDeleteToState(event, emit));
+  CellCountBloc() : super(CellCountChangeState.defaultValue(S())) {
+    on<WbcQuantitiesChangeEvent>(_mapUpdateCellCountToState);
+    on<IsAddModeChangeEvent>(_mapUpdateIsAddModeToState);
+    on<CellCountResetEvent>(_mapResetToState);
+    on<CellCountSaveEvent>(_mapSaveToState);
+    on<CellCountReportEvent>(_mapReportToState);
+    on<CellCountDeleteEvent>(_mapDeleteToState);
   }
 
-  final TotalCellsBlood wbcQuantities = TotalCellsBlood.defaultValue();
+  void _mapUpdateCellCountToState(
+      WbcQuantitiesChangeEvent event, Emitter<CellCountState> emit) {
+    // Update specific cell's quantity in the TotalCellsBlood instance
+    final TotalCellsBlood updatedBloodCells =
+        (state as CellCountChangeState).bloodCells.copyWith();
 
-  void _mapUpdateCellCountToState(WbcQuantitiesChangeEvent event, emit) async {
-    // Create a new modifiable map from the original unmodifiable map
-    Map<String, int> originalMap =
-        (state as CellCountChangeState).mapByType(event.wbcType);
-    Map<String, int> newMap = Map.from(originalMap);
+    updatedBloodCells.updateCellQuantity(event.name, event.quantity);
 
-    // Now you can modify the newMap as it is no longer unmodifiable
-    newMap[event.name] = event.quantity;
-
-    switch (event.wbcType) {
-      case WBCType.white:
-        emit((state as CellCountChangeState).copyWith(
-          wbcQuantities: newMap,
-        ));
-        break;
-      case WBCType.red:
-        emit((state as CellCountChangeState).copyWith(
-          rbcQuantities: newMap,
-        ));
-        break;
-      case WBCType.abnormal:
-        emit((state as CellCountChangeState).copyWith(
-          abnormalQuantities: newMap,
-        ));
-        break;
-      case WBCType.user:
-      default:
-        emit((state as CellCountChangeState).copyWith(
-          userCells: newMap,
-        ));
-        break;
-    }
+    emit((state as CellCountChangeState)
+        .copyWith(bloodCells: updatedBloodCells));
   }
 
-  void _mapUpdateIsAddModeToState(IsAddModeChangeEvent event, emit) async {
+  void _mapUpdateIsAddModeToState(
+      IsAddModeChangeEvent event, Emitter<CellCountState> emit) {
     emit((state as CellCountChangeState).copyWith(isAddMode: event.isAddMode));
   }
 
-  void _mapResetToState(CellCountResetEvent event, emit) {
-    emit(CellCountResetState());
-    emit(CellCountChangeState.defaultValue());
+  void _mapResetToState(
+      CellCountResetEvent event, Emitter<CellCountState> emit) {
+    emit(const CellCountResetState());
+    emit(CellCountChangeState.defaultValue(S()));
   }
 
-  void _mapSaveToState(CellCountSaveEvent event, emit) async {
-    /// emit(CellCountLoadingState()); /// Is too fast
-
+  void _mapSaveToState(
+      CellCountSaveEvent event, Emitter<CellCountState> emit) async {
     await HiveHelper.addReport(event.report);
-    emit(CellCountSavedState());
-    emit(CellCountChangeState.defaultValue());
+    emit(const CellCountSavedState());
+    emit(CellCountChangeState.defaultValue(S()));
   }
 
-  void _mapReportToState(CellCountReportEvent event, emit) async {}
+  void _mapReportToState(
+      CellCountReportEvent event, Emitter<CellCountState> emit) async {
+    // Ensure we are working with the correct state
+    if (state is CellCountChangeState) {
+      final currentState = state as CellCountChangeState;
+      // Use the currentState.bloodCells to generate the report
+      final TotalCellsBlood bloodCells = currentState.bloodCells;
 
-  void _mapDeleteToState(CellCountDeleteEvent event, emit) async {
-    ///  emit(CellCountLoadingState());  /// Is too fast
+      // Create the report text or data structure
+      String reportText = bloodCells.reportText;
+
+      // Here you could save the report to a database, send it to a server, or simply log it
+      // For demonstration, let's just log it
+      print(reportText);
+
+      // Optionally, after generating the report, you may want to update the state
+      // For instance, if you want to clear the counts after generating the report
+      // emit(CellCountResetState());
+      // or if you want to keep the state as is, just notify that report generation is done
+      // emit(CellCountReportGeneratedState()); // This would be a new state to indicate report has been generated
+    }
+  }
+
+  void _mapDeleteToState(
+      CellCountDeleteEvent event, Emitter<CellCountState> emit) async {
     await HiveHelper.deleteReport(event.id);
-    emit(CellCountDeletedState());
-    emit(CellCountChangeState.defaultValue());
+    emit(const CellCountDeletedState());
+    emit(CellCountChangeState.defaultValue(S()));
   }
 }

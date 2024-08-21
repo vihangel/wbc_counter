@@ -6,8 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';
+import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
 import 'package:wbc_counter/pages/home/widget/app_bar_widget.dart';
 import 'package:wbc_counter/pages/home/widget/drawer_widget.dart';
 import 'package:wbc_counter/pages/home/widget/wbc_widget.dart';
@@ -27,20 +27,19 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with ProviderCells {
+class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  bool isAdicionarMode = true;
-
   void toggleMode(bool toggleMode) {
-    setState(() {
-      isAdicionarMode = toggleMode;
-    });
+    context
+        .read<CellCountBloc>()
+        .add(IsAddModeChangeEvent(isAddMode: toggleMode));
   }
 
   void updateQuantity(String wbcName, int newQuantity, WBCType wbc) {
-    context.read<CellCountBloc>().add(WbcQuantitiesChangeEvent(
-        name: wbcName, quantity: newQuantity, wbcType: wbc));
+    context
+        .read<CellCountBloc>()
+        .add(WbcQuantitiesChangeEvent(name: wbcName, quantity: newQuantity));
   }
 
   late SharedPreferences prefs;
@@ -63,227 +62,203 @@ class _HomePageState extends State<HomePage> with ProviderCells {
       key: _scaffoldKey,
       extendBody: true,
       resizeToAvoidBottomInset: true,
-      appBar: AppBarWidget(
-        scaffoldKey: _scaffoldKey,
-      ),
+      appBar: AppBarWidget(scaffoldKey: _scaffoldKey),
       drawer: DrawerWidget(
-        refresh: () => setState(() {}),
-      ),
+          refresh: () => setState(() {
+                context.read<CellCountBloc>().add(CellCountResetEvent());
+              })),
       body: SafeArea(
-        child: BlocBuilder(
-            bloc: context.read<CellCountBloc>(),
-            builder: (context, state) {
-              if (state is CellCountChangeState) {
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              '${S.of(context).total}: ${state.totalWbcCount}',
-                              style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            TextButton(
-                                onPressed: () => _clearAllValues(
-                                      state.totalWbcCount,
-                                    ),
-                                child: Text(
-                                  S.of(context).clearAll,
-                                )),
-                          ],
+        child: BlocBuilder<CellCountBloc, CellCountState>(
+          builder: (context, state) {
+            if (state is CellCountChangeState) {
+              final totalWbcCount = state.bloodCells.totalWbcCount;
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        S.of(context).explainCount,
+                        style: TextStyle(
+                          color: Colors.red.shade400,
+                          fontSize: 10,
                         ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            '${S.of(context).mode}:',
-                            style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    !isAdicionarMode ? Colors.white : null,
-                              ),
-                              onPressed: () => toggleMode(true),
-                              child: Text(S.of(context).add,
-                                  style: TextStyle(
-                                      color: isAdicionarMode
-                                          ? context
-                                                      .read<ThemeAppBloc>()
-                                                      .theme ==
-                                                  ThemeMode.light
-                                              ? Colors.white
-                                              : const Color.fromARGB(
-                                                  255, 42, 42, 42)
-                                          : null)),
-                            ),
-                            const SizedBox(
-                              width: 16.0,
-                            ),
-
-                            ///Remove button
-
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    isAdicionarMode ? Colors.white : null,
-                              ),
-                              onPressed: () => toggleMode(false),
-                              child: Text(S.of(context).remove,
-                                  style: TextStyle(
-                                      color: !isAdicionarMode
-                                          ? context
-                                                      .read<ThemeAppBloc>()
-                                                      .theme ==
-                                                  ThemeMode.light
-                                              ? Colors.white
-                                              : const Color.fromARGB(
-                                                  255, 42, 42, 42)
-                                          : null)),
-                            ),
-
-                            // IconButton(
-                            //     onPressed: () {},
-                            //     icon: const Icon(
-                            //       Icons.undo_rounded,
-                            //       color: Colors.deepPurple,
-                            //     ))
-                          ],
-                        ),
-                        const SizedBox(height: 36),
-                        ExpansionTile(
-                          initiallyExpanded: true,
-                          title: Text(
-                            S.of(context).whiteCells,
-                            style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          children: [
-                            Wrap(
-                              spacing: 16.0,
-                              runSpacing: 16.0,
-                              runAlignment: WrapAlignment.center,
-                              alignment: WrapAlignment.center,
-                              crossAxisAlignment: WrapCrossAlignment.center,
-                              children: whiteBloodCell.map((wbc) {
-                                return WBCQuantityWidget(
-                                  name: wbc.title,
-                                  quantity: state.wbcQuantities[wbc.name]!,
-                                  imagePath: wbc.imagePath,
-                                  isAdicionarMode: isAdicionarMode,
-                                  onUpdateQuantity: (newQuantity) {
-                                    _checkCellCountAndShowAlert(
-                                        state.totalWbcCount + 1);
-                                    updateQuantity(
-                                        wbc.name, newQuantity, WBCType.white);
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                          ],
-                        ),
-                        ExpansionTile(
-                            title: Text(
-                              S.of(context).redCells,
-                              style: const TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            children: [
-                              Wrap(
-                                spacing: 16.0,
-                                runSpacing: 16.0,
-                                runAlignment: WrapAlignment.center,
-                                alignment: WrapAlignment.center,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: redBloodCell.map((rbc) {
-                                  return WBCQuantityWidget(
-                                    name: rbc.title,
-                                    quantity: state.rbcQuantities[rbc.name]!,
-                                    imagePath: rbc.imagePath,
-                                    isAdicionarMode: isAdicionarMode,
-                                    onUpdateQuantity: (newQuantity) {
-                                      updateQuantity(
-                                          rbc.name, newQuantity, WBCType.red);
-                                    },
-                                  );
-                                }).toList(),
-                              ),
-                            ]),
-                        ExpansionTile(
-                            title: Text(
-                              S.of(context).abnormalCells,
-                              style: const TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            children: [
-                              Wrap(
-                                spacing: 16.0,
-                                runSpacing: 16.0,
-                                runAlignment: WrapAlignment.center,
-                                alignment: WrapAlignment.center,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: abnormalBloodCells.map((abc) {
-                                  return WBCQuantityWidget(
-                                    name: abc.title,
-                                    quantity:
-                                        state.abnormalQuantities[abc.name]!,
-                                    imagePath: abc.imagePath,
-                                    isAdicionarMode: isAdicionarMode,
-                                    onUpdateQuantity: (newQuantity) {
-                                      updateQuantity(abc.name, newQuantity,
-                                          WBCType.abnormal);
-                                    },
-                                  );
-                                }).toList(),
-                              ),
-                            ]),
-                      ],
-                    ),
+                        textAlign: TextAlign.center,
+                      ),
+                      _buildTotalCountRow(context, totalWbcCount),
+                      _buildModeToggleRow(context,
+                          isAdicionarMode: state.isAddMode),
+                      const SizedBox(height: 36),
+                      _buildCellTypeExpansionTile(
+                          context, state, WBCType.white),
+                      _buildCellTypeExpansionTile(context, state, WBCType.red),
+                      _buildCellTypeExpansionTile(
+                          context, state, WBCType.abnormal),
+                    ],
                   ),
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
+                ),
               );
-            }),
+            }
+            return const Center(child: CircularProgressIndicator());
+          },
+        ),
       ),
-      bottomNavigationBar: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(16.0),
-          width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              _navigateToReportPage(context);
-            },
-            child: Text(S.of(context).calculate,
-                style: const TextStyle(color: Colors.white)),
+      bottomNavigationBar: _buildCalculateButton(context),
+    );
+  }
+
+  Widget _buildTotalCountRow(BuildContext context, int totalWbcCount) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          '${S.of(context).total}: $totalWbcCount',
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
           ),
+        ),
+        TextButton(
+            onPressed: () => _clearAllValues(
+                  totalWbcCount,
+                ),
+            child: Text(
+              S.of(context).clearAll,
+            )),
+      ],
+    );
+  }
+
+  Widget _buildModeToggleRow(BuildContext context,
+      {bool isAdicionarMode = true}) {
+    return Column(children: [
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          '${S.of(context).mode}:',
+          style: const TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: !isAdicionarMode ? Colors.white : null,
+            ),
+            onPressed: () => toggleMode(true),
+            child: Text(S.of(context).add,
+                style: TextStyle(
+                    color: isAdicionarMode
+                        ? context.read<ThemeAppBloc>().theme == ThemeMode.light
+                            ? Colors.white
+                            : const Color.fromARGB(255, 42, 42, 42)
+                        : null)),
+          ),
+          const SizedBox(
+            width: 16.0,
+          ),
+
+          ///Remove button
+
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: isAdicionarMode ? Colors.white : null,
+            ),
+            onPressed: () => toggleMode(false),
+            child: Text(S.of(context).remove,
+                style: TextStyle(
+                    color: !isAdicionarMode
+                        ? context.read<ThemeAppBloc>().theme == ThemeMode.light
+                            ? Colors.white
+                            : const Color.fromARGB(255, 42, 42, 42)
+                        : null)),
+          ),
+
+          // IconButton(
+          //     onPressed: () {},
+          //     icon: const Icon(
+          //       Icons.undo_rounded,
+          //       color: Colors.deepPurple,
+          //     ))
+        ],
+      ),
+    ]);
+  }
+
+  Widget _buildCellTypeExpansionTile(
+      BuildContext context, CellCountChangeState state, WBCType cellType) {
+    // Filter cells based on the cellType parameter
+    List<BloodCellModel> cells = [];
+    String title = '';
+    switch (cellType) {
+      case WBCType.white:
+        title = S.of(context).whiteCells;
+        cells = state.bloodCells.wbcQuantities;
+        break;
+      case WBCType.red:
+        title = S.of(context).redCells;
+        cells = state.bloodCells.rbcQuantities;
+        break;
+      case WBCType.abnormal:
+        title = S.of(context).abnormalCells;
+        cells = state.bloodCells.abnormalQuantities;
+        break;
+      default:
+        break;
+    }
+
+    return ExpansionTile(
+      initiallyExpanded: true,
+      title: Text(
+        title,
+        style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+      ),
+      children: [
+        Wrap(
+          spacing: 8.0,
+          runSpacing: 8.0,
+          runAlignment: WrapAlignment.center,
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: cells.map((cell) {
+            return WBCQuantityWidget(
+              name: cell.title,
+              quantity: cell.quantity,
+              imagePath: cell.imagePath ?? '',
+              isAdicionarMode: state.isAddMode,
+              onUpdateQuantity: (newQuantity) {
+                context.read<CellCountBloc>().add(WbcQuantitiesChangeEvent(
+                    name: cell.name, quantity: newQuantity));
+                _checkCellCountAndShowAlert(state.bloodCells.totalWbcCount);
+              },
+            );
+          }).toList(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCalculateButton(BuildContext context) {
+    return SafeArea(
+      child: Container(
+        padding: const EdgeInsets.all(16.0),
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () => _navigateToReportPage(context),
+          child: Text(S.of(context).calculate,
+              style: const TextStyle(color: Colors.white)),
         ),
       ),
     );
   }
 
   void _checkCellCountAndShowAlert(totalWbcCount) {
-    int totalQuantity = totalWbcCount;
+    int totalQuantity = totalWbcCount + 1;
     final threshold = prefs.getStringList('alertThresholds') ?? [];
     if (threshold.contains((totalQuantity).toString())) {
       showDialog(
@@ -322,14 +297,7 @@ class _HomePageState extends State<HomePage> with ProviderCells {
       MaterialPageRoute(
         builder: (context) => ReportPage(
             report: SaveReportModel(
-          bloodCells: (state is CellCountChangeState)
-              ? TotalCellsBlood(
-                  wbcQuantities: state.wbcQuantities,
-                  rbcQuantities: state.rbcQuantities,
-                  abnormalQuantities: state.abnormalQuantities,
-                  userCells: state.userCells,
-                )
-              : null,
+          bloodCells: (state is CellCountChangeState) ? state.bloodCells : null,
         )),
       ),
     );
@@ -345,15 +313,14 @@ class _HomePageState extends State<HomePage> with ProviderCells {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
+                Navigator.of(context).pop();
               },
               child: Text(S.of(context).cancel),
             ),
             ElevatedButton(
               onPressed: () {
                 context.read<CellCountBloc>().add(CellCountResetEvent());
-                Navigator.of(context).pop(); // Close the dialog
-                setState(() {});
+                Navigator.of(context).pop();
               },
               child: Text(S.of(context).confirm,
                   style: const TextStyle(color: Colors.white)),

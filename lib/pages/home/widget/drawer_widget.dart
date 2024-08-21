@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:wbc_counter/generated/l10n.dart';
-import 'package:wbc_counter/local_reports/local_reports_page.dart';
 import 'package:wbc_counter/pages/config/config_page.dart';
+import 'package:wbc_counter/pages/local_reports/local_reports_page.dart';
 import 'package:wbc_counter/pages/support_page.dart/support_page.dart';
 
 class DrawerWidget extends StatelessWidget {

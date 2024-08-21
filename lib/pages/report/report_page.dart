@@ -5,9 +5,11 @@ import 'package:share/share.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';
-import 'package:wbc_counter/local_reports/local_reports_page.dart';
+import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
+import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/local_reports/local_reports_page.dart';
 
 class ReportPage extends StatefulWidget {
   final SaveReportModel report;
@@ -20,19 +22,18 @@ class ReportPage extends StatefulWidget {
 }
 
 class ReportPageState extends State<ReportPage> {
-  late TextEditingController _nameController;
-  late TextEditingController _ageController;
-  late TextEditingController _observationController;
-  bool isReadOnly = false;
+  late final TextEditingController _nameController =
+      TextEditingController(text: widget.report.name);
+  late final TextEditingController _ageController =
+      TextEditingController(text: '${widget.report.age ?? 0}');
+  late final TextEditingController _observationController =
+      TextEditingController(text: widget.report.observation);
+
+  late bool isReadOnly = widget.isReadOnly;
 
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.report.name);
-    _ageController = TextEditingController(text: '${widget.report.age ?? 0}');
-    _observationController =
-        TextEditingController(text: widget.report.observation);
-    isReadOnly = widget.isReadOnly;
   }
 
   @override
@@ -46,14 +47,12 @@ class ReportPageState extends State<ReportPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Calculate the total quantity
     int totalQuantity = widget.report.bloodCells?.totalWbcCount ?? 0;
 
-    // Calculate the percentages
     Map<String, double> wbcPercentages = {};
-    widget.report.bloodCells?.allCells.forEach((key, value) {
-      double percentage = (value / totalQuantity) * 100;
-      wbcPercentages[key] = percentage;
+    widget.report.bloodCells?.allCells.forEach((BloodCellModel cell) {
+      final percentage = (cell.quantity / totalQuantity) * 100;
+      wbcPercentages[cell.name] = percentage;
     });
 
     return PopScope(
@@ -118,6 +117,14 @@ class ReportPageState extends State<ReportPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Text(
+                        S.of(context).explainCount,
+                        style: TextStyle(
+                          color: Colors.red.shade400,
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -161,6 +168,15 @@ class ReportPageState extends State<ReportPage> {
                       const SizedBox(height: 16.0),
                       // Display the chart
                       PieChart(
+                        legendOptions: const LegendOptions(
+                          showLegendsInRow: true,
+                          legendPosition: LegendPosition.bottom,
+                          showLegends: true,
+                          legendTextStyle: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
                         dataMap: wbcPercentages,
                         colorList: const [
                           Colors.deepPurple,
@@ -171,27 +187,26 @@ class ReportPageState extends State<ReportPage> {
                           Color.fromARGB(255, 183, 58, 58),
                           Color.fromARGB(255, 183, 58, 131),
                           Color.fromARGB(255, 143, 58, 183),
+                          Color.fromARGB(255, 58, 137, 183),
+                          Color.fromARGB(255, 204, 229, 255),
+                          Color.fromARGB(255, 204, 255, 204),
+                          Color.fromARGB(255, 255, 230, 204),
+                          Color.fromARGB(255, 255, 204, 204),
+                          Color.fromARGB(255, 255, 204, 255),
+                          Color.fromARGB(255, 229, 204, 255),
                         ],
                       ),
                       const SizedBox(height: 16.0),
                       // Display the report table
                       DataTable(
+                        columnSpacing: 16.0,
                         columns: [
                           DataColumn(label: Text(S.of(context).type)),
                           DataColumn(label: Text(S.of(context).quantity)),
                           const DataColumn(label: Text('%')),
                         ],
-                        rows: widget.report.bloodCells!.allCells.entries
-                            .map((entry) {
-                          return DataRow(
-                            cells: [
-                              DataCell(Text(entry.key)),
-                              DataCell(Text(entry.value.toString())),
-                              DataCell(Text(
-                                  '${wbcPercentages[entry.key]!.toStringAsFixed(2)}%')),
-                            ],
-                          );
-                        }).toList(),
+                        rows: generateDataRows(
+                            widget.report.bloodCells!, context),
                       ),
                       const SizedBox(height: 32.0),
 
@@ -223,9 +238,9 @@ class ReportPageState extends State<ReportPage> {
                           String reportText =
                               '${S.of(context).total}: $totalQuantity\n\n';
                           for (var entry
-                              in widget.report.bloodCells!.allCells.entries) {
+                              in widget.report.bloodCells!.allCells) {
                             reportText +=
-                                '${entry.key}: ${entry.value} (${wbcPercentages[entry.key]!.toStringAsFixed(2)}%)\n';
+                                '${entry.title}: ${entry.quantity} (${wbcPercentages[entry.name]!.toStringAsFixed(2)}%)\n';
                           }
                           Share.share(reportText);
                         },
@@ -263,6 +278,23 @@ class ReportPageState extends State<ReportPage> {
         ),
       ),
     );
+  }
+
+  List<DataRow> generateDataRows(TotalCellsBlood report, BuildContext context) {
+    final allCells = report.allCells;
+    final int totalQuantity = report.totalWbcCount;
+
+    return allCells.map((BloodCellModel cell) {
+      double percentage = (cell.quantity / totalQuantity) * 100;
+      percentage = percentage.isNaN ? 0 : percentage;
+      return DataRow(
+        cells: [
+          DataCell(Text(cell.title)),
+          DataCell(Text('${cell.quantity}')),
+          DataCell(Text('${percentage.toStringAsFixed(2)}%')),
+        ],
+      );
+    }).toList();
   }
 
   void _saveReport() async {
