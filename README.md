@@ -17,6 +17,7 @@ O **Leucograma** é um aplicativo inovador que transforma a maneira como profiss
 - Compartilhamento fácil de resultados.
 - Visualização gráfica intuitiva das contagens.
 - Guia de identificação de células com imagens e dicas.
+- Reconhecimento de imagem usando Roboflow
 
 ## Futuras Implementações
 
