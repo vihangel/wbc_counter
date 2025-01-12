@@ -1,7 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
@@ -30,6 +33,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  BannerAd? _bannerAd;
+  bool _isBannerAdLoaded = false;
 
   void toggleMode(bool toggleMode) {
     context
@@ -49,6 +54,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     loadConfigs();
+    loadBannerAd();
   }
 
   Future<void> loadConfigs() async {
@@ -69,47 +75,60 @@ class _HomePageState extends State<HomePage> {
                 context.read<CellCountBloc>().add(CellCountResetEvent());
               })),
       body: SafeArea(
-        child: BlocBuilder<CellCountBloc, CellCountState>(
-          builder: (context, state) {
-            if (state is CellCountChangeState) {
-              final totalWbcCount = state.bloodCells.totalWbcCount;
-              return Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Uri uri = Uri.parse(
-                              "https://ufsj.edu.br/portal2-repositorio/File/laact/Atlas%20Hematologia%20Clinica%20220920.pdf");
-                          launchUrl(uri);
-                        },
-                        child: Text(
-                          S.of(context).explainCount,
-                          style: TextStyle(
-                            color: Colors.red.shade400,
-                            fontSize: 10,
-                          ),
-                          textAlign: TextAlign.center,
+        child: Column(
+          children: [
+            Expanded(
+              child: BlocBuilder<CellCountBloc, CellCountState>(
+                builder: (context, state) {
+                  if (state is CellCountChangeState) {
+                    final totalWbcCount = state.bloodCells.totalWbcCount;
+                    return Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Uri uri = Uri.parse(
+                                    "https://ufsj.edu.br/portal2-repositorio/File/laact/Atlas%20Hematologia%20Clinica%20220920.pdf");
+                                launchUrl(uri);
+                              },
+                              child: Text(
+                                S.of(context).explainCount,
+                                style: TextStyle(
+                                  color: Colors.red.shade400,
+                                  fontSize: 10,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            _buildTotalCountRow(context, totalWbcCount),
+                            _buildModeToggleRow(context,
+                                isAdicionarMode: state.isAddMode),
+                            const SizedBox(height: 36),
+                            _buildCellTypeExpansionTile(
+                                context, state, WBCType.white),
+                            _buildCellTypeExpansionTile(
+                                context, state, WBCType.red),
+                            _buildCellTypeExpansionTile(
+                                context, state, WBCType.abnormal),
+                          ],
                         ),
                       ),
-                      _buildTotalCountRow(context, totalWbcCount),
-                      _buildModeToggleRow(context,
-                          isAdicionarMode: state.isAddMode),
-                      const SizedBox(height: 36),
-                      _buildCellTypeExpansionTile(
-                          context, state, WBCType.white),
-                      _buildCellTypeExpansionTile(context, state, WBCType.red),
-                      _buildCellTypeExpansionTile(
-                          context, state, WBCType.abnormal),
-                    ],
-                  ),
-                ),
-              );
-            }
-            return const Center(child: CircularProgressIndicator());
-          },
+                    );
+                  }
+                  return const Center(child: CircularProgressIndicator());
+                },
+              ),
+            ),
+            if (_isBannerAdLoaded)
+              SizedBox(
+                height: _bannerAd!.size.height.toDouble(),
+                width: _bannerAd!.size.width.toDouble(),
+                child: AdWidget(ad: _bannerAd!),
+              ),
+          ],
         ),
       ),
       bottomNavigationBar: _buildCalculateButton(context),
@@ -337,5 +356,26 @@ class _HomePageState extends State<HomePage> {
         );
       },
     );
+  }
+
+  void loadBannerAd() {
+    _bannerAd = BannerAd(
+      adUnitId: Platform.isAndroid
+          ? 'ca-app-pub-8949237085831318/5653890190'
+          : 'ca-app-pub-8949237085831318/3188047951',
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          setState(() {
+            _isBannerAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          ad.dispose();
+          debugPrint('Ad failed to load: $error');
+        },
+      ),
+    )..load();
   }
 }
