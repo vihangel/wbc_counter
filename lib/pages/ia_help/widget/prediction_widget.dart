@@ -6,8 +6,7 @@ import 'package:wbc_counter/models/predicition_model.dart';
 class PredictionWidget extends StatelessWidget {
   final Prediction prediction;
 
-  const PredictionWidget({Key? key, required this.prediction})
-      : super(key: key);
+  const PredictionWidget({super.key, required this.prediction});
 
   @override
   Widget build(BuildContext context) {

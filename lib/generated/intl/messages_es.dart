@@ -104,7 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "experimentalFeature": MessageLookupByLibrary.simpleMessage(
             "Esta función es experimental y está utilizando la API de Roboflow."),
         "explainCount": MessageLookupByLibrary.simpleMessage(
-            "Esto es sólo una calculadora, los datos deben ser sumados, interpretados y calculados por un profesional de la salud."),
+            "Esto es sólo una calculadora, los datos deben ser sumados, interpretados y calculados por un profesional de la salud. Ver aquí"),
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Tu apoyo nos ayuda a seguir desarrollando y mejorando nuestra aplicación. Con tu ayuda, podemos ofrecer actualizaciones regulares, nuevas características y asegurar que la aplicación siga siendo gratuita para todos los usuarios. ¡Gracias por apoyar nuestra misión!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),

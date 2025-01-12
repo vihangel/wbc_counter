@@ -56,9 +56,8 @@ class ReportPageState extends State<ReportPage> {
     });
 
     return PopScope(
-      onPopInvoked: (value) async {
+      onPopInvokedWithResult: (value, result) async {
         context.read<LocalReportsBloc>().add(ListLocalReportEvent());
-        // await _checkSaveReport();
       },
       child: Scaffold(
         appBar: AppBar(
@@ -359,6 +358,8 @@ class ReportPageState extends State<ReportPage> {
     );
   }
 
+  /// TODO: Implement this method
+  // ignore: unused_element
   Future<void> _checkSaveReport() async {
     await showDialog(
         context: context,

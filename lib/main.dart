@@ -90,20 +90,20 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.light,
               colorScheme: ColorScheme.fromSeed(
                 seedColor: Colors.deepPurple,
-                background: const Color.fromARGB(
+                surface: const Color.fromARGB(
                   255,
                   246,
                   242,
                   252,
                 ),
                 primary: Colors.deepPurple,
-                onPrimary: Colors.white, // <-- this is the change
+                onPrimary: Colors.white,
               ),
               primaryColorDark: Colors.deepPurple,
               primaryColorLight: Colors.deepPurple,
               primaryColor: Colors.deepPurple,
               buttonTheme: const ButtonThemeData(
-                buttonColor: Colors.deepPurple, //  <-- dark color
+                buttonColor: Colors.deepPurple,
                 textTheme: ButtonTextTheme.primary,
               ),
               elevatedButtonTheme: ElevatedButtonThemeData(
@@ -165,7 +165,7 @@ class MyApp extends StatelessWidget {
               colorScheme: const ColorScheme.dark(
                 primary: Colors.deepPurple,
                 onPrimary: Colors.white,
-                background: Color.fromARGB(
+                surface: Color.fromARGB(
                   255,
                   18,
                   18,

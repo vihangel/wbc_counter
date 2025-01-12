@@ -10,8 +10,7 @@ class ResultsPage extends StatelessWidget {
   final List<Prediction> predictions;
 
   const ResultsPage(
-      {Key? key, required this.imageData, required this.predictions})
-      : super(key: key);
+      {super.key, required this.imageData, required this.predictions});
 
   @override
   Widget build(BuildContext context) {

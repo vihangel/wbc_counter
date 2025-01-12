@@ -44,6 +44,7 @@ class AiHelpPageState extends State<AiHelpPage> {
       setState(() {
         _isLoading = false;
       });
+      // ignore: use_build_context_synchronously
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) => ResultsPage(

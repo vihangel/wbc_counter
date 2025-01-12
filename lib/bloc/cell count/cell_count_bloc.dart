@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
 import 'package:wbc_counter/generated/l10n.dart';
@@ -60,7 +61,9 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
 
       // Here you could save the report to a database, send it to a server, or simply log it
       // For demonstration, let's just log it
-      print(reportText);
+      if (kDebugMode) {
+        print(reportText);
+      }
 
       // Optionally, after generating the report, you may want to update the state
       // For instance, if you want to clear the counts after generating the report

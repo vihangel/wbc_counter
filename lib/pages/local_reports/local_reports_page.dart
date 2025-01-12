@@ -13,7 +13,7 @@ class LocalReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<LocalReportsBloc>().add(ListLocalReportEvent());
     return PopScope(
-      onPopInvoked: (value) {
+      onPopInvokedWithResult: (value, result) {
         Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
             builder: (context) => const HomePage(),
