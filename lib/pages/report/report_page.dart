@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pie_chart/pie_chart.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/bloc/local_reports/local_reports_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';

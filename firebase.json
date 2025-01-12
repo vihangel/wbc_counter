@@ -1,5 +1,1 @@
-{
-  "storage": {
-    "rules": "storage.rules"
-  }
-}
+{"storage":{"rules":"storage.rules"},"flutter":{"platforms":{"android":{"default":{"projectId":"leucogram-wbc","appId":"1:996164351991:android:4389b207857a425603e0f2","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"leucogram-wbc","appId":"1:996164351991:ios:7f2455e095824de003e0f2","uploadDebugSymbols":true,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"macos":{"default":{"projectId":"leucogram-wbc","appId":"1:996164351991:ios:3a2fb4756cf2adb403e0f2","uploadDebugSymbols":true,"fileOutput":"macos/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"leucogram-wbc","configurations":{"android":"1:996164351991:android:4389b207857a425603e0f2","ios":"1:996164351991:ios:7f2455e095824de003e0f2","macos":"1:996164351991:ios:3a2fb4756cf2adb403e0f2","web":"1:996164351991:web:af52480beb8ab15b03e0f2","windows":"1:996164351991:web:b8de65632cb4a67a03e0f2"}}}}}}
