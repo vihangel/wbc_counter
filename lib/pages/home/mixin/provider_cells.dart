@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 
 part 'provider_cells.g.dart';
@@ -23,7 +24,7 @@ class TotalCellsBlood extends HiveObject {
   int get totalWbcCount => allCells.fold(
       0, (previousValue, element) => previousValue + element.quantity);
 
-  TotalCellsBlood.defaultValue(s)
+  TotalCellsBlood.defaultValue(S s)
       : wbcQuantities = [
           BloodCellModel(
               name: 'Linfócitos',

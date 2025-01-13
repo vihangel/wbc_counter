@@ -122,12 +122,6 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-            if (_isBannerAdLoaded)
-              SizedBox(
-                height: _bannerAd!.size.height.toDouble(),
-                width: _bannerAd!.size.width.toDouble(),
-                child: AdWidget(ad: _bannerAd!),
-              ),
           ],
         ),
       ),
@@ -271,16 +265,26 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildCalculateButton(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        width: double.infinity,
-        child: ElevatedButton(
-          onPressed: () => _navigateToReportPage(context),
-          child: Text(S.of(context).calculate,
-              style: const TextStyle(color: Colors.white)),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () => _navigateToReportPage(context),
+            child: Text(S.of(context).calculate,
+                style: const TextStyle(color: Colors.white)),
+          ),
         ),
-      ),
+        if (_isBannerAdLoaded)
+          SizedBox(
+            height: _bannerAd!.size.height.toDouble(),
+            width: _bannerAd!.size.width.toDouble(),
+            child: AdWidget(ad: _bannerAd!),
+          ),
+      ],
     );
   }
 

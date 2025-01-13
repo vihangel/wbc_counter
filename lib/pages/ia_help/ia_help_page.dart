@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/pages/ia_help/prediction_result_page.dart';
@@ -18,9 +20,12 @@ class AiHelpPageState extends State<AiHelpPage> {
 //  'whitebloodcell-2/2';
   final ImagePicker _picker = ImagePicker();
   final PredictionRepository repository = PredictionRepository(
-      baseUrl: "https://detect.roboflow.com/whitebloodcell-2/2",
+      baseUrl:
+          "https://detect.roboflow.com/blood-cell-detection_new-small-dataset/8",
       apiKey: "fk7VtI7nE6JeAvH5ZgsQ");
   bool _isLoading = false;
+  BannerAd? _bannerAd;
+  bool _isBannerAdLoaded = false;
 
   Future<void> _pickImage(ImageSource source) async {
     setState(() {
@@ -62,6 +67,12 @@ class AiHelpPageState extends State<AiHelpPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    loadBannerAd();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -73,6 +84,13 @@ class AiHelpPageState extends State<AiHelpPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            if (_isBannerAdLoaded)
+              SizedBox(
+                height: _bannerAd!.size.height.toDouble(),
+                width: _bannerAd!.size.width.toDouble(),
+                child: AdWidget(ad: _bannerAd!),
+              ),
+            const SizedBox(height: 36),
             Text(
               S.of(context).experimentalFeature,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -128,5 +146,26 @@ class AiHelpPageState extends State<AiHelpPage> {
         );
       },
     );
+  }
+
+  void loadBannerAd() {
+    _bannerAd = BannerAd(
+      adUnitId: Platform.isAndroid
+          ? 'ca-app-pub-8949237085831318/5653890190'
+          : 'ca-app-pub-8949237085831318/3188047951',
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          setState(() {
+            _isBannerAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          ad.dispose();
+          debugPrint('Ad failed to load: $error');
+        },
+      ),
+    )..load();
   }
 }
