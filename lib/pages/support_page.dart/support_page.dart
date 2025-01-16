@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -51,37 +53,42 @@ class SupportPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-            Text(
-              S.of(context).optionsToSupport,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            // List donation options with links
-            ListTile(
-              leading: const Icon(Icons.coffee),
-              title: Text(S.of(context).buyMeACoffe),
-              onTap: () => _launchUrl(
-                Uri(
-                    scheme: 'https',
-                    host: 'www.buymeacoffee.com',
-                    path: 'vihangel'),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.qr_code),
-              title: Text('${S.of(context).pixKey}: 5565992328339'),
-            ),
 
-            const SizedBox(height: 32),
-            Text(
-              S.of(context).whySupport,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            ///Check if is IOS because store block the donation options
+            if (!Platform.isIOS) ...[
+              Text(
+                S.of(context).optionsToSupport,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
+              // List donation options with links
+              ListTile(
+                leading: const Icon(Icons.coffee),
+                title: Text(S.of(context).buyMeACoffe),
+                onTap: () => _launchUrl(
+                  Uri(
+                      scheme: 'https',
+                      host: 'www.buymeacoffee.com',
+                      path: 'vihangel'),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.qr_code),
+                title: Text('${S.of(context).pixKey}: 5565992328339'),
+              ),
+
+              const SizedBox(height: 32),
+              Text(
+                S.of(context).whySupport,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+
             // Explain why support matters
             Text(
               S.of(context).explainWhySupport,

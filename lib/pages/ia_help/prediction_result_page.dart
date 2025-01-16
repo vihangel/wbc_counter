@@ -1,17 +1,33 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/predicition_model.dart';
 import 'package:wbc_counter/pages/ia_help/widget/prediction_widget.dart';
 
-class ResultsPage extends StatelessWidget {
+class ResultsPage extends StatefulWidget {
   final Uint8List imageData;
   final List<Prediction> predictions;
 
   const ResultsPage(
-      {Key? key, required this.imageData, required this.predictions})
-      : super(key: key);
+      {super.key, required this.imageData, required this.predictions});
+
+  @override
+  State<ResultsPage> createState() => _ResultsPageState();
+}
+
+class _ResultsPageState extends State<ResultsPage> {
+  BannerAd? _bannerAd;
+
+  bool _isBannerAdLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    loadBannerAd();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +40,7 @@ class ResultsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.memory(imageData,
+            Image.memory(widget.imageData,
                 height: 200, width: double.infinity, fit: BoxFit.cover),
             const SizedBox(height: 16),
             Text(
@@ -37,9 +53,10 @@ class ResultsPage extends StatelessWidget {
             const SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
-                itemCount: predictions.length,
+                itemCount: widget.predictions.length,
                 itemBuilder: (context, index) {
-                  return PredictionWidget(prediction: predictions[index]);
+                  return PredictionWidget(
+                      prediction: widget.predictions[index]);
                 },
               ),
             ),
@@ -51,9 +68,36 @@ class ResultsPage extends StatelessWidget {
               child: Text(S.of(context).backToMenu,
                   style: const TextStyle(color: Colors.white)),
             ),
+            if (_isBannerAdLoaded)
+              SizedBox(
+                height: _bannerAd!.size.height.toDouble(),
+                width: _bannerAd!.size.width.toDouble(),
+                child: AdWidget(ad: _bannerAd!),
+              ),
           ],
         ),
       ),
     );
+  }
+
+  void loadBannerAd() {
+    _bannerAd = BannerAd(
+      adUnitId: Platform.isAndroid
+          ? 'ca-app-pub-8949237085831318/5653890190'
+          : 'ca-app-pub-8949237085831318/3188047951',
+      size: AdSize.banner,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          setState(() {
+            _isBannerAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          ad.dispose();
+          debugPrint('Ad failed to load: $error');
+        },
+      ),
+    )..load();
   }
 }

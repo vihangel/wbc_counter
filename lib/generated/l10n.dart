@@ -1460,10 +1460,10 @@ class S {
     );
   }
 
-  /// `This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional.`
+  /// `This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional. Check here`
   String get explainCount {
     return Intl.message(
-      'This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional.',
+      'This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional. Check here',
       name: 'explainCount',
       desc: '',
       args: [],

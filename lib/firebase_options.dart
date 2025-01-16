@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -63,6 +60,15 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCh6ZiAxmyjO5h1V6RhsXEMzn7kImhZX_Q',
+    appId: '1:996164351991:ios:7f2455e095824de003e0f2',
+    messagingSenderId: '996164351991',
+    projectId: 'leucogram-wbc',
+    storageBucket: 'leucogram-wbc.appspot.com',
+    iosBundleId: 'br.com.wbccounter',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCh6ZiAxmyjO5h1V6RhsXEMzn7kImhZX_Q',
     appId: '1:996164351991:ios:3a2fb4756cf2adb403e0f2',
     messagingSenderId: '996164351991',
     projectId: 'leucogram-wbc',
@@ -70,12 +76,14 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.wbcCounter',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCh6ZiAxmyjO5h1V6RhsXEMzn7kImhZX_Q',
-    appId: '1:996164351991:ios:981ea70d10edc1b403e0f2',
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCU9t27iKkYtTJdmqlx1t2X9nxJiyP-unA',
+    appId: '1:996164351991:web:b8de65632cb4a67a03e0f2',
     messagingSenderId: '996164351991',
     projectId: 'leucogram-wbc',
+    authDomain: 'leucogram-wbc.firebaseapp.com',
     storageBucket: 'leucogram-wbc.appspot.com',
-    iosBundleId: 'com.example.wbcCounter.RunnerTests',
+    measurementId: 'G-HST4YBKB97',
   );
+
 }
