@@ -119,12 +119,6 @@ PODS:
     - Flutter
   - flutter_native_splash (2.4.3):
     - Flutter
-  - Google-Mobile-Ads-SDK (11.10.0):
-    - GoogleUserMessagingPlatform (>= 1.1)
-  - google_mobile_ads (5.2.0):
-    - Flutter
-    - Google-Mobile-Ads-SDK (~> 11.10.0)
-    - webview_flutter_wkwebview
   - GoogleAppMeasurement (11.6.0):
     - GoogleAppMeasurement/AdIdSupport (= 11.6.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
@@ -148,7 +142,6 @@ PODS:
   - GoogleDataTransport (10.1.0):
     - nanopb (~> 3.30910.0)
     - PromisesObjC (~> 2.4)
-  - GoogleUserMessagingPlatform (2.7.0)
   - GoogleUtilities/AppDelegateSwizzler (8.0.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -201,9 +194,6 @@ PODS:
     - FlutterMacOS
   - url_launcher_ios (0.0.1):
     - Flutter
-  - webview_flutter_wkwebview (0.0.1):
-    - Flutter
-    - FlutterMacOS
 
 DEPENDENCIES:
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
@@ -214,7 +204,6 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_localization (from `.symlinks/plugins/flutter_localization/ios`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
-  - google_mobile_ads (from `.symlinks/plugins/google_mobile_ads/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - in_app_review (from `.symlinks/plugins/in_app_review/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
@@ -222,7 +211,6 @@ DEPENDENCIES:
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
-  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -242,10 +230,8 @@ SPEC REPOS:
     - FirebaseSessions
     - FirebaseSharedSwift
     - FirebaseStorage
-    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
-    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
@@ -269,8 +255,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_localization/ios"
   flutter_native_splash:
     :path: ".symlinks/plugins/flutter_native_splash/ios"
-  google_mobile_ads:
-    :path: ".symlinks/plugins/google_mobile_ads/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   in_app_review:
@@ -285,8 +269,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
-  webview_flutter_wkwebview:
-    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
   Firebase: 374a441a91ead896215703a674d58cdb3e9d772b
@@ -313,11 +295,8 @@ SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
   flutter_native_splash: f71420956eb811e6d310720fee915f1d42852e7a
-  Google-Mobile-Ads-SDK: 13e6e98edfd78ad8d8a791edb927658cc260a56f
-  google_mobile_ads: 2a538d8e42b1813809782792e48f8cf4374c2180
   GoogleAppMeasurement: 6a9e6317b6a6d810ad03d4a66564ca6c4c5818a3
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
-  GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
   GTMSessionFetcher: 4cb0aa086996858328a1fca61f9bfe81cfdfdfa9
   image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
@@ -330,7 +309,6 @@ SPEC CHECKSUMS:
   share_plus: 8b6f8b3447e494cca5317c8c3073de39b3600d1f
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
-  webview_flutter_wkwebview: 0982481e3d9c78fd5c6f62a002fcd24fc791f1e4
 
 PODFILE CHECKSUM: 5e45cb07301fcd9af4a85725983d22c2a9a00c0f
 
