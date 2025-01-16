@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    loadBannerAd();
     loadConfigs();
   }
 
@@ -134,16 +135,26 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildCalculateButton(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        width: double.infinity,
-        child: ElevatedButton(
-          onPressed: () => _navigateToReportPage(context),
-          child: Text(S.of(context).calculate,
-              style: const TextStyle(color: Colors.white)),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () => _navigateToReportPage(context),
+            child: Text(S.of(context).calculate,
+                style: const TextStyle(color: Colors.white)),
+          ),
         ),
-      ),
+        if (_isBannerAdLoaded)
+          SizedBox(
+            height: _bannerAd!.size.height.toDouble(),
+            width: _bannerAd!.size.width.toDouble(),
+            child: AdWidget(ad: _bannerAd!),
+          ),
+      ],
     );
   }
 
@@ -156,34 +167,6 @@ class _HomePageState extends State<HomePage> {
           bloodCells: (state is CellCountChangeState) ? state.bloodCells : null,
         )),
       ),
-    );
-  }
-
-  void _clearAllValues(int wbcQuantities) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(S.of(context).clearValues),
-          content: Text(S.of(context).msg_confirmClearAllValues),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(S.of(context).cancel),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.read<CellCountBloc>().add(CellCountResetEvent());
-                Navigator.of(context).pop();
-              },
-              child: Text(S.of(context).confirm,
-                  style: const TextStyle(color: Colors.white)),
-            ),
-          ],
-        );
-      },
     );
   }
 
