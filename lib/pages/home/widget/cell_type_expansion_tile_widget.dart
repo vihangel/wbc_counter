@@ -64,6 +64,10 @@ class CellTypeExpansionTileWidget extends StatelessWidget {
         return bloodCells.rbcQuantities;
       case WBCType.abnormal:
         return bloodCells.abnormalQuantities;
+      // case WBCType.user:
+      //   return bloodCells.userCells;
+      case WBCType.shape:
+        return bloodCells.shapeCells;
       default:
         return [];
     }
@@ -77,6 +81,10 @@ class CellTypeExpansionTileWidget extends StatelessWidget {
         return S.of(context).redCells;
       case WBCType.abnormal:
         return S.of(context).abnormalCells;
+      // case WBCType.user:
+      // return S.of(context).userCells;
+      case WBCType.shape:
+        return S.of(context).shapeCells;
       default:
         return '';
     }

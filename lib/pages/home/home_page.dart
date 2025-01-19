@@ -23,6 +23,7 @@ enum WBCType {
   red,
   abnormal,
   user,
+  shape,
 }
 
 class HomePage extends StatefulWidget {
@@ -116,6 +117,11 @@ class _HomePageState extends State<HomePage> {
                               bloodCells: state.bloodCells,
                               isAddMode: state.isAddMode,
                               cellType: WBCType.red,
+                            ),
+                            CellTypeExpansionTileWidget(
+                              bloodCells: state.bloodCells,
+                              isAddMode: state.isAddMode,
+                              cellType: WBCType.shape,
                             ),
                             CharacteristicBloodAbnormalitiesWidget()
                           ],

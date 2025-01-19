@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "abnormalCells":
             MessageLookupByLibrary.simpleMessage("Cellule anomale"),
         "about": MessageLookupByLibrary.simpleMessage("Informazioni"),
+        "acantocitosTitle": MessageLookupByLibrary.simpleMessage("Acantociti"),
         "add": MessageLookupByLibrary.simpleMessage("Aggiungi"),
         "addNewAlertThreshold": MessageLookupByLibrary.simpleMessage(
             "Aggiungi nuovo limite di notifica"),
@@ -38,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Conteggio notifiche"),
         "alertToCount": MessageLookupByLibrary.simpleMessage(
             "Notifica quando il conteggio WBC raggiunge:"),
+        "alvoTitle": MessageLookupByLibrary.simpleMessage("Cellule bersaglio"),
         "analysisResults":
             MessageLookupByLibrary.simpleMessage("Risultati dell\'Analisi"),
         "appEvaluation":
@@ -56,9 +58,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Granuli citoplasmatici: Hanno granuli densi, che oscurano la vista del nucleo."),
         "basophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilità e attività: Sono coinvolti in reazioni allergiche gravi e risposte immunitarie."),
+        "bastoneteTitle": MessageLookupByLibrary.simpleMessage("Band cells"),
         "beforeLeaving":
             MessageLookupByLibrary.simpleMessage("Prima di uscire"),
-        "blastTitle": MessageLookupByLibrary.simpleMessage("Blast"),
+        "blastTitle": MessageLookupByLibrary.simpleMessage("Blasts"),
+        "bolhaTitle": MessageLookupByLibrary.simpleMessage("Cellule a vescica"),
         "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Offrimi un caffè"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calcola"),
         "cancel": MessageLookupByLibrary.simpleMessage("Annulla"),
@@ -70,8 +74,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "confirmDeleteReport": MessageLookupByLibrary.simpleMessage(
             "Sei sicuro di voler eliminare questo report?"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contattaci"),
+        "contraidasTitle":
+            MessageLookupByLibrary.simpleMessage("Cellule contratte"),
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("Impossibile avviare"),
+        "cristaishTitle":
+            MessageLookupByLibrary.simpleMessage("Cristalli di emoglobina"),
         "dark": MessageLookupByLibrary.simpleMessage("Scuro"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "I dati forniti non devono essere considerati assoluti o confermatori."),
@@ -81,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "discardChanges":
             MessageLookupByLibrary.simpleMessage("Annulla modifiche"),
         "edit": MessageLookupByLibrary.simpleMessage("Modifica"),
+        "eliptocitosTitle": MessageLookupByLibrary.simpleMessage("Ellittociti"),
         "enabled": MessageLookupByLibrary.simpleMessage("Abilitato"),
         "english": MessageLookupByLibrary.simpleMessage("Inglese"),
         "eosinophilsDescription": MessageLookupByLibrary.simpleMessage(
@@ -96,10 +105,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Granuli citoplasmatici: I granuli sono grandi e colorati, di solito rosa."),
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilità e attività: Sono coinvolti nella risposta allergica e nella difesa contro i parassiti."),
+        "equinocitosTitle": MessageLookupByLibrary.simpleMessage("Echinociti"),
+        "eritroblastosTitle":
+            MessageLookupByLibrary.simpleMessage("Eritroblasti"),
         "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrociti"),
         "error": MessageLookupByLibrary.simpleMessage("Errore"),
         "errorLoadingReports": MessageLookupByLibrary.simpleMessage(
             "Errore durante il caricamento dei report"),
+        "esferocitosTitle": MessageLookupByLibrary.simpleMessage("Sferociti"),
+        "estomatocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Stomatociti"),
         "experimentalFeature": MessageLookupByLibrary.simpleMessage(
             "Questa funzionalità è sperimentale e utilizza l\'API di Roboflow."),
         "explainCount": MessageLookupByLibrary.simpleMessage(
@@ -107,14 +122,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Il tuo supporto ci aiuta a continuare a sviluppare e migliorare la nostra app. Con il tuo aiuto, possiamo offrire aggiornamenti regolari, nuove funzionalità e garantire che l\'app rimanga gratuita per tutti gli utenti. Grazie per il tuo sostegno alla nostra missione!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtra"),
+        "foicesTitle": MessageLookupByLibrary.simpleMessage("Cellule a falce"),
         "french": MessageLookupByLibrary.simpleMessage("Francese"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Ipersegmentati"),
         "howIdentify": MessageLookupByLibrary.simpleMessage(
             "Come identificare le cellule?"),
+        "howellTitle":
+            MessageLookupByLibrary.simpleMessage("Corpi di Howell-Jolly"),
         "itHelpsALot":
             MessageLookupByLibrary.simpleMessage("Questo ci aiuta molto!"),
         "italian": MessageLookupByLibrary.simpleMessage("Italiano"),
+        "lagrimaTitle":
+            MessageLookupByLibrary.simpleMessage("Cellule a goccia"),
         "language": MessageLookupByLibrary.simpleMessage("Lingua"),
         "later": MessageLookupByLibrary.simpleMessage("Dopo"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
@@ -139,6 +159,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Matamielociti"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielociti"),
         "mode": MessageLookupByLibrary.simpleMessage("Modalità"),
+        "moiTitle": MessageLookupByLibrary.simpleMessage(
+            "Microrganismi intraeritrocitari"),
         "monocytesDescription": MessageLookupByLibrary.simpleMessage(
             "I monociti hanno un nucleo grande, di forma irregolare, spesso a forma di rene. Il citoplasma è grigio-bluastro. Sono le cellule bianche più grandi e hanno una forma irregolare. Di solito non hanno granuli visibili. Sono mobili e si differenziano in macrofagi quando si spostano nei tessuti."),
         "monocytesTitle": MessageLookupByLibrary.simpleMessage("Monociti"),
@@ -152,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Granuli citoplasmatici: Di solito non hanno granuli visibili."),
         "monocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilità e attività: Sono mobili e si differenziano in macrofagi quando si spostano nei tessuti."),
+        "mordidasTitle": MessageLookupByLibrary.simpleMessage("Cellule morse"),
         "moreExamples": MessageLookupByLibrary.simpleMessage("Altri Esempi"),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "Il tuo report è stato salvato con successo!"),
@@ -160,6 +183,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vuoi continuare ad aggiungere o generare il report?"),
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Report eliminato!"),
+        "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Mieloblasts"),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "I neutrofili sono cellule di difesa immunitaria che generalmente hanno nuclei segmentati, con 2-5 segmenti collegati da filamenti sottili. Il colore del citoplasma è leggermente rosa o incolore. Sono le cellule bianche più abbondanti, di dimensioni medie e forma arrotondata o leggermente lobata. Possono contenere granuli fini e pallidi, ma di solito non sono molto visibili. I neutrofili sono altamente mobili e fagocitano i batteri."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("Neutrofili"),
@@ -187,6 +211,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("Pilose"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Chiave Pix"),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Piastrine"),
+        "ponteadoTitle":
+            MessageLookupByLibrary.simpleMessage("Punteggiatura basofila"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portoghese"),
         "promielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Promielociti"),
@@ -209,6 +235,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Seleziona Lingua"),
         "settings": MessageLookupByLibrary.simpleMessage("Impostazioni"),
+        "shapeCells":
+            MessageLookupByLibrary.simpleMessage("Forma delle cellule"),
         "shareReport": MessageLookupByLibrary.simpleMessage("Condividi report"),
         "sound": MessageLookupByLibrary.simpleMessage("Suono"),
         "spanish": MessageLookupByLibrary.simpleMessage("Spagnolo"),
