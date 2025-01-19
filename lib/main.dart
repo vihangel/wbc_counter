@@ -43,6 +43,13 @@ Future<void> main() async {
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 
+  await checkFirstTimeUse();
+  await checkLanguage();
+
+  runApp(const MyApp());
+}
+
+Future<void> checkLanguage() async {
   final prefs = await SharedPreferences.getInstance();
   if (prefs.getString('language') == null) {
     kIsWeb
@@ -53,7 +60,23 @@ Future<void> main() async {
   lang = prefs.getString('language')!;
 
   await S.load(Locale.fromSubtags(languageCode: lang));
-  runApp(const MyApp());
+}
+
+Future<void> checkFirstTimeUse() async {
+  final prefs = await SharedPreferences.getInstance();
+  final isFirstTime = prefs.getBool('isFirstTime') ?? true;
+
+  if (isFirstTime) {
+    // Adiciona o valor inicial de alertThresholds
+    final List<int> alertThresholds = [100];
+    await prefs.setStringList(
+      'alertThresholds',
+      alertThresholds.map((threshold) => threshold.toString()).toList(),
+    );
+
+    // Define que o app já foi iniciado
+    await prefs.setBool('isFirstTime', false);
+  }
 }
 
 Future<void> hiveInitialize() async {
