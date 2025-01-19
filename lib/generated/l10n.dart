@@ -1300,10 +1300,10 @@ class S {
     );
   }
 
-  /// `Blast`
+  /// `Blasts`
   String get blastTitle {
     return Intl.message(
-      'Blast',
+      'Blasts',
       name: 'blastTitle',
       desc: '',
       args: [],
@@ -1360,11 +1360,31 @@ class S {
     );
   }
 
-  /// `Pilosas`
+  /// `Hairys`
   String get pilosasTitle {
     return Intl.message(
-      'Pilosas',
+      'Hairys',
       name: 'pilosasTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Myeloblasts`
+  String get myeloblastTitle {
+    return Intl.message(
+      'Myeloblasts',
+      name: 'myeloblastTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Band Cells`
+  String get bastoneteTitle {
+    return Intl.message(
+      'Band Cells',
+      name: 'bastoneteTitle',
       desc: '',
       args: [],
     );
@@ -1465,6 +1485,176 @@ class S {
     return Intl.message(
       'This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional. Check here',
       name: 'explainCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Erythroblasts`
+  String get eritroblastosTitle {
+    return Intl.message(
+      'Erythroblasts',
+      name: 'eritroblastosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Acanthocytes`
+  String get acantocitosTitle {
+    return Intl.message(
+      'Acanthocytes',
+      name: 'acantocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Echinocytes`
+  String get equinocitosTitle {
+    return Intl.message(
+      'Echinocytes',
+      name: 'equinocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Elliptocytes`
+  String get eliptocitosTitle {
+    return Intl.message(
+      'Elliptocytes',
+      name: 'eliptocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sickle Cells`
+  String get foicesTitle {
+    return Intl.message(
+      'Sickle Cells',
+      name: 'foicesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stomatocytes`
+  String get estomatocitosTitle {
+    return Intl.message(
+      'Stomatocytes',
+      name: 'estomatocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Target Cells`
+  String get alvoTitle {
+    return Intl.message(
+      'Target Cells',
+      name: 'alvoTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tear Drop Cells`
+  String get lagrimaTitle {
+    return Intl.message(
+      'Tear Drop Cells',
+      name: 'lagrimaTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spherocytes`
+  String get esferocitosTitle {
+    return Intl.message(
+      'Spherocytes',
+      name: 'esferocitosTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contracted Cells`
+  String get contraidasTitle {
+    return Intl.message(
+      'Contracted Cells',
+      name: 'contraidasTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bite Cells`
+  String get mordidasTitle {
+    return Intl.message(
+      'Bite Cells',
+      name: 'mordidasTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blister Cells`
+  String get bolhaTitle {
+    return Intl.message(
+      'Blister Cells',
+      name: 'bolhaTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basophilic Stippling`
+  String get ponteadoTitle {
+    return Intl.message(
+      'Basophilic Stippling',
+      name: 'ponteadoTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Howell-Jolly Bodies`
+  String get howellTitle {
+    return Intl.message(
+      'Howell-Jolly Bodies',
+      name: 'howellTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hemoglobin Crystals`
+  String get cristaishTitle {
+    return Intl.message(
+      'Hemoglobin Crystals',
+      name: 'cristaishTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Intraerythrocytic Microorganisms`
+  String get moiTitle {
+    return Intl.message(
+      'Intraerythrocytic Microorganisms',
+      name: 'moiTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shape Cells`
+  String get shapeCells {
+    return Intl.message(
+      'Shape Cells',
+      name: 'shapeCells',
       desc: '',
       args: [],
     );

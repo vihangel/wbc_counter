@@ -21,13 +21,14 @@ class TotalCellsBloodAdapter extends TypeAdapter<TotalCellsBlood> {
       rbcQuantities: (fields[1] as List).cast<BloodCellModel>(),
       abnormalQuantities: (fields[2] as List).cast<BloodCellModel>(),
       userCells: (fields[3] as List).cast<BloodCellModel>(),
+      shapeCells: (fields[4] as List).cast<BloodCellModel>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, TotalCellsBlood obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.wbcQuantities)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class TotalCellsBloodAdapter extends TypeAdapter<TotalCellsBlood> {
       ..writeByte(2)
       ..write(obj.abnormalQuantities)
       ..writeByte(3)
-      ..write(obj.userCells);
+      ..write(obj.userCells)
+      ..writeByte(4)
+      ..write(obj.shapeCells);
   }
 
   @override

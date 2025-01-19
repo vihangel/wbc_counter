@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Other": MessageLookupByLibrary.simpleMessage("Other"),
         "abnormalCells": MessageLookupByLibrary.simpleMessage("Abnormal Cells"),
         "about": MessageLookupByLibrary.simpleMessage("About"),
+        "acantocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Acanthocytes"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
         "addNewAlertThreshold":
             MessageLookupByLibrary.simpleMessage("Add new alert threshold"),
@@ -35,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alertThresholds": MessageLookupByLibrary.simpleMessage("Notify count"),
         "alertToCount": MessageLookupByLibrary.simpleMessage(
             "Alert when WBC count reaches:"),
+        "alvoTitle": MessageLookupByLibrary.simpleMessage("Target Cells"),
         "analysisResults":
             MessageLookupByLibrary.simpleMessage("Analysis Results"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("App Evaluation"),
@@ -52,8 +55,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: They have dense granules, which obscure the view of the nucleus."),
         "basophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: Are involved in severe allergic reactions and immune response."),
+        "bastoneteTitle": MessageLookupByLibrary.simpleMessage("Band Cells"),
         "beforeLeaving": MessageLookupByLibrary.simpleMessage("Before leaving"),
-        "blastTitle": MessageLookupByLibrary.simpleMessage("Blast"),
+        "blastTitle": MessageLookupByLibrary.simpleMessage("Blasts"),
+        "bolhaTitle": MessageLookupByLibrary.simpleMessage("Blister Cells"),
         "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Buy me a coffe"),
         "calculate": MessageLookupByLibrary.simpleMessage("Calculate"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -66,8 +71,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to delete this report?"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
         "continu": MessageLookupByLibrary.simpleMessage("Continue"),
+        "contraidasTitle":
+            MessageLookupByLibrary.simpleMessage("Contracted Cells"),
         "couldNotLaunch":
             MessageLookupByLibrary.simpleMessage("Could not launch"),
+        "cristaishTitle":
+            MessageLookupByLibrary.simpleMessage("Hemoglobin Crystals"),
         "dark": MessageLookupByLibrary.simpleMessage("Dark"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "The data provided should not be considered absolute or confirmatory."),
@@ -77,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "discardChanges":
             MessageLookupByLibrary.simpleMessage("Discard changes"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "eliptocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Elliptocytes"),
         "enabled": MessageLookupByLibrary.simpleMessage("Enabled"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "eosinophilsDescription": MessageLookupByLibrary.simpleMessage(
@@ -92,10 +103,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: The granules are large and stained, usually pink."),
         "eosinophilsTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: They are involved in the allergic response and defense against parasites."),
+        "equinocitosTitle": MessageLookupByLibrary.simpleMessage("Echinocytes"),
+        "eritroblastosTitle":
+            MessageLookupByLibrary.simpleMessage("Erythroblasts"),
         "eritrocytesTitle": MessageLookupByLibrary.simpleMessage("Eritrocytes"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "errorLoadingReports":
             MessageLookupByLibrary.simpleMessage("Error loading reports"),
+        "esferocitosTitle": MessageLookupByLibrary.simpleMessage("Spherocytes"),
+        "estomatocitosTitle":
+            MessageLookupByLibrary.simpleMessage("Stomatocytes"),
         "experimentalFeature": MessageLookupByLibrary.simpleMessage(
             "This feature is experimental and is using the Roboflow API."),
         "explainCount": MessageLookupByLibrary.simpleMessage(
@@ -103,14 +120,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "explainWhySupport": MessageLookupByLibrary.simpleMessage(
             "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!"),
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
+        "foicesTitle": MessageLookupByLibrary.simpleMessage("Sickle Cells"),
         "french": MessageLookupByLibrary.simpleMessage("French"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Hipersegmentados"),
         "howIdentify":
             MessageLookupByLibrary.simpleMessage("How to identify the cells?"),
+        "howellTitle":
+            MessageLookupByLibrary.simpleMessage("Howell-Jolly Bodies"),
         "itHelpsALot":
             MessageLookupByLibrary.simpleMessage("This helps us a lot!"),
         "italian": MessageLookupByLibrary.simpleMessage("Italian"),
+        "lagrimaTitle": MessageLookupByLibrary.simpleMessage("Tear Drop Cells"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
@@ -136,6 +157,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Matamielocitos"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocitos"),
         "mode": MessageLookupByLibrary.simpleMessage("Mode"),
+        "moiTitle": MessageLookupByLibrary.simpleMessage(
+            "Intraerythrocytic Microorganisms"),
         "monocytesDescription": MessageLookupByLibrary.simpleMessage(
             "Monocytes have a large, irregularly shaped, often kidney-shaped nucleus. The cytoplasm is bluish-gray. They are the largest white blood cells and are irregular in shape. They usually have no visible granules. They are motile and differentiate into macrophages when they move to tissues."),
         "monocytesTitle": MessageLookupByLibrary.simpleMessage("Monocytes"),
@@ -149,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: Generally have no visible granules."),
         "monocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: They are mobile and differentiate into macrophages when they move to tissues."),
+        "mordidasTitle": MessageLookupByLibrary.simpleMessage("Bite Cells"),
         "moreExamples": MessageLookupByLibrary.simpleMessage("More Examples"),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "Your report has been saved successfully!"),
@@ -157,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Do you want to continue adding or generating the report?"),
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Report deleted!"),
+        "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Myeloblasts"),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Neutrophils are immune defense cells that generally have segmented nuclei, with 2 to 5 segments connected by thin filaments. The color of the cytoplasm is slightly pink to colorless. They are the most abundant white cells, with medium size and shape rounded to slightly lobed. They may contain fine, pale granules, but they are usually not very visible. Neutrophils are highly motile and phagocytose bacteria."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("Neutrophils"),
@@ -180,9 +205,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Options to support"),
         "patientAge": MessageLookupByLibrary.simpleMessage("Patient Age"),
         "patientName": MessageLookupByLibrary.simpleMessage("Patient Name"),
-        "pilosasTitle": MessageLookupByLibrary.simpleMessage("Pilosas"),
+        "pilosasTitle": MessageLookupByLibrary.simpleMessage("Hairys"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Pix key"),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Platelets"),
+        "ponteadoTitle":
+            MessageLookupByLibrary.simpleMessage("Basophilic Stippling"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portuguese"),
         "promielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Promielocitos"),
@@ -205,6 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shapeCells": MessageLookupByLibrary.simpleMessage("Shape Cells"),
         "shareReport": MessageLookupByLibrary.simpleMessage("Share Report"),
         "sound": MessageLookupByLibrary.simpleMessage("Sound"),
         "spanish": MessageLookupByLibrary.simpleMessage("Spanish"),

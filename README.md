@@ -4,7 +4,6 @@
 
 ![Leucograma App](https://lh3.googleusercontent.com/6H-IwiNrojKt3-tK-t0nltMKdFvVM9Sper2dMnkuO-KsPWw_IAbckozbt0wH2-J6mm6S)
 
-
 ## Sobre o Aplicativo
 
 O **Leucograma** é um aplicativo inovador que transforma a maneira como profissionais e estudantes de saúde realizam a contagem e análise de glóbulos brancos e vermelhos. Utilizando tecnologia de ponta, esta ferramenta simplifica o processo de análise do leucograma, tornando-o rápido, eficiente e facilmente acessível.
@@ -36,3 +35,9 @@ Para suporte, dúvidas ou sugestões, por favor entre em contato conosco atravé
 ## Contribuição
 
 Contribuições são bem-vindas! Se você tem interesse em melhorar o Leucograma, entre em contato para mais detalhes.
+
+## Melhorias a serem feitas
+
+- [] Shared preferences repo
+- [] IA
+- [] UI for table, ipad and computers
