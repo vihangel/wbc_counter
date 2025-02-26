@@ -53,3 +53,5 @@ Contribuições são bem-vindas! Se você tem interesse em melhorar o Leucograma
 🔹 Árabe 🇸🇦 ✅
 🔹 Vietnamita 🇻🇳
 🔹 Indonésio 🇮🇩
+
+flutter build appbundle --release
