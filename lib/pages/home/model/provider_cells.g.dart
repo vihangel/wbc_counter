@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'provider_cells.dart';
+part of 'total_cells_blood_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator

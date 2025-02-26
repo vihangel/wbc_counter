@@ -19,7 +19,7 @@ import 'package:wbc_counter/firebase_options.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/model/total_cells_blood_model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

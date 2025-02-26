@@ -8,7 +8,7 @@ import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/model/total_cells_blood_model.dart';
 import 'package:wbc_counter/pages/home/widget/wbc_widget.dart';
 import 'package:wbc_counter/pages/report/report_page.dart';
 
@@ -133,6 +133,7 @@ class CellTypeExpansionTileWidget extends StatelessWidget {
         builder: (context) => ReportPage(
             report: SaveReportModel(
           bloodCells: (state is CellCountChangeState) ? state.bloodCells : null,
+          findings: (state is CellCountChangeState) ? state.images : null,
         )),
       ),
     );

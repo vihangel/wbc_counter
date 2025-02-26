@@ -33,3 +33,20 @@ class CellCountDeleteEvent extends CellCountEvent {
 
   CellCountDeleteEvent({required this.id});
 }
+
+class AddImageEvent extends CellCountEvent {
+  final ReportImageModel image;
+  AddImageEvent(this.image);
+}
+
+class RemoveImageEvent extends CellCountEvent {
+  final int index;
+  RemoveImageEvent(this.index);
+}
+
+class UpdateImageDataEvent extends CellCountEvent {
+  final int index;
+  final String field;
+  final String value;
+  UpdateImageDataEvent(this.index, this.field, this.value);
+}

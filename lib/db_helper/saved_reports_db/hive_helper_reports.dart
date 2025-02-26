@@ -2,7 +2,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:uuid/uuid.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/model/report_image_model.dart';
+import 'package:wbc_counter/pages/home/model/total_cells_blood_model.dart';
 
 class HiveHelper {
   static Future<void> init() async {
@@ -11,6 +12,7 @@ class HiveHelper {
     Hive.registerAdapter(SaveReportModelAdapter());
     Hive.registerAdapter(TotalCellsBloodAdapter());
     Hive.registerAdapter(BloodCellModelAdapter());
+    Hive.registerAdapter(ReportImageModelAdapter());
   }
 
   static Future<void> openBox() async {
