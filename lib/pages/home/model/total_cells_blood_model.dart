@@ -259,6 +259,10 @@ class TotalCellsBlood extends HiveObject {
         ...userCells,
         ...shapeCells
       ];
+  List<BloodCellModel> get countCells => [
+        ...wbcQuantities,
+        ...abnormalQuantities,
+      ];
 
   void updateCellQuantity(String name, int newQuantity) {
     List<BloodCellModel> updateList(List<BloodCellModel> list) {

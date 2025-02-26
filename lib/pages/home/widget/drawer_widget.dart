@@ -101,9 +101,9 @@ class DrawerWidget extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 final InAppReview inAppReview = InAppReview.instance;
-                // TODO: implement openStoreListing
+
                 inAppReview.openStoreListing(
-                  appStoreId: '...',
+                  appStoreId: "6479269785",
                 );
               },
               child: Text(S.of(context).openStore,

@@ -77,7 +77,7 @@ class LocalReportPage extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      report.bloodCells?.reportText ?? '',
+                      report.bloodCells!.totalWbcCount.toString(),
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,

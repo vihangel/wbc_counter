@@ -51,7 +51,8 @@ class AddReportInformations extends StatelessWidget {
                         await picker.pickImage(source: ImageSource.camera);
                     if (pickedFile != null) {
                       onAddImage!(
-                          ReportImageModel(image: File(pickedFile.path)));
+                        ReportImageModel(imagePath: File(pickedFile.path).path),
+                      );
                     }
                   },
                 ),
@@ -64,7 +65,8 @@ class AddReportInformations extends StatelessWidget {
                         await picker.pickImage(source: ImageSource.gallery);
                     if (pickedFile != null) {
                       onAddImage!(
-                          ReportImageModel(image: File(pickedFile.path)));
+                        ReportImageModel(imagePath: File(pickedFile.path).path),
+                      );
                     }
                   },
                 ),
@@ -108,7 +110,7 @@ class AddReportInformations extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     height: 200,
-                    width: 120,
+                    width: 110,
                     alignment: Alignment.center,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -138,7 +140,7 @@ class AddReportInformations extends StatelessWidget {
                     final data = images[index];
                     return GestureDetector(
                       onTap: () => onlyShow
-                          ? _showExpanded(context)
+                          ? _showExpanded(context, data)
                           : _showEditDialog(context, index, data),
                       child: Container(
                         decoration: BoxDecoration(
@@ -149,16 +151,16 @@ class AddReportInformations extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         height: 200,
-                        width: 120,
+                        width: 110,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.file(
-                                data.image,
-                                width: 120,
-                                height: 120,
+                                data.imageFile,
+                                width: 110,
+                                height: 110,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -192,22 +194,22 @@ class AddReportInformations extends StatelessWidget {
     );
   }
 
-  void _showExpanded(context) {
+  void _showExpanded(context, ReportImageModel data) {
     final translations = S.of(context);
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          title: Text(images[0].name),
+          title: Text(data.name),
           content: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.file(images[0].image),
+              Image.file(data.imageFile),
               const SizedBox(height: 8),
-              if (images[0].coordinates.isNotEmpty)
-                Text("${translations.coordinate}: ${images[0].coordinates}"),
+              if (data.coordinates.isNotEmpty)
+                Text("${translations.coordinate}: ${data.coordinates}"),
             ],
           ),
           actions: [
@@ -239,7 +241,7 @@ class AddReportInformations extends StatelessWidget {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.file(images[0].image),
+              Image.file(images[0].imageFile),
               const SizedBox(height: 16),
               TextFormField(
                 controller: nameController,

@@ -17,7 +17,7 @@ class ReportImageModelAdapter extends TypeAdapter<ReportImageModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ReportImageModel(
-      image: fields[0] as File,
+      imagePath: fields[0] as String,
       name: fields[1] as String,
       coordinates: fields[2] as String,
     );
@@ -28,7 +28,7 @@ class ReportImageModelAdapter extends TypeAdapter<ReportImageModel> {
     writer
       ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.image)
+      ..write(obj.imagePath)
       ..writeByte(1)
       ..write(obj.name)
       ..writeByte(2)

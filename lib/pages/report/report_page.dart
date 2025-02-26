@@ -51,9 +51,9 @@ class ReportPageState extends State<ReportPage> {
     int totalQuantity = widget.report.bloodCells?.totalWbcCount ?? 0;
 
     Map<String, double> wbcPercentages = {};
-    widget.report.bloodCells?.allCells.forEach((BloodCellModel cell) {
+    widget.report.bloodCells?.countCells.forEach((BloodCellModel cell) {
       final percentage = (cell.quantity / totalQuantity) * 100;
-      wbcPercentages[cell.name] = percentage;
+      wbcPercentages[cell.name] = percentage.isNaN ? 0 : percentage;
     });
 
     return PopScope(

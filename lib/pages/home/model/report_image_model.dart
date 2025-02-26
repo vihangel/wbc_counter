@@ -7,20 +7,23 @@ part 'report_image_model.g.dart';
 @HiveType(typeId: 3)
 class ReportImageModel {
   @HiveField(0)
-  final File image;
+  final String imagePath;
   @HiveField(1)
   final String name;
   @HiveField(2)
   final String coordinates;
 
   ReportImageModel(
-      {required this.image, this.name = '', this.coordinates = ''});
+      {required this.imagePath, this.name = '', this.coordinates = ''});
 
-  ReportImageModel copyWith({File? image, String? name, String? coordinates}) {
+  ReportImageModel copyWith(
+      {String? imagePath, String? name, String? coordinates}) {
     return ReportImageModel(
-      image: image ?? this.image,
+      imagePath: imagePath ?? this.imagePath,
       name: name ?? this.name,
       coordinates: coordinates ?? this.coordinates,
     );
   }
+
+  File get imageFile => File(imagePath);
 }
