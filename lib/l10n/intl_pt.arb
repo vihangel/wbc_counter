@@ -161,5 +161,14 @@
     "howellTitle": "Corpúsculo de Howell-Jolly",
     "cristaishTitle": "Cristais de hemoglobina",
     "moiTitle": "Micro-organismos intraeritrocitários",
-    "shapeCells": "Forma das células"
+    "shapeCells": "Forma das células",
+    "addImages": "Adicionar imagens",
+    "findingsForReport": "Achados para o relatório",
+    "takePhoto": "Tirar foto",
+    "chooseFromGallery": "Escolher da galeria",
+    "noName": "Sem nome",
+    "noCoordinates": "Sem coordenadas",
+    "coordinate": "Coordenada",
+    "editInformation": "Editar informações",
+    "cellName": "Nome da célula"
 }

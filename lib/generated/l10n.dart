@@ -1379,6 +1379,71 @@ class S {
   String get shapeCells {
     return Intl.message('Shape Cells', name: 'shapeCells', desc: '', args: []);
   }
+
+  /// `Add images`
+  String get addImages {
+    return Intl.message('Add images', name: 'addImages', desc: '', args: []);
+  }
+
+  /// `Findings for the report`
+  String get findingsForReport {
+    return Intl.message(
+      'Findings for the report',
+      name: 'findingsForReport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Take photo`
+  String get takePhoto {
+    return Intl.message('Take photo', name: 'takePhoto', desc: '', args: []);
+  }
+
+  /// `Choose from gallery`
+  String get chooseFromGallery {
+    return Intl.message(
+      'Choose from gallery',
+      name: 'chooseFromGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No name`
+  String get noName {
+    return Intl.message('No name', name: 'noName', desc: '', args: []);
+  }
+
+  /// `No coordinates`
+  String get noCoordinates {
+    return Intl.message(
+      'No coordinates',
+      name: 'noCoordinates',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coordinate`
+  String get coordinate {
+    return Intl.message('Coordinate', name: 'coordinate', desc: '', args: []);
+  }
+
+  /// `Edit information`
+  String get editInformation {
+    return Intl.message(
+      'Edit information',
+      name: 'editInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cell name`
+  String get cellName {
+    return Intl.message('Cell name', name: 'cellName', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

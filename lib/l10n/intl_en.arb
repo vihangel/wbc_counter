@@ -160,5 +160,14 @@
     "howellTitle": "Howell-Jolly Bodies",
     "cristaishTitle": "Hemoglobin Crystals",
     "moiTitle": "Intraerythrocytic Microorganisms",
-    "shapeCells": "Shape Cells"
+    "shapeCells": "Shape Cells",
+    "addImages": "Add images",
+    "findingsForReport": "Findings for the report",
+    "takePhoto": "Take photo",
+    "chooseFromGallery": "Choose from gallery",
+    "noName": "No name",
+    "noCoordinates": "No coordinates",
+    "coordinate": "Coordinate",
+    "editInformation": "Edit information",
+    "cellName": "Cell name"
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wbc_counter/bloc/theme/theme_bloc.dart';
+import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/pages/home/model/report_image_model.dart';
 
 class AddReportInformations extends StatelessWidget {
@@ -26,10 +27,11 @@ class AddReportInformations extends StatelessWidget {
     if (onlyShow) return;
 
     final picker = ImagePicker();
+    final translations = S.of(context);
 
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // Para um design mais responsivo no iOS/Android
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
@@ -42,7 +44,7 @@ class AddReportInformations extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Icons.camera_alt),
-                  title: const Text("Tirar foto"),
+                  title: Text(translations.takePhoto),
                   onTap: () async {
                     Navigator.pop(context);
                     final pickedFile =
@@ -55,7 +57,7 @@ class AddReportInformations extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.photo_library),
-                  title: const Text("Escolher da galeria"),
+                  title: Text(translations.chooseFromGallery),
                   onTap: () async {
                     Navigator.pop(context);
                     final pickedFile =
@@ -76,13 +78,14 @@ class AddReportInformations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translations = S.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            "Achados para o relatório",
+          Text(
+            translations.findingsForReport,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
@@ -117,7 +120,7 @@ class AddReportInformations extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          "Adicionar\nimagens",
+                          translations.addImages,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
@@ -162,7 +165,7 @@ class AddReportInformations extends StatelessWidget {
                             const SizedBox(height: 8),
                             if (data.name.isNotEmpty) ...[
                               Text(
-                                data.name.isEmpty ? "Sem nome" : data.name,
+                                data.name,
                                 style: const TextStyle(),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
@@ -170,9 +173,7 @@ class AddReportInformations extends StatelessWidget {
                             ],
                             if (data.coordinates.isNotEmpty) ...[
                               Text(
-                                data.coordinates.isEmpty
-                                    ? "Sem coordenada"
-                                    : data.coordinates,
+                                data.coordinates,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                               ),
@@ -192,6 +193,7 @@ class AddReportInformations extends StatelessWidget {
   }
 
   void _showExpanded(context) {
+    final translations = S.of(context);
     showDialog(
       context: context,
       builder: (context) {
@@ -205,13 +207,13 @@ class AddReportInformations extends StatelessWidget {
               Image.file(images[0].image),
               const SizedBox(height: 8),
               if (images[0].coordinates.isNotEmpty)
-                Text("Coordenada: ${images[0].coordinates}"),
+                Text("${translations.coordinate}: ${images[0].coordinates}"),
             ],
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Fechar"),
+              child: Text(translations.close),
             ),
           ],
         );
@@ -227,11 +229,13 @@ class AddReportInformations extends StatelessWidget {
     TextEditingController coordinateController =
         TextEditingController(text: data.coordinates);
 
+    final translations = S.of(context);
+
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Editar informações"),
+          title: Text(translations.editInformation),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -239,26 +243,26 @@ class AddReportInformations extends StatelessWidget {
               const SizedBox(height: 16),
               TextFormField(
                 controller: nameController,
-                decoration: const InputDecoration(labelText: "Nome da célula"),
+                decoration: InputDecoration(labelText: translations.cellName),
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: coordinateController,
-                decoration: const InputDecoration(labelText: "Coordenada"),
+                decoration: InputDecoration(labelText: translations.coordinate),
               ),
               TextButton(
                 onPressed: () {
                   onRemoveImage!(index);
                   Navigator.pop(context);
                 },
-                child: const Text("Remover"),
+                child: Text(translations.remove),
               ),
             ],
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text("Cancelar"),
+              child: Text(translations.cancel),
             ),
             ElevatedButton(
               onPressed: () {
@@ -267,8 +271,8 @@ class AddReportInformations extends StatelessWidget {
                     index, 'coordinates', coordinateController.text);
                 Navigator.pop(context);
               },
-              child:
-                  const Text("Salvar", style: TextStyle(color: Colors.white)),
+              child: Text(translations.save,
+                  style: TextStyle(color: Colors.white)),
             ),
           ],
         );

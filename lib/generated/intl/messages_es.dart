@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "about": MessageLookupByLibrary.simpleMessage("Acerca de"),
     "acantocitosTitle": MessageLookupByLibrary.simpleMessage("Acantocitos"),
     "add": MessageLookupByLibrary.simpleMessage("Agregar"),
+    "addImages": MessageLookupByLibrary.simpleMessage("Agregar imágenes"),
     "addNewAlertThreshold": MessageLookupByLibrary.simpleMessage(
       "Agregar nuevo umbral de alerta",
     ),
@@ -72,6 +73,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Cómprame un café"),
     "calculate": MessageLookupByLibrary.simpleMessage("Calcular"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+    "cellName": MessageLookupByLibrary.simpleMessage("Nombre de la célula"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Elegir de la galería",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("Borrar todo"),
     "clearValues": MessageLookupByLibrary.simpleMessage("Limpiar valores"),
     "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
@@ -84,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contraidasTitle": MessageLookupByLibrary.simpleMessage(
       "Células contraídas",
     ),
+    "coordinate": MessageLookupByLibrary.simpleMessage("Coordenada"),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage("No se pudo lanzar"),
     "cristaishTitle": MessageLookupByLibrary.simpleMessage(
       "Cristales de hemoglobina",
@@ -97,6 +103,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "disabled": MessageLookupByLibrary.simpleMessage("Desactivado"),
     "discardChanges": MessageLookupByLibrary.simpleMessage("Descartar cambios"),
     "edit": MessageLookupByLibrary.simpleMessage("Editar"),
+    "editInformation": MessageLookupByLibrary.simpleMessage(
+      "Editar información",
+    ),
     "eliptocitosTitle": MessageLookupByLibrary.simpleMessage("Eliptocitos"),
     "enabled": MessageLookupByLibrary.simpleMessage("Activado"),
     "english": MessageLookupByLibrary.simpleMessage("Inglés"),
@@ -138,6 +147,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tu apoyo nos ayuda a seguir desarrollando y mejorando nuestra aplicación. Con tu ayuda, podemos ofrecer actualizaciones regulares, nuevas características y asegurar que la aplicación siga siendo gratuita para todos los usuarios. ¡Gracias por apoyar nuestra misión!",
     ),
     "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),
+    "findingsForReport": MessageLookupByLibrary.simpleMessage(
+      "Hallazgos para el informe",
+    ),
     "foicesTitle": MessageLookupByLibrary.simpleMessage("Células falciformes"),
     "french": MessageLookupByLibrary.simpleMessage("Francés"),
     "hipersegmentadosTitle": MessageLookupByLibrary.simpleMessage(
@@ -241,6 +253,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Movilidad y actividad: Los neutrófilos son altamente móviles y fagocitan bacterias.",
     ),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noCoordinates": MessageLookupByLibrary.simpleMessage("Sin coordenadas"),
+    "noName": MessageLookupByLibrary.simpleMessage("Sin nombre"),
     "noReportsSaved": MessageLookupByLibrary.simpleMessage(
       "Aún no hay informes guardados",
     ),
@@ -290,6 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportOurProject": MessageLookupByLibrary.simpleMessage(
       "Apoya nuestro proyecto",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Tomar foto"),
     "thanks": MessageLookupByLibrary.simpleMessage("Mensaje de agradecimiento"),
     "thanksMessage": MessageLookupByLibrary.simpleMessage(
       "Gracias por usar nuestra aplicación y considerar apoyar nuestro trabajo. Tu contribución es fundamental para nuestro éxito continuo. Si tienes alguna pregunta o sugerencia, no dudes en contactarnos. ¡Juntos podemos hacer la diferencia!",

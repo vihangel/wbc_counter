@@ -160,5 +160,14 @@
     "howellTitle": "Corpi di Howell-Jolly",
     "cristaishTitle": "Cristalli di emoglobina",
     "moiTitle": "Microrganismi intraeritrocitari",
-    "shapeCells": "Forma delle cellule"
+    "shapeCells": "Forma delle cellule",
+    "addImages": "Aggiungi immagini",
+    "findingsForReport": "Risultati per il report",
+    "takePhoto": "Scatta foto",
+    "chooseFromGallery": "Scegli dalla galleria",
+    "noName": "Nessun nome",
+    "noCoordinates": "Nessuna coordinata",
+    "coordinate": "Coordinata",
+    "editInformation": "Modifica informazioni",
+    "cellName": "Nome della cellula"
 }

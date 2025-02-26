@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "about": MessageLookupByLibrary.simpleMessage("About"),
     "acantocitosTitle": MessageLookupByLibrary.simpleMessage("Acanthocytes"),
     "add": MessageLookupByLibrary.simpleMessage("Add"),
+    "addImages": MessageLookupByLibrary.simpleMessage("Add images"),
     "addNewAlertThreshold": MessageLookupByLibrary.simpleMessage(
       "Add new alert threshold",
     ),
@@ -68,6 +69,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "buyMeACoffe": MessageLookupByLibrary.simpleMessage("Buy me a coffe"),
     "calculate": MessageLookupByLibrary.simpleMessage("Calculate"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cellName": MessageLookupByLibrary.simpleMessage("Cell name"),
+    "chooseFromGallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from gallery",
+    ),
     "clearAll": MessageLookupByLibrary.simpleMessage("Clear All"),
     "clearValues": MessageLookupByLibrary.simpleMessage("Clear Values"),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
@@ -79,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactUs": MessageLookupByLibrary.simpleMessage("Contact us"),
     "continu": MessageLookupByLibrary.simpleMessage("Continue"),
     "contraidasTitle": MessageLookupByLibrary.simpleMessage("Contracted Cells"),
+    "coordinate": MessageLookupByLibrary.simpleMessage("Coordinate"),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage("Could not launch"),
     "cristaishTitle": MessageLookupByLibrary.simpleMessage(
       "Hemoglobin Crystals",
@@ -92,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "disabled": MessageLookupByLibrary.simpleMessage("Disabled"),
     "discardChanges": MessageLookupByLibrary.simpleMessage("Discard changes"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "editInformation": MessageLookupByLibrary.simpleMessage("Edit information"),
     "eliptocitosTitle": MessageLookupByLibrary.simpleMessage("Elliptocytes"),
     "enabled": MessageLookupByLibrary.simpleMessage("Enabled"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
@@ -133,6 +140,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Your support helps us continue to develop and improve our app. With your help, we can offer regular updates, new features, and ensure the app remains free for all users. Thank you for supporting our mission!",
     ),
     "filter": MessageLookupByLibrary.simpleMessage("Filter"),
+    "findingsForReport": MessageLookupByLibrary.simpleMessage(
+      "Findings for the report",
+    ),
     "foicesTitle": MessageLookupByLibrary.simpleMessage("Sickle Cells"),
     "french": MessageLookupByLibrary.simpleMessage("French"),
     "hipersegmentadosTitle": MessageLookupByLibrary.simpleMessage(
@@ -232,6 +242,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Mobility and Activity: Neutrophils are highly mobile and phagocytose bacteria.",
     ),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noCoordinates": MessageLookupByLibrary.simpleMessage("No coordinates"),
+    "noName": MessageLookupByLibrary.simpleMessage("No name"),
     "noReportsSaved": MessageLookupByLibrary.simpleMessage(
       "No reports saved yet",
     ),
@@ -281,6 +293,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportOurProject": MessageLookupByLibrary.simpleMessage(
       "Support our project",
     ),
+    "takePhoto": MessageLookupByLibrary.simpleMessage("Take photo"),
     "thanks": MessageLookupByLibrary.simpleMessage("Thank you message"),
     "thanksMessage": MessageLookupByLibrary.simpleMessage(
       "Thank you for using our app and considering supporting our work. Your contribution is critical to our continued success. If you have any questions or suggestions, please don\'t hesitate to contact us. Together we can make a difference!",

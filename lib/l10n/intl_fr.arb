@@ -159,5 +159,14 @@
     "howellTitle": "Corps de Howell-Jolly",
     "cristaishTitle": "Cristaux d'hémoglobine",
     "moiTitle": "Microorganismes intraérythrocytaires",
-    "shapeCells": "Forme des cellules"
+    "shapeCells": "Forme des cellules",
+    "addImages": "Ajouter des images",
+    "findingsForReport": "Résultats pour le rapport",
+    "takePhoto": "Prendre une photo",
+    "chooseFromGallery": "Choisir depuis la galerie",
+    "noName": "Pas de nom",
+    "noCoordinates": "Pas de coordonnées",
+    "coordinate": "Coordonnée",
+    "editInformation": "Modifier les informations",
+    "cellName": "Nom de la cellule"
 }
