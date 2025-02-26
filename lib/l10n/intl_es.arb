@@ -170,5 +170,9 @@
     "noCoordinates": "Sin coordenadas",
     "coordinate": "Coordenada",
     "editInformation": "Editar información",
-    "cellName": "Nombre de la célula"
+    "cellName": "Nombre de la célula",
+    "tagalog": "Tagalo",
+    "hindi": "Hindi",
+    "thai": "Tailandés",
+    "arabic": "Árabe"
 }

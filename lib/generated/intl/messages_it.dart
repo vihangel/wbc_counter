@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appEvaluation": MessageLookupByLibrary.simpleMessage(
       "Valutazione dell\'app",
     ),
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "backToMenu": MessageLookupByLibrary.simpleMessage("Torna al Menù"),
     "basophilsDescription": MessageLookupByLibrary.simpleMessage(
       "I basofili hanno un nucleo bilobato, ma può essere difficile distinguere a causa dei granuli densi. Il citoplasma è di colore blu scuro o nero a causa dei granuli basofili. Sono simili in dimensioni ai neutrofili ed eosinofili. Hanno granuli densi, che oscurano la vista del nucleo. Sono coinvolti in reazioni allergiche gravi e risposte immunitarie.",
@@ -156,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "foicesTitle": MessageLookupByLibrary.simpleMessage("Cellule a falce"),
     "french": MessageLookupByLibrary.simpleMessage("Francese"),
+    "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
     "hipersegmentadosTitle": MessageLookupByLibrary.simpleMessage(
       "Ipersegmentati",
     ),
@@ -308,7 +310,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportOurProject": MessageLookupByLibrary.simpleMessage(
       "Supporta il nostro progetto",
     ),
+    "tagalog": MessageLookupByLibrary.simpleMessage("Tagalog"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Scatta foto"),
+    "thai": MessageLookupByLibrary.simpleMessage("Thai"),
     "thanks": MessageLookupByLibrary.simpleMessage(
       "Messaggio di ringraziamento",
     ),

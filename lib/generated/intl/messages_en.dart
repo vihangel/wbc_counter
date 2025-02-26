@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "alvoTitle": MessageLookupByLibrary.simpleMessage("Target Cells"),
     "analysisResults": MessageLookupByLibrary.simpleMessage("Analysis Results"),
     "appEvaluation": MessageLookupByLibrary.simpleMessage("App Evaluation"),
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "backToMenu": MessageLookupByLibrary.simpleMessage("Back to Menu"),
     "basophilsDescription": MessageLookupByLibrary.simpleMessage(
       "Basophils have a bilobed nucleus, but it can be difficult to discern due to the dense granules. The cytoplasm is dark blue to black due to the basophilic granules. They are similar in size to neutrophils and eosinophils. They have dense granules, which obscure vision of the nucleus. They are involved in severe allergic reactions and immune responses.",
@@ -145,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "foicesTitle": MessageLookupByLibrary.simpleMessage("Sickle Cells"),
     "french": MessageLookupByLibrary.simpleMessage("French"),
+    "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
     "hipersegmentadosTitle": MessageLookupByLibrary.simpleMessage(
       "Hipersegmentados",
     ),
@@ -293,7 +295,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportOurProject": MessageLookupByLibrary.simpleMessage(
       "Support our project",
     ),
+    "tagalog": MessageLookupByLibrary.simpleMessage("Tagalog"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Take photo"),
+    "thai": MessageLookupByLibrary.simpleMessage("Thai"),
     "thanks": MessageLookupByLibrary.simpleMessage("Thank you message"),
     "thanksMessage": MessageLookupByLibrary.simpleMessage(
       "Thank you for using our app and considering supporting our work. Your contribution is critical to our continued success. If you have any questions or suggestions, please don\'t hesitate to contact us. Together we can make a difference!",

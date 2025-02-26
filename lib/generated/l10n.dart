@@ -1444,6 +1444,26 @@ class S {
   String get cellName {
     return Intl.message('Cell name', name: 'cellName', desc: '', args: []);
   }
+
+  /// `Tagalog`
+  String get tagalog {
+    return Intl.message('Tagalog', name: 'tagalog', desc: '', args: []);
+  }
+
+  /// `Hindi`
+  String get hindi {
+    return Intl.message('Hindi', name: 'hindi', desc: '', args: []);
+  }
+
+  /// `Thai`
+  String get thai {
+    return Intl.message('Thai', name: 'thai', desc: '', args: []);
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -1452,10 +1472,14 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'hi'),
       Locale.fromSubtags(languageCode: 'it'),
       Locale.fromSubtags(languageCode: 'pt'),
+      Locale.fromSubtags(languageCode: 'th'),
+      Locale.fromSubtags(languageCode: 'tl'),
     ];
   }
 

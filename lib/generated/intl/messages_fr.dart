@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appEvaluation": MessageLookupByLibrary.simpleMessage(
       "Évaluation de l\'application",
     ),
+    "arabic": MessageLookupByLibrary.simpleMessage("Arabe"),
     "backToMenu": MessageLookupByLibrary.simpleMessage("Retour au Menu"),
     "basophilsDescription": MessageLookupByLibrary.simpleMessage(
       "Les basophiles ont un noyau bilobé, mais il peut être difficile à discerner en raison des granules denses. Le cytoplasme est bleu foncé à noir en raison des granules basophiles. Ils sont de taille similaire aux neutrophiles et aux éosinophiles. Ils ont des granules denses, qui obscurcissent la vision du noyau. Ils sont impliqués dans les réactions allergiques graves et les réponses immunitaires.",
@@ -161,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "foicesTitle": MessageLookupByLibrary.simpleMessage("Cellules falciformes"),
     "french": MessageLookupByLibrary.simpleMessage("Français"),
+    "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
     "hipersegmentadosTitle": MessageLookupByLibrary.simpleMessage(
       "Hyperségmentés",
     ),
@@ -319,7 +321,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportOurProject": MessageLookupByLibrary.simpleMessage(
       "Soutenez notre projet",
     ),
+    "tagalog": MessageLookupByLibrary.simpleMessage("Tagalog"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Prendre une photo"),
+    "thai": MessageLookupByLibrary.simpleMessage("Thaï"),
     "thanks": MessageLookupByLibrary.simpleMessage("Message de remerciement"),
     "thanksMessage": MessageLookupByLibrary.simpleMessage(
       "Merci d\'utiliser notre application et de considérer soutenir notre travail. Votre contribution est essentielle à notre succès continu. Si vous avez des questions ou des suggestions, n\'hésitez pas à nous contacter. Ensemble, nous pouvons faire la différence !",

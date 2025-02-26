@@ -169,5 +169,9 @@
     "noCoordinates": "No coordinates",
     "coordinate": "Coordinate",
     "editInformation": "Edit information",
-    "cellName": "Cell name"
+    "cellName": "Cell name",
+    "tagalog": "Tagalog",
+    "hindi": "Hindi",
+    "thai": "Thai",
+    "arabic": "Arabic"
 }

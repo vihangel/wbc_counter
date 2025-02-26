@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Resultados da Análise",
     ),
     "appEvaluation": MessageLookupByLibrary.simpleMessage("Avaliação do App"),
+    "arabic": MessageLookupByLibrary.simpleMessage("Árabe"),
     "backToMenu": MessageLookupByLibrary.simpleMessage("Voltar ao Menu"),
     "basophilsDescription": MessageLookupByLibrary.simpleMessage(
       "Os basófilos têm um núcleo bilobado, mas pode ser difícil de discernir devido aos grânulos densos. O citoplasma é azul-escuro a preto devido aos grânulos basofílicos. São semelhantes em tamanho aos neutrófilos e eosinófilos. Possuem grânulos densos, que obscurecem a visão do núcleo. São envolvidos em reações alérgicas graves e resposta imunológica.",
@@ -155,6 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "foicesTitle": MessageLookupByLibrary.simpleMessage("Foices"),
     "french": MessageLookupByLibrary.simpleMessage("Francês"),
+    "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
     "hipersegmentadosTitle": MessageLookupByLibrary.simpleMessage(
       "Hipersegmentados",
     ),
@@ -305,7 +307,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportOurProject": MessageLookupByLibrary.simpleMessage(
       "Apoie o nosso projeto",
     ),
+    "tagalog": MessageLookupByLibrary.simpleMessage("Tagalo"),
     "takePhoto": MessageLookupByLibrary.simpleMessage("Tirar foto"),
+    "thai": MessageLookupByLibrary.simpleMessage("Tailandês"),
     "thanks": MessageLookupByLibrary.simpleMessage("Mensagem de agradecimento"),
     "thanksMessage": MessageLookupByLibrary.simpleMessage(
       "Agradecemos por usar nosso aplicativo e por considerar apoiar nosso trabalho. Sua contribuição é fundamental para nosso sucesso contínuo. Se você tiver alguma dúvida ou sugestão, não hesite em entrar em contato conosco. Juntos, podemos fazer a diferença!",
