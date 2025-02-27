@@ -16,33 +16,49 @@ import 'package:intl/intl.dart';
 import 'package:intl/message_lookup_by_library.dart';
 import 'package:intl/src/intl_helpers.dart';
 
+import 'messages_ar.dart' as messages_ar;
 import 'messages_en.dart' as messages_en;
 import 'messages_es.dart' as messages_es;
 import 'messages_fr.dart' as messages_fr;
+import 'messages_hi.dart' as messages_hi;
 import 'messages_it.dart' as messages_it;
 import 'messages_br.dart' as messages_br;
+import 'messages_th.dart' as messages_th;
+import 'messages_tl.dart' as messages_tl;
 
 typedef Future<dynamic> LibraryLoader();
 Map<String, LibraryLoader> _deferredLibraries = {
+  'ar': () => new SynchronousFuture(null),
   'en': () => new SynchronousFuture(null),
   'es': () => new SynchronousFuture(null),
   'fr': () => new SynchronousFuture(null),
+  'hi': () => new SynchronousFuture(null),
   'it': () => new SynchronousFuture(null),
   'br': () => new SynchronousFuture(null),
+  'th': () => new SynchronousFuture(null),
+  'tl': () => new SynchronousFuture(null),
 };
 
 MessageLookupByLibrary? _findExact(String localeName) {
   switch (localeName) {
+    case 'ar':
+      return messages_ar.messages;
     case 'en':
       return messages_en.messages;
     case 'es':
       return messages_es.messages;
     case 'fr':
       return messages_fr.messages;
+    case 'hi':
+      return messages_hi.messages;
     case 'it':
       return messages_it.messages;
     case 'br':
       return messages_br.messages;
+    case 'th':
+      return messages_th.messages;
+    case 'tl':
+      return messages_tl.messages;
     default:
       return null;
   }
@@ -51,8 +67,10 @@ MessageLookupByLibrary? _findExact(String localeName) {
 /// User programs should call this before using [localeName] for messages.
 Future<bool> initializeMessages(String localeName) {
   var availableLocale = Intl.verifiedLocale(
-      localeName, (locale) => _deferredLibraries[locale] != null,
-      onFailure: (_) => null);
+    localeName,
+    (locale) => _deferredLibraries[locale] != null,
+    onFailure: (_) => null,
+  );
   if (availableLocale == null) {
     return new SynchronousFuture(false);
   }
@@ -72,8 +90,11 @@ bool _messagesExistFor(String locale) {
 }
 
 MessageLookupByLibrary? _findGeneratedMessagesFor(String locale) {
-  var actualLocale =
-      Intl.verifiedLocale(locale, _messagesExistFor, onFailure: (_) => null);
+  var actualLocale = Intl.verifiedLocale(
+    locale,
+    _messagesExistFor,
+    onFailure: (_) => null,
+  );
   if (actualLocale == null) return null;
   return _findExact(actualLocale);
 }

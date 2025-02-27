@@ -41,3 +41,17 @@ Contribuições são bem-vindas! Se você tem interesse em melhorar o Leucograma
 - [] Shared preferences repo
 - [] IA
 - [] UI for table, ipad and computers
+
+✅ Prioridade Alta
+🔹 Filipino (Tagalog) 🇵🇭 ✅
+🔹 Hindi 🇮🇳✅
+🔹 Tailandês 🇹🇭✅
+🔹 Alemão 🇩🇪
+🔹 Russo 🇷🇺
+
+✅ Expansões estratégicas
+🔹 Árabe 🇸🇦 ✅
+🔹 Vietnamita 🇻🇳
+🔹 Indonésio 🇮🇩
+
+flutter build appbundle --release

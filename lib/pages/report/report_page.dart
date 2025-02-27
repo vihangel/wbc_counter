@@ -8,7 +8,8 @@ import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/blood_cells_model.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/home_page.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/model/total_cells_blood_model.dart';
+import 'package:wbc_counter/pages/home/widget/add_report_informations_widget.dart';
 import 'package:wbc_counter/pages/local_reports/local_reports_page.dart';
 
 class ReportPage extends StatefulWidget {
@@ -50,9 +51,9 @@ class ReportPageState extends State<ReportPage> {
     int totalQuantity = widget.report.bloodCells?.totalWbcCount ?? 0;
 
     Map<String, double> wbcPercentages = {};
-    widget.report.bloodCells?.allCells.forEach((BloodCellModel cell) {
+    widget.report.bloodCells?.countCells.forEach((BloodCellModel cell) {
       final percentage = (cell.quantity / totalQuantity) * 100;
-      wbcPercentages[cell.name] = percentage;
+      wbcPercentages[cell.name] = percentage.isNaN ? 0 : percentage;
     });
 
     return PopScope(
@@ -218,6 +219,12 @@ class ReportPageState extends State<ReportPage> {
                         maxLines: null,
                         readOnly: isReadOnly,
                       ),
+                      if (widget.report.findings?.isNotEmpty ?? false)
+                        AddReportInformations(
+                          onlyShow: true,
+                          images: widget.report.findings!,
+                        ),
+
                       const SizedBox(height: 32.0),
                       if (!isReadOnly) ...[
                         SizedBox(

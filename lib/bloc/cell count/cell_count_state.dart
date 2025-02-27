@@ -7,19 +7,23 @@ abstract class CellCountState {
 class CellCountChangeState extends CellCountState {
   final TotalCellsBlood bloodCells;
   final bool isAddMode;
+  final List<ReportImageModel> images;
 
   const CellCountChangeState({
     required this.bloodCells,
     this.isAddMode = true,
+    this.images = const [],
   });
 
   CellCountChangeState copyWith({
     TotalCellsBlood? bloodCells,
     bool? isAddMode,
+    List<ReportImageModel>? images,
   }) {
     return CellCountChangeState(
       bloodCells: bloodCells ?? this.bloodCells,
       isAddMode: isAddMode ?? this.isAddMode,
+      images: images ?? this.images,
     );
   }
 

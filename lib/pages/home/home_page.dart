@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
+import 'package:wbc_counter/pages/home/widget/add_report_informations_widget.dart';
 import 'package:wbc_counter/pages/home/widget/app_bar_widget.dart';
 import 'package:wbc_counter/pages/home/widget/cell_type_expansion_tile_widget.dart';
 import 'package:wbc_counter/pages/home/widget/characteristic_blood_abnormalities_widget.dart';
@@ -84,21 +84,21 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            InkWell(
-                              onTap: () {
-                                Uri uri = Uri.parse(
-                                    "https://ufsj.edu.br/portal2-repositorio/File/laact/Atlas%20Hematologia%20Clinica%20220920.pdf");
-                                launchUrl(uri);
-                              },
-                              child: Text(
-                                S.of(context).explainCount,
-                                style: TextStyle(
-                                  color: Colors.red.shade400,
-                                  fontSize: 10,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                            // InkWell(
+                            //   onTap: () {
+                            //     Uri uri = Uri.parse(
+                            //         "https://ufsj.edu.br/portal2-repositorio/File/laact/Atlas%20Hematologia%20Clinica%20220920.pdf");
+                            //     launchUrl(uri);
+                            //   },
+                            //   child: Text(
+                            //     S.of(context).explainCount,
+                            //     style: TextStyle(
+                            //       color: Colors.red.shade400,
+                            //       fontSize: 10,
+                            //     ),
+                            //     textAlign: TextAlign.center,
+                            //   ),
+                            // ),
                             TotalCountRowWidget(totalWbcCount),
                             ModeToggleRowWidget(
                                 isAdicionarMode: state.isAddMode),
@@ -123,7 +123,20 @@ class _HomePageState extends State<HomePage> {
                               isAddMode: state.isAddMode,
                               cellType: WBCType.shape,
                             ),
-                            CharacteristicBloodAbnormalitiesWidget()
+                            CharacteristicBloodAbnormalitiesWidget(),
+                            AddReportInformations(
+                              images: state.images,
+                              onAddImage: (image) => context
+                                  .read<CellCountBloc>()
+                                  .add(AddImageEvent(image)),
+                              onRemoveImage: (index) => context
+                                  .read<CellCountBloc>()
+                                  .add(RemoveImageEvent(index)),
+                              onUpdateImageData: (index, field, value) =>
+                                  context.read<CellCountBloc>().add(
+                                      UpdateImageDataEvent(
+                                          index, field, value)),
+                            ),
                           ],
                         ),
                       ),
@@ -171,6 +184,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context) => ReportPage(
             report: SaveReportModel(
           bloodCells: (state is CellCountChangeState) ? state.bloodCells : null,
+          findings: (state is CellCountChangeState) ? state.images : null,
         )),
       ),
     );

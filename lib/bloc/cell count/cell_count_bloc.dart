@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wbc_counter/db_helper/saved_reports_db/hive_helper_reports.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
-import 'package:wbc_counter/pages/home/mixin/provider_cells.dart';
+import 'package:wbc_counter/pages/home/model/report_image_model.dart';
+import 'package:wbc_counter/pages/home/model/total_cells_blood_model.dart';
 
 part 'cell_count_event.dart';
 part 'cell_count_state.dart';
@@ -16,6 +17,9 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
     on<CellCountSaveEvent>(_mapSaveToState);
     on<CellCountReportEvent>(_mapReportToState);
     on<CellCountDeleteEvent>(_mapDeleteToState);
+    on<AddImageEvent>(_onAddImage);
+    on<RemoveImageEvent>(_onRemoveImage);
+    on<UpdateImageDataEvent>(_onUpdateImageData);
   }
 
   void _mapUpdateCellCountToState(
@@ -50,27 +54,46 @@ class CellCountBloc extends Bloc<CellCountEvent, CellCountState> {
 
   void _mapReportToState(
       CellCountReportEvent event, Emitter<CellCountState> emit) async {
-    // Ensure we are working with the correct state
     if (state is CellCountChangeState) {
       final currentState = state as CellCountChangeState;
-      // Use the currentState.bloodCells to generate the report
+
       final TotalCellsBlood bloodCells = currentState.bloodCells;
 
-      // Create the report text or data structure
       String reportText = bloodCells.reportText;
 
-      // Here you could save the report to a database, send it to a server, or simply log it
-      // For demonstration, let's just log it
       if (kDebugMode) {
         print(reportText);
       }
-
-      // Optionally, after generating the report, you may want to update the state
-      // For instance, if you want to clear the counts after generating the report
-      // emit(CellCountResetState());
-      // or if you want to keep the state as is, just notify that report generation is done
-      // emit(CellCountReportGeneratedState()); // This would be a new state to indicate report has been generated
     }
+  }
+
+  void _onAddImage(AddImageEvent event, Emitter<CellCountState> emit) {
+    final currentState = state as CellCountChangeState;
+    emit(currentState.copyWith(
+        images: List.from(currentState.images)..add(event.image)));
+  }
+
+  void _onRemoveImage(RemoveImageEvent event, Emitter<CellCountState> emit) {
+    final currentState = state as CellCountChangeState;
+    final List<ReportImageModel> updatedImages = List.from(currentState.images)
+      ..removeAt(event.index);
+    emit(currentState.copyWith(images: updatedImages));
+  }
+
+  void _onUpdateImageData(
+      UpdateImageDataEvent event, Emitter<CellCountState> emit) {
+    final currentState = state as CellCountChangeState;
+    final List<ReportImageModel> updatedImages = List.from(currentState.images);
+    final ReportImageModel updatedImage = updatedImages[event.index].copyWith(
+      name:
+          event.field == 'name' ? event.value : updatedImages[event.index].name,
+      coordinates: event.field == 'coordinates'
+          ? event.value
+          : updatedImages[event.index].coordinates,
+    );
+
+    updatedImages[event.index] = updatedImage;
+    emit(currentState.copyWith(images: updatedImages));
   }
 
   void _mapDeleteToState(

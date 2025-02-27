@@ -59,19 +59,22 @@ class ConfigPageState extends State<ConfigPage> {
   }
 
   final S s = S();
-  late List<LanguageOption> languageOptions;
+  List<LanguageOption> get languageOptions => [
+        LanguageOption('us', s.english, 'assets/flags/us.svg'),
+        LanguageOption('br', s.portuguese, 'assets/flags/br.svg'),
+        LanguageOption('es', s.spanish, 'assets/flags/es.svg'),
+        LanguageOption('fr', s.french, 'assets/flags/fr.svg'),
+        LanguageOption('it', s.italian, 'assets/flags/it.svg'),
+        LanguageOption('tl', s.tagalog, 'assets/flags/tl.svg'),
+        LanguageOption('hi', s.hindi, 'assets/flags/hi.svg'),
+        LanguageOption('th', s.thai, 'assets/flags/th.svg'),
+        LanguageOption('ar', s.arabic, 'assets/flags/ar.svg'),
+      ];
 
   @override
   void initState() {
     super.initState();
     loadConfiguration();
-    languageOptions = [
-      LanguageOption('us', s.english, 'assets/flags/us.svg'),
-      LanguageOption('br', s.portuguese, 'assets/flags/br.svg'),
-      LanguageOption('es', s.spanish, 'assets/flags/es.svg'),
-      LanguageOption('fr', s.french, 'assets/flags/fr.svg'),
-      LanguageOption('it', s.italian, 'assets/flags/it.svg'),
-    ];
   }
 
   @override

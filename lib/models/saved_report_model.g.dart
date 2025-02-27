@@ -24,13 +24,14 @@ class SaveReportModelAdapter extends TypeAdapter<SaveReportModel> {
       bloodCells: fields[4] as TotalCellsBlood?,
       observation: fields[7] as String?,
       id: fields[6] as String?,
+      findings: (fields[8] as List?)?.cast<ReportImageModel>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, SaveReportModel obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -46,7 +47,9 @@ class SaveReportModelAdapter extends TypeAdapter<SaveReportModel> {
       ..writeByte(6)
       ..write(obj.id)
       ..writeByte(7)
-      ..write(obj.observation);
+      ..write(obj.observation)
+      ..writeByte(8)
+      ..write(obj.findings);
   }
 
   @override
