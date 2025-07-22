@@ -92,6 +92,7 @@
     "spanish": "Espagnol",
     "french": "Français",
     "italian": "Italien",
+    "german": "Allemand",
     "calculate": "Calculer",
     "msg_confirmCalculateCells": "Vous avez ajouté {totalQuantity} cellules",
     "sub_msg_confirmCalculateCells": "Voulez-vous continuer à ajouter ou générer le rapport ?",

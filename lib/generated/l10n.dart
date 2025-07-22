@@ -18,20 +18,17 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(
-      _current != null,
-      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
-    );
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -44,10 +41,8 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -57,12 +52,22 @@ class S {
 
   /// `Total`
   String get total {
-    return Intl.message('Total', name: 'total', desc: '', args: []);
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Clear All`
   String get clearAll {
-    return Intl.message('Clear All', name: 'clearAll', desc: '', args: []);
+    return Intl.message(
+      'Clear All',
+      name: 'clearAll',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Clear Values`
@@ -77,67 +82,132 @@ class S {
 
   /// `Mode`
   String get mode {
-    return Intl.message('Mode', name: 'mode', desc: '', args: []);
+    return Intl.message(
+      'Mode',
+      name: 'mode',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Add`
   String get add {
-    return Intl.message('Add', name: 'add', desc: '', args: []);
+    return Intl.message(
+      'Add',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Remove`
   String get remove {
-    return Intl.message('Remove', name: 'remove', desc: '', args: []);
+    return Intl.message(
+      'Remove',
+      name: 'remove',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Edit`
   String get edit {
-    return Intl.message('Edit', name: 'edit', desc: '', args: []);
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Delete`
   String get delete {
-    return Intl.message('Delete', name: 'delete', desc: '', args: []);
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Cancel`
   String get cancel {
-    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Continue`
   String get continu {
-    return Intl.message('Continue', name: 'continu', desc: '', args: []);
+    return Intl.message(
+      'Continue',
+      name: 'continu',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Confirm`
   String get confirm {
-    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Save`
   String get save {
-    return Intl.message('Save', name: 'save', desc: '', args: []);
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Search`
   String get search {
-    return Intl.message('Search', name: 'search', desc: '', args: []);
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Filter`
   String get filter {
-    return Intl.message('Filter', name: 'filter', desc: '', args: []);
+    return Intl.message(
+      'Filter',
+      name: 'filter',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `White Cells`
   String get whiteCells {
-    return Intl.message('White Cells', name: 'whiteCells', desc: '', args: []);
+    return Intl.message(
+      'White Cells',
+      name: 'whiteCells',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Red Cells`
   String get redCells {
-    return Intl.message('Red Cells', name: 'redCells', desc: '', args: []);
+    return Intl.message(
+      'Red Cells',
+      name: 'redCells',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Abnormal Cells`
@@ -152,12 +222,22 @@ class S {
 
   /// `Other`
   String get Other {
-    return Intl.message('Other', name: 'Other', desc: '', args: []);
+    return Intl.message(
+      'Other',
+      name: 'Other',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Calculate`
   String get calculate {
-    return Intl.message('Calculate', name: 'calculate', desc: '', args: []);
+    return Intl.message(
+      'Calculate',
+      name: 'calculate',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `You have added {totalQuantity} cells`
@@ -202,12 +282,22 @@ class S {
 
   /// `About`
   String get about {
-    return Intl.message('About', name: 'about', desc: '', args: []);
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Support`
   String get support {
-    return Intl.message('Support', name: 'support', desc: '', args: []);
+    return Intl.message(
+      'Support',
+      name: 'support',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Support our project`
@@ -242,7 +332,12 @@ class S {
 
   /// `Pix key`
   String get pixKey {
-    return Intl.message('Pix key', name: 'pixKey', desc: '', args: []);
+    return Intl.message(
+      'Pix key',
+      name: 'pixKey',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Why support us?`
@@ -267,7 +362,12 @@ class S {
 
   /// `Rate Us`
   String get rateUs {
-    return Intl.message('Rate Us', name: 'rateUs', desc: '', args: []);
+    return Intl.message(
+      'Rate Us',
+      name: 'rateUs',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `WBC Configuration`
@@ -282,7 +382,12 @@ class S {
 
   /// `Theme`
   String get theme {
-    return Intl.message('Theme', name: 'theme', desc: '', args: []);
+    return Intl.message(
+      'Theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Notifications`
@@ -297,12 +402,22 @@ class S {
 
   /// `Vibration`
   String get vibration {
-    return Intl.message('Vibration', name: 'vibration', desc: '', args: []);
+    return Intl.message(
+      'Vibration',
+      name: 'vibration',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Sound`
   String get sound {
-    return Intl.message('Sound', name: 'sound', desc: '', args: []);
+    return Intl.message(
+      'Sound',
+      name: 'sound',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Notify count`
@@ -327,7 +442,12 @@ class S {
 
   /// `Language`
   String get language {
-    return Intl.message('Language', name: 'language', desc: '', args: []);
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Reset configuration`
@@ -352,22 +472,42 @@ class S {
 
   /// `Dark`
   String get dark {
-    return Intl.message('Dark', name: 'dark', desc: '', args: []);
+    return Intl.message(
+      'Dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Light`
   String get light {
-    return Intl.message('Light', name: 'light', desc: '', args: []);
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Enabled`
   String get enabled {
-    return Intl.message('Enabled', name: 'enabled', desc: '', args: []);
+    return Intl.message(
+      'Enabled',
+      name: 'enabled',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Disabled`
   String get disabled {
-    return Intl.message('Disabled', name: 'disabled', desc: '', args: []);
+    return Intl.message(
+      'Disabled',
+      name: 'disabled',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Thank you message`
@@ -392,7 +532,12 @@ class S {
 
   /// `Contact us`
   String get contactUs {
-    return Intl.message('Contact us', name: 'contactUs', desc: '', args: []);
+    return Intl.message(
+      'Contact us',
+      name: 'contactUs',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Do you like the app?`
@@ -427,17 +572,32 @@ class S {
 
   /// `Later`
   String get later {
-    return Intl.message('Later', name: 'later', desc: '', args: []);
+    return Intl.message(
+      'Later',
+      name: 'later',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Open Store`
   String get openStore {
-    return Intl.message('Open Store', name: 'openStore', desc: '', args: []);
+    return Intl.message(
+      'Open Store',
+      name: 'openStore',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Settings`
   String get settings {
-    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `App Evaluation`
@@ -452,7 +612,12 @@ class S {
 
   /// `Report`
   String get report {
-    return Intl.message('Report', name: 'report', desc: '', args: []);
+    return Intl.message(
+      'Report',
+      name: 'report',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Patient Name`
@@ -467,12 +632,22 @@ class S {
 
   /// `Patient Age`
   String get patientAge {
-    return Intl.message('Patient Age', name: 'patientAge', desc: '', args: []);
+    return Intl.message(
+      'Patient Age',
+      name: 'patientAge',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Observation`
   String get observation {
-    return Intl.message('Observation', name: 'observation', desc: '', args: []);
+    return Intl.message(
+      'Observation',
+      name: 'observation',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Share Report`
@@ -537,12 +712,22 @@ class S {
 
   /// `Close`
   String get close {
-    return Intl.message('Close', name: 'close', desc: '', args: []);
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `See Reports`
   String get seeReports {
-    return Intl.message('See Reports', name: 'seeReports', desc: '', args: []);
+    return Intl.message(
+      'See Reports',
+      name: 'seeReports',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Discard changes`
@@ -577,27 +762,52 @@ class S {
 
   /// `No`
   String get no {
-    return Intl.message('No', name: 'no', desc: '', args: []);
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Yes`
   String get yes {
-    return Intl.message('Yes', name: 'yes', desc: '', args: []);
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Type`
   String get type {
-    return Intl.message('Type', name: 'type', desc: '', args: []);
+    return Intl.message(
+      'Type',
+      name: 'type',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Quantity`
   String get quantity {
-    return Intl.message('Quantity', name: 'quantity', desc: '', args: []);
+    return Intl.message(
+      'Quantity',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Age`
   String get age {
-    return Intl.message('Age', name: 'age', desc: '', args: []);
+    return Intl.message(
+      'Age',
+      name: 'age',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Error loading reports`
@@ -1022,27 +1232,62 @@ class S {
 
   /// `Portuguese`
   String get portuguese {
-    return Intl.message('Portuguese', name: 'portuguese', desc: '', args: []);
+    return Intl.message(
+      'Portuguese',
+      name: 'portuguese',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `English`
   String get english {
-    return Intl.message('English', name: 'english', desc: '', args: []);
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Spanish`
   String get spanish {
-    return Intl.message('Spanish', name: 'spanish', desc: '', args: []);
+    return Intl.message(
+      'Spanish',
+      name: 'spanish',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `French`
   String get french {
-    return Intl.message('French', name: 'french', desc: '', args: []);
+    return Intl.message(
+      'French',
+      name: 'french',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Italian`
   String get italian {
-    return Intl.message('Italian', name: 'italian', desc: '', args: []);
+    return Intl.message(
+      'Italian',
+      name: 'italian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `German`
+  String get german {
+    return Intl.message(
+      'German',
+      name: 'german',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Eritrocytes`
@@ -1067,7 +1312,12 @@ class S {
 
   /// `Blasts`
   String get blastTitle {
-    return Intl.message('Blasts', name: 'blastTitle', desc: '', args: []);
+    return Intl.message(
+      'Blasts',
+      name: 'blastTitle',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Matamielocitos`
@@ -1122,7 +1372,12 @@ class S {
 
   /// `Hairys`
   String get pilosasTitle {
-    return Intl.message('Hairys', name: 'pilosasTitle', desc: '', args: []);
+    return Intl.message(
+      'Hairys',
+      name: 'pilosasTitle',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Myeloblasts`
@@ -1177,22 +1432,42 @@ class S {
 
   /// `Use Camera`
   String get useCamera {
-    return Intl.message('Use Camera', name: 'useCamera', desc: '', args: []);
+    return Intl.message(
+      'Use Camera',
+      name: 'useCamera',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Loading`
   String get loading {
-    return Intl.message('Loading', name: 'loading', desc: '', args: []);
+    return Intl.message(
+      'Loading',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Error`
   String get error {
-    return Intl.message('Error', name: 'error', desc: '', args: []);
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `AI Help Page`
   String get aiHelpPage {
-    return Intl.message('AI Help Page', name: 'aiHelpPage', desc: '', args: []);
+    return Intl.message(
+      'AI Help Page',
+      name: 'aiHelpPage',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Analysis Results`
@@ -1207,7 +1482,12 @@ class S {
 
   /// `Back to Menu`
   String get backToMenu {
-    return Intl.message('Back to Menu', name: 'backToMenu', desc: '', args: []);
+    return Intl.message(
+      'Back to Menu',
+      name: 'backToMenu',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `This is just a calculator, the data must be added, interpreted and calculated by a healthcare professional. Check here`
@@ -1282,7 +1562,12 @@ class S {
 
   /// `Target Cells`
   String get alvoTitle {
-    return Intl.message('Target Cells', name: 'alvoTitle', desc: '', args: []);
+    return Intl.message(
+      'Target Cells',
+      name: 'alvoTitle',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Tear Drop Cells`
@@ -1377,12 +1662,22 @@ class S {
 
   /// `Shape Cells`
   String get shapeCells {
-    return Intl.message('Shape Cells', name: 'shapeCells', desc: '', args: []);
+    return Intl.message(
+      'Shape Cells',
+      name: 'shapeCells',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Add images`
   String get addImages {
-    return Intl.message('Add images', name: 'addImages', desc: '', args: []);
+    return Intl.message(
+      'Add images',
+      name: 'addImages',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Findings for the report`
@@ -1397,7 +1692,12 @@ class S {
 
   /// `Take photo`
   String get takePhoto {
-    return Intl.message('Take photo', name: 'takePhoto', desc: '', args: []);
+    return Intl.message(
+      'Take photo',
+      name: 'takePhoto',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Choose from gallery`
@@ -1412,7 +1712,12 @@ class S {
 
   /// `No name`
   String get noName {
-    return Intl.message('No name', name: 'noName', desc: '', args: []);
+    return Intl.message(
+      'No name',
+      name: 'noName',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `No coordinates`
@@ -1427,7 +1732,12 @@ class S {
 
   /// `Coordinate`
   String get coordinate {
-    return Intl.message('Coordinate', name: 'coordinate', desc: '', args: []);
+    return Intl.message(
+      'Coordinate',
+      name: 'coordinate',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Edit information`
@@ -1442,27 +1752,52 @@ class S {
 
   /// `Cell name`
   String get cellName {
-    return Intl.message('Cell name', name: 'cellName', desc: '', args: []);
+    return Intl.message(
+      'Cell name',
+      name: 'cellName',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Tagalog`
   String get tagalog {
-    return Intl.message('Tagalog', name: 'tagalog', desc: '', args: []);
+    return Intl.message(
+      'Tagalog',
+      name: 'tagalog',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Hindi`
   String get hindi {
-    return Intl.message('Hindi', name: 'hindi', desc: '', args: []);
+    return Intl.message(
+      'Hindi',
+      name: 'hindi',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Thai`
   String get thai {
-    return Intl.message('Thai', name: 'thai', desc: '', args: []);
+    return Intl.message(
+      'Thai',
+      name: 'thai',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Arabic`
   String get arabic {
-    return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
   }
 }
 
@@ -1473,6 +1808,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'ar'),
+      Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'hi'),

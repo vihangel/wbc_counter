@@ -69,6 +69,7 @@ class ConfigPageState extends State<ConfigPage> {
         LanguageOption('hi', s.hindi, 'assets/flags/hi.svg'),
         LanguageOption('th', s.thai, 'assets/flags/th.svg'),
         LanguageOption('ar', s.arabic, 'assets/flags/ar.svg'),
+        LanguageOption('de', s.german, 'assets/flags/de.svg'),
       ];
 
   @override

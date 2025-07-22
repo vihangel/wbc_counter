@@ -14,18 +14,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_charts: ^0.5.1
   pie_chart: ^5.3.2
-  share_plus: ^10.1.3
+  share_plus: ^11.0.0
   flutter_launcher_icons: ^0.14.2
   flutter_svg: ^2.0.7
   flutter_native_splash: ^2.3.2
   url_launcher: ^6.1.14
-  permission_handler: ^11.3.0
+  permission_handler: ^12.0.1
   #DB
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -37,7 +39,7 @@ dependencies:
   uuid: ^4.2.2
   pix_flutter: ^2.2.0
   in_app_review: ^2.0.10
-  intl: ^0.19.0
+  intl: ^0.20.2
   flutter_localization: ^0.3.1
   firebase_core: ^3.11.0
   firebase_analytics: ^11.4.2
@@ -49,16 +51,18 @@ dependencies:
   image: ^4.1.7
   firebase_storage: ^12.4.2
   rename_app: ^1.5.0
-  google_mobile_ads: ^5.3.1
+  google_mobile_ads: ^6.0.0
+  intl_utils: ^2.8.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
   flutter_lints: ^5.0.0
   build_runner: ^2.4.6
   hive_generator: ^2.0.1
+
+dependency_overrides:
+  intl: ^0.19.0
 
 flutter:
   uses-material-design: true
@@ -74,7 +78,7 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
+  min_sdk_android: 23
   remove_alpha_ios: true
   adaptive_icon_background: "#673AB7"
   adaptive_icon_foreground: "assets/icon.png"
