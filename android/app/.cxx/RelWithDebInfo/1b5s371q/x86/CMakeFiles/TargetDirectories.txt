@@ -1,0 +1,2 @@
+/Users/angel/github/pessoal/wbc_counter/android/app/.cxx/RelWithDebInfo/1b5s371q/x86/CMakeFiles/edit_cache.dir
+/Users/angel/github/pessoal/wbc_counter/android/app/.cxx/RelWithDebInfo/1b5s371q/x86/CMakeFiles/rebuild_cache.dir
