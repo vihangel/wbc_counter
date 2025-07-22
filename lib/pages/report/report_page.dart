@@ -248,7 +248,9 @@ class ReportPageState extends State<ReportPage> {
                             reportText +=
                                 '${entry.title}: ${entry.quantity} (${wbcPercentages[entry.name]!.toStringAsFixed(2)}%)\n';
                           }
-                          Share.share(reportText);
+                          SharePlus.instance.share(
+                            ShareParams(text: reportText),
+                          );
                         },
                         child: Text(
                           S.of(context).shareReport,
@@ -365,7 +367,6 @@ class ReportPageState extends State<ReportPage> {
     );
   }
 
-  /// TODO: Implement this method
   // ignore: unused_element
   Future<void> _checkSaveReport() async {
     await showDialog(

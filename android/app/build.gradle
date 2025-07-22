@@ -33,7 +33,7 @@ def keystoreProperties = new Properties()
 
 android {
     namespace "com.example.wbc_counter"
-    compileSdkVersion 34
+    compileSdkVersion 35
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -51,7 +51,7 @@ android {
 
     defaultConfig {
         applicationId "br.com.wbc_counter"
-        targetSdkVersion 34
+        targetSdkVersion 35
         minSdkVersion 21  
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
