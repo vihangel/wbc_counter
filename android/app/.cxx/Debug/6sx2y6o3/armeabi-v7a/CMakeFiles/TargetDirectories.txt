@@ -1,0 +1,2 @@
+/Users/angel/github/pessoal/wbc_counter/android/app/.cxx/Debug/6sx2y6o3/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/angel/github/pessoal/wbc_counter/android/app/.cxx/Debug/6sx2y6o3/armeabi-v7a/CMakeFiles/rebuild_cache.dir
