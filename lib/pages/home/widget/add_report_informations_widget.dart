@@ -194,7 +194,7 @@ class AddReportInformations extends StatelessWidget {
     );
   }
 
-  void _showExpanded(context, ReportImageModel data) {
+  void _showExpanded(BuildContext context, ReportImageModel data) {
     final translations = S.of(context);
     showDialog(
       context: context,

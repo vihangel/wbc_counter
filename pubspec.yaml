@@ -22,7 +22,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_charts: ^0.5.1
   pie_chart: ^5.3.2
-  share_plus: ^11.0.0
+  share_plus: ^12.0.0
   flutter_launcher_icons: ^0.14.2
   flutter_svg: ^2.0.7
   flutter_native_splash: ^2.3.2
@@ -41,15 +41,15 @@ dependencies:
   in_app_review: ^2.0.10
   intl: ^0.20.2
   flutter_localization: ^0.3.1
-  firebase_core: ^3.11.0
-  firebase_analytics: ^11.4.2
-  firebase_crashlytics: ^4.3.2
-  firebase_performance: ^0.10.1+2
+  firebase_core: ^4.1.0
+  firebase_analytics: ^12.0.1
+  firebase_crashlytics: ^5.0.1
+  firebase_performance: ^0.11.0+1
   image_picker: ^1.1.0
   http: ^1.2.1
 
   image: ^4.1.7
-  firebase_storage: ^12.4.2
+  firebase_storage: ^13.0.1
   rename_app: ^1.5.0
   google_mobile_ads: ^6.0.0
   intl_utils: ^2.8.8
@@ -57,7 +57,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   build_runner: ^2.4.6
   hive_generator: ^2.0.1
 

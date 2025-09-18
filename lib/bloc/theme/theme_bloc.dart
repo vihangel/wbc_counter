@@ -12,12 +12,9 @@ class ThemeAppBloc extends Bloc<ThemeEvent, ThemeState> {
 
   ThemeMode theme = ThemeMode.light;
 
-  void _mapToggleThemeToState(event, emit) async {
-    if (theme == ThemeMode.light) {
-      theme = ThemeMode.dark;
-    } else {
-      theme = ThemeMode.light;
-    }
+  Future<void> _mapToggleThemeToState(
+      ToggleThemeEvent event, Emitter<ThemeState> emit) async {
+    theme = theme == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     emit(ThemeChangedState(theme));
   }
 }
