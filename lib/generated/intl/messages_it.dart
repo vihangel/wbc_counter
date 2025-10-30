@@ -20,7 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'it';
 
-  static String m0(totalQuantity) => "Hai aggiunto ${totalQuantity} cellule";
+  static String m0(int totalQuantity) =>
+      "Hai aggiunto ${totalQuantity} cellule";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
