@@ -1799,6 +1799,246 @@ class S {
       args: [],
     );
   }
+
+  /// `Subtypes and morphological variations`
+  String get subtypesAndVariations {
+    return Intl.message(
+      'Subtypes and morphological variations',
+      name: 'subtypesAndVariations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Large granular lymphocytes (LGL)`
+  String get largeGranularLymphocytesLGL {
+    return Intl.message(
+      'Large granular lymphocytes (LGL)',
+      name: 'largeGranularLymphocytesLGL',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Larger than typical lymphocytes, they have abundant, pale blue cytoplasm with azurophilic granules (lysosomes).\nThe nucleus is oval or round, with condensed chromatin.\nThey can be cytotoxic T lymphocytes (CD8⁺) or NK cells.\nThey are increased in viral infections, autoimmune diseases, after splenectomy, and in granular lymphocytic leukemia.`
+  String get largeGranularLymphocytesLGLDescription {
+    return Intl.message(
+      'Larger than typical lymphocytes, they have abundant, pale blue cytoplasm with azurophilic granules (lysosomes).\nThe nucleus is oval or round, with condensed chromatin.\nThey can be cytotoxic T lymphocytes (CD8⁺) or NK cells.\nThey are increased in viral infections, autoimmune diseases, after splenectomy, and in granular lymphocytic leukemia.',
+      name: 'largeGranularLymphocytesLGLDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reactive (or activated) lymphocytes`
+  String get reactiveOrActivatedLymphocytes {
+    return Intl.message(
+      'Reactive (or activated) lymphocytes',
+      name: 'reactiveOrActivatedLymphocytes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Large cells, with less condensed chromatin and basophilic cytoplasm that may appear to “hug” red blood cells.\nAlso called Downey type II cells.\nThey arise in response to infectious or inflammatory processes, such as in infectious mononucleosis (Epstein–Barr virus) and other viral infections.`
+  String get reactiveOrActivatedLymphocytesDescription {
+    return Intl.message(
+      'Large cells, with less condensed chromatin and basophilic cytoplasm that may appear to “hug” red blood cells.\nAlso called Downey type II cells.\nThey arise in response to infectious or inflammatory processes, such as in infectious mononucleosis (Epstein–Barr virus) and other viral infections.',
+      name: 'reactiveOrActivatedLymphocytesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Neoplastic (clonal) lymphocytes`
+  String get neoplasticClonalLymphocytes {
+    return Intl.message(
+      'Neoplastic (clonal) lymphocytes',
+      name: 'neoplasticClonalLymphocytes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `They have a round nucleus, dense chromatin, and scarce cytoplasm.\nRelated to lymphoproliferative neoplasms (such as CLL, lymphomas, and multiple myeloma).\nAccurate identification requires immunophenotyping by flow cytometry.`
+  String get neoplasticClonalLymphocytesDescription {
+    return Intl.message(
+      'They have a round nucleus, dense chromatin, and scarce cytoplasm.\nRelated to lymphoproliferative neoplasms (such as CLL, lymphomas, and multiple myeloma).\nAccurate identification requires immunophenotyping by flow cytometry.',
+      name: 'neoplasticClonalLymphocytesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Atypical lymphocytes`
+  String get atypicalLymphocytes {
+    return Intl.message(
+      'Atypical lymphocytes',
+      name: 'atypicalLymphocytes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `They include reactive, neoplastic, or indeterminate malignancy forms.\nThey present morphological changes that do not fit typical patterns, and may vary in size, shape, and nucleus-cytoplasm ratio.\nThey are reported when there is suspicion of intense immunological activation, incipient clonal proliferation, or possible neoplastic transformation.\nThey should be interpreted with caution and correlated with clinical and laboratory findings.`
+  String get atypicalLymphocytesDescription {
+    return Intl.message(
+      'They include reactive, neoplastic, or indeterminate malignancy forms.\nThey present morphological changes that do not fit typical patterns, and may vary in size, shape, and nucleus-cytoplasm ratio.\nThey are reported when there is suspicion of intense immunological activation, incipient clonal proliferation, or possible neoplastic transformation.\nThey should be interpreted with caution and correlated with clinical and laboratory findings.',
+      name: 'atypicalLymphocytesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plasma cells`
+  String get plasmaCells {
+    return Intl.message(
+      'Plasma cells',
+      name: 'plasmaCells',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cells derived from differentiated B lymphocytes.\nThey have an eccentric nucleus, “cartwheel” chromatin, and strongly basophilic cytoplasm with a perinuclear halo (Golgi complex).\nThey do not appear in normal peripheral blood.\nThey can appear in multiple myeloma, chronic inflammation, or after IL-6 release.`
+  String get plasmaCellsDescription {
+    return Intl.message(
+      'Cells derived from differentiated B lymphocytes.\nThey have an eccentric nucleus, “cartwheel” chromatin, and strongly basophilic cytoplasm with a perinuclear halo (Golgi complex).\nThey do not appear in normal peripheral blood.\nThey can appear in multiple myeloma, chronic inflammation, or after IL-6 release.',
+      name: 'plasmaCellsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lymphocytes with cleaved nucleus`
+  String get lymphocytesWithCleavedNucleus {
+    return Intl.message(
+      'Lymphocytes with cleaved nucleus',
+      name: 'lymphocytesWithCleavedNucleus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Small, with scarce and slightly basophilic cytoplasm.\nThe nucleus has a cleft, indentation, or fissure.\nFound in follicular lymphoma (clonal) and Bordetella pertussis infection (reactional).`
+  String get lymphocytesWithCleavedNucleusDescription {
+    return Intl.message(
+      'Small, with scarce and slightly basophilic cytoplasm.\nThe nucleus has a cleft, indentation, or fissure.\nFound in follicular lymphoma (clonal) and Bordetella pertussis infection (reactional).',
+      name: 'lymphocytesWithCleavedNucleusDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Villous lymphocytes`
+  String get villousLymphocytes {
+    return Intl.message(
+      'Villous lymphocytes',
+      name: 'villousLymphocytes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mature and small, with an oval nucleus and compacted chromatin.\nThe cytoplasm is slightly basophilic and has villi at one or both ends.\nAssociated with splenic marginal zone lymphoma.`
+  String get villousLymphocytesDescription {
+    return Intl.message(
+      'Mature and small, with an oval nucleus and compacted chromatin.\nThe cytoplasm is slightly basophilic and has villi at one or both ends.\nAssociated with splenic marginal zone lymphoma.',
+      name: 'villousLymphocytesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hairy cells`
+  String get hairyCells {
+    return Intl.message(
+      'Hairy cells',
+      name: 'hairyCells',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `They have abundant and basophilic cytoplasm with irregular cytoplasmic projections (“hairs”).\nOval, round, or bilobed nucleus, with loose chromatin.\nTypical of hairy cell leukemia.`
+  String get hairyCellsDescription {
+    return Intl.message(
+      'They have abundant and basophilic cytoplasm with irregular cytoplasmic projections (“hairs”).\nOval, round, or bilobed nucleus, with loose chromatin.\nTypical of hairy cell leukemia.',
+      name: 'hairyCellsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mott cells`
+  String get mottCells {
+    return Intl.message(
+      'Mott cells',
+      name: 'mottCells',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plasma cells that contain spherical inclusions in the cytoplasm (vesicles filled with immunoglobulins).\nThey appear in reactive plasmacytosis, multiple myeloma, and large B-cell lymphomas.`
+  String get mottCellsDescription {
+    return Intl.message(
+      'Plasma cells that contain spherical inclusions in the cytoplasm (vesicles filled with immunoglobulins).\nThey appear in reactive plasmacytosis, multiple myeloma, and large B-cell lymphomas.',
+      name: 'mottCellsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flower cells`
+  String get flowerCells {
+    return Intl.message(
+      'Flower cells',
+      name: 'flowerCells',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `They have an irregular, convoluted nucleus, with a flower-like appearance.\nSome show evident nucleoli.\nFound in adult T-cell leukemia/lymphoma, associated with the HTLV-1 virus.`
+  String get flowerCellsDescription {
+    return Intl.message(
+      'They have an irregular, convoluted nucleus, with a flower-like appearance.\nSome show evident nucleoli.\nFound in adult T-cell leukemia/lymphoma, associated with the HTLV-1 virus.',
+      name: 'flowerCellsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pleomorphic lymphocytes`
+  String get pleomorphicLymphocytes {
+    return Intl.message(
+      'Pleomorphic lymphocytes',
+      name: 'pleomorphicLymphocytes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `They show variation in size, shape, and nucleus-cytoplasm ratio.\nThe chromatin is less condensed and they can resemble blasts.\nCommon in non-Hodgkin lymphomas, atypical CLL, and prolymphocytic leukemia.`
+  String get pleomorphicLymphocytesDescription {
+    return Intl.message(
+      'They show variation in size, shape, and nucleus-cytoplasm ratio.\nThe chromatin is less condensed and they can resemble blasts.\nCommon in non-Hodgkin lymphomas, atypical CLL, and prolymphocytic leukemia.',
+      name: 'pleomorphicLymphocytesDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cytoplasmic Inclusions`
+  String get cytoplasmicInclusionsTitle {
+    return Intl.message(
+      'Cytoplasmic Inclusions',
+      name: 'cytoplasmicInclusionsTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

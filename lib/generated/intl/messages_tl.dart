@@ -20,7 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'tl';
 
-  static String m0(int totalQuantity) =>
+  static String m0(totalQuantity) =>
       "Nagdagdag ka ng ${totalQuantity} mga selula";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -48,6 +48,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "appEvaluation":
             MessageLookupByLibrary.simpleMessage("Pagsusuri ng App"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "atypicalLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Mga atypical na lymphocytes"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Kasama ang mga reaktibo, neoplastiko, o may hindi tiyak na kasamaan.\nMay mga pagbabago sa morpolohiya na hindi umaangkop sa mga tipikal na pattern, maaaring mag-iba sa laki, hugis, at ratio ng nucleus sa cytoplasm.\nIniuulat kapag may hinala ng matinding immune activation, paunang clonal proliferation, o posibleng neoplastikong pagbabago.\nDapat suriin nang maingat at kaugnay ng mga natuklasang klinikal at laboratoryo."),
         "backToMenu": MessageLookupByLibrary.simpleMessage("Bumalik sa Menu"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Ang mga basophils ay may bilobadong nucleus, ngunit maaaring mahirap makita dahil sa mga siksik na granules. Ang cytoplasm ay kulay asul-itim dahil sa mga basophilic granules. Sila ay katulad ng laki sa mga neutrophils at eosinophils. Mayroon silang mga siksik na granules, na nagtatago ng nucleus. Kasangkot sila sa malubhang allergic reactions at immune response."),
@@ -90,6 +94,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hindi mabuksan"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("Hemoglobin crystals"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("Mga inclusion sa cytoplasm"),
         "dark": MessageLookupByLibrary.simpleMessage("Madilim"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "Ang mga ibinigay na datos ay hindi dapat ituring na ganap o kumpirmatoryo."),
@@ -138,9 +144,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("Salain"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("Mga natuklasan para sa ulat"),
+        "flowerCells": MessageLookupByLibrary.simpleMessage(
+            "Mga selulang hugis bulaklak (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "May hindi regular, kulubot na nucleus na may anyong bulaklak.\nAng ilan ay may malinaw na nucleolus.\nMatatagpuan sa adult T-cell leukemia/lymphoma na nauugnay sa HTLV-1 virus."),
         "foicesTitle": MessageLookupByLibrary.simpleMessage("Sickle cells"),
         "french": MessageLookupByLibrary.simpleMessage("Pranses"),
         "german": MessageLookupByLibrary.simpleMessage("Aleman"),
+        "hairyCells": MessageLookupByLibrary.simpleMessage(
+            "Mga balbon na selula (Hairy cells)"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "May masaganang basophilic na cytoplasm na may hindi regular na mga projection (\'buhok\').\nAng nucleus ay maaaring oval, bilog, o bilobado, na may maluwag na chromatin.\nKaraniwan sa hairy cell leukemia."),
         "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Hypersegmented"),
@@ -153,6 +167,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "italian": MessageLookupByLibrary.simpleMessage("Italyano"),
         "lagrimaTitle": MessageLookupByLibrary.simpleMessage("Tear cells"),
         "language": MessageLookupByLibrary.simpleMessage("Wika"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "Malalaking granular na lymphocytes (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Mas malalaki kaysa sa mga tipikal na lymphocytes, may masaganang cytoplasm na mapusyaw na asul na may mga azurophilic granules (lysosomes).\nAng nucleus ay bilugan o hugis-itlog na may kondensadong chromatin.\nMaaaring mga cytotoxic T lymphocytes (CD8⁺) o NK cells.\nTumataas sa mga viral infection, autoimmune disease, pagkatapos ng splenectomy, at sa granular lymphocytic leukemia."),
         "later": MessageLookupByLibrary.simpleMessage("Mamaya"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Mag-iwan ng pagsusuri sa tindahan!"),
@@ -173,6 +192,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: Karaniwang walang nakikitang granules."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilidad at Aktibidad: Mas kaunting mobile kaysa sa mga neutrophils, sila ay kasangkot sa adaptive immune response."),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "Mga lymphocyte na may cleaved nucleus"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Maliit na selula na may kakaunting cytoplasm na bahagyang basophilic.\nAng nucleus ay may bitak, indentation, o hiwa.\nMatatagpuan sa follicular lymphoma (clonal) at impeksiyon ng Bordetella pertussis (reaktibo)."),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Metamyelocytes"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Myelocytes"),
@@ -195,6 +219,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "mordidasTitle": MessageLookupByLibrary.simpleMessage("Bite cells"),
         "moreExamples":
             MessageLookupByLibrary.simpleMessage("Marami pang halimbawa"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("Mga selula ni Mott"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Mga plasma cell na naglalaman ng mga bilugang inclusion sa cytoplasm (mga vesicle na puno ng immunoglobulin).\nNakikita sa reactive plasmacytosis, multiple myeloma, at mga lymphoma ng malalaking B cells."),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "Ang iyong ulat ay matagumpay na na-save!"),
         "msg_confirmCalculateCells": m0,
@@ -203,6 +230,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Ulat na burado!"),
         "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Myeloblasts"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Mga neoplastikong (clonal) lymphocytes"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "May bilugang nucleus, masinsing chromatin at kakaunting cytoplasm.\nKaugnay ng mga neoplasiyang lymphoproliferative (tulad ng CLL, lymphoma at multiple myeloma).\nKinakailangan ang tumpak na pagkilala sa pamamagitan ng immunophenotyping sa pamamagitan ng flow cytometry."),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Ang mga neutrophils ay mga selula ng immune defense na karaniwang may segmented nuclei, na may 2 hanggang 5 segment na konektado ng manipis na mga filament. Ang kulay ng cytoplasm ay bahagyang rosas hanggang walang kulay. Sila ang pinakamaraming puting selula, na may katamtamang laki at bilugan hanggang bahagyang lobulated na hugis. Maaaring maglaman ng mga pinong at maputlang granules, ngunit karaniwang hindi masyadong nakikita. Ang mga neutrophils ay lubos na mobile at phagocytize bacteria."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("Neutrophils"),
@@ -233,7 +265,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pangalan ng pasyente"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("Hairy"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Pix key"),
+        "plasmaCells": MessageLookupByLibrary.simpleMessage("Mga plasma cell"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Mga selulang nagmula sa mga B lymphocyte na nag-mature na.\nMay nucleus na nasa gilid, chromatin na parang \'spoke wheel\', at cytoplasm na masyadong basophilic na may perinuclear halo (Golgi complex).\nHindi karaniwang nakikita sa dugo ng malulusog na indibidwal.\nMaaaring lumitaw sa multiple myeloma, mga talamak na pamamaga, o pagkatapos ng paglabas ng IL-6."),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Platelets"),
+        "pleomorphicLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Mga pleomorphic na lymphocytes"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Ipinapakita ang pagkakaiba-iba sa laki, hugis, at proporsyon ng nucleus at cytoplasm.\nMas hindi kondensado ang chromatin at maaaring magmukhang mga blast.\nKaraniwan sa non-Hodgkin lymphoma, atypical CLL, at prolymphocytic leukemia."),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("Basophilic stippling"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portuges"),
@@ -241,6 +280,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Promyelocytes"),
         "quantity": MessageLookupByLibrary.simpleMessage("Dami"),
         "rateUs": MessageLookupByLibrary.simpleMessage("I-rate kami"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Mga reaktibong (o aktibong) lymphocytes"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Malalaking selula na may hindi gaanong kondensadong chromatin at basophilic na cytoplasm na maaaring mukhang \'yumayakap\' sa mga pulang selula ng dugo.\nTinatawag ding mga Downey cells type II.\nLumalabas bilang tugon sa mga impeksiyong nakakapagpasiklab, gaya ng nakahahawang mononucleosis (Epstein–Barr virus) at iba pang mga impeksiyong viral."),
         "redCells": MessageLookupByLibrary.simpleMessage("Pulang mga selula"),
         "remove": MessageLookupByLibrary.simpleMessage("Alisin"),
         "report": MessageLookupByLibrary.simpleMessage("Ulat"),
@@ -267,6 +311,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("Espanyol"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Nais mo bang kalkulahin ang bilang ng mga selula?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "Mga subtype at pagkakaiba-ibang morpolohikal"),
         "support": MessageLookupByLibrary.simpleMessage("Suporta"),
         "supportOurProject": MessageLookupByLibrary.simpleMessage(
             "Suportahan ang aming proyekto"),
@@ -285,6 +331,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mag-upload mula sa Gallery"),
         "useCamera": MessageLookupByLibrary.simpleMessage("Gamitin ang Camera"),
         "vibration": MessageLookupByLibrary.simpleMessage("Pag-vibrate"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Mga villous na lymphocytes"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Mga mature at maliliit na selula na may oval na nucleus at siksik na chromatin.\nAng cytoplasm ay bahagyang basophilic at may mga villi sa isa o parehong dulo.\nKaugnay ng splenic marginal zone lymphoma."),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Puting mga selula"),
         "whySupport": MessageLookupByLibrary.simpleMessage("Bakit suportahan?"),
         "yes": MessageLookupByLibrary.simpleMessage("Oo")

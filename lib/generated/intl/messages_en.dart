@@ -20,8 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(int totalQuantity) =>
-      "You have added ${totalQuantity} cells";
+  static String m0(totalQuantity) => "You have added ${totalQuantity} cells";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -44,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Analysis Results"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("App Evaluation"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "atypicalLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Atypical lymphocytes"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "They include reactive, neoplastic, or indeterminate malignancy forms.\nThey present morphological changes that do not fit typical patterns, and may vary in size, shape, and nucleus-cytoplasm ratio.\nThey are reported when there is suspicion of intense immunological activation, incipient clonal proliferation, or possible neoplastic transformation.\nThey should be interpreted with caution and correlated with clinical and laboratory findings."),
         "backToMenu": MessageLookupByLibrary.simpleMessage("Back to Menu"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Basophils have a bilobed nucleus, but it can be difficult to discern due to the dense granules. The cytoplasm is dark blue to black due to the basophilic granules. They are similar in size to neutrophils and eosinophils. They have dense granules, which obscure vision of the nucleus. They are involved in severe allergic reactions and immune responses."),
@@ -84,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Could not launch"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("Hemoglobin Crystals"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("Cytoplasmic Inclusions"),
         "dark": MessageLookupByLibrary.simpleMessage("Dark"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "The data provided should not be considered absolute or confirmatory."),
@@ -131,9 +136,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("Findings for the report"),
+        "flowerCells": MessageLookupByLibrary.simpleMessage("Flower cells"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "They have an irregular, convoluted nucleus, with a flower-like appearance.\nSome show evident nucleoli.\nFound in adult T-cell leukemia/lymphoma, associated with the HTLV-1 virus."),
         "foicesTitle": MessageLookupByLibrary.simpleMessage("Sickle Cells"),
         "french": MessageLookupByLibrary.simpleMessage("French"),
         "german": MessageLookupByLibrary.simpleMessage("German"),
+        "hairyCells": MessageLookupByLibrary.simpleMessage("Hairy cells"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "They have abundant and basophilic cytoplasm with irregular cytoplasmic projections (“hairs”).\nOval, round, or bilobed nucleus, with loose chromatin.\nTypical of hairy cell leukemia."),
         "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Hipersegmentados"),
@@ -146,6 +157,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "italian": MessageLookupByLibrary.simpleMessage("Italian"),
         "lagrimaTitle": MessageLookupByLibrary.simpleMessage("Tear Drop Cells"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "Large granular lymphocytes (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Larger than typical lymphocytes, they have abundant, pale blue cytoplasm with azurophilic granules (lysosomes).\nThe nucleus is oval or round, with condensed chromatin.\nThey can be cytotoxic T lymphocytes (CD8⁺) or NK cells.\nThey are increased in viral infections, autoimmune diseases, after splenectomy, and in granular lymphocytic leukemia."),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Leave a review in the store!"),
@@ -166,6 +182,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cytoplasmic Granules: Generally contain no visible granules."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobility and Activity: Less mobile than neutrophils, they are involved in the adaptive immune response."),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "Lymphocytes with cleaved nucleus"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Small, with scarce and slightly basophilic cytoplasm.\nThe nucleus has a cleft, indentation, or fissure.\nFound in follicular lymphoma (clonal) and Bordetella pertussis infection (reactional)."),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Matamielocitos"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocitos"),
@@ -187,6 +208,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mobility and Activity: They are mobile and differentiate into macrophages when they move to tissues."),
         "mordidasTitle": MessageLookupByLibrary.simpleMessage("Bite Cells"),
         "moreExamples": MessageLookupByLibrary.simpleMessage("More Examples"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("Mott cells"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Plasma cells that contain spherical inclusions in the cytoplasm (vesicles filled with immunoglobulins).\nThey appear in reactive plasmacytosis, multiple myeloma, and large B-cell lymphomas."),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "Your report has been saved successfully!"),
         "msg_confirmCalculateCells": m0,
@@ -195,6 +219,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Report deleted!"),
         "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Myeloblasts"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Neoplastic (clonal) lymphocytes"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "They have a round nucleus, dense chromatin, and scarce cytoplasm.\nRelated to lymphoproliferative neoplasms (such as CLL, lymphomas, and multiple myeloma).\nAccurate identification requires immunophenotyping by flow cytometry."),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Neutrophils are immune defense cells that generally have segmented nuclei, with 2 to 5 segments connected by thin filaments. The color of the cytoplasm is slightly pink to colorless. They are the most abundant white cells, with medium size and shape rounded to slightly lobed. They may contain fine, pale granules, but they are usually not very visible. Neutrophils are highly motile and phagocytose bacteria."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("Neutrophils"),
@@ -222,7 +251,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientName": MessageLookupByLibrary.simpleMessage("Patient Name"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("Hairys"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Pix key"),
+        "plasmaCells": MessageLookupByLibrary.simpleMessage("Plasma cells"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Cells derived from differentiated B lymphocytes.\nThey have an eccentric nucleus, “cartwheel” chromatin, and strongly basophilic cytoplasm with a perinuclear halo (Golgi complex).\nThey do not appear in normal peripheral blood.\nThey can appear in multiple myeloma, chronic inflammation, or after IL-6 release."),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Platelets"),
+        "pleomorphicLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Pleomorphic lymphocytes"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "They show variation in size, shape, and nucleus-cytoplasm ratio.\nThe chromatin is less condensed and they can resemble blasts.\nCommon in non-Hodgkin lymphomas, atypical CLL, and prolymphocytic leukemia."),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("Basophilic Stippling"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portuguese"),
@@ -230,6 +266,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Promielocitos"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Rate Us"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Reactive (or activated) lymphocytes"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Large cells, with less condensed chromatin and basophilic cytoplasm that may appear to “hug” red blood cells.\nAlso called Downey type II cells.\nThey arise in response to infectious or inflammatory processes, such as in infectious mononucleosis (Epstein–Barr virus) and other viral infections."),
         "redCells": MessageLookupByLibrary.simpleMessage("Red Cells"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "report": MessageLookupByLibrary.simpleMessage("Report"),
@@ -253,6 +294,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("Spanish"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Do you want to continue adding or generating the report?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "Subtypes and morphological variations"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
         "supportOurProject":
             MessageLookupByLibrary.simpleMessage("Support our project"),
@@ -271,6 +314,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Upload from Gallery"),
         "useCamera": MessageLookupByLibrary.simpleMessage("Use Camera"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibration"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Villous lymphocytes"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Mature and small, with an oval nucleus and compacted chromatin.\nThe cytoplasm is slightly basophilic and has villi at one or both ends.\nAssociated with splenic marginal zone lymphoma."),
         "whiteCells": MessageLookupByLibrary.simpleMessage("White Cells"),
         "whySupport": MessageLookupByLibrary.simpleMessage("Why support us?"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")

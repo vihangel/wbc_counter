@@ -3,13 +3,15 @@ class TipBloodCellModel {
   final String description;
   final String cover;
   final List<String> identifyTopics;
-  final String exampleImage;
+  final String? exampleImage;
+  final List<TipBloodCellModel> subtypes;
 
   TipBloodCellModel({
     required this.name,
     required this.description,
     required this.cover,
     required this.identifyTopics,
-    required this.exampleImage,
+    this.exampleImage,
+    this.subtypes = const [],
   });
 }

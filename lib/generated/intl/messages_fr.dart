@@ -47,6 +47,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "appEvaluation": MessageLookupByLibrary.simpleMessage(
             "Évaluation de l\'application"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabe"),
+        "atypicalLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Lymphocytes atypiques"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Ils englobent des formes réactives, néoplasiques ou de malignité indéterminée.\nIls présentent des altérations morphologiques qui ne correspondent pas aux modèles typiques, pouvant varier en taille, forme et rapport noyau-cytoplasme.\nIls sont signalés en cas de suspicion d\'activation immunologique intense, de prolifération clonale naissante ou de possible transformation néoplasique.\nIls doivent être interprétés avec prudence et corrélés avec les résultats cliniques et de laboratoire."),
         "backToMenu": MessageLookupByLibrary.simpleMessage("Retour au Menu"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Les basophiles ont un noyau bilobé, mais il peut être difficile à discerner en raison des granules denses. Le cytoplasme est bleu foncé à noir en raison des granules basophiles. Ils sont de taille similaire aux neutrophiles et aux éosinophiles. Ils ont des granules denses, qui obscurcissent la vision du noyau. Ils sont impliqués dans les réactions allergiques graves et les réponses immunitaires."),
@@ -89,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Impossible de lancer"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("Cristaux d\'hémoglobine"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("Inclusions cytoplasmiques"),
         "dark": MessageLookupByLibrary.simpleMessage("Sombre"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "Les données fournies ne doivent pas être considérées comme absolues ou confirmatoires."),
@@ -139,10 +145,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("Filtrer"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("Résultats pour le rapport"),
+        "flowerCells": MessageLookupByLibrary.simpleMessage(
+            "Cellules en fleur (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Ils présentent un noyau irrégulier, convoluté, avec un aspect de fleur.\nCertains montrent des nucléoles évidents.\nTrouvés dans la leucémie/lymphome à cellules T de l\'adulte, associés au virus HTLV-1."),
         "foicesTitle":
             MessageLookupByLibrary.simpleMessage("Cellules falciformes"),
         "french": MessageLookupByLibrary.simpleMessage("Français"),
         "german": MessageLookupByLibrary.simpleMessage("Allemand"),
+        "hairyCells":
+            MessageLookupByLibrary.simpleMessage("Cellules chevelues"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Ils présentent un cytoplasme abondant et basophile avec des projections cytoplasmiques irrégulières (“poils”).\nNoyau ovale, rond ou bilobé, avec une chromatine lâche.\nTypiques de la tricholeucémie."),
         "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Hyperségmentés"),
@@ -156,6 +170,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "lagrimaTitle":
             MessageLookupByLibrary.simpleMessage("Cellules en larme"),
         "language": MessageLookupByLibrary.simpleMessage("Langue"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "Grands lymphocytes granuleux (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Plus grands que les lymphocytes typiques, ils présentent un cytoplasme abondant, bleu pâle, avec des granulations azurophiles (lysosomes).\nLe noyau est ovale ou rond, avec une chromatine condensée.\nIls peuvent être des lymphocytes T cytotoxiques (CD8⁺) ou des cellules NK.\nIls sont augmentés dans les infections virales, les maladies auto-immunes, après une splénectomie et dans la leucémie lymphoïde granulaire."),
         "later": MessageLookupByLibrary.simpleMessage("Plus tard"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Laissez un commentaire dans le magasin !"),
@@ -176,6 +195,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Granules cytoplasmiques : Ne contiennent généralement pas de granules visibles."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilité et activité : Moins mobiles que les neutrophiles, ils sont impliqués dans la réponse immunitaire adaptative."),
+        "lymphocytesWithCleavedNucleus":
+            MessageLookupByLibrary.simpleMessage("Lymphocytes à noyau clivé"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Petits, avec un cytoplasme rare et légèrement basophile.\nLe noyau présente une fente, une indentation ou une fissure.\nTrouvés dans le lymphome folliculaire (clonal) et l\'infection par Bordetella pertussis (réactionnelle)."),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Matamiélocytes"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocytes"),
@@ -199,6 +223,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cellules mordues"),
         "moreExamples":
             MessageLookupByLibrary.simpleMessage("Plus d\'exemples"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("Cellules de Mott"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Plasmocytes contenant des inclusions sphériques dans le cytoplasme (vésicules remplies d\'immunoglobulines).\nApparaissent dans la plasmocytose réactive, le myélome multiple et les lymphomes à grandes cellules B."),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "Votre rapport a été enregistré avec succès !"),
         "msg_confirmCalculateCells": m0,
@@ -207,6 +234,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Rapport supprimé !"),
         "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Myéloblastes"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Lymphocytes néoplasiques (clonaux)"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Ils présentent un noyau rond, une chromatine dense et un cytoplasme rare.\nLiés aux néoplasies lymphoprolifératives (comme la LLC, les lymphomes et le myélome multiple).\nL\'identification précise nécessite une immunophénotypage par cytométrie en flux."),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Les neutrophiles sont des cellules de défense immunitaire qui ont généralement des noyaux segmentés, avec 2 à 5 segments reliés par de fines filaments. La couleur du cytoplasme est légèrement rose à incolore. Ce sont les globules blancs les plus abondants, de taille moyenne et de forme arrondie à légèrement lobée. Ils peuvent contenir de fines granules pâles, mais ils ne sont généralement pas très visibles. Les neutrophiles sont très mobiles et phagocytent les bactéries."),
         "neutrophilsTitle":
@@ -236,7 +268,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientName": MessageLookupByLibrary.simpleMessage("Nom du patient"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("Piloses"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Clé Pix"),
+        "plasmaCells": MessageLookupByLibrary.simpleMessage("Plasmocytes"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Cellules dérivées de lymphocytes B différenciés.\nIls possèdent un noyau excentrique, une chromatine en “rayons de roue” et un cytoplasme fortement basophile avec un halo périnucléaire (appareil de Golgi).\nIls n\'apparaissent pas dans le sang périphérique normal.\nIls peuvent apparaître dans le myélome multiple, les inflammations chroniques ou après la libération d\'IL-6."),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Plaquettes"),
+        "pleomorphicLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Lymphocytes pléomorphes"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Ils présentent une variation de taille, de forme et de proportion noyau-cytoplasme.\nLa chromatine est moins condensée et ils peuvent ressembler à des blastes.\nCommuns dans les lymphomes non hodgkiniens, la LLC atypique et la leucémie prolymphocytaire."),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("Ponctuation basophile"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portugais"),
@@ -244,6 +283,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Promyélocytes"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantité"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Évaluez-nous"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Lymphocytes réactifs (ou activés)"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Grandes cellules, avec une chromatine moins condensée et un cytoplasme basophile qui peut sembler “entourer” les hématies.\nÉgalement appelées cellules de Downey de type II.\nIls apparaissent en réponse à des processus infectieux ou inflammatoires, comme dans la mononucléose infectieuse (virus d\'Epstein-Barr) et d\'autres infections virales."),
         "redCells": MessageLookupByLibrary.simpleMessage("Cellules rouges"),
         "remove": MessageLookupByLibrary.simpleMessage("Supprimer"),
         "report": MessageLookupByLibrary.simpleMessage("Rapport"),
@@ -271,6 +315,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("Espagnol"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Voulez-vous continuer à ajouter ou générer le rapport ?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "Sous-types et variations morphologiques"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
         "supportOurProject":
             MessageLookupByLibrary.simpleMessage("Soutenez notre projet"),
@@ -290,6 +336,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Télécharger depuis la Galerie"),
         "useCamera": MessageLookupByLibrary.simpleMessage("Utiliser la Caméra"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibration"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Lymphocytes villeux"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Matures et petits, avec un noyau ovale et une chromatine compactée.\nLe cytoplasme est légèrement basophile et présente des villosités à une ou aux deux extrémités.\nAssociés au lymphome de la zone marginale splénique."),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Cellules blanches"),
         "whySupport":
             MessageLookupByLibrary.simpleMessage("Pourquoi nous soutenir ?"),

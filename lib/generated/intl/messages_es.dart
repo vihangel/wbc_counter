@@ -20,8 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es';
 
-  static String m0(int totalQuantity) =>
-      "Has agregado ${totalQuantity} células";
+  static String m0(totalQuantity) => "Has agregado ${totalQuantity} células";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -47,6 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "appEvaluation":
             MessageLookupByLibrary.simpleMessage("Evaluación de la aplicación"),
         "arabic": MessageLookupByLibrary.simpleMessage("Árabe"),
+        "atypicalLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Linfocitos atípicos"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Engloban formas reactivas, neoplásicas o de malignidad indeterminada.\nPresentan alteraciones morfológicas que no se encuadran en patrones típicos, pudiendo variar en tamaño, forma y relación núcleo-citoplasma.\nSe informan cuando hay sospecha de activación inmunológica intensa, proliferación clonal incipiente o posible transformación neoplásica.\nDeben ser interpretados con cautela y correlacionados con hallazgos clínicos y de laboratorio."),
         "backToMenu": MessageLookupByLibrary.simpleMessage("Volver al Menú"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Los basófilos tienen un núcleo bilobulado, pero puede ser difícil de discernir debido a los gránulos densos. El citoplasma es de color azul oscuro a negro debido a los gránulos basófilos. Son similares en tamaño a los neutrófilos y eosinófilos. Tienen gránulos densos, que ocultan la visión del núcleo. Están involucrados en reacciones alérgicas graves y respuestas inmunes."),
@@ -88,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No se pudo lanzar"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("Cristales de hemoglobina"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("Inclusiones citoplasmáticas"),
         "dark": MessageLookupByLibrary.simpleMessage("Oscuro"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "Los datos proporcionados no deben considerarse absolutos o confirmatorios."),
@@ -135,10 +140,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("Filtrar"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("Hallazgos para el informe"),
+        "flowerCells": MessageLookupByLibrary.simpleMessage(
+            "Células en flor (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Presentan un núcleo irregular, convoluto, con aspecto de flor.\nAlgunas exhiben nucléolos evidentes.\nSe encuentran en la leucemia/linfoma de células T del adulto, asociadas al virus HTLV-1."),
         "foicesTitle":
             MessageLookupByLibrary.simpleMessage("Células falciformes"),
         "french": MessageLookupByLibrary.simpleMessage("Francés"),
         "german": MessageLookupByLibrary.simpleMessage("Alemán"),
+        "hairyCells": MessageLookupByLibrary.simpleMessage("Células pilosas"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Presentan citoplasma abundante y basófilo con proyecciones citoplasmáticas irregulares (“pelos”).\nNúcleo ovalado, redondo o bilobulado, con cromatina laxa.\nTípicas de la tricoleucemia."),
         "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Hipersegmentados"),
@@ -152,6 +164,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "lagrimaTitle":
             MessageLookupByLibrary.simpleMessage("Células en lágrima"),
         "language": MessageLookupByLibrary.simpleMessage("Idioma"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "Linfocitos grandes y granulares (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Más grandes que los linfocitos típicos, presentan citoplasma abundante, azul pálido, con gránulos azurofílicos (lisosomas).\nEl núcleo es ovalado o redondo, con cromatina condensada.\nPueden ser linfocitos T citotóxicos (CD8⁺) o células NK.\nEstán aumentados en infecciones virales, enfermedades autoinmunes, después de la esplenectomía y en la leucemia linfocítica granular."),
         "later": MessageLookupByLibrary.simpleMessage("Más tarde"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Deja una reseña en la tienda"),
@@ -172,6 +189,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Gránulos citoplasmáticos: Por lo general, no contienen gránulos visibles."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Movilidad y actividad: Menos móviles que los neutrófilos, están involucrados en la respuesta inmune adaptativa."),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "Linfocitos con núcleo hendido"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Pequeños, con citoplasma escaso y ligeramente basófilo.\nEl núcleo presenta una hendidura, indentación o fisura.\nSe encuentran en el linfoma folicular (clonal) y en la infección por Bordetella pertussis (reaccional)."),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Matamielocitos"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Mielocitos"),
@@ -194,6 +216,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "mordidasTitle":
             MessageLookupByLibrary.simpleMessage("Células mordidas"),
         "moreExamples": MessageLookupByLibrary.simpleMessage("Más Ejemplos"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("Células de Mott"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Plasmocitos que contienen inclusiones esféricas en el citoplasma (vesículas repletas de inmunoglobulinas).\nAparecen en la plasmocitosis reactiva, el mieloma múltiple y los linfomas de células B grandes."),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "¡Tu informe se ha guardado con éxito!"),
         "msg_confirmCalculateCells": m0,
@@ -202,6 +227,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Informe eliminado"),
         "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Mieloblasto"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Linfocitos neoplásicos (clonales)"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Presentan núcleo redondo, cromatina densa y citoplasma escaso.\nRelacionados con neoplasias linfoproliferativas (como LLC, linfomas y mieloma múltiple).\nLa identificación precisa requiere inmunofenotipado por citometría de flujo."),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Los neutrófilos son células de defensa inmunológica que generalmente tienen núcleos segmentados, con 2 a 5 segmentos conectados por filamentos delgados. El color del citoplasma es ligeramente rosado a incoloro. Son las células blancas más abundantes, de tamaño mediano y forma redondeada a ligeramente lobulada. Pueden contener gránulos finos y pálidos, pero generalmente no son muy visibles. Los neutrófilos son altamente móviles y fagocitan bacterias."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("Neutrófilos"),
@@ -231,7 +261,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nombre del paciente"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("Pilosas"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Clave Pix"),
+        "plasmaCells": MessageLookupByLibrary.simpleMessage("Plasmocitos"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Células derivadas de linfocitos B diferenciados.\nPoseen núcleo excéntrico, cromatina en “rueda de carro” y citoplasma fuertemente basófilo con halo perinuclear (complejo de Golgi).\nNo aparecen en sangre periférica normal.\nPueden surgir en el mieloma múltiple, inflamaciones crónicas o tras la liberación de IL-6."),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Plaquetas"),
+        "pleomorphicLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Linfocitos pleomórficos"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Presentan variación de tamaño, forma y proporción núcleo-citoplasma.\nLa cromatina es menos condensada y pueden parecer blastos.\nComunes en linfomas no Hodgkin, LLC atípica y leucemia prolinfocítica."),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("Punteado basófilo"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portugués"),
@@ -239,6 +276,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Promielocitos"),
         "quantity": MessageLookupByLibrary.simpleMessage("Cantidad"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Califícanos"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Linfocitos reactivos (o activados)"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Células grandes, con cromatina menos condensada y citoplasma basófilo que puede parecer “abrazar” a los eritrocitos.\nTambién llamadas células de Downey tipo II.\nSurgen en respuesta a procesos infecciosos o inflamatorios, como en la mononucleosis infecciosa (virus de Epstein–Barr) y otras infecciones virales."),
         "redCells": MessageLookupByLibrary.simpleMessage("Células rojas"),
         "remove": MessageLookupByLibrary.simpleMessage("Quitar"),
         "report": MessageLookupByLibrary.simpleMessage("Informe"),
@@ -265,6 +307,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("Español"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "¿Quieres seguir agregando o generar el informe?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "Subtipos y variaciones morfológicas"),
         "support": MessageLookupByLibrary.simpleMessage("Apoyo"),
         "supportOurProject":
             MessageLookupByLibrary.simpleMessage("Apoya nuestro proyecto"),
@@ -284,6 +328,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cargar desde la Galería"),
         "useCamera": MessageLookupByLibrary.simpleMessage("Usar Cámara"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibración"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Linfocitos vellosos"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Maduros y pequeños, con núcleo ovalado y cromatina compactada.\nEl citoplasma es ligeramente basófilo y presenta vellosidades en uno o ambos extremos.\nAsociados al linfoma de la zona marginal esplénica."),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Células blancas"),
         "whySupport":
             MessageLookupByLibrary.simpleMessage("¿Por qué apoyarnos?"),

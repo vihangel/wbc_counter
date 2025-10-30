@@ -20,8 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'hi';
 
-  static String m0(int totalQuantity) =>
-      "आपने ${totalQuantity} कोशिकाएं जोड़ी हैं";
+  static String m0(totalQuantity) => "आपने ${totalQuantity} कोशिकाएं जोड़ी हैं";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -45,6 +44,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("विश्लेषण परिणाम"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("ऐप मूल्यांकन"),
         "arabic": MessageLookupByLibrary.simpleMessage("अरबी"),
+        "atypicalLymphocytes":
+            MessageLookupByLibrary.simpleMessage("असामान्य लिम्फोसाइट्स"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "इनमें प्रतिक्रियाशील, नियोप्लास्टिक या अनिश्चित घातक रूप शामिल हैं।\nये रूपात्मक परिवर्तन प्रस्तुत करते हैं जो विशिष्ट पैटर्न में फिट नहीं होते हैं, और आकार, आकार और नाभिक-साइटोप्लाज्म अनुपात में भिन्न हो सकते हैं।\nइनकी सूचना तब दी जाती है जब तीव्र प्रतिरक्षा सक्रियण, प्रारंभिक क्लोनल प्रसार या संभावित नियोप्लास्टिक परिवर्तन का संदेह होता है।\nइनकी सावधानी से व्याख्या की जानी चाहिए और नैदानिक ​​और प्रयोगशाला निष्कर्षों के साथ सहसंबद्ध किया जाना चाहिए।"),
         "backToMenu": MessageLookupByLibrary.simpleMessage("मेनू पर वापस जाएं"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "बेसोफिल्स में द्विखंडित नाभिक होता है, लेकिन घने ग्रैन्यूल्स के कारण इसे पहचानना मुश्किल हो सकता है। साइटोप्लाज्म गहरे नीले से काले रंग का होता है क्योंकि इसमें बेसोफिलिक ग्रैन्यूल्स होते हैं। वे आकार में न्यूट्रोफिल्स और एओसिनोफिल्स के समान होते हैं। उनके पास घने ग्रैन्यूल्स होते हैं, जो नाभिक को देखने में बाधा डालते हैं। वे गंभीर एलर्जी प्रतिक्रियाओं और प्रतिरक्षा प्रतिक्रियाओं में शामिल होते हैं।"),
@@ -87,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("लॉन्च नहीं कर सका"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("हीमोग्लोबिन क्रिस्टल्स"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("साइटोप्लाज्मिक समावेशन"),
         "dark": MessageLookupByLibrary.simpleMessage("डार्क"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "प्रदान किए गए डेटा को पूर्ण या पुष्टि के रूप में नहीं माना जाना चाहिए।"),
@@ -136,9 +141,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("फ़िल्टर"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("रिपोर्ट के लिए निष्कर्ष"),
+        "flowerCells":
+            MessageLookupByLibrary.simpleMessage("फूल कोशिकाएं (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "इनमें एक अनियमित, जटिल नाभिक होता है, जिसमें फूल जैसा रूप होता है।\nकुछ में स्पष्ट न्यूक्लियोली दिखाई देती है।\nवयस्क टी-सेल ल्यूकेमिया/लिम्फोमा में पाया जाता है, जो HTLV-1 वायरस से जुड़ा है।"),
         "foicesTitle": MessageLookupByLibrary.simpleMessage("सिकल कोशिकाएं"),
         "french": MessageLookupByLibrary.simpleMessage("फ्रेंच"),
         "german": MessageLookupByLibrary.simpleMessage("जर्मन"),
+        "hairyCells":
+            MessageLookupByLibrary.simpleMessage("बालों वाली कोशिकाएं"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "इनमें अनियमित साइटोप्लाज्मिक अनुमानों (“बालों”) के साथ प्रचुर और बेसोफिलिक साइटोप्लाज्म होता है।\nअंडाकार, गोल या बिलोब्ड नाभिक, ढीले क्रोमेटिन के साथ।\nबालों वाली कोशिका ल्यूकेमिया का विशिष्ट।"),
         "hindi": MessageLookupByLibrary.simpleMessage("हिंदी"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("हाइपरसेगमेंटेड"),
@@ -151,6 +164,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "lagrimaTitle":
             MessageLookupByLibrary.simpleMessage("आंसू ड्रॉप कोशिकाएं"),
         "language": MessageLookupByLibrary.simpleMessage("भाषा"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "बड़े दानेदार लिम्फोसाइट्स (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "विशिष्ट लिम्फोसाइटों से बड़े, इनमें प्रचुर, हल्के नीले रंग का साइटोप्लाज्म होता है जिसमें एज़ुरोफिलिक कणिकाएं (लाइसोसोम) होती हैं।\nनाभिक अंडाकार या गोल होता है, जिसमें संघनित क्रोमेटिन होता है।\nये साइटोटॉक्सिक टी लिम्फोसाइट्स (CD8⁺) या एनके कोशिकाएं हो सकती हैं।\nये वायरल संक्रमण, ऑटोइम्यून बीमारियों, स्प्लेनेक्टोमी के बाद और दानेदार लिम्फोसाइटिक ल्यूकेमिया में बढ़ जाते हैं।"),
         "later": MessageLookupByLibrary.simpleMessage("बाद में"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "स्टोर में एक समीक्षा छोड़ें!"),
@@ -172,6 +190,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "साइटोप्लाज्मिक ग्रैन्यूल्स: आमतौर पर दिखाई देने वाले ग्रैन्यूल्स नहीं होते हैं।"),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "गतिशीलता और गतिविधि: न्यूट्रोफिल्स की तुलना में कम गतिशील होते हैं, अनुकूली प्रतिरक्षा प्रतिक्रिया में शामिल होते हैं।"),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "विभाजित नाभिक वाले लिम्फोसाइट्स"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "छोटे, दुर्लभ और थोड़े बेसोफिलिक साइटोप्लाज्म के साथ।\nनाभिक में एक फांक, इंडेंटेशन या विदर होता है।\nफॉलिक्युलर लिम्फोमा (क्लोनल) और बोर्डेटेला पर्टुसिस संक्रमण (प्रतिक्रियात्मक) में पाया जाता है।"),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("मैटामाइलोसाइट्स"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("माइलोसाइट्स"),
@@ -193,6 +216,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "गतिशीलता और गतिविधि: वे गतिशील होते हैं और जब वे ऊतकों में जाते हैं तो मैक्रोफेज में परिवर्तित हो जाते हैं।"),
         "mordidasTitle": MessageLookupByLibrary.simpleMessage("बाइट कोशिकाएं"),
         "moreExamples": MessageLookupByLibrary.simpleMessage("अधिक उदाहरण"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("मॉट कोशिकाएं"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "प्लाज्मा कोशिकाएं जिनमें साइटोप्लाज्म में गोलाकार समावेशन होते हैं (इम्युनोग्लोबुलिन से भरे पुटिका)।\nये प्रतिक्रियाशील प्लास्मोसाइटोसिस, मल्टीपल मायलोमा और बड़े बी-सेल लिम्फोमा में दिखाई देते हैं।"),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "आपकी रिपोर्ट सफलतापूर्वक सहेजी गई है!"),
         "msg_confirmCalculateCells": m0,
@@ -202,6 +228,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("रिपोर्ट हटाई गई!"),
         "myeloblastTitle":
             MessageLookupByLibrary.simpleMessage("माइलोब्लास्ट्स"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "नियोप्लास्टिक (क्लोनल) लिम्फोसाइट्स"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "इनमें एक गोल नाभिक, घना क्रोमेटिन और दुर्लभ साइटोप्लाज्म होता है।\nलिम्फोप्रोलिफेरेटिव नियोप्लाज्म (जैसे सीएलएल, लिम्फोमा और मल्टीपल मायलोमा) से संबंधित।\nसटीक पहचान के लिए फ्लो साइटोमेट्री द्वारा इम्यूनोफेनोटाइपिंग की आवश्यकता होती है।"),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "न्यूट्रोफिल्स प्रतिरक्षा रक्षा कोशिकाएं हैं जिनमें आमतौर पर खंडित नाभिक होते हैं, जिनमें 2 से 5 खंड पतले फिलामेंट्स द्वारा जुड़े होते हैं। साइटोप्लाज्म का रंग हल्का गुलाबी से रंगहीन होता है। वे सबसे अधिक प्रचुर मात्रा में सफेद कोशिकाएं होती हैं, मध्यम आकार की और आकार में गोल से थोड़ा लोबेड होती हैं। वे महीन, पीले ग्रैन्यूल्स हो सकते हैं, लेकिन वे आमतौर पर बहुत दिखाई नहीं देते हैं। न्यूट्रोफिल्स अत्यधिक गतिशील होते हैं और बैक्टीरिया को फागोसाइटोज करते हैं।"),
         "neutrophilsTitle":
@@ -231,7 +262,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientName": MessageLookupByLibrary.simpleMessage("रोगी का नाम"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("हेयरिस"),
         "pixKey": MessageLookupByLibrary.simpleMessage("पिक्स कुंजी"),
+        "plasmaCells":
+            MessageLookupByLibrary.simpleMessage("प्लाज्मा कोशिकाएं"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "विभेदित बी लिम्फोसाइटों से प्राप्त कोशिकाएं।\nइनमें एक विलक्षण नाभिक, “कार्टव्हील” क्रोमेटिन और एक पेरिन्यूक्लियर प्रभामंडल (गोल्गी कॉम्प्लेक्स) के साथ दृढ़ता से बेसोफिलिक साइटोप्लाज्म होता है।\nये सामान्य परिधीय रक्त में दिखाई नहीं देते हैं।\nये मल्टीपल मायलोमा, पुरानी सूजन या IL-6 रिलीज के बाद दिखाई दे सकते हैं।"),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("प्लेटलेट्स"),
+        "pleomorphicLymphocytes":
+            MessageLookupByLibrary.simpleMessage("प्लीओमोर्फिक लिम्फोसाइट्स"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "ये आकार, आकार और नाभिक-साइटोप्लाज्म अनुपात में भिन्नता दिखाते हैं।\nक्रोमेटिन कम संघनित होता है और ये विस्फोटों से मिलते जुलते हो सकते हैं।\nगैर-हॉजकिन लिम्फोमा, असामान्य सीएलएल और प्रोलिम्फोसाइटिक ल्यूकेमिया में आम है।"),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("बेसोफिलिक स्टिपलिंग"),
         "portuguese": MessageLookupByLibrary.simpleMessage("पुर्तगाली"),
@@ -239,6 +278,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("प्रोमाइलोसाइट्स"),
         "quantity": MessageLookupByLibrary.simpleMessage("मात्रा"),
         "rateUs": MessageLookupByLibrary.simpleMessage("हमें रेट करें"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "प्रतिक्रियाशील (या सक्रिय) लिम्फोसाइट्स"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "बड़ी कोशिकाएं, जिनमें कम संघनित क्रोमेटिन और बेसोफिलिक साइटोप्लाज्म होता है जो लाल रक्त कोशिकाओं को “गले” लगाता हुआ प्रतीत हो सकता है।\nइन्हें डाउनी टाइप II कोशिकाएं भी कहा जाता है।\nये संक्रामक या सूजन प्रक्रियाओं की प्रतिक्रिया में उत्पन्न होते हैं, जैसे कि संक्रामक मोनोन्यूक्लिओसिस (एपस्टीन-बार वायरस) और अन्य वायरल संक्रमणों में।"),
         "redCells": MessageLookupByLibrary.simpleMessage("लाल कोशिकाएं"),
         "remove": MessageLookupByLibrary.simpleMessage("हटाएं"),
         "report": MessageLookupByLibrary.simpleMessage("रिपोर्ट"),
@@ -263,6 +307,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("स्पेनिश"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "क्या आप जोड़ना जारी रखना चाहते हैं या रिपोर्ट बनाना चाहते हैं?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "उपप्रकार और रूपात्मक विविधताएं"),
         "support": MessageLookupByLibrary.simpleMessage("समर्थन"),
         "supportOurProject": MessageLookupByLibrary.simpleMessage(
             "हमारे प्रोजेक्ट का समर्थन करें"),
@@ -282,6 +328,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "useCamera":
             MessageLookupByLibrary.simpleMessage("कैमरा का उपयोग करें"),
         "vibration": MessageLookupByLibrary.simpleMessage("कंपन"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("विल्स लिम्फोसाइट्स"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "परिपक्व और छोटे, एक अंडाकार नाभिक और संकुचित क्रोमेटिन के साथ।\nसाइटोप्लाज्म थोड़ा बेसोफिलिक होता है और एक या दोनों सिरों पर विली होता है।\nस्प्लेनिक सीमांत क्षेत्र लिम्फोमा से जुड़ा हुआ है।"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("सफेद कोशिकाएं"),
         "whySupport":
             MessageLookupByLibrary.simpleMessage("हमें समर्थन क्यों करें?"),

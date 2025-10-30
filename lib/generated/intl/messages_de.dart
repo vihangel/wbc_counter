@@ -46,6 +46,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Analyseergebnisse"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("App-Bewertung"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabisch"),
+        "atypicalLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Atypische Lymphozyten"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Sie umfassen reaktive, neoplastische oder unbestimmte Malignitätsformen.\nSie weisen morphologische Veränderungen auf, die nicht in typische Muster passen und in Größe, Form und Kern-Zytoplasma-Verhältnis variieren können.\nSie werden bei Verdacht auf intensive immunologische Aktivierung, beginnende klonale Proliferation oder mögliche neoplastische Transformation berichtet.\nSie sollten mit Vorsicht interpretiert und mit klinischen und Laborbefunden korreliert werden."),
         "backToMenu": MessageLookupByLibrary.simpleMessage("Zurück zum Menü"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Basophile haben einen zweilappigen Kern, der durch die dichten Granula schwer zu erkennen ist. Das Zytoplasma ist dunkelblau bis schwarz durch basophile Granula. Sie sind ähnlich groß wie Neutrophile und Eosinophile. Sie haben dichte Granula, die die Sicht auf den Kern verdecken. Sie sind an schweren allergischen Reaktionen und Immunantworten beteiligt."),
@@ -89,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Konnte nicht starten"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("Hämoglobinkristalle"),
+        "cytoplasmicInclusionsTitle": MessageLookupByLibrary.simpleMessage(
+            "Zytoplasmatische Einschlüsse"),
         "dark": MessageLookupByLibrary.simpleMessage("Dunkel"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "Die bereitgestellten Daten sind nicht absolut oder bestätigend zu betrachten."),
@@ -137,9 +143,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("Filter"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("Befunde für den Bericht"),
+        "flowerCells":
+            MessageLookupByLibrary.simpleMessage("Blumenzellen (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Sie haben einen unregelmäßigen, gewundenen Kern mit einem blumenähnlichen Aussehen.\nEinige zeigen deutliche Nukleoli.\nGefunden bei adulter T-Zell-Leukämie/Lymphom, assoziiert mit dem HTLV-1-Virus."),
         "foicesTitle": MessageLookupByLibrary.simpleMessage("Sichelzellen"),
         "french": MessageLookupByLibrary.simpleMessage("Französisch"),
         "german": MessageLookupByLibrary.simpleMessage("Deutsch"),
+        "hairyCells": MessageLookupByLibrary.simpleMessage("Haarzellen"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Sie haben ein reichliches und basophiles Zytoplasma mit unregelmäßigen zytoplasmatischen Projektionen (“Haaren”).\nOvaler, runder oder bilobierter Kern mit lockerem Chromatin.\nTypisch für die Haarzell-Leukämie."),
         "hindi": MessageLookupByLibrary.simpleMessage("Hindi"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("Hypersegmentierte"),
@@ -152,6 +165,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "italian": MessageLookupByLibrary.simpleMessage("Italienisch"),
         "lagrimaTitle": MessageLookupByLibrary.simpleMessage("Tränenzellen"),
         "language": MessageLookupByLibrary.simpleMessage("Sprache"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "Große granuläre Lymphozyten (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Größer als typische Lymphozyten, haben sie ein reichliches, blassblaues Zytoplasma mit azurophilen Granula (Lysosomen).\nDer Kern ist oval oder rund, mit kondensiertem Chromatin.\nSie können zytotoxische T-Lymphozyten (CD8⁺) oder NK-Zellen sein.\nSie sind bei Virusinfektionen, Autoimmunerkrankungen, nach Splenektomie und bei granulozytärer lymphatischer Leukämie erhöht."),
         "later": MessageLookupByLibrary.simpleMessage("Später"),
         "leaveAReview": MessageLookupByLibrary.simpleMessage(
             "Hinterlassen Sie eine Bewertung im Store!"),
@@ -172,6 +190,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Zytoplasmatische Granula: Enthalten in der Regel keine sichtbaren Granula."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "Mobilität und Aktivität: Weniger beweglich als Neutrophile, sind sie an der adaptiven Immunantwort beteiligt."),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "Lymphozyten mit gespaltenem Kern"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Klein, mit spärlichem und leicht basophilem Zytoplasma.\nDer Kern weist eine Spalte, Einkerbung oder Fissur auf.\nGefunden bei follikulärem Lymphom (klonal) und Bordetella pertussis-Infektion (reaktiv)."),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("Metamyelozyten"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("Myelozyten"),
@@ -194,6 +217,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "mordidasTitle": MessageLookupByLibrary.simpleMessage("Bisszellen"),
         "moreExamples":
             MessageLookupByLibrary.simpleMessage("Weitere Beispiele"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("Mott-Zellen"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Plasmazellen, die sphärische Einschlüsse im Zytoplasma enthalten (Vesikel gefüllt mit Immunglobulinen).\nSie treten bei reaktiver Plasmozytose, multiplem Myelom und großen B-Zell-Lymphomen auf."),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "Ihr Bericht wurde erfolgreich gespeichert!"),
         "msg_confirmCalculateCells": m0,
@@ -202,6 +228,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("Bericht gelöscht!"),
         "myeloblastTitle": MessageLookupByLibrary.simpleMessage("Myeloblasten"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Neoplastische (klonale) Lymphozyten"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Sie haben einen runden Kern, dichtes Chromatin und spärliches Zytoplasma.\nIm Zusammenhang mit lymphoproliferativen Neoplasien (wie CLL, Lymphomen und multiplem Myelom).\nEine genaue Identifizierung erfordert eine Immunphänotypisierung durch Durchflusszytometrie."),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "Neutrophile sind Immunabwehrzellen mit segmentierten Kernen, meist 2 bis 5 Segmente, verbunden durch dünne Filamente. Das Zytoplasma ist leicht rosa bis farblos. Sie sind die häufigsten weißen Zellen, mittelgroß und rund bis leicht gelappt. Sie können feine, blasse Granula enthalten, die meist nicht sehr sichtbar sind. Neutrophile sind sehr beweglich und phagozytieren Bakterien."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("Neutrophile"),
@@ -231,7 +262,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientName": MessageLookupByLibrary.simpleMessage("Patientenname"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("Hairy-Zellen"),
         "pixKey": MessageLookupByLibrary.simpleMessage("Pix-Schlüssel"),
+        "plasmaCells": MessageLookupByLibrary.simpleMessage("Plasmazellen"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "Zellen, die von differenzierten B-Lymphozyten abstammen.\nSie haben einen exzentrischen Kern, “Radspeichen”-Chromatin und stark basophiles Zytoplasma mit einem perinukleären Halo (Golgi-Komplex).\nSie kommen nicht im normalen peripheren Blut vor.\nSie können bei multiplem Myelom, chronischen Entzündungen oder nach Freisetzung von IL-6 auftreten."),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("Thrombozyten"),
+        "pleomorphicLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Pleomorphe Lymphozyten"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Sie zeigen eine Variation in Größe, Form und Kern-Zytoplasma-Verhältnis.\nDas Chromatin ist weniger kondensiert und sie können Blasten ähneln.\nHäufig bei Non-Hodgkin-Lymphomen, atypischer CLL und prolymphozytischer Leukämie."),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("Basophile Tüpfelung"),
         "portuguese": MessageLookupByLibrary.simpleMessage("Portugiesisch"),
@@ -239,6 +277,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Promyelozyten"),
         "quantity": MessageLookupByLibrary.simpleMessage("Menge"),
         "rateUs": MessageLookupByLibrary.simpleMessage("Bewerten Sie uns"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "Reaktive (oder aktivierte) Lymphozyten"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Große Zellen mit weniger kondensiertem Chromatin und basophilem Zytoplasma, das rote Blutkörperchen zu “umarmen” scheint.\nAuch als Downey-Typ-II-Zellen bezeichnet.\nSie treten als Reaktion auf infektiöse oder entzündliche Prozesse auf, wie bei infektiöser Mononukleose (Epstein-Barr-Virus) und anderen Virusinfektionen."),
         "redCells": MessageLookupByLibrary.simpleMessage("Rote Zellen"),
         "remove": MessageLookupByLibrary.simpleMessage("Entfernen"),
         "report": MessageLookupByLibrary.simpleMessage("Bericht"),
@@ -264,12 +307,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("Spanisch"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "Möchten Sie weiter hinzufügen oder den Bericht erstellen?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "Subtypen und morphologische Variationen"),
         "support": MessageLookupByLibrary.simpleMessage("Unterstützen"),
         "supportOurProject": MessageLookupByLibrary.simpleMessage(
             "Unterstützen Sie unser Projekt"),
         "tagalog": MessageLookupByLibrary.simpleMessage("Tagalog"),
         "takePhoto": MessageLookupByLibrary.simpleMessage("Foto aufnehmen"),
-        "thai": MessageLookupByLibrary.simpleMessage("Thai"),
+        "thai": MessageLookupByLibrary.simpleMessage("Thailändisch"),
         "thanks": MessageLookupByLibrary.simpleMessage("Dankesnachricht"),
         "thanksMessage": MessageLookupByLibrary.simpleMessage(
             "Vielen Dank, dass Sie unsere App nutzen und erwägen, unsere Arbeit zu unterstützen. Ihr Beitrag ist entscheidend für unseren weiteren Erfolg. Wenn Sie Fragen oder Vorschläge haben, zögern Sie nicht, uns zu kontaktieren. Gemeinsam können wir einen Unterschied machen!"),
@@ -282,6 +327,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Aus Galerie hochladen"),
         "useCamera": MessageLookupByLibrary.simpleMessage("Kamera verwenden"),
         "vibration": MessageLookupByLibrary.simpleMessage("Vibration"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("Villi-Lymphozyten"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "Reif und klein, mit einem ovalen Kern und kompaktiertem Chromatin.\nDas Zytoplasma ist leicht basophil und weist an einem oder beiden Enden Villi auf.\nAssoziiert mit dem splenischen Marginalzonen-Lymphom."),
         "whiteCells": MessageLookupByLibrary.simpleMessage("Weiße Zellen"),
         "whySupport":
             MessageLookupByLibrary.simpleMessage("Warum unterstützen?"),

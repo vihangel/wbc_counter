@@ -20,8 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'th';
 
-  static String m0(int totalQuantity) =>
-      "คุณได้เพิ่มเซลล์ ${totalQuantity} เซลล์";
+  static String m0(totalQuantity) => "คุณได้เพิ่มเซลล์ ${totalQuantity} เซลล์";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -44,6 +43,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ผลการวิเคราะห์"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("การประเมินแอป"),
         "arabic": MessageLookupByLibrary.simpleMessage("อาหรับ"),
+        "atypicalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์ผิดปกติ (Atypical lymphocytes)"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "ครอบคลุมทั้งเซลล์ที่ถูกกระตุ้น เซลล์ร้าย หรือเซลล์ที่มีแนวโน้มจะเป็นมะเร็งแต่ยังไม่ชัดเจน\nมีการเปลี่ยนแปลงทางสัณฐานวิทยาที่ไม่เข้ากับรูปแบบปกติ อาจแตกต่างกันในด้านขนาด รูปร่าง และอัตราส่วนของนิวเคลียสต่อไซโทพลาซึม\nรายงานเมื่อสงสัยว่ามีการกระตุ้นทางภูมิคุ้มกันอย่างรุนแรง การเพิ่มจำนวนของเซลล์โคลนในระยะเริ่มต้น หรือการเปลี่ยนแปลงไปเป็นเซลล์มะเร็ง\nควรตีความด้วยความระมัดระวังและสัมพันธ์กับผลการตรวจทางคลินิกและห้องปฏิบัติการ"),
         "backToMenu": MessageLookupByLibrary.simpleMessage("กลับไปที่เมนู"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
             "เบโซฟิลมีนิวเคลียสที่แบ่งเป็นสองส่วน แต่ยากที่จะเห็นเนื่องจากเม็ดที่หนาแน่น ไซโตพลาสซึมเป็นสีน้ำเงินเข้มถึงดำเนื่องจากเม็ดเบโซฟิลิก พวกมันมีขนาดใกล้เคียงกับนิวโทรฟิลและอีโอซิโนฟิล พวกมันมีเม็ดที่หนาแน่น ซึ่งทำให้มองเห็นนิวเคลียสได้ยาก พวกมันมีส่วนร่วมในการตอบสนองภูมิแพ้รุนแรงและการตอบสนองภูมิคุ้มกัน"),
@@ -83,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ไม่สามารถเปิดได้"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("ผลึกฮีโมโกลบิน"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("อินคลูชันในไซโตพลาซึม"),
         "dark": MessageLookupByLibrary.simpleMessage("มืด"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "ข้อมูลที่ให้ไว้ไม่ควรถือเป็นข้อสรุปหรือยืนยัน"),
@@ -129,9 +134,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("กรอง"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("ผลการค้นหาสำหรับรายงาน"),
+        "flowerCells":
+            MessageLookupByLibrary.simpleMessage("เซลล์ดอกไม้ (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "มีนิวเคลียสที่ไม่สม่ำเสมอ บิดเบี้ยว มีลักษณะคล้ายดอกไม้\nบางเซลล์มีนิวคลีโอลัสที่เห็นได้ชัด\nพบในมะเร็งเม็ดเลือดขาว/มะเร็งต่อมน้ำเหลืองชนิดทีเซลล์ในผู้ใหญ่ ซึ่งเกี่ยวข้องกับเชื้อไวรัส HTLV-1"),
         "foicesTitle": MessageLookupByLibrary.simpleMessage("เซลล์เคียว"),
         "french": MessageLookupByLibrary.simpleMessage("ฝรั่งเศส"),
         "german": MessageLookupByLibrary.simpleMessage("เยอรมัน"),
+        "hairyCells":
+            MessageLookupByLibrary.simpleMessage("เซลล์ขน (Hairy cells)"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "มีไซโทพลาซึมจำนวนมากและติดสีน้ำเงิน มีส่วนยื่นของไซโทพลาซึมที่ไม่สม่ำเสมอ (“ขน”)\nนิวเคลียสเป็นรูปไข่ กลม หรือสองพู มีโครมาตินจับตัวกันหลวม\nเป็นลักษณะเฉพาะของมะเร็งเม็ดเลือดขาวชนิดเซลล์ขน"),
         "hindi": MessageLookupByLibrary.simpleMessage("ฮินดี"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("ไฮเปอร์เซกเมนต์"),
@@ -144,6 +157,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "italian": MessageLookupByLibrary.simpleMessage("อิตาลี"),
         "lagrimaTitle": MessageLookupByLibrary.simpleMessage("เซลล์น้ำตา"),
         "language": MessageLookupByLibrary.simpleMessage("ภาษา"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์ขนาดใหญ่ที่มีแกรนูล (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "มีขนาดใหญ่กว่าลิมโฟไซต์ทั่วไป มีไซโทพลาซึมสีฟ้าอ่อนจำนวนมาก และมีแกรนูลสีม่วงแดง (ไลโซโซม)\nนิวเคลียสเป็นรูปไข่หรือกลม มีโครมาตินที่จับตัวกันแน่น\nอาจเป็นเซลล์ลิมโฟไซต์ทีชนิดทำลายเซลล์ (CD8⁺) หรือเซลล์ NK\nพบจำนวนเพิ่มขึ้นในการติดเชื้อไวรัส โรคภูมิต้านตนเอง หลังการตัดม้าม และในมะเร็งเม็ดเลือดขาวชนิดลิมโฟไซต์แกรนูล"),
         "later": MessageLookupByLibrary.simpleMessage("ภายหลัง"),
         "leaveAReview":
             MessageLookupByLibrary.simpleMessage("แสดงความคิดเห็นในร้านค้า!"),
@@ -163,6 +181,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "เม็ดไซโตพลาสซึม: โดยทั่วไปไม่มีเม็ดที่มองเห็นได้"),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "การเคลื่อนที่และกิจกรรม: เคลื่อนที่ได้น้อยกว่านิวโทรฟิล และมีส่วนร่วมในการตอบสนองภูมิคุ้มกันแบบปรับตัว"),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์ที่มีนิวเคลียสเว้า (Cleaved nucleus)"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "เซลล์ขนาดเล็ก มีไซโทพลาซึมน้อยและติดสีน้ำเงินเล็กน้อย\nนิวเคลียสมีรอยเว้า รอยบาก หรือรอยแยก\nพบในมะเร็งต่อมน้ำเหลืองชนิดฟอลลิคูลาร์ (ชนิดโคลน) และการติดเชื้อ Bordetella pertussis (ชนิดตอบสนอง)"),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("มาทามีโลไซต์"),
         "mielocitosTitle": MessageLookupByLibrary.simpleMessage("มีโลไซต์"),
@@ -185,6 +208,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "mordidasTitle": MessageLookupByLibrary.simpleMessage("เซลล์กัด"),
         "moreExamples":
             MessageLookupByLibrary.simpleMessage("ตัวอย่างเพิ่มเติม"),
+        "mottCells":
+            MessageLookupByLibrary.simpleMessage("เซลล์มอตต์ (Mott cells)"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "พลาสมาเซลล์ที่มีอินคลูชันทรงกลมในไซโทพลาซึม (เวสิเคิลที่เต็มไปด้วยอิมมูโนโกลบูลิน)\nพบในภาวะพลาสมาเซลล์เพิ่มขึ้นจากการตอบสนอง, มัลติเพิลมัยอีโลมา และมะเร็งต่อมน้ำเหลืองชนิดบีเซลล์ขนาดใหญ่"),
         "msg_agreeing": MessageLookupByLibrary.simpleMessage(
             "รายงานของคุณถูกบันทึกเรียบร้อยแล้ว!"),
         "msg_confirmCalculateCells": m0,
@@ -193,6 +220,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "msg_reportDeleted":
             MessageLookupByLibrary.simpleMessage("ลบรายงานแล้ว!"),
         "myeloblastTitle": MessageLookupByLibrary.simpleMessage("ไมอีโลบลาสต์"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์ชนิดร้าย (Neoplastic lymphocytes)"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "มีนิวเคลียสกลม โครมาตินจับตัวกันแน่น และไซโทพลาซึมน้อย\nเกี่ยวข้องกับเนื้องอกชนิดลิมโฟโพรลิเฟอเรทีฟ (เช่น มะเร็งเม็ดเลือดขาวชนิดลิมโฟไซต์เรื้อรัง, มะเร็งต่อมน้ำเหลือง และมัลติเพิลมัยอีโลมา)\nการระบุที่แม่นยำต้องใช้การตรวจด้วยวิธีอิมมูโนฟีโนไทป์ปิงโดยโฟลไซโตเมทรี"),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "นิวโทรฟิลเป็นเซลล์ป้องกันภูมิคุ้มกันที่มีนิวเคลียสที่แบ่งส่วน โดยทั่วไปมี 2 ถึง 5 ส่วนเชื่อมต่อกันด้วยเส้นใยบาง ๆ สีของไซโตพลาสซึมเป็นสีชมพูอ่อนถึงไม่มีสี พวกมันเป็นเซลล์ขาวที่มีมากที่สุด มีขนาดกลางและรูปร่างกลมถึงเล็กน้อย พวกมันอาจมีเม็ดละเอียดสีซีด แต่โดยปกติจะไม่ค่อยเห็น นิวโทรฟิลเคลื่อนที่ได้สูงและกลืนกินแบคทีเรีย"),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("นิวโทรฟิล"),
@@ -220,7 +252,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientName": MessageLookupByLibrary.simpleMessage("ชื่อผู้ป่วย"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("เซลล์ขน"),
         "pixKey": MessageLookupByLibrary.simpleMessage("คีย์ Pix"),
+        "plasmaCells":
+            MessageLookupByLibrary.simpleMessage("พลาสมาเซลล์ (Plasma cells)"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "เซลล์ที่พัฒนามาจากลิมโฟไซต์บีที่เจริญเต็มที่\nมีนิวเคลียสอยู่ชิดขอบเซลล์ โครมาตินมีลักษณะคล้าย “ซี่ล้อเกวียน” และไซโทพลาซึมติดสีน้ำเงินเข้ม มีบริเวณใสรอบนิวเคลียส (กอลจิคอมเพล็กซ์)\nไม่พบในเลือดปกติ\nอาจพบในมัลติเพิลมัยอีโลมา การอักเสบเรื้อรัง หรือหลังการหลั่งของ IL-6"),
         "plateletsTitle": MessageLookupByLibrary.simpleMessage("เกล็ดเลือด"),
+        "pleomorphicLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์หลายรูปแบบ (Pleomorphic lymphocytes)"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "มีความหลากหลายของขนาด รูปร่าง และอัตราส่วนของนิวเคลียสต่อไซโทพลาซึม\nโครมาตินจับตัวกันหลวมกว่าปกติและอาจดูคล้ายบลาสต์\nพบได้บ่อยในมะเร็งต่อมน้ำเหลืองชนิดนอนฮอดจ์กิน, มะเร็งเม็ดเลือดขาวชนิดลิมโฟไซต์เรื้อรังผิดปกติ และมะเร็งเม็ดเลือดขาวชนิดโปรลิมโฟไซต์"),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("การย้อมสีบาโซฟิลิก"),
         "portuguese": MessageLookupByLibrary.simpleMessage("โปรตุเกส"),
@@ -228,6 +268,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("โปรมีโลไซต์"),
         "quantity": MessageLookupByLibrary.simpleMessage("ปริมาณ"),
         "rateUs": MessageLookupByLibrary.simpleMessage("ให้คะแนนเรา"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์ที่ถูกกระตุ้น (Reactive lymphocytes)"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "เซลล์ขนาดใหญ่ มีโครมาตินที่จับตัวกันหลวมกว่าปกติ และไซโทพลาซึมติดสีน้ำเงิน ซึ่งอาจดูเหมือน “โอบกอด” เซลล์เม็ดเลือดแดง\nเรียกอีกอย่างว่าเซลล์ดาวนีย์ชนิดที่ 2 (Downey type II cells)\nเกิดขึ้นเพื่อตอบสนองต่อกระบวนการติดเชื้อหรือการอักเสบ เช่น ในโรคโมโนนิวคลีโอซิส (เชื้อไวรัสเอ็บสไตน์-บาร์) และการติดเชื้อไวรัสอื่นๆ"),
         "redCells": MessageLookupByLibrary.simpleMessage("เซลล์แดง"),
         "remove": MessageLookupByLibrary.simpleMessage("ลบ"),
         "report": MessageLookupByLibrary.simpleMessage("รายงาน"),
@@ -251,6 +296,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("สเปน"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "คุณต้องการดำเนินการต่อหรือสร้างรายงาน?"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "ชนิดย่อยและการเปลี่ยนแปลงทางสัณฐานวิทยา"),
         "support": MessageLookupByLibrary.simpleMessage("สนับสนุน"),
         "supportOurProject":
             MessageLookupByLibrary.simpleMessage("สนับสนุนโครงการของเรา"),
@@ -269,6 +316,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("อัปโหลดจากแกลเลอรี"),
         "useCamera": MessageLookupByLibrary.simpleMessage("ใช้กล้อง"),
         "vibration": MessageLookupByLibrary.simpleMessage("การสั่น"),
+        "villousLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "ลิมโฟไซต์ชนิดมีซี่ (Villous lymphocytes)"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "เซลล์เจริญเต็มที่และมีขนาดเล็ก มีนิวเคลียสรูปไข่และโครมาตินจับตัวกันแน่น\nไซโทพลาซึมติดสีน้ำเงินเล็กน้อยและมีซี่ยื่นออกมาที่ปลายด้านหนึ่งหรือทั้งสองด้าน\nเกี่ยวข้องกับมะเร็งต่อมน้ำเหลืองชนิดมาร์จินัลโซนของม้าม"),
         "whiteCells": MessageLookupByLibrary.simpleMessage("เซลล์ขาว"),
         "whySupport":
             MessageLookupByLibrary.simpleMessage("ทำไมต้องสนับสนุนเรา?"),

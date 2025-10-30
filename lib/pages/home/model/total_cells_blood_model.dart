@@ -132,6 +132,66 @@ class TotalCellsBlood extends HiveObject {
             imagePath: 'pilosas.png',
             title: s.pilosasTitle,
           ),
+          BloodCellModel(
+            name: 'Linfócitos grandes e granulares (LGL)',
+            quantity: 0,
+            imagePath: 'granular.png',
+            title: s.largeGranularLymphocytesLGL,
+          ),
+          BloodCellModel(
+            name: 'Linfócitos reativos (ou ativados)',
+            quantity: 0,
+            imagePath: 'reativo.png',
+            title: s.reactiveOrActivatedLymphocytes,
+          ),
+          BloodCellModel(
+            name: 'Linfócitos neoplásicos (clonais)',
+            quantity: 0,
+            imagePath: 'llctipica.png',
+            title: s.neoplasticClonalLymphocytes,
+          ),
+          BloodCellModel(
+            name: 'Linfócitos atípicos',
+            quantity: 0,
+            imagePath: 'pleomorficos.png',
+            title: s.atypicalLymphocytes,
+          ),
+          BloodCellModel(
+            name: 'Plasmócitos',
+            quantity: 0,
+            imagePath: 'plasmocito.png',
+            title: s.plasmaCells,
+          ),
+          BloodCellModel(
+            name: 'Linfócitos com núcleo clivado',
+            quantity: 0,
+            imagePath: 'clivado.png',
+            title: s.lymphocytesWithCleavedNucleus,
+          ),
+          BloodCellModel(
+            name: 'Linfócitos vilosos',
+            quantity: 0,
+            imagePath: 'vilosos.png',
+            title: s.villousLymphocytes,
+          ),
+          BloodCellModel(
+            name: 'Células de Mott',
+            quantity: 0,
+            imagePath: 'mott.png',
+            title: s.mottCells,
+          ),
+          BloodCellModel(
+            name: 'Células em flor',
+            quantity: 0,
+            imagePath: 'flower.png',
+            title: s.flowerCells,
+          ),
+          BloodCellModel(
+            name: 'Inclusões citoplasmáticas',
+            quantity: 0,
+            imagePath: 'citoplasmaticas.png',
+            title: s.cytoplasmicInclusionsTitle,
+          ),
         ],
         shapeCells = [
           BloodCellModel(

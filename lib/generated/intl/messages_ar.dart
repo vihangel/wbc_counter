@@ -20,7 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(int totalQuantity) => "لقد أضفت ${totalQuantity} خلايا";
+  static String m0(totalQuantity) => "لقد أضفت ${totalQuantity} خلايا";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -45,6 +45,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نتائج التحليل"),
         "appEvaluation": MessageLookupByLibrary.simpleMessage("تقييم التطبيق"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "atypicalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الليمفاوية غير النمطية"),
+        "atypicalLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "تشمل أشكالًا تفاعلية أو ورمية أو خبيثة غير محددة.\nتظهر تغيرات مورفولوجية لا تتناسب مع الأنماط النموذجية، وقد تختلف في الحجم والشكل ونسبة النواة إلى السيتوبلازم.\nيتم الإبلاغ عنها عند الشك في وجود تنشيط مناعي شديد، أو تكاثر نسيلي أولي، أو تحول ورمي محتمل.\nيجب تفسيرها بحذر وربطها بالنتائج السريرية والمخبرية."),
         "backToMenu":
             MessageLookupByLibrary.simpleMessage("العودة إلى القائمة"),
         "basophilsDescription": MessageLookupByLibrary.simpleMessage(
@@ -86,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "couldNotLaunch": MessageLookupByLibrary.simpleMessage("تعذر الإطلاق"),
         "cristaishTitle":
             MessageLookupByLibrary.simpleMessage("بلورات الهيموجلوبين"),
+        "cytoplasmicInclusionsTitle":
+            MessageLookupByLibrary.simpleMessage("الاحتباسات السيتوبلازمية"),
         "dark": MessageLookupByLibrary.simpleMessage("داكن"),
         "dataDisclaimer": MessageLookupByLibrary.simpleMessage(
             "يجب عدم اعتبار البيانات المقدمة مطلقة أو تأكيدية."),
@@ -136,9 +142,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "filter": MessageLookupByLibrary.simpleMessage("تصفية"),
         "findingsForReport":
             MessageLookupByLibrary.simpleMessage("النتائج للتقرير"),
+        "flowerCells": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الزهرية (Flower cells)"),
+        "flowerCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "لها نواة غير منتظمة، ملتوية، ذات مظهر يشبه الزهرة.\nيظهر بعضها نويات واضحة.\nتوجد في ابيضاض الدم/سرطان الغدد الليمفاوية للخلايا التائية البالغة، المرتبط بفيروس HTLV-1."),
         "foicesTitle": MessageLookupByLibrary.simpleMessage("الخلايا المنجلية"),
         "french": MessageLookupByLibrary.simpleMessage("الفرنسية"),
         "german": MessageLookupByLibrary.simpleMessage("الألمانية"),
+        "hairyCells": MessageLookupByLibrary.simpleMessage("الخلايا المشعرة"),
+        "hairyCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "لها سيتوبلازم وفير وقاعدي مع نتوءات سيتوبلازمية غير منتظمة (“شعيرات”).\nنواة بيضاوية أو مستديرة أو ثنائية الفصوص، مع كروماتين فضفاض.\nنموذجية لابيضاض الدم المشعر الخلايا."),
         "hindi": MessageLookupByLibrary.simpleMessage("الهندية"),
         "hipersegmentadosTitle":
             MessageLookupByLibrary.simpleMessage("الخلايا مفرطة التقسيم"),
@@ -150,6 +163,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "italian": MessageLookupByLibrary.simpleMessage("الإيطالية"),
         "lagrimaTitle": MessageLookupByLibrary.simpleMessage("خلايا الدمعة"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "largeGranularLymphocytesLGL": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الليمفاوية الحبيبية الكبيرة (LGL)"),
+        "largeGranularLymphocytesLGLDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "أكبر من الخلايا الليمفاوية النموذجية، ولها سيتوبلازم وفير، أزرق شاحب، مع حبيبات أزيروفيلية (ليزوزومات).\nالنواة بيضاوية أو مستديرة، مع كروماتين مكثف.\nيمكن أن تكون خلايا ليمفاوية تائية سامة للخلايا (CD8⁺) أو خلايا قاتلة طبيعية.\nتزداد في حالات العدوى الفيروسية، وأمراض المناعة الذاتية، وبعد استئصال الطحال، وفي ابيضاض الدم الليمفاوي الحبيبي."),
         "later": MessageLookupByLibrary.simpleMessage("لاحقًا"),
         "leaveAReview":
             MessageLookupByLibrary.simpleMessage("اترك مراجعة في المتجر!"),
@@ -170,6 +188,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "حبيبات السيتوبلازم: عادةً لا تحتوي على حبيبات مرئية."),
         "lymphocytesTopic5": MessageLookupByLibrary.simpleMessage(
             "الحركة والنشاط: أقل حركة من العدلات، وتشارك في الاستجابة المناعية التكيفية."),
+        "lymphocytesWithCleavedNucleus": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الليمفاوية ذات النواة المشقوقة"),
+        "lymphocytesWithCleavedNucleusDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "صغيرة، ذات سيتوبلازم ضئيل وقاعدي قليلاً.\nتظهر النواة شقًا أو فجوة أو شقًا.\nتوجد في سرطان الغدد الليمفاوية الجريبي (النسيلي) وعدوى المستدمية الديكية (التفاعلية)."),
         "matamielocitosTitle":
             MessageLookupByLibrary.simpleMessage("الخلايا الميتامييلوسية"),
         "mielocitosTitle":
@@ -193,6 +216,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "mordidasTitle": MessageLookupByLibrary.simpleMessage("خلايا العض"),
         "moreExamples":
             MessageLookupByLibrary.simpleMessage("المزيد من الأمثلة"),
+        "mottCells": MessageLookupByLibrary.simpleMessage("خلايا موت"),
+        "mottCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "خلايا بلازما تحتوي على شوائب كروية في السيتوبلازم (حويصلات مليئة بالغلوبولينات المناعية).\nتظهر في كثرة البلازما التفاعلية، والورم النقوي المتعدد، والأورام اللمفاوية للخلايا البائية الكبيرة."),
         "msg_agreeing":
             MessageLookupByLibrary.simpleMessage("تم حفظ تقريرك بنجاح!"),
         "msg_confirmCalculateCells": m0,
@@ -202,6 +228,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم حذف التقرير!"),
         "myeloblastTitle":
             MessageLookupByLibrary.simpleMessage("الخلايا الأرومية النخاعية"),
+        "neoplasticClonalLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الليمفاوية الورمية (النسيلية)"),
+        "neoplasticClonalLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "لها نواة مستديرة، وكروماتين كثيف، وسيتوبلازم ضئيل.\nمرتبطة بالأورام التكاثرية اللمفاوية (مثل ابيضاض الدم الليمفاوي المزمن، والأورام اللمفاوية، والورم النقوي المتعدد).\nيتطلب تحديدها الدقيق التنميط المناعي عن طريق قياس التدفق الخلوي."),
         "neutrophilsDescription": MessageLookupByLibrary.simpleMessage(
             "العدلات هي خلايا دفاع مناعية تحتوي عادةً على نوى مقسمة، مع 2 إلى 5 أجزاء متصلة بخيوط رفيعة. لون السيتوبلازم وردي قليلاً إلى عديم اللون. هي الخلايا البيضاء الأكثر وفرة، متوسطة الحجم وشكلها مستدير إلى حد ما. قد تحتوي على حبيبات دقيقة وشاحبة، لكنها عادةً غير مرئية. العدلات متحركة للغاية وتبتلع البكتيريا."),
         "neutrophilsTitle": MessageLookupByLibrary.simpleMessage("العدلات"),
@@ -229,8 +260,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "patientName": MessageLookupByLibrary.simpleMessage("اسم المريض"),
         "pilosasTitle": MessageLookupByLibrary.simpleMessage("الخلايا الشعرية"),
         "pixKey": MessageLookupByLibrary.simpleMessage("مفتاح Pix"),
+        "plasmaCells": MessageLookupByLibrary.simpleMessage("خلايا البلازما"),
+        "plasmaCellsDescription": MessageLookupByLibrary.simpleMessage(
+            "خلايا مشتقة من الخلايا الليمفاوية البائية المتمايزة.\nلها نواة غريبة الأطوار، وكروماتين “عجلة العربة”، وسيتوبلازم قاعدي بقوة مع هالة حول النواة (جهاز جولجي).\nلا تظهر في الدم المحيطي الطبيعي.\nيمكن أن تظهر في الورم النقوي المتعدد، والالتهابات المزمنة، أو بعد إطلاق IL-6."),
         "plateletsTitle":
             MessageLookupByLibrary.simpleMessage("الصفائح الدموية"),
+        "pleomorphicLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الليمفاوية متعددة الأشكال"),
+        "pleomorphicLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "تظهر تباينًا في الحجم والشكل ونسبة النواة إلى السيتوبلازم.\nالكروماتين أقل تكثفًا ويمكن أن تشبه الأرومات.\nشائعة في الأورام اللمفاوية غير الهودجكينية، وابيضاض الدم الليمفاوي المزمن غير النمطي، وابيضاض الدم الطليعي."),
         "ponteadoTitle":
             MessageLookupByLibrary.simpleMessage("التنقيط القاعدي"),
         "portuguese": MessageLookupByLibrary.simpleMessage("البرتغالية"),
@@ -238,6 +276,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الخلايا البروميلوسية"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "rateUs": MessageLookupByLibrary.simpleMessage("قيمنا"),
+        "reactiveOrActivatedLymphocytes": MessageLookupByLibrary.simpleMessage(
+            "الخلايا الليمفاوية التفاعلية (أو المنشطة)"),
+        "reactiveOrActivatedLymphocytesDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "خلايا كبيرة، ذات كروماتين أقل تكثفًا وسيتوبلازم قاعدي قد يبدو وكأنه “يحتضن” خلايا الدم الحمراء.\nتسمى أيضًا خلايا داوني من النوع الثاني.\nتنشأ استجابة لعمليات معدية أو التهابية، كما في عدد كريات الدم البيضاء المعدية (فيروس إبشتاين-بار) والتهابات فيروسية أخرى."),
         "redCells": MessageLookupByLibrary.simpleMessage("خلايا حمراء"),
         "remove": MessageLookupByLibrary.simpleMessage("إزالة"),
         "report": MessageLookupByLibrary.simpleMessage("تقرير"),
@@ -261,6 +304,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "spanish": MessageLookupByLibrary.simpleMessage("الإسبانية"),
         "sub_msg_confirmCalculateCells": MessageLookupByLibrary.simpleMessage(
             "هل تريد متابعة الإضافة أو إنشاء التقرير؟"),
+        "subtypesAndVariations": MessageLookupByLibrary.simpleMessage(
+            "الأنواع الفرعية والتغيرات المورفولوجية"),
         "support": MessageLookupByLibrary.simpleMessage("الدعم"),
         "supportOurProject":
             MessageLookupByLibrary.simpleMessage("دعم مشروعنا"),
@@ -278,6 +323,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تحميل من المعرض"),
         "useCamera": MessageLookupByLibrary.simpleMessage("استخدام الكاميرا"),
         "vibration": MessageLookupByLibrary.simpleMessage("الاهتزاز"),
+        "villousLymphocytes":
+            MessageLookupByLibrary.simpleMessage("الخلايا الليمفاوية الزغابية"),
+        "villousLymphocytesDescription": MessageLookupByLibrary.simpleMessage(
+            "ناضجة وصغيرة، ذات نواة بيضاوية وكروماتين مضغوط.\nالسيتوبلازم قاعدي قليلاً وله زغابات في أحد طرفيه أو كليهما.\nمرتبطة بسرطان الغدد الليمفاوية في المنطقة الهامشية الطحالية."),
         "whiteCells": MessageLookupByLibrary.simpleMessage("خلايا بيضاء"),
         "whySupport": MessageLookupByLibrary.simpleMessage("لماذا تدعمنا؟"),
         "yes": MessageLookupByLibrary.simpleMessage("نعم")
