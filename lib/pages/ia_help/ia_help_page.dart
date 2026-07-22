@@ -1,9 +1,10 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:wbc_counter/core/ad_constants.dart';
+import 'package:wbc_counter/core/env_config.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/pages/ia_help/prediction_result_page.dart';
 import 'package:wbc_counter/repositories/prediction_repository.dart';
@@ -20,9 +21,7 @@ class AiHelpPageState extends State<AiHelpPage> {
 //  'whitebloodcell-2/2';
   final ImagePicker _picker = ImagePicker();
   final PredictionRepository repository = PredictionRepository(
-      baseUrl:
-          "https://detect.roboflow.com/blood-cell-detection_new-small-dataset/8",
-      apiKey: "fk7VtI7nE6JeAvH5ZgsQ");
+      baseUrl: EnvConfig.roboflowBaseUrl, apiKey: EnvConfig.roboflowApiKey);
   bool _isLoading = false;
   BannerAd? _bannerAd;
   bool _isBannerAdLoaded = false;
@@ -70,6 +69,12 @@ class AiHelpPageState extends State<AiHelpPage> {
   void initState() {
     super.initState();
     loadBannerAd();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 
   @override
@@ -150,9 +155,7 @@ class AiHelpPageState extends State<AiHelpPage> {
 
   void loadBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: Platform.isAndroid
-          ? 'ca-app-pub-8949237085831318/5653890190'
-          : 'ca-app-pub-8949237085831318/3188047951',
+      adUnitId: AdConstants.bannerAdUnitId,
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(

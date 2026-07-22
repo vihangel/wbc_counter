@@ -1,8 +1,8 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:wbc_counter/core/ad_constants.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/predicition_model.dart';
 import 'package:wbc_counter/pages/ia_help/widget/prediction_widget.dart';
@@ -27,6 +27,12 @@ class _ResultsPageState extends State<ResultsPage> {
   void initState() {
     super.initState();
     loadBannerAd();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 
   @override
@@ -82,9 +88,7 @@ class _ResultsPageState extends State<ResultsPage> {
 
   void loadBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: Platform.isAndroid
-          ? 'ca-app-pub-8949237085831318/5653890190'
-          : 'ca-app-pub-8949237085831318/3188047951',
+      adUnitId: AdConstants.bannerAdUnitId,
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(

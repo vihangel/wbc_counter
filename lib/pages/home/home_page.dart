@@ -1,12 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wbc_counter/bloc/cell%20count/cell_count_bloc.dart';
+import 'package:wbc_counter/bloc/cell_count/cell_count_bloc.dart';
+import 'package:wbc_counter/core/ad_constants.dart';
 import 'package:wbc_counter/generated/l10n.dart';
 import 'package:wbc_counter/models/saved_report_model.dart';
 import 'package:wbc_counter/pages/home/widget/add_report_informations_widget.dart';
@@ -51,6 +50,12 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     loadBannerAd();
     loadConfigs();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 
   Future<void> loadConfigs() async {
@@ -192,9 +197,7 @@ class _HomePageState extends State<HomePage> {
 
   void loadBannerAd() {
     _bannerAd = BannerAd(
-      adUnitId: Platform.isAndroid
-          ? 'ca-app-pub-8949237085831318/5653890190'
-          : 'ca-app-pub-8949237085831318/3188047951',
+      adUnitId: AdConstants.bannerAdUnitId,
       size: AdSize.banner,
       request: const AdRequest(),
       listener: BannerAdListener(

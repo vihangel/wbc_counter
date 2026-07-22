@@ -1,4 +1,4 @@
-package com.example.wbc_counter
+package br.com.wbc_counter
 
 import io.flutter.embedding.android.FlutterActivity
 
